@@ -21,9 +21,9 @@ public class SmartBulb extends SmartDevice{
         super();
         this.tonalidade =2;
         this.dimensao = 11;
-        this.cneutral = 13.3;
-        this.cwarm = 34.23;
-        this.ccold = 9.3;
+        this.cneutral = vfixo + factorNeutral;
+        this.cwarm = vfixo + factorWarm;
+        this.ccold = vfixo + factorCold;
     }
 
     public SmartBulb(String id, boolean modo, int t , int dim , double cneutral,double cwarm,double ccold, double consumoTotal,double periodoConsumo,LocalDateTime timeon ,LocalDateTime timeoff){
@@ -148,26 +148,32 @@ public class SmartBulb extends SmartDevice{
     private void calculaNeutral(){
         setConsumoTotal(getConsumoTotal()+ getPeriodoConsumo() *this.cneutral);
     }
-
+/*
     //consumo desde a última vez que se desligou a lampada
-    public double periodoConsumo() {
+    public double consumoAtual() {
         double atual = 0;
         if (this.tonalidade == 2) atual = getPeriodoConsumo() * this.cwarm;
         else if (this.tonalidade == 0) atual =  getPeriodoConsumo() * this.ccold;
         else if (this.tonalidade == 1) atual = getPeriodoConsumo() * this.cneutral;
         return atual;
     }
-
+*/
     public double totalConsumo(){
-        //consumo total : mede os consumos anteriores
-        //periodoConsumo : mede o consumo atual
-        double total = vfixo * (periodoConsumo() + getConsumoTotal());
+        // consumo total : mede os consumos anteriores
+        // consumoAtual : mede o consumo atual
+        double total;
         switch (this.tonalidade){
-            case 2: total += factorWarm;
+            case 2: 
+                calculaWarm();
+                total += factorWarm * getConsumoTotal() + vfixo;
                 break;
-            case 0: total += factorCold;
+            case 0: 
+                calculaCold();
+                total += factorCold * getConsumoTotal() + vfixo;
                 break;
-            case 1: total += factorNeutral;
+            case 1: 
+                calculaNeutral();    
+                total += factorNeutral * getConsumoTotal() + vfixo;
                 break;
         }
         setConsumoTotal(total);

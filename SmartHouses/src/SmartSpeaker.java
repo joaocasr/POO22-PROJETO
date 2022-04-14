@@ -1,17 +1,20 @@
 import java.time.LocalDateTime;
 
+// mudar para MAPS 
+
+
 public class SmartSpeaker extends SmartDevice {
     public static final int MAX = 20; //volume máximo
 
     private int volume;
-    private String marca;
+    private Map<String, Integer> marca;
     private String channel;
 
     public SmartSpeaker() {
         super();
         this.volume = 10;
         this.channel = "RUM";
-        this.marca = "LG";
+        this.marca = "LG"; 
     }
 
     public SmartSpeaker(String id, boolean modo, int vol, String canal,String marca, double consumoTotal, double periodoConsumo, LocalDateTime timeon, LocalDateTime timeoff) {
