@@ -10,12 +10,12 @@ public class SmartDevice {
 
 
     public SmartDevice() {
-        this.id = "Alexa";
+        this.id = "";
         this.modo = false;
-        this.consumoTotal = 22.3;
-        this.periodoConsumo = 22323;
-        this.timeOn = LocalDateTime.of(2021,8,22,14,24,49);
-        this.timeOff = LocalDateTime.of(2021,8,22,20,36,52);
+        this.consumoTotal = 0;
+        this.periodoConsumo = 0;
+        this.timeOn = null;
+        this.timeOff = null;
 
     }
 

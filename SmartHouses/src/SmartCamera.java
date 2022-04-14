@@ -45,7 +45,7 @@ public class SmartCamera extends SmartDevice{
         turnOff();
     }
 
-    public void totalConsumocam(){
+    public void totalConsumoCam(){
         setConsumoTotal(this.resolucao*this.tamanho);
     }
 
