@@ -161,19 +161,19 @@ public class SmartBulb extends SmartDevice{
     public double totalConsumo(){
         // consumo total : mede os consumos anteriores
         // consumoAtual : mede o consumo atual
-        double total;
-        switch (this.tonalidade){
+        double total=0;
+        switch(this.tonalidade){
             case 2: 
                 calculaWarm();
-                total += factorWarm * getConsumoTotal() + vfixo;
+                total = factorWarm * getConsumoTotal() + vfixo;
                 break;
             case 0: 
                 calculaCold();
-                total += factorCold * getConsumoTotal() + vfixo;
+                total = factorCold * getConsumoTotal() + vfixo;
                 break;
             case 1: 
                 calculaNeutral();    
-                total += factorNeutral * getConsumoTotal() + vfixo;
+                total = factorNeutral * getConsumoTotal() + vfixo;
                 break;
         }
         setConsumoTotal(total);
