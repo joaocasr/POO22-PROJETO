@@ -226,7 +226,28 @@ public class CasaInteligente {
                 && this.proprietario.equals(ci.getProprietario()) && this.NIF==ci.getNIF() && this.morada.equals(ci.getMorada());
     }
 
-    //metodo tostring
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("ID home: ").append(this.idHome).append("\n")
+                        .append("Início do contrato: ").append(this.inicioContrato).append("\n")
+                        .append("Fim do contrato: ").append(this.fimContrato).append("\n")
+                        .append("Morada: ").append(this.morada).append("\n");
+        this.devices.entrySet().forEach(a->{ sb.append("ID: ").append(a.getKey()).append(" --- SmartDevice: ").append(a.getValue().toString()).append("\n");});
+        sb.append("Dispositivos : ");
+        for(SmartDevice a : this.alldevices){
+            sb.append(a.toString()).append(";");
+        };
+        sb.append("\nDivisoes : ");
+        for(String a : this.allrooms){
+            sb.append(a).append(";");
+        };
+        sb.append("\n");
+        this.locations.entrySet().forEach(a->{ sb.append("Divisao: ").append(a.getKey()).append(" - Dispositos -> ").append(a.getValue().toString()).append("\n");});
+        sb.append("Proprietario: ").append(this.proprietario).append("\n")
+                .append("NIF: ").append(this.NIF);
+        return sb.toString();
+
+    }
 
     public CasaInteligente clone() {
         return new CasaInteligente(this);

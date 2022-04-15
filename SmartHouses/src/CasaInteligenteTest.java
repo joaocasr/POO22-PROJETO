@@ -97,6 +97,8 @@ class CasaInteligenteTest {
                 + "\nNúmero de dispositvos na sala -> " + smarthouse.numeroDispositivosDivisao("Sala"));
 
 
+        System.out.print(smarthouse.toString());
+
         assertEquals(8,smarthouse.numeroDispositivos());
         assertEquals(2,smarthouse.numeroDispositivosDivisao("Marquise"));
 
