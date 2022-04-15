@@ -1,9 +1,12 @@
-import javax.print.DocFlavor;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class CasaInteligente {
 
+    private int idHome;
+    private LocalDate inicioContrato;
+    private LocalDate fimContrato;
     private String morada;
     private Map<String, SmartDevice> devices; // identificador -> SmartDevice
     private List<SmartDevice> alldevices;
@@ -23,19 +26,25 @@ public class CasaInteligente {
         this.NIF = 239424931;
     }
 
-    public CasaInteligente(String morada,int nif,String nome) {
+    public CasaInteligente(int id, LocalDate date1, LocalDate date2,String morada, Map<String,SmartDevice> dv , List<SmartDevice> adv, List<String> arooms, Map<String, List<String>> espacos,int nif, String nome) {
         // initialise instance variables
+        this.idHome = id;
+        this.inicioContrato = date1;
+        this.fimContrato = date2;
         this.morada = morada;
         this.proprietario = nome;
         this.NIF = nif;
-        this.devices = new HashMap<>();
-        this.locations = new HashMap<>();
-        this.allrooms = new ArrayList<>();
-        this.alldevices = new ArrayList<>();
+        setDevices(dv);
+        setAlldevices(adv);
+        setAllrooms(arooms);
+        setLocations(espacos);
     }
 
     public CasaInteligente(CasaInteligente ci) {
         // initialise instance variables
+        this.idHome = ci.getIdHome();
+        this.inicioContrato = ci.getInicioContrato();
+        this.fimContrato = ci.getFimContrato();
         this.morada = ci.getMorada();
         this.proprietario = ci.getProprietario();
         this.NIF = ci.getNIF();
@@ -64,13 +73,22 @@ public class CasaInteligente {
     /*Desligar ou Ligar todos os dispositivos de uma divisao*/
     public void setAlldivision(boolean b,String divisao) {
         for( String a :this.locations.get(divisao)){
-                getDevice(a).setModo(b);
+            getDevice(a).setModo(b);
         }
     }
 
 
+    public int numeroDispositivos(){
+        return this.locations.entrySet().stream().mapToInt((e)->e.getValue().size()).sum();
+    }
+
+    public int numeroDispositivosDivisao(String divisao){
+        return this.locations.get(divisao).size();
+    }
+
+
     public boolean existsDeviceHome(String id) {
-      return this.devices.containsKey(id);
+        return this.devices.containsKey(id);
     }
 
     public void addDevice(SmartDevice s) {
@@ -130,6 +148,30 @@ public class CasaInteligente {
 
     public int getNIF() {
         return this.NIF;
+    }
+
+    public int getIdHome() {
+        return idHome;
+    }
+
+    public void setIdHome(int idHome) {
+        this.idHome = idHome;
+    }
+
+    public LocalDate getInicioContrato() {
+        return this.inicioContrato;
+    }
+
+    public void setInicioContrato(LocalDate inicioContrato) {
+        this.inicioContrato = inicioContrato;
+    }
+
+    public LocalDate getFimContrato() {
+        return this.fimContrato;
+    }
+
+    public void setFimContrato(LocalDate fimContrato) {
+        this.fimContrato = fimContrato;
     }
 
     public void setNIF(int NIF) {
