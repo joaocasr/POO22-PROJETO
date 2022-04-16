@@ -51,8 +51,8 @@ public class SmartCamera extends SmartDevice{
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Tamanho: ").append(this.tamanho).append("Mb")
-                .append("Resolução: ").append(this.resolucao).append("px");
+        sb.append("Tamanho: ").append(this.tamanho).append("Mb; ")
+                .append("Resolução: ").append(this.resolucao).append("px; ");
         sb.append(super.toString());
         return sb.toString();
     }
