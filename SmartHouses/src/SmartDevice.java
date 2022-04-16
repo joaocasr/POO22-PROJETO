@@ -99,7 +99,7 @@ public class SmartDevice {
                 .append("Consumo Total: ").append(this.consumoTotal).append("; ")
                 .append("Período Total: ").append(this.periodoConsumo).append("; ")
                 .append("Hora ligada: ").append(this.timeOn).append("; ")
-                .append("Hora apagada: ").append(this.timeOff).append("; ");
+                .append("Hora apagada: ").append(this.timeOff).append(";");
         return sb.toString();
     }
 

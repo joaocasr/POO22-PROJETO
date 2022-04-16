@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/CasaInteligente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/CasaInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/CasaInteligente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/CasaInteligenteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/CasaInteligenteTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartDevice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartCameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartCameraTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartDevice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/CasaInteligente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/CasaInteligente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/CasaInteligenteTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/CasaInteligenteTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartDevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartDevice.class" afterDir="false" />
     </list>
@@ -63,7 +60,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.SmartCameraTest.testSetTamanho">
     <configuration name="CasaInteligenteTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="POO22-PROJETO" />
       <option name="PACKAGE_NAME" value="" />
@@ -74,8 +71,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SmartCameraTest.testSetTamanho" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="POO22-PROJETO" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SmartCameraTest" />
+      <option name="METHOD_NAME" value="testSetTamanho" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmartCameraTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="POO22-PROJETO" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SmartCameraTest" />
+      <option name="METHOD_NAME" value="testToString" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SmartCameraTest.testSetTamanho" />
+        <item itemvalue="JUnit.SmartCameraTest.testToString" />
         <item itemvalue="JUnit.CasaInteligenteTest.test1" />
       </list>
     </recent_temporary>

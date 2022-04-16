@@ -5,8 +5,9 @@ public class SmartCamera extends SmartDevice{
     private double tamanho;//em MB
 
     public SmartCamera(){
+        super();
         this.resolucao = 8;
-        this.tamanho = 250000;
+        this.tamanho = 250000.0;
     }
 
     public SmartCamera(String id, boolean modo, double consumo, double periodo, LocalDateTime on, LocalDateTime off,int res,double tamanho){

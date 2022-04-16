@@ -86,10 +86,10 @@ public class SmartCameraTest
     @Test
     public void testSetTamanho() {
         SmartCamera cam = new SmartCamera("b1",false,1.0,1.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),50,4.5);
-        cam.setTamanho(3);
-        assertEquals(3, cam.getTamanho());
+        cam.setTamanho(3.0);
+        assertEquals(3.0, cam.getTamanho());
         for (int i=0; i<25; i++) cam.setTamanho(i);
-        assertEquals(24, cam.getResolucao());
+        assertEquals(24.0, cam.getTamanho());
     }
 
     @Test
@@ -107,12 +107,18 @@ public class SmartCameraTest
     
     @Test
     public void testToString() {
-        SmartCamera cam = new SmartCamera("b1",false,1.0,1.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),3,4.5);
+        SmartCamera cam = new SmartCamera();
+        assertEquals("Tamanho: 250000.0Mb; Resolução: 8px; ID: ; Modo: false; Consumo Total: 0.0; Período Total: 0.0; Hora ligada: null; Hora apagada: null;", cam.toString());
+
+        cam = new SmartCamera("b1",false,1.0,1.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),3,4.5);
         assertEquals("Tamanho: 4.5Mb; Resolução: 3px; ID: b1; Modo: false; Consumo Total: 1.0; Período Total: 1.0; Hora ligada: 2022-03-25T15:45; Hora apagada: 2022-03-25T15:45;", cam.toString());
-        cam = new SmartCamera();
-        assertEquals("Tamanho: 250000Mb; Resolução: 8px; ID: b1; Modo: false; Consumo Total: 1.0; Período Total: 1.0; Hora ligada: 2022-03-25T15:45; Hora apagada: 2022-03-25T15:45;", cam.toString());
-        cam = new SmartCamera(cam);
-        assertEquals("Tamanho: 250000Mb; Resolução: 8px; ID: b1; Modo: false; Consumo Total: 1.0; Período Total: 1.0; Hora ligada: 2022-03-25T15:45; Hora apagada: 2022-03-25T15:45;", cam.toString());
+
+
+       SmartCamera camera = new SmartCamera(cam);
+       assertEquals("Tamanho: 4.5Mb; Resolução: 3px; ID: b1; Modo: false; Consumo Total: 1.0; Período Total: 1.0; Hora ligada: 2022-03-25T15:45; Hora apagada: 2022-03-25T15:45;", camera.toString());
+
+        //System.out.print(cam.toString());
+
     }
 
     @Test
