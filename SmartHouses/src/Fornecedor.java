@@ -5,6 +5,7 @@ public class Fornecedor{
     private int precoDiario;
     private int imposto;
     private List<Integer> casas;
+    private String id;
     
 
     public Fornecedor()
@@ -12,13 +13,15 @@ public class Fornecedor{
         this.precoDiario = 0;
         this.imposto = 0;
         this.casas = new ArrayList<>();
+        this.id = "";
     }
 
-    public Fornecedor(int precoDiario, int imposto)
+    public Fornecedor(int precoDiario, int imposto, String id)
     {
         this.precoDiario = precoDiario;
         this.imposto = imposto;
         this.casas = new ArrayList<>();
+        this.id = id;
     }
 
     public Fornecedor(Fornecedor f)
@@ -26,6 +29,7 @@ public class Fornecedor{
         this.imposto = f.imposto;
         this.precoDiario = f.precoDiario;
         setAllCasas(f.getAllCasas());
+        this.id = f.id;
     }
 
     public void setPrecoDiario(int precoDiario)
@@ -38,6 +42,11 @@ public class Fornecedor{
         this.imposto = imposto;
     }
 
+    public void setId(String id)
+    {
+        this.id = id;
+    }
+
     public int getPrecoDiario()
     {
         return this.precoDiario;
@@ -46,6 +55,11 @@ public class Fornecedor{
     public int getImposto()
     {
         return this.imposto;
+    }
+
+    public String getId()
+    {
+        return this.id;
     }
 
     public void addCasa(int idCasa)
@@ -80,14 +94,16 @@ public class Fornecedor{
         Fornecedor f = (Fornecedor) o;
         return f.getPrecoDiario() == this.precoDiario &&
                 f.getImposto() == this.imposto &&
+                f.getId() == this.id &&
                 this.casas.equals(f.getAllCasas());
     }
 
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.append("Preço Diario: ").append(this.precoDiario).append("\n"); 
-        sb.append("Imposto: ").append(this.imposto).append("\n"); 
+        sb.append("Id: ").append(this.id).append("; ");
+        sb.append("Preço Diario: ").append(this.precoDiario).append("; "); 
+        sb.append("Imposto: ").append(this.imposto).append("; "); 
         for(int i=0;i<casas.size();i++){
             sb.append(casas.get(i));
         } 
@@ -99,5 +115,9 @@ public class Fornecedor{
         return new Fornecedor(this);
     }
 
+    //public void PrecoDiarioPorDiapositivo()
+    //{
+    //    setPrecoDiario(Base*ConsumoDispositivo*(1 + this.getImposto())*0.9);
+    //}
 
 }
