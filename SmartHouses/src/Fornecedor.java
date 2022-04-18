@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Fornecedor{
    
@@ -90,9 +90,8 @@ public class Fornecedor{
         return new ArrayList<>(this.casas);
     }
 
-    public HashMap<Integer,CasaInteligente> getAllCasas()
-    {
-        return this.allCasas.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone()));
+    public Map<Integer,CasaInteligente> getAllCasas() {
+        return this.allCasas.entrySet().stream().collect(Collectors.toMap(e->e.getKey(),(e)->e.getValue().clone()));
     }
 
     public void setCasas(List<Integer> c)

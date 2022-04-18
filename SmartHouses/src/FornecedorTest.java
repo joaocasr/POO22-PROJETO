@@ -112,15 +112,15 @@ public class FornecedorTest
         Fornecedor f = new Fornecedor();
         CasaInteligente c = new CasaInteligente();
         c.setIdHome(1);
-        f.addCasa(1);
+        f.addCasa(c);
         assertEquals(true, f.hasCasa(1));
         f.removeCasa(1);
         assertEquals(false, f.hasCasa(1));
 
         CasaInteligente c2 = new CasaInteligente();
         c2.setIdHome(2);
-        f.addCasa(1);
-        f.addCasa(2);
+        f.addCasa(c);
+        f.addCasa(c2);
 
         //falta testar o toString
 
