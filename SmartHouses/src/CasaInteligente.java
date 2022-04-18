@@ -1,6 +1,9 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.Date;
+import java.time.temporal.ChronoUnit;
 
 public class CasaInteligente {
 
@@ -251,6 +254,28 @@ public class CasaInteligente {
 
     public CasaInteligente clone() {
         return new CasaInteligente(this);
+    }
+
+    public long ligadoPeriodoTempo(LocalDateTime init, LocalDateTime finit)
+    {
+        List<Long> time = new ArrayList<>();
+        long sum = 0;
+        for (SmartDevice sd : this.alldevices) 
+        {
+            if(sd.getTimeOn().compareTo(init)<=0 && sd.getTimeOff().compareTo(finit)>=0) 
+                time.add(ChronoUnit.HOURS.between(init, finit));
+            else if(sd.getTimeOn().compareTo(init)>=0 && sd.getTimeOff().compareTo(finit)>=0)
+                time.add(ChronoUnit.HOURS.between(sd.getTimeOn(), finit));
+            else if(sd.getTimeOn().compareTo(init)<=0 && sd.getTimeOff().compareTo(finit)<=0)
+                time.add(ChronoUnit.HOURS.between(init, sd.getTimeOff()));
+            else if(sd.getTimeOn().compareTo(init)>=0 && sd.getTimeOff().compareTo(finit)<=0)
+                time.add(ChronoUnit.HOURS.between(sd.getTimeOn(), sd.getTimeOff()));
+        }
+
+        for(Long i: time)
+            sum += i;
+        
+        return sum;
     }
 
 }
