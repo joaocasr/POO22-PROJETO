@@ -81,6 +81,13 @@ public class CasaInteligente {
     }
 
 
+    /*Calcular o consumo total de uma casa*/
+    public double consumoTotalHome(){
+        return this.devices.entrySet().stream().mapToDouble((e)->e.getValue().getConsumoTotal()).sum();
+    }
+
+
+
     public int numeroDispositivos(){
         return this.locations.entrySet().stream().mapToInt((e)->e.getValue().size()).sum();
     }
@@ -207,7 +214,7 @@ public class CasaInteligente {
     }
     public void setDevices(Map<String,SmartDevice> mdevices){
         this.devices = new HashMap<>();
-        mdevices.forEach((Integer,SmartDevice)->this.devices.put(Integer,SmartDevice.clone()));
+        mdevices.forEach((String,SmartDevice)->this.devices.put(String,SmartDevice.clone()));
     }
 
     public Map<String,List<String>> getLocations(){
