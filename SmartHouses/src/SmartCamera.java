@@ -46,8 +46,9 @@ public class SmartCamera extends SmartDevice{
         turnOff();
     }
 
-    public void totalConsumoCam(){
+    public double consumoDiario(){
         setConsumoTotal(this.resolucao*this.tamanho);
+        return getConsumoTotal();
     }
 
     public String toString(){
@@ -65,7 +66,7 @@ public class SmartCamera extends SmartDevice{
         return super.equals(o) && this.tamanho==sc.getTamanho() && this.resolucao==sc.getResolucao();
     }
 
-    public SmartCamera clone(){
+    public SmartDevice clone(){
         return new SmartCamera(this);
     }
 

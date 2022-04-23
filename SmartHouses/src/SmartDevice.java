@@ -1,5 +1,5 @@
 import java.time.LocalDateTime;
-public class SmartDevice {
+public abstract class SmartDevice {
 
     private String id;
     private boolean modo;//ON: TRUE | OFF: FALSE
@@ -110,7 +110,8 @@ public class SmartDevice {
         return this.id.equals(sd.getID());
     }
 
-    public SmartDevice clone(){
-        return new SmartDevice(this);
-    }
+    public abstract SmartDevice clone();
+
+    public abstract double consumoDiario();
+
 }

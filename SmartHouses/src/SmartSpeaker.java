@@ -87,7 +87,7 @@ public class SmartSpeaker extends SmartDevice {
         this.volume=v;
     }
 
-    public void totalConsumo() {
+    public double consumoDiario() {
         int customarca = this.marcas.get(this.marca);
         if(this.volume>=0 && this.volume <=5) {
             setConsumoTotal(customarca+fvolume1);
@@ -101,6 +101,8 @@ public class SmartSpeaker extends SmartDevice {
         else if(this.volume>15 && this.volume <=20) {
             setConsumoTotal(customarca+fvolume4);
         }
+
+        return getConsumoTotal();
     }
 
     public void turnSpeakerOn(){
@@ -130,7 +132,7 @@ public class SmartSpeaker extends SmartDevice {
                 && this.marca.equals(s.getMarca());
     }
 
-    public SmartSpeaker clone(){
+    public SmartDevice clone(){
         return new SmartSpeaker(this);
     }
 

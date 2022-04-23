@@ -158,7 +158,7 @@ public class SmartBulb extends SmartDevice{
         return atual;
     }
 */
-    public double totalConsumo(){
+    public double consumoDiario(){
         // consumo total : mede os consumos anteriores
         // consumoAtual : mede o consumo atual
         double total=0;
@@ -204,7 +204,7 @@ public class SmartBulb extends SmartDevice{
                 s.getCwarm() == this.cwarm;
     }
 
-    public SmartBulb clone(){
+    public SmartDevice clone(){
         return new SmartBulb(this);
     }
 
