@@ -6,8 +6,8 @@ public class Fornecedor{
    
     private int precoDiario;
     private int imposto;
-    private List<Integer> casas;
-    private Map<Integer, CasaInteligente> allCasas; // identificador -> idCasa
+    private List<String> casas;
+    private Map<String, CasaInteligente> allCasas; // identificador -> idCasa
     private String id;
     
 
@@ -85,24 +85,24 @@ public class Fornecedor{
         this.allCasas.remove(idCasa);
     }
 
-    public List<Integer> getCasas()
+    public List<String> getCasas()
     {
         return new ArrayList<>(this.casas);
     }
 
-    public Map<Integer,CasaInteligente> getAllCasas() {
-        return this.allCasas.entrySet().stream().collect(Collectors.toMap(e->e.getKey(),(e)->e.getValue().clone()));
+    public Map<String,CasaInteligente> getAllCasas() {
+        return this.allCasas.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone()));
     }
 
-    public void setCasas(List<Integer> c)
+    public void setCasas(List<String> c)
     {
         this.casas = new ArrayList<>(c);
     }
 
-    public void setAllCasas(Map<Integer,CasaInteligente> c)
+    public void setAllCasas(Map<String,CasaInteligente> c)
     {
         this.allCasas = new HashMap<>();
-        c.forEach((Integer,SmartDevice)->this.allCasas.put(Integer,SmartDevice.clone()));
+        c.forEach((String,SmartDevice)->this.allCasas.put(String,SmartDevice.clone()));
     }
 
     public boolean equals(Object o)
@@ -134,10 +134,10 @@ public class Fornecedor{
         return new Fornecedor(this);
     }
 
-    public int casaGastouMaisPeriodo(LocalDateTime init, LocalDateTime finit)
+    public String casaGastouMaisPeriodo(LocalDateTime init, LocalDateTime finit)
     {
+        String id="";
         long max = 0, time;
-        int id = -1;
         for(CasaInteligente c: this.allCasas.values())
         {
             time = c.ligadoPeriodoTempo(init, finit);

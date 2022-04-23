@@ -10,14 +10,14 @@ public class SmartCamera extends SmartDevice{
         this.tamanho = 250000.0;
     }
 
-    public SmartCamera(String id, boolean modo, double consumo, double periodo, LocalDateTime on, LocalDateTime off,int res,double tamanho){
-        super(id,modo,consumo,periodo,on,off);
+    public SmartCamera(String id, boolean modo, LocalDateTime on, LocalDateTime off,int res,double tamanho){
+        super(id,modo,on,off);
         this.tamanho=tamanho;
         this.resolucao=res;
     }
 
     public SmartCamera(SmartCamera sc){
-        super(sc.getID(),sc.getModo(),sc.getConsumoTotal(),sc.getPeriodoConsumo(),sc.getTimeOn(),sc.getTimeOff());
+        super(sc.getID(),sc.getModo(),sc.getTimeOn(),sc.getTimeOff());
         setResolucao(sc.getResolucao());
         setTamanho(sc.getTamanho());
     }
@@ -47,8 +47,7 @@ public class SmartCamera extends SmartDevice{
     }
 
     public double consumoDiario(){
-        setConsumoTotal(this.resolucao*this.tamanho);
-        return getConsumoTotal();
+        return this.resolucao*this.tamanho;
     }
 
     public String toString(){

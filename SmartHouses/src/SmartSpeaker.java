@@ -25,8 +25,8 @@ public class SmartSpeaker extends SmartDevice {
         this.marcas = new HashMap<>();
     }
 
-    public SmartSpeaker(String id, boolean modo, int vol, String marca, String canal,Map<String, Integer> marcas, double consumoTotal, double periodoConsumo, LocalDateTime timeon, LocalDateTime timeoff) {
-        super(id,modo,consumoTotal,periodoConsumo,timeon,timeoff);
+    public SmartSpeaker(String id, boolean modo, int vol, String marca, String canal,Map<String, Integer> marcas, LocalDateTime timeon, LocalDateTime timeoff) {
+        super(id,modo,timeon,timeoff);
         this.volume = vol;
         this.channel = canal;
         this.marca = marca;
@@ -34,7 +34,7 @@ public class SmartSpeaker extends SmartDevice {
     }
 
     public SmartSpeaker(SmartSpeaker ss) {
-        super(ss.getID(), ss.getModo(), ss.getConsumoTotal(), ss.getPeriodoConsumo(),ss.getTimeOn(),ss.getTimeOff());
+        super(ss.getID(), ss.getModo(),ss.getTimeOn(),ss.getTimeOff());
         //ou super(ss);
         this.volume = ss.getVolume();
         this.channel = ss.getChannel();
@@ -89,20 +89,21 @@ public class SmartSpeaker extends SmartDevice {
 
     public double consumoDiario() {
         int customarca = this.marcas.get(this.marca);
+        double consumo=0;
         if(this.volume>=0 && this.volume <=5) {
-            setConsumoTotal(customarca+fvolume1);
+            consumo =customarca+fvolume1;
         }
         else if(this.volume>5 && this.volume <=10) {
-            setConsumoTotal(customarca+fvolume2);
+            consumo = customarca+fvolume2;
         }
         else if(this.volume>10 && this.volume <=15) {
-            setConsumoTotal(customarca+fvolume3);
+            consumo = customarca+fvolume3;
         }
         else if(this.volume>15 && this.volume <=20) {
-            setConsumoTotal(customarca+fvolume4);
+            consumo = customarca+fvolume4;
         }
 
-        return getConsumoTotal();
+        return consumo;
     }
 
     public void turnSpeakerOn(){

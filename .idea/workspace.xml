@@ -2,10 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SmartHouses/src/comandos.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/CasaInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/CasaInteligente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/CasaInteligenteTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/Fornecedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Fornecedor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/FornecedorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/FornecedorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartBulb.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartBulb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartBulbTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartCameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartCameraTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartDevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartDeviceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartSpeaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartSpeaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/CasaInteligenteTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartBulb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartBulb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartBulbTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartCamera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartCamera.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartCameraTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartCameraTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartDevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartDevice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartSpeaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartSpeaker.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>

@@ -2,12 +2,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.Date;
 import java.time.temporal.ChronoUnit;
 
 public class CasaInteligente {
 
-    private int idHome;
+    private String idHome;
     private LocalDate inicioContrato;
     private LocalDate fimContrato;
     private String morada;
@@ -18,9 +17,10 @@ public class CasaInteligente {
     private String proprietario;
     private int NIF;
 
-    public CasaInteligente() {
+    public CasaInteligente(String id) {
         // initialise instance variables
-        this.morada = "";
+        this.idHome = id;
+        this.morada = "Hogsmead n77";
         this.devices = new HashMap<>();
         this.locations = new HashMap<>();
         this.allrooms = new ArrayList<>();
@@ -29,7 +29,7 @@ public class CasaInteligente {
         this.NIF = 239424931;
     }
 
-    public CasaInteligente(int id, LocalDate date1, LocalDate date2,String morada, Map<String,SmartDevice> dv , List<SmartDevice> adv, List<String> arooms, Map<String, List<String>> espacos,int nif, String nome) {
+    public CasaInteligente(String id, LocalDate date1, LocalDate date2,String morada, Map<String,SmartDevice> dv , List<SmartDevice> adv, List<String> arooms, Map<String, List<String>> espacos,int nif, String nome) {
         // initialise instance variables
         this.idHome = id;
         this.inicioContrato = date1;
@@ -57,7 +57,6 @@ public class CasaInteligente {
         setAlldevices(ci.getAlldevices());
     }
 
-
     /*Ligar um dispositivo especifico*/
     public void setDeviceOn(String devCode) {
         this.devices.get(devCode).turnOn();
@@ -83,7 +82,7 @@ public class CasaInteligente {
 
     /*Calcular o consumo total de uma casa*/
     public double consumoTotalHome(){
-        return this.devices.entrySet().stream().mapToDouble((e)->e.getValue().getConsumoTotal()).sum();
+        return this.devices.entrySet().stream().mapToDouble((e)->e.getValue().consumoDiario()).sum();
     }
 
 
@@ -160,11 +159,11 @@ public class CasaInteligente {
         return this.NIF;
     }
 
-    public int getIdHome() {
+    public String getIdHome() {
         return idHome;
     }
 
-    public void setIdHome(int idHome) {
+    public void setIdHome(String idHome) {
         this.idHome = idHome;
     }
 
@@ -261,6 +260,11 @@ public class CasaInteligente {
 
     public CasaInteligente clone() {
         return new CasaInteligente(this);
+    }
+
+    public static CasaInteligente parse(String line){
+        String[] nome = line.split(",");
+        return new CasaInteligente(nome[0]);
     }
 
     public long ligadoPeriodoTempo(LocalDateTime init, LocalDateTime finit)

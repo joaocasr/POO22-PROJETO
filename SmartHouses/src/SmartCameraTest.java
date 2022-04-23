@@ -1,4 +1,4 @@
-
+/*
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,28 +13,18 @@ import java.time.LocalDateTime;
 
 public class SmartCameraTest 
 {
-    /**
-     * Default constructor for test class SmartCameraTest
-     */
+
     public SmartCameraTest()
     {
     }
 
-    /**
-     * Sets up the test fixture.
-     *
-     * Called before every test case method.
-     */
+
     @BeforeEach
     public void setUp()
     {
     }
 
-    /**
-     * Tears down the test fixture.
-     *
-     * Called after every test case method.
-     */
+
     @AfterEach
     public void tearDown()
     {
@@ -95,13 +85,10 @@ public class SmartCameraTest
     @Test
     public void testTotalConsumoCam() {
         SmartCamera cam = new SmartCamera("b1",false,1.0,1.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),3,4.5);
-        cam.totalConsumoCam();
         assertEquals(13.5, cam.getConsumoTotal());
         cam = new SmartCamera();
-        cam.totalConsumoCam();
         assertEquals(2000000, cam.getConsumoTotal());
         cam = new SmartCamera(cam);
-        cam.totalConsumoCam();
         assertEquals(2000000, cam.getConsumoTotal());
     }
     
@@ -138,3 +125,4 @@ public class SmartCameraTest
     }
 
 }
+*/

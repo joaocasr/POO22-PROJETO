@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class SmartBulb extends SmartDevice{
     public static final int WARM = 2;
@@ -8,40 +9,34 @@ public class SmartBulb extends SmartDevice{
     private int tonalidade;
 
     private int dimensao;
-    private double cneutral; //consumo neutral
-    private double cwarm; // consumo warm
-    private double ccold; // consumo ccold
+
 
     private static final double vfixo = 0.70;
     private static final double factorWarm = 1.5 ;
     private static final double factorCold = 1.1;
     private static final double factorNeutral = 1.0;
 
+    private static final double cneutral = vfixo + factorNeutral;; //consumo neutral
+    private static final double cwarm = vfixo + factorWarm;
+    private static final double ccold = vfixo + factorCold;
+
+
     public SmartBulb(){
         super();
         this.tonalidade =2;
         this.dimensao = 11;
-        this.cneutral = vfixo + factorNeutral;
-        this.cwarm = vfixo + factorWarm;
-        this.ccold = vfixo + factorCold;
     }
 
-    public SmartBulb(String id, boolean modo, int t , int dim , double cneutral,double cwarm,double ccold, double consumoTotal,double periodoConsumo,LocalDateTime timeon ,LocalDateTime timeoff){
-        super(id,modo,consumoTotal,periodoConsumo,timeon,timeoff);
+    public SmartBulb(String id, boolean modo, int t , int dim,LocalDateTime timeon ,LocalDateTime timeoff){
+        super(id,modo,timeon,timeoff);
         this.tonalidade = t;
         this.dimensao = dim;
-        this.cneutral = cneutral;
-        this.cwarm = cwarm;
-        this.ccold = ccold;
     }
 
     public SmartBulb(SmartBulb smartBulb){
         super(smartBulb);
         this.tonalidade = smartBulb.getTonalidade();
         this.dimensao = smartBulb.getDimensao();
-        this.cneutral = smartBulb.getCneutral();
-        this.cwarm = smartBulb.getCwarm();
-        this.ccold = smartBulb.getCcold();
     }
 
     public int getTonalidade() {
@@ -58,30 +53,6 @@ public class SmartBulb extends SmartDevice{
 
     public void setDimensao(int dimensao) {
         this.dimensao = dimensao;
-    }
-
-    public double getCneutral() {
-        return this.cneutral;
-    }
-
-    public void setCneutral(double cneutral) {
-        this.cneutral = cneutral;
-    }
-
-    public double getCwarm() {
-        return this.cwarm;
-    }
-
-    public void setCwarm(double cwarm) {
-        this.cwarm = cwarm;
-    }
-
-    public double getCcold() {
-        return this.ccold;
-    }
-
-    public void setCcold(double ccold) {
-        this.ccold = ccold;
     }
 
 
@@ -137,16 +108,16 @@ public class SmartBulb extends SmartDevice{
     }
 
     //consumo total acumulado
-    private void calculaCold(){
-        setConsumoTotal(getConsumoTotal()+ getPeriodoConsumo() * this.cwarm);
+    public double calculaCold(){
+       return ( (int) ChronoUnit.SECONDS.between(getTimeOff(), getTimeOn()) ) * cwarm;
     }
     //consumo total acumulado
-    private void calculaWarm(){
-        setConsumoTotal(getConsumoTotal()+ getPeriodoConsumo() * this.ccold);
+    public double calculaWarm(){
+        return ( (int) ChronoUnit.SECONDS.between(getTimeOff(), getTimeOn()) ) * ccold;
     }
     //consumo total acumulado
-    private void calculaNeutral(){
-        setConsumoTotal(getConsumoTotal()+ getPeriodoConsumo() *this.cneutral);
+    private double calculaNeutral(){
+        return ( (int) ChronoUnit.SECONDS.between(getTimeOff(), getTimeOn()) ) * cneutral;
     }
 /*
     //consumo desde a última vez que se desligou a lampada
@@ -165,18 +136,15 @@ public class SmartBulb extends SmartDevice{
         switch(this.tonalidade){
             case 2: 
                 calculaWarm();
-                total = factorWarm * getConsumoTotal() + vfixo;
+                total = calculaWarm();;
                 break;
-            case 0: 
-                calculaCold();
-                total = factorCold * getConsumoTotal() + vfixo;
+            case 0:
+                total = calculaCold();
                 break;
-            case 1: 
-                calculaNeutral();    
-                total = factorNeutral * getConsumoTotal() + vfixo;
+            case 1:
+                total = calculaNeutral();
                 break;
         }
-        setConsumoTotal(total);
         return total;
     }
 
@@ -185,9 +153,9 @@ public class SmartBulb extends SmartDevice{
         StringBuilder sb = new StringBuilder();
                     sb.append("\n Tonalidade: ").append(this.tonalidade)
                     .append("\n Dimensão: ").append(this.dimensao)
-                    .append("\nConsumo Cold: ").append(this.ccold)
-                    .append("\nConsumo Neutral: ").append(this.cneutral)
-                    .append("\nConsumo Warm: ").append(this.cwarm);
+                    .append("\nConsumo Cold: ").append(ccold)
+                    .append("\nConsumo Neutral: ").append(cneutral)
+                    .append("\nConsumo Warm: ").append(cwarm);
         sb.append(super.toString());
         return sb.toString();
     }
@@ -198,10 +166,7 @@ public class SmartBulb extends SmartDevice{
         if (!super.equals(o)) return false;
         SmartBulb s = (SmartBulb) o;
         return  s.getTonalidade() == this.tonalidade &&
-                s.getDimensao() == this.dimensao &&
-                s.getCcold() == this.ccold &&
-                s.getCneutral() == this.cneutral &&
-                s.getCwarm() == this.cwarm;
+                s.getDimensao() == this.dimensao;
     }
 
     public SmartDevice clone(){

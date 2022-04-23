@@ -19,32 +19,30 @@ public class Menu {
     }
 
     private void showMenu() {
-        System.out.println(" *********** Casas Inteligentes *********** ");
+                System.out.println(" ********************************** Smart Houses ********************************** \n");
         for (int i=0; i<this.opcoes.size(); i++) {
             if(i != (this.opcoes.size()-1)) {
                 System.out.print("| * ");
                 System.out.print(i + 1);
                 System.out.print(" -");
                 System.out.print(this.opcoes.get(i));
-                System.out.print("                            |\n");
             }
             if(i == (this.opcoes.size()-1)){
                 System.out.print("| * ");
                 System.out.print(i + 1);
                 System.out.print(" -");
                 System.out.print(this.opcoes.get(i));
-                System.out.print("               |\n");
-                System.out.print("_________________________________________\n");
+                System.out.print("\n___________________________________________________________________________________\n");
             }
         }
     }
 
     private int lerOpcao() {
         int op;
-        Scanner is = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("\n Selecione opção: ");
-        op = is.nextInt();
+        System.out.print("\n Selecione uma opção: ");
+        op = scanner.nextInt();
         if (op<0 || op>this.opcoes.size()) {
             System.out.println("A opção selecionada é inválida.");
             op = -1;
@@ -64,7 +62,7 @@ public class Menu {
         return this.opcao;
     }
 
-    public void clean(){
-        for(int i = 0; i < 1000; i++) System.out.println();
+    public void cls(){
+        System.out.println(System.lineSeparator().repeat(100));
     }
 }
