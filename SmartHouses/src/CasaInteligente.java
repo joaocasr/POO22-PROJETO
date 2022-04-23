@@ -262,7 +262,7 @@ public class CasaInteligente {
         return new CasaInteligente(this);
     }
 
-    public static CasaInteligente parse(String line){
+    public static CasaInteligente divide(String line){
         String[] nome = line.split(",");
         return new CasaInteligente(nome[0]);
     }

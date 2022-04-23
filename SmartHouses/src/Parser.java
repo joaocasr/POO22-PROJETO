@@ -31,14 +31,15 @@ public class Parser implements Serializable {
     public static void parser() throws FileNotFoundException {
         Map<String,CasaInteligente> casas = new HashMap<>();
         File file = new File("comandos.txt");
-        Scanner sc = new Scanner(file);
+        Scanner scanner = new Scanner(file);
 
         String[] line;
-        while (sc.hasNextLine()) {
-            line = sc.nextLine().split("-",2); //divide a linha em 2
+        while (scanner.hasNextLine()) {
+            line = scanner.nextLine().split("-",2);
+            //divide a linha em 2
             switch (line[0]){
                 case "Home":
-                    CasaInteligente ci = CasaInteligente.parse(line[1]);
+                    CasaInteligente ci = CasaInteligente.divide(line[1]);
                     casas.put(ci.getIdHome(),ci);
                     break;
 
