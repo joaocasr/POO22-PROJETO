@@ -129,6 +129,14 @@ public class Fornecedor{
         return sb.toString();
     }
 
+
+    public void executa(String line){
+        String[] nome = line.split(",");
+        //return new CasaInteligente(nome[0],nome[1],Integer.parseInt(nome[2]));
+        CasaInteligente ci = this.allCasas.get(nome[1]);
+
+    }
+
     public Fornecedor clone()
     {
         return new Fornecedor(this);
@@ -149,6 +157,13 @@ public class Fornecedor{
         }
 
         return id;
+    }
+
+    public double precoPorDia(String c) //id da casaInteligente
+    {
+        CasaInteligente home = allCasas.get(c);
+        if(home.numeroDispositivos()>10) return this.precoDiario*home.consumoTotalHome()*(1+this.imposto)*0.9;
+        return this.precoDiario*home.consumoTotalHome()*(1+this.imposto)*0.75;
     }
 
 }
