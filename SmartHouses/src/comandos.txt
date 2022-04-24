@@ -1,5 +1,0 @@
-SmartBulb-lamp1,casa1,2022.04.10,08:20,setOn
-SmartBulb-lamp2,casa1,2022.04.12,09:21,setOff
-SmartSpeaker-speaker1,casa1,2022,04.11,03:12,setVolume,23
-Home-casa2
-SmartSpeaker-speaker2,casa2,2022,04.11,03:12,setVolume,53

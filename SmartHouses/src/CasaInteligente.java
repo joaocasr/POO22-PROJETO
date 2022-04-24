@@ -11,16 +11,18 @@ public class CasaInteligente {
     private LocalDate fimContrato;
     private String morada;
     private Map<String, SmartDevice> devices; // identificador -> SmartDevice
-    private List<SmartDevice> alldevices;
+    private List<String> alldevices;
     private List<String> allrooms;
     private Map<String, List<String>> locations; // Espaço -> Lista codigo dos devices
     private String proprietario;
     private int NIF;
 
-    public CasaInteligente(String id,String proprietario,int NIF) {
+    public CasaInteligente(String id,String proprietario,int NIF,String morada,LocalDate date1, LocalDate date2, List<String> dispositivos) {
         // initialise instance variables
         this.idHome = id;
-        this.morada = "Hogsmead n77";
+        this.morada = morada;
+        this.inicioContrato = date1;
+        this.fimContrato = date2;
         this.devices = new HashMap<>();
         this.locations = new HashMap<>();
         this.allrooms = new ArrayList<>();
@@ -29,7 +31,7 @@ public class CasaInteligente {
         this.NIF = NIF;
     }
 
-    public CasaInteligente(String id, LocalDate date1, LocalDate date2,String morada, Map<String,SmartDevice> dv , List<SmartDevice> adv, List<String> arooms, Map<String, List<String>> espacos,int nif, String nome) {
+    public CasaInteligente(String id, LocalDate date1, LocalDate date2,String morada, Map<String,SmartDevice> dv , List<String> adv, List<String> arooms, Map<String, List<String>> espacos,int nif, String nome) {
         // initialise instance variables
         this.idHome = id;
         this.inicioContrato = date1;
@@ -187,17 +189,12 @@ public class CasaInteligente {
         this.NIF = NIF;
     }
 
-    public List<SmartDevice> getAlldevices(){
-        return this.alldevices.stream().map(SmartDevice::clone).collect(Collectors.toList());
+    public List<String> getAlldevices(){
+        return new ArrayList<>(this.alldevices);
     }
 
-    public void setAlldevices(List<SmartDevice> l){
-        this.alldevices = new ArrayList<>();
-        Iterator<SmartDevice> it = l.iterator();
-        while(it.hasNext()){
-            SmartDevice sd = it.next();
-            this.alldevices.add(sd);
-        }
+    public void setAlldevices(List<String> l){
+        this.alldevices = new ArrayList<>(l);
     }
 
     public List<String> getAllrooms(){
@@ -243,7 +240,7 @@ public class CasaInteligente {
                         .append("Morada: ").append(this.morada).append("\n");
         this.devices.entrySet().forEach(a->{ sb.append("ID: ").append(a.getKey()).append(" --- SmartDevice: ").append(a.getValue().toString()).append("\n");});
         sb.append("Dispositivos : ");
-        for(SmartDevice a : this.alldevices){
+        for(String a : this.alldevices){
             sb.append(a.toString()).append(";");
         };
         sb.append("\nDivisoes : ");
@@ -258,6 +255,19 @@ public class CasaInteligente {
 
     }
 
+    public static CasaInteligente divide(String line){
+        String[] nomes = line.split(",");
+        LocalDate inicio = LocalDate.parse(nomes[3]);
+        LocalDate fim = LocalDate.parse(nomes[4]);
+        int size = nomes.length-3;
+        List<String> disposivos = new ArrayList<>();
+        for(int i=size;i<nomes.length;i++){
+            disposivos.add(nomes[i]);
+        }
+        return new CasaInteligente(nomes[0],nomes[1],Integer.parseInt(nomes[2]),nomes[3],inicio,fim,disposivos);
+    }
+
+
     public CasaInteligente clone() {
         return new CasaInteligente(this);
     }
@@ -266,7 +276,7 @@ public class CasaInteligente {
     {
         List<Long> time = new ArrayList<>();
         long sum = 0;
-        for (SmartDevice sd : this.alldevices) 
+        for (SmartDevice sd : this.devices.values())
         {
             if(sd.getTimeOn().compareTo(init)<=0 && sd.getTimeOff().compareTo(finit)>=0) 
                 time.add(ChronoUnit.HOURS.between(init, finit));
