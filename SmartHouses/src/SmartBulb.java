@@ -21,10 +21,8 @@ public class SmartBulb extends SmartDevice{
     private static final double ccold = vfixo + factorCold;
 
 
-    public SmartBulb(){
-        super();
-        this.tonalidade =2;
-        this.dimensao = 11;
+    public SmartBulb(String id){
+        super(id);
     }
 
     public SmartBulb(String id, boolean modo, int t , int dim,LocalDateTime timeon ,LocalDateTime timeoff){

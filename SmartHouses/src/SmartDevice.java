@@ -3,16 +3,12 @@ public abstract class SmartDevice {
 
     private String id;
     private boolean modo;//ON: TRUE | OFF: FALSE
-    private LocalDateTime timeOn;//hora que ligou
-    private LocalDateTime timeOff;//hora que desligou
+    private LocalDateTime timeOn;//hora de ligar
+    private LocalDateTime timeOff;//hora que desligar
 
 
-    public SmartDevice() {
-        this.id = "";
-        this.modo = false;
-        this.timeOn = null;
-        this.timeOff = null;
-
+    public SmartDevice(String id) {
+        this.id = id;
     }
 
     public SmartDevice(String s, boolean b,LocalDateTime timeon,LocalDateTime timeoff) {

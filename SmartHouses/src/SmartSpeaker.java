@@ -17,12 +17,11 @@ public class SmartSpeaker extends SmartDevice {
     private static final double fvolume3 = 1.10;
     private static final double fvolume4 = 1.20;
 
-    public SmartSpeaker() {
-        super();
-        this.volume = 10;
-        this.channel = "RUM";
-        this.marca = "Samsung";
+    public SmartSpeaker(String id) {
+        super(id);
         this.marcas = new HashMap<>();
+        this.marcas.put("Samsung",3);
+        this.marcas.put("LG",5);
     }
 
     public SmartSpeaker(String id, boolean modo, int vol, String marca, String canal,Map<String, Integer> marcas, LocalDateTime timeon, LocalDateTime timeoff) {

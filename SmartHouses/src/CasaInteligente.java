@@ -17,7 +17,7 @@ public class CasaInteligente {
     private String proprietario;
     private int NIF;
 
-    public CasaInteligente(String id) {
+    public CasaInteligente(String id,String proprietario,int NIF) {
         // initialise instance variables
         this.idHome = id;
         this.morada = "Hogsmead n77";
@@ -25,8 +25,8 @@ public class CasaInteligente {
         this.locations = new HashMap<>();
         this.allrooms = new ArrayList<>();
         this.alldevices = new ArrayList<>();
-        this.proprietario = "Faye Wong";
-        this.NIF = 239424931;
+        this.proprietario = proprietario;
+        this.NIF = NIF;
     }
 
     public CasaInteligente(String id, LocalDate date1, LocalDate date2,String morada, Map<String,SmartDevice> dv , List<SmartDevice> adv, List<String> arooms, Map<String, List<String>> espacos,int nif, String nome) {
@@ -260,11 +260,6 @@ public class CasaInteligente {
 
     public CasaInteligente clone() {
         return new CasaInteligente(this);
-    }
-
-    public static CasaInteligente divide(String line){
-        String[] nome = line.split(",");
-        return new CasaInteligente(nome[0]);
     }
 
     public long ligadoPeriodoTempo(LocalDateTime init, LocalDateTime finit)
