@@ -30,6 +30,7 @@ public class Parser implements Serializable {
 
     public void parser(String filename) throws FileNotFoundException {
         Map<String,CasaInteligente> casas = new HashMap<>();
+        Map<String,SmartDevice> dispositivos = new HashMap<>();
         File file = new File(filename);
         Scanner scanner = new Scanner(file);
 
@@ -38,13 +39,13 @@ public class Parser implements Serializable {
             line = scanner.nextLine().split("-",2);
             //divide a linha em 2
             switch (line[0]){
-                case "Home":
+                case "Casa":
                     CasaInteligente ci = CasaInteligente.divide(line[1]);
-                    this.casas.put(ci.getIdHome(),ci);
+                    casas.put(ci.getIdHome(),ci);
                     break;
                 case "SmartBulb":
                     SmartDevice sd = SmartBulb.divide(line[1]);
-                    this.dispositivos.put(sd.getID(),sd);
+                    dispositivos.put(sd.getID(),sd);
                     break;
 
             }

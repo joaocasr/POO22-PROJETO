@@ -8,9 +8,18 @@ public class SmartSpeaker extends SmartDevice {
     public static final int MAX = 20; //volume máximo
 
     private int volume;
-    private Map<String, Integer> marcas;
     private String marca;
     private String channel;
+
+    private static Map<String,Integer> marcas;
+    static
+    {
+        marcas = new HashMap<>();
+        marcas.put("LG",2);
+        marcas.put("Samsung", 1);
+        marcas.put("Amazon Echo",2);
+        marcas.put("Apple",1);
+    }
 
     private static final double fvolume1 = 0.90;
     private static final double fvolume2 = 1.00 ;
@@ -19,17 +28,13 @@ public class SmartSpeaker extends SmartDevice {
 
     public SmartSpeaker(String id) {
         super(id);
-        this.marcas = new HashMap<>();
-        this.marcas.put("Samsung",3);
-        this.marcas.put("LG",5);
     }
 
-    public SmartSpeaker(String id, boolean modo, int vol, String marca, String canal,Map<String, Integer> marcas, LocalDateTime timeon, LocalDateTime timeoff) {
+    public SmartSpeaker(String id, boolean modo, int vol, String marca, String canal, LocalDateTime timeon, LocalDateTime timeoff) {
         super(id,modo,timeon,timeoff);
         this.volume = vol;
         this.channel = canal;
         this.marca = marca;
-        setMarcas(marcas);
     }
 
     public SmartSpeaker(SmartSpeaker ss) {
@@ -38,7 +43,6 @@ public class SmartSpeaker extends SmartDevice {
         this.volume = ss.getVolume();
         this.channel = ss.getChannel();
         this.marca = ss.getMarca();
-        setMarcas(ss.getMarcas());
     }
 
     public void volumeUp() {
@@ -116,7 +120,7 @@ public class SmartSpeaker extends SmartDevice {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         this.marcas.entrySet().forEach(a->{ sb.append("Marca:").append(a.getKey()).append(" Custo: ").append(a.getValue()).append("\n");});
-                sb.append("Volume: ")
+        sb.append("Volume: ")
                 .append(this.volume)
                 .append("Canal: ").append(this.channel);
         sb.append(super.toString());
@@ -137,5 +141,3 @@ public class SmartSpeaker extends SmartDevice {
     }
 
 }
-
-

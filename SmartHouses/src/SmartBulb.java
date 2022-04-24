@@ -58,16 +58,16 @@ public class SmartBulb extends SmartDevice{
     public void turnOFFlamp(SmartBulb sb, LocalDateTime time){
         turnOff();
         if(sb.getModo()) {
-                if (this.tonalidade == 0) {
-                    calculaCold();
-                }
-                if (this.tonalidade == 2) {
-                    calculaWarm();
-                }
-                if (this.tonalidade == 1) {
-                    calculaNeutral();
-                }
+            if (this.tonalidade == 0) {
+                calculaCold();
             }
+            if (this.tonalidade == 2) {
+                calculaWarm();
+            }
+            if (this.tonalidade == 1) {
+                calculaNeutral();
+            }
+        }
     }
 
     public void turnOnLamp(){
@@ -107,7 +107,7 @@ public class SmartBulb extends SmartDevice{
 
     //consumo total acumulado
     public double calculaCold(){
-       return ( (int) ChronoUnit.SECONDS.between(getTimeOff(), getTimeOn()) ) * cwarm;
+        return ( (int) ChronoUnit.SECONDS.between(getTimeOff(), getTimeOn()) ) * cwarm;
     }
     //consumo total acumulado
     public double calculaWarm(){
@@ -117,22 +117,22 @@ public class SmartBulb extends SmartDevice{
     private double calculaNeutral(){
         return ( (int) ChronoUnit.SECONDS.between(getTimeOff(), getTimeOn()) ) * cneutral;
     }
-/*
-    //consumo desde a última vez que se desligou a lampada
-    public double consumoAtual() {
-        double atual = 0;
-        if (this.tonalidade == 2) atual = getPeriodoConsumo() * this.cwarm;
-        else if (this.tonalidade == 0) atual =  getPeriodoConsumo() * this.ccold;
-        else if (this.tonalidade == 1) atual = getPeriodoConsumo() * this.cneutral;
-        return atual;
-    }
-*/
+    /*
+        //consumo desde a última vez que se desligou a lampada
+        public double consumoAtual() {
+            double atual = 0;
+            if (this.tonalidade == 2) atual = getPeriodoConsumo() * this.cwarm;
+            else if (this.tonalidade == 0) atual =  getPeriodoConsumo() * this.ccold;
+            else if (this.tonalidade == 1) atual = getPeriodoConsumo() * this.cneutral;
+            return atual;
+        }
+    */
     public double consumoDiario(){
         // consumo total : mede os consumos anteriores
         // consumoAtual : mede o consumo atual
         double total=0;
         switch(this.tonalidade){
-            case 2: 
+            case 2:
                 calculaWarm();
                 total = calculaWarm();;
                 break;
@@ -166,11 +166,11 @@ public class SmartBulb extends SmartDevice{
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-                    sb.append("\n Tonalidade: ").append(this.tonalidade)
-                    .append("\n Dimensão: ").append(this.dimensao)
-                    .append("\nConsumo Cold: ").append(ccold)
-                    .append("\nConsumo Neutral: ").append(cneutral)
-                    .append("\nConsumo Warm: ").append(cwarm);
+        sb.append("\nTonalidade: ").append(this.tonalidade)
+                .append("\nDimensão: ").append(this.dimensao)
+                .append("\nConsumo Cold: ").append(ccold)
+                .append("\nConsumo Neutral: ").append(cneutral)
+                .append("\nConsumo Warm: ").append(cwarm);
         sb.append(super.toString());
         return sb.toString();
     }
