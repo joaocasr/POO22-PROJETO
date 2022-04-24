@@ -28,9 +28,9 @@ public class Parser implements Serializable {
 
 
 
-    public void parser() throws FileNotFoundException {
+    public void parser(String filename) throws FileNotFoundException {
         Map<String,CasaInteligente> casas = new HashMap<>();
-        File file = new File("estado.txt");
+        File file = new File(filename);
         Scanner scanner = new Scanner(file);
 
         String[] line;
@@ -43,7 +43,9 @@ public class Parser implements Serializable {
                     this.casas.put(ci.getIdHome(),ci);
                     break;
                 case "SmartBulb":
-
+                    SmartDevice sd = SmartBulb.divide(line[1]);
+                    this.dispositivos.put(sd.getID(),sd);
+                    break;
 
             }
         }

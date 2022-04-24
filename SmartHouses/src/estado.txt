@@ -1,4 +1,4 @@
 Home-casa1,Joao,239291948,Rua dos Mortos nº 88,2020-01-12,2024-01-14,lamp1,lamp2,speaker1
-SmartBulb-lamp1,casa1,2022.04.10,08:20,On
-SmartBulb-lamp2,casa1,2022.04.12,09:21,Off
-SmartSpeaker-speaker1,casa1,2022,04.11,03:12,23
+SmartBulb-lamp1,23,11,casa1,2022.04.10 09:20,2022.04.10 11:20,setOff
+SmartBulb-lamp2,24,14,casa1,2022.04.12 04:41,2022.04.12 09:21,setOn
+SmartSpeaker-speaker1,casa1,2022.04.11 02:12,2022.04.11 03:12,23

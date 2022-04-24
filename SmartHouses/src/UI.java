@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class UI {
-
+    Parser parser;
 
     public void executeMenu(){
         List<String> opcoes = new ArrayList<>();
@@ -11,6 +12,9 @@ public class UI {
         opcoes.add("Listagem de facturas emitidas por um comercializador\n");
         opcoes.add("Ordenação dos maiores consumidores de energia durante um período de tempo\n");
         opcoes.add("Dispositvos\n");
+        opcoes.add("Casas\n");
+        opcoes.add("Fornecedores\n");
+
 
 
         Menu menu = new Menu(opcoes);
@@ -37,6 +41,14 @@ public class UI {
                 case 5:
                     menu.cls();
                     dispositivos();
+                    break;
+                case 6:
+                    menu.cls();
+                    System.out.print("OLA6\n\n");
+                    break;
+                case 7:
+                    menu.cls();
+                    System.out.print("OLA7\n\n");
                     break;
                 default:
                     menu.cls();
@@ -115,6 +127,15 @@ public class UI {
         } while (menu.getOpcao() != 0);
 
     }
+/*
+public void adicionaDispositivo(){
+       System.out.print("Digite o ID do dispositivo: ");
 
+        Scanner scanner = new Scanner();
+        String id = scanner.nextLine();
+
+
+}
+    */
 
 }

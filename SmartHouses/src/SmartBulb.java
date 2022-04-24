@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class SmartBulb extends SmartDevice{
@@ -66,7 +67,6 @@ public class SmartBulb extends SmartDevice{
                 if (this.tonalidade == 1) {
                     calculaNeutral();
                 }
-                setModo(false);
             }
     }
 
@@ -144,6 +144,23 @@ public class SmartBulb extends SmartDevice{
                 break;
         }
         return total;
+    }
+
+    public static SmartBulb divide(String line){
+        SmartBulb sb;
+        String[] nomes = line.split(",");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime inicio = LocalDateTime.parse(nomes[nomes.length-2], formatter);
+        LocalDateTime fim = LocalDateTime.parse(nomes[nomes.length-2], formatter);
+        if(nomes[nomes.length-1].equals("setOff")) {
+            sb = new SmartBulb(nomes[0], true, Integer.parseInt(nomes[1]), Integer.parseInt(nomes[2]), inicio, fim);
+            sb.turnOff();
+        }
+        else{
+            sb = new SmartBulb(nomes[0],false,Integer.parseInt(nomes[1]),Integer.parseInt(nomes[2]),inicio,fim);
+            sb.turnOn();
+        }
+        return sb;
     }
 
 
