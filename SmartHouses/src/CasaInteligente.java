@@ -251,7 +251,7 @@ public class CasaInteligente {
         this.locations.entrySet().forEach(a->{ sb.append("Divisao: ").append(a.getKey()).append(" - Dispositos -> ").append(a.getValue().toString()).append("\n");});
         sb.append("Proprietario: ").append(this.proprietario).append("\n")
                 .append("NIF: ").append(this.NIF);
-        return sb.toString();
+        return sb.toString();       
 
     }
 

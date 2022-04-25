@@ -66,10 +66,10 @@ public abstract class SmartDevice {
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("ID: ").append(this.id).append(";\n")
-                .append("On: ").append(this.modo).append(";\n")
-                .append("Acender: ").append(this.timeOn).append(";\n")
-                .append("Desligar: ").append(this.timeOff).append(";\n");
+        sb.append("ID: ").append(this.id).append("\n")
+                .append("\t\t\t\t\t\tOn: ").append(this.modo).append("; ")
+                .append("\tAcender: ").append(this.timeOn).append("; ")
+                .append("\tDesligar: ").append(this.timeOff).append("; ");
         return sb.toString();
     }
 

@@ -119,11 +119,10 @@ public class SmartSpeaker extends SmartDevice {
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        this.marcas.entrySet().forEach(a->{ sb.append("Marca:").append(a.getKey()).append(" Custo: ").append(a.getValue()).append("\n");});
-        sb.append("Volume: ")
-                .append(this.volume)
-                .append("Canal: ").append(this.channel);
         sb.append(super.toString());
+        sb.append("\tVolume: ").append(this.volume).append("; ")
+                .append("\tCanal: ").append(this.channel).append("\n");
+        this.marcas.entrySet().forEach(a->{ sb.append("\t\t\t\t\tMarca:").append(a.getKey()).append(" Custo: ").append(a.getValue()).append("\n");});
         return sb.toString();
     }
 

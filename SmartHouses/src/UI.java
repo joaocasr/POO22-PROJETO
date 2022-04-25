@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class UI {
-    Parser parser;
+public class UI{
+
+    Parser parser = new Parser();
 
     public void executeMenu(){
 
-        this.parser = new Parser();
 
         List<String> opcoes = new ArrayList<>();
         opcoes.add("Casa que mais gastou num período de tempo\n");
@@ -137,42 +137,51 @@ public class UI {
     }
 
 
-
     public void adicionaBulb(){
-        System.out.println("Digite o ID do dispositivo: ");
+
+        System.out.print("Digite o ID da casa que pretende adicionar o device: ");
         Scanner scanner = new Scanner(System.in);
+        String idHome= scanner.nextLine();
+
+        System.out.println("Digite o ID do dispositivo: ");
         String id = scanner.nextLine();
         boolean on;
-        //if(!parser.getDispositivos().containsKey(id)){
-        System.out.println("(On/OFF): ");
-        String modo = scanner.nextLine();
-        on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
+        //if(!parser.getDispositivos().values()) {
+            System.out.println("(On/OFF): ");
+            String modo = scanner.nextLine();
+            on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
 
-        System.out.println("Quando se pretende ligar o dispositivo "+id+ "? (YYYY-MM-DD HH:MM): ");
-        String inicio = scanner.nextLine();
+            System.out.println("Quando se pretende ligar o dispositivo " + id + "? (YYYY-MM-DD HH:MM): ");
+            String inicio = scanner.nextLine();
 
-        System.out.println("Quando pretende desligar o dispositivo "+id+ "? (YYYY-MM-DD HH:MM): ");
-        String fim = scanner.nextLine();
+            System.out.println("Quando pretende desligar o dispositivo " + id + "? (YYYY-MM-DD HH:MM): ");
+            String fim = scanner.nextLine();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
-        LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
+            LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
 
-        System.out.println("Tonalidade: ");
-        int tonalidade= scanner.nextInt();
-        System.out.println("Dimensão: ");
-        int dimensao= scanner.nextInt();
+            System.out.println("Tonalidade: ");
+            int tonalidade = scanner.nextInt();
+            System.out.println("Dimensão: ");
+            int dimensao = scanner.nextInt();
 
-        SmartDevice sd = new SmartBulb(id,on,tonalidade,dimensao,datai,dataf);
-        // System.out.print(sd.toString());
+            SmartDevice sd = new SmartBulb(id, on, tonalidade, dimensao, datai, dataf);
+            // System.out.print(sd.toString());
+            //}
+            this.parser.adicionaDevice(idHome, sd);
+            System.out.print(this.parser.dispositovosTostring());
         //}
-
+        //ystem.out.println("O dispositivos já existe na casa com id-> "+idHome);
     }
 
 
     public void adicionaCamera(){
-        System.out.println("Digite o ID do dispositivo: ");
+        System.out.print("Digite o ID da casa que pretende adicionar o device: ");
         Scanner scanner = new Scanner(System.in);
+        String idHome= scanner.nextLine();
+
+        System.out.println("Digite o ID do dispositivo: ");
         String id = scanner.nextLine();
         boolean on;
         //if(!parser.getDispositivos().containsKey(id)){
@@ -196,14 +205,18 @@ public class UI {
         int res= scanner.nextInt();
 
         SmartDevice sd = new SmartCamera(id,on,datai,dataf,res,tamanho);
-        // System.out.print(sd.toString());
-        //}
+        this.parser.adicionaDevice(idHome,sd);
+        System.out.print(this.parser.dispositovosTostring());
 
     }
 
     public void adicionaSpeaker(){
-        System.out.println("Digite o ID do dispositivo: ");
+
+        System.out.print("Digite o ID da casa que pretende adicionar o device: ");
         Scanner scanner = new Scanner(System.in);
+        String idHome= scanner.nextLine();
+
+        System.out.println("Digite o ID do dispositivo: ");
         String id = scanner.nextLine();
         boolean on;
         //if(!parser.getDispositivos().containsKey(id)){
@@ -230,8 +243,8 @@ public class UI {
         String channel=scanner.nextLine();
 
         SmartDevice sd = new SmartSpeaker(id,on,volume,marca,channel,datai,dataf);
-        // System.out.print(sd.toString());
-        //}
+        this.parser.adicionaDevice(idHome,sd);
+        System.out.print(this.parser.dispositovosTostring());
 
     }
 

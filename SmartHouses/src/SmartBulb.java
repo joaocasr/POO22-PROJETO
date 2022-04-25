@@ -166,12 +166,12 @@ public class SmartBulb extends SmartDevice{
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nTonalidade: ").append(this.tonalidade)
-                .append("\nDimensão: ").append(this.dimensao)
-                .append("\nConsumo Cold: ").append(ccold)
-                .append("\nConsumo Neutral: ").append(cneutral)
-                .append("\nConsumo Warm: ").append(cwarm);
         sb.append(super.toString());
+        sb.append("\tTonalidade: ").append(this.tonalidade).append("; ")
+                .append("\tDimensão: ").append(this.dimensao).append("; ")
+                .append("\tConsumo Cold: ").append(ccold).append("; ")
+                .append("\tConsumo Neutral: ").append(cneutral).append("; ")
+                .append("\tConsumo Warm: ").append(cwarm).append("\n");
         return sb.toString();
     }
 
