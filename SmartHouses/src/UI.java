@@ -242,7 +242,7 @@ public class UI{
     }
 
     public void removeDispositivo() {
-        System.out.print("Digite o ID da casa que pretende adicionar o device: ");
+        System.out.print("Digite o ID da casa da qual pretende remover um device: ");
         Scanner scanner = new Scanner(System.in);
         String idHome = scanner.nextLine();
 
