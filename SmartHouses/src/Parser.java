@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Parser implements Serializable {
     //serializable -> necessario para guardar o estado de um objeto | carregamento de dados a partir de um ficheiro
 
-    private Map<String,CasaInteligente> casas; // Map de casas
+    private Map<String,List<CasaInteligente>> casas; // idForncedor -> Lista de casas
     private Map<String,List<SmartDevice>> dispositivos; // CasaID -> Lista de Dispositivos
 
     public Parser(){
@@ -16,7 +16,7 @@ public class Parser implements Serializable {
         this.dispositivos = new HashMap<>();
     }
 
-    public Parser(Map<String,CasaInteligente> casas, Map<String,List<SmartDevice>> dispositivos){
+    public Parser(Map<String,List<CasaInteligente>> casas, Map<String,List<SmartDevice>> dispositivos){
         setCasas(casas);
         setDispositivos(dispositivos);
     }
@@ -70,8 +70,32 @@ public class Parser implements Serializable {
             if(!existsDevice(sd.getID())) {
                 this.dispositivos.get(idHome).add(sd);
                 this.dispositivos.put(idHome, this.dispositivos.get(idHome));
-            }else System.out.print("Dispositivo já existe na casa com id-> "+idHome);
+            }else System.out.print("[+ Error] \n Dispositivo já existe na casa com id-> "+idHome+"\n");
         }
+    }
+
+    public void removeDevice(String idHome, String idDevice){
+        Iterator<SmartDevice> it = this.dispositivos.get(idHome).iterator();
+        boolean exists = false;
+        while(it.hasNext() && !exists){
+            SmartDevice sd = it.next();
+            if(sd.getID().equals(idDevice)) this.dispositivos.get(idHome).remove(sd);
+            exists=true;
+        }
+    }
+
+    public boolean existsHome(String idHome){
+        boolean exists = true;
+        for(List<CasaInteligente> lsd : this.casas.values()){
+            if(lsd.stream().map(CasaInteligente::getIdHome).filter(a->a.equals(idHome)).count()==0) exists = false;
+        }
+        return exists;
+    }
+
+    public void adicionaHome(String idFornecedor,CasaInteligente ci){
+        List<CasaInteligente> list = new ArrayList<>();
+        list.add(ci);
+        this.casas.put(idFornecedor,list);
     }
 
     public String dispositovosTostring(){
@@ -80,13 +104,19 @@ public class Parser implements Serializable {
         return sb.toString();
     }
 
-    public Map<String,CasaInteligente> getCasas() {
-        return this.casas.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone()));
+    public String casasTostring(){
+        StringBuilder sb = new StringBuilder();
+        this.casas.forEach((key, value) -> sb.append("Fornecedor: ").append(key).append("\n").append(" - Casas -> ").append(value.toString()).append("\n\n"));
+        return sb.toString();
     }
 
-    public void setCasas(Map<String,CasaInteligente> c){
+    public Map<String,List<CasaInteligente>> getCasas() {
+        return this.casas.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue));
+    }
+
+    public void setCasas(Map<String,List<CasaInteligente>> c){
         this.casas = new HashMap<>();
-        c.forEach((String,CasaInteligente)->this.casas.put(String, CasaInteligente.clone()));
+        c.forEach((String,value)->this.casas.put(String, new ArrayList<>(value)));
     }
 
     public Map<String,List<SmartDevice>> getDispositivos(){

@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -18,7 +19,6 @@ public class UI{
         opcoes.add("Ordenação dos maiores consumidores de energia durante um período de tempo\n");
         opcoes.add("Dispositvos\n");
         opcoes.add("Casas\n");
-        opcoes.add("Fornecedores\n");
 
 
 
@@ -29,19 +29,19 @@ public class UI{
             switch (menu.getOpcao()) {
                 case 1:
                     menu.cls();
-                    System.out.print("OLA1\n\n");
+                    System.out.print("Indefinido1\n\n");
                     break;
                 case 2:
                     menu.cls();
-                    System.out.print("OLA2\n\n");
+                    System.out.print("Indefinido2\n\n");
                     break;
                 case 3:
                     menu.cls();
-                    System.out.print("OLA3\n\n");
+                    System.out.print("Indefinido3\n\n");
                     break;
                 case 4:
                     menu.cls();
-                    System.out.print("OLA4\n\n");
+                    System.out.print("Indefinido4\n\n");
                     break;
                 case 5:
                     menu.cls();
@@ -49,11 +49,7 @@ public class UI{
                     break;
                 case 6:
                     menu.cls();
-                    System.out.print("OLA6\n\n");
-                    break;
-                case 7:
-                    menu.cls();
-                    System.out.print("OLA7\n\n");
+                    adcionaCasas();
                     break;
                 default:
                     menu.cls();
@@ -102,7 +98,6 @@ public class UI{
         List<String> opcoes = new ArrayList<>();
         opcoes.add("Adicionar dispositivo\n");
         opcoes.add("Remover dispositivo\n");
-        opcoes.add("Consultar dispositivos\n");
         opcoes.add("Voltar\n");
 
         Menu menu = new Menu(opcoes);
@@ -118,13 +113,9 @@ public class UI{
                     break;
                 case 2:
                     menu.cls();
-                    System.out.print("OLA2\n\n");
+                    removeDispositivo();
                     break;
                 case 3:
-                    menu.cls();
-                    System.out.print("OLA3\n\n");
-                    break;
-                case 4:
                     menu.cls();
                     Dispositivos();
                     break;
@@ -137,7 +128,7 @@ public class UI{
     }
 
 
-    public void adicionaBulb(){
+    public SmartDevice adicionaBulb(){
 
         System.out.print("Digite o ID da casa que pretende adicionar o device: ");
         Scanner scanner = new Scanner(System.in);
@@ -173,10 +164,11 @@ public class UI{
             System.out.print(this.parser.dispositovosTostring());
         //}
         //ystem.out.println("O dispositivos já existe na casa com id-> "+idHome);
+       return sd;
     }
 
 
-    public void adicionaCamera(){
+    public SmartDevice adicionaCamera(){
         System.out.print("Digite o ID da casa que pretende adicionar o device: ");
         Scanner scanner = new Scanner(System.in);
         String idHome= scanner.nextLine();
@@ -207,10 +199,10 @@ public class UI{
         SmartDevice sd = new SmartCamera(id,on,datai,dataf,res,tamanho);
         this.parser.adicionaDevice(idHome,sd);
         System.out.print(this.parser.dispositovosTostring());
-
+      return sd;
     }
 
-    public void adicionaSpeaker(){
+    public SmartDevice adicionaSpeaker(){
 
         System.out.print("Digite o ID da casa que pretende adicionar o device: ");
         Scanner scanner = new Scanner(System.in);
@@ -246,6 +238,78 @@ public class UI{
         this.parser.adicionaDevice(idHome,sd);
         System.out.print(this.parser.dispositovosTostring());
 
+      return sd;
+    }
+
+    public void removeDispositivo() {
+        System.out.print("Digite o ID da casa que pretende adicionar o device: ");
+        Scanner scanner = new Scanner(System.in);
+        String idHome = scanner.nextLine();
+
+        System.out.println("Digite o ID do dispositivo a remover : ");
+        String id = scanner.nextLine();
+
+        this.parser.removeDevice(idHome,id);
+        System.out.print(this.parser.dispositovosTostring());
+
+    }
+
+    public void adcionaCasas() {
+        System.out.print("Digite o ID do forncedor que pretende adicionar uma casa: ");
+        Scanner scanner = new Scanner(System.in);
+        String idFornecedor = scanner.nextLine();
+
+        System.out.println("Digite o ID da casa: ");
+        String idHome = scanner.nextLine();
+        System.out.println("A que data se iniciou o contrato ? (YYYY-MM-DD): ");
+        String inicio = scanner.nextLine();
+
+        System.out.println("A que data termina o contrato ? (YYYY-MM-DD): ");
+        String fim = scanner.nextLine();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate datai = LocalDate.parse(inicio, formatter);
+        LocalDate dataf = LocalDate.parse(fim, formatter);
+
+        System.out.println("Digite a morada da casa : ");
+        String morada = scanner.nextLine();
+
+        System.out.println("NIF do proprietário: ");
+        int nif = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Nome do proprietário : ");
+        String proprietario = scanner.nextLine();
+
+        if (this.parser.existsHome(idHome)) {
+            System.out.println("    1- SmartBulb | 2 - SmartCamera | 3 - SmartSpeaker    ");
+            int option = scanner.nextInt();
+            SmartDevice sd=null;
+            switch (option){
+                case 1:
+                    sd =adicionaBulb();
+                    break;
+                case 2:
+                    sd = adicionaCamera();
+                    break;
+                case 3:
+                    sd = adicionaSpeaker();
+                    break;
+                default:
+                    System.out.println("Incorrect option");
+                    break;
+            }
+            scanner.nextLine();
+            CasaInteligente ci = new CasaInteligente(idHome, datai, dataf, morada, proprietario, nif);
+            ci.addDevice(sd);
+            System.out.println("Em que divisão pretende adicionar o dispositivo? ");
+            String room = scanner.nextLine();
+            ci.addToRoom(room,sd.getID());
+            this.parser.adicionaHome(idFornecedor,ci);
+            System.out.print(this.parser.casasTostring());
+
+        }else{
+            System.out.println("A casa que digitou já pertence ao fornecedor em causa.");
+        }
     }
 
 }

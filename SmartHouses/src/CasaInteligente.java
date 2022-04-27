@@ -10,12 +10,26 @@ public class CasaInteligente {
     private LocalDate inicioContrato;
     private LocalDate fimContrato;
     private String morada;
+    private String proprietario;
+    private int NIF;
     private Map<String, SmartDevice> devices; // identificador -> SmartDevice
     private List<String> alldevices;
     private List<String> allrooms;
     private Map<String, List<String>> locations; // Espaço -> Lista codigo dos devices
-    private String proprietario;
-    private int NIF;
+
+    public CasaInteligente(String id,LocalDate date1, LocalDate date2,String morada,String proprietario,int NIF) {
+        // initialise instance variables
+        this.idHome = id;
+        this.morada = morada;
+        this.inicioContrato = date1;
+        this.fimContrato = date2;
+        this.devices = new HashMap<>();
+        this.locations = new HashMap<>();
+        this.allrooms = new ArrayList<>();
+        this.alldevices = new ArrayList<>();
+        this.proprietario = proprietario;
+        this.NIF = NIF;
+    }
 
     public CasaInteligente(String id,String proprietario,int NIF,String morada,LocalDate date1, LocalDate date2, List<String> dispositivos) {
         // initialise instance variables
@@ -26,7 +40,7 @@ public class CasaInteligente {
         this.devices = new HashMap<>();
         this.locations = new HashMap<>();
         this.allrooms = new ArrayList<>();
-        this.alldevices = new ArrayList<>();
+        setAlldevices(dispositivos);
         this.proprietario = proprietario;
         this.NIF = NIF;
     }
@@ -251,7 +265,7 @@ public class CasaInteligente {
         this.locations.entrySet().forEach(a->{ sb.append("Divisao: ").append(a.getKey()).append(" - Dispositos -> ").append(a.getValue().toString()).append("\n");});
         sb.append("Proprietario: ").append(this.proprietario).append("\n")
                 .append("NIF: ").append(this.NIF);
-        return sb.toString();       
+        return sb.toString();           
 
     }
 

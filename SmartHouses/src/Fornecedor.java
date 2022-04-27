@@ -129,14 +129,6 @@ public class Fornecedor{
         return sb.toString();
     }
 
-
-    public void executa(String line){
-        String[] nome = line.split(",");
-        //return new CasaInteligente(nome[0],nome[1],Integer.parseInt(nome[2]));
-        CasaInteligente ci = this.allCasas.get(nome[1]);
-
-    }
-
     public Fornecedor clone()
     {
         return new Fornecedor(this);
