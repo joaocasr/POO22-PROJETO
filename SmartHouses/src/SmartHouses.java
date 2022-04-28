@@ -1,10 +1,12 @@
-
-import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class SmartHouses implements Serializable {
@@ -27,24 +29,27 @@ public class SmartHouses implements Serializable {
     }
 
 
-    public static void parser(String filename) throws FileNotFoundException {
+    public void parser(String filename) throws FileNotFoundException {
         Map<String, CasaInteligente> casas = new HashMap<>();
         Map<String,SmartDevice> dispositivos = new HashMap<>();
-        File file = new File(filename);
-        Scanner scanner = new Scanner(file);
-
-        String[] line;
-        while (scanner.hasNextLine()) {
-            line = scanner.nextLine().split("-",2);
+        String[] linhaPartida;
+        List<String> linhas = lerFicheiro(filename);
+        String divisao = null;
+        CasaInteligente casaMaisRecente = null;
+        for (String linha : linhas) {
+            linhaPartida  = linha.split("-",2);
             //divide a linha em 2
-            switch (line[0]){
+            switch (linhaPartida [0]){
                 case "Casa":
-                    CasaInteligente ci = CasaInteligente.divide(line[1]);
+                    CasaInteligente ci  = CasaInteligente.divide(linhaPartida[1]);
                     casas.put(ci.getIdHome(),ci);
+                    casaMaisRecente = ci;
                     break;
-                case "SmartBulb":
-                    SmartDevice sd = SmartBulb.divide(line[1]);
-                    dispositivos.put(sd.getID(),sd);
+                case "Divisao":
+                    if (casaMaisRecente == null) System.out.println("Linha inválida.");
+                    divisao = linhaPartida[1];
+                    casaMaisRecente.addRoom(divisao);
+
                     break;
 
             }
@@ -163,6 +168,14 @@ public class SmartHouses implements Serializable {
         this.dispositivos = new HashMap<>();
         dispositivos= dispositivos.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, v->v.getValue().clone()));
     }
+
+    public List<String> lerFicheiro(String nomeFich) {
+        List<String> lines;
+        try { lines = Files.readAllLines(Paths.get(nomeFich), StandardCharsets.UTF_8); }
+        catch(IOException exc) { lines = new ArrayList<>(); }
+        return lines;
+    }
+
 
     public SmartHouses clone(){
         return new SmartHouses(this);
