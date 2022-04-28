@@ -1,13 +1,29 @@
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SmartBulb extends SmartDevice{
-    public static final int WARM = 2;
-    public static final int NEUTRAL = 1;
-    public static final int COLD = 0;
-
-    private int tonalidade;
+    public enum Mode
+    {
+        COLD,
+        WARM,
+        NEUTRAL,
+    }
+    public static Mode fromInteger(int x) {
+        switch(x) {
+            case 0:
+                return Mode.COLD;
+            case 1:
+                return Mode.WARM;
+            case 2:
+                return Mode.NEUTRAL;
+        }
+        return null;
+    }
+    private Mode mode;
 
     private int dimensao;
 
@@ -26,24 +42,16 @@ public class SmartBulb extends SmartDevice{
         super(id);
     }
 
-    public SmartBulb(String id, boolean modo, int t , int dim,LocalDateTime timeon ,LocalDateTime timeoff){
+    public SmartBulb(String id,int x, boolean modo , int dim,LocalDateTime timeon ,LocalDateTime timeoff){
         super(id,modo,timeon,timeoff);
-        this.tonalidade = t;
+        this.mode = fromInteger(x);
         this.dimensao = dim;
     }
 
     public SmartBulb(SmartBulb smartBulb){
         super(smartBulb);
-        this.tonalidade = smartBulb.getTonalidade();
+        this.mode = smartBulb.getMode();
         this.dimensao = smartBulb.getDimensao();
-    }
-
-    public int getTonalidade() {
-        return this.tonalidade;
-    }
-
-    public void setTonalidade(int tonalidade) {
-        this.tonalidade = tonalidade;
     }
 
     public int getDimensao() {
@@ -54,17 +62,24 @@ public class SmartBulb extends SmartDevice{
         this.dimensao = dimensao;
     }
 
+    public Mode getMode() {
+        return this.mode;
+    }
+
+    public void setMode(Mode mode) {
+        this.mode = mode;
+    }
 
     public void turnOFFlamp(SmartBulb sb, LocalDateTime time){
         turnOff();
         if(sb.getModo()) {
-            if (this.tonalidade == 0) {
+            if (this.mode == Mode.COLD) {
                 calculaCold();
             }
-            if (this.tonalidade == 2) {
+            if (this.mode == Mode.WARM) {
                 calculaWarm();
             }
-            if (this.tonalidade == 1) {
+            if (this.mode == Mode.NEUTRAL) {
                 calculaNeutral();
             }
         }
@@ -76,33 +91,33 @@ public class SmartBulb extends SmartDevice{
 
     public void changetoCold(String time){
         if(!getModo()) turnOn();
-        if (this.tonalidade == 2) {
+        if (this.mode == Mode.WARM) {
             calculaWarm();
         }
-        if (this.tonalidade == 1) {
+        if (this.mode == Mode.NEUTRAL) {
             calculaNeutral();
         }
-        this.tonalidade = 0;
+        this.mode = Mode.COLD;
     }
 
     public void changetoWarm(){
-        if (this.tonalidade == 0) {
+        if (this.mode == Mode.COLD) {
             calculaCold();
         }
-        if (this.tonalidade == 1) {
+        if (this.mode == Mode.NEUTRAL) {
             calculaNeutral();
         }
-        this.tonalidade = 2;
+        this.mode = Mode.WARM;
     }
 
     public void changetoNeutral(){
-        if (this.tonalidade == 2) {
+        if (this.mode == Mode.WARM) {
             calculaWarm();
         }
-        if (this.tonalidade == 0) {
+        if (this.mode == Mode.COLD) {
             calculaCold();
         }
-        this.tonalidade = 1;
+        this.mode = Mode.NEUTRAL;
     }
 
     //consumo total acumulado
@@ -131,22 +146,20 @@ public class SmartBulb extends SmartDevice{
         // consumo total : mede os consumos anteriores
         // consumoAtual : mede o consumo atual
         double total=0;
-        switch(this.tonalidade){
-            case 2:
-                calculaWarm();
-                total = calculaWarm();;
-                break;
-            case 0:
-                total = calculaCold();
-                break;
-            case 1:
+        if(this.mode==Mode.WARM) {
+            calculaWarm();
+            total = calculaWarm();
+        }
+        else if(this.mode==Mode.COLD) {
+            total = calculaCold();
+        }
+        else{
                 total = calculaNeutral();
-                break;
         }
         return total;
     }
-
-    public static SmartBulb divide(String line){
+/*
+    public static SmartBulb parseSmartBulb(String line){
         SmartBulb sb;
         String[] nomes = line.split(",");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -162,12 +175,14 @@ public class SmartBulb extends SmartDevice{
         }
         return sb;
     }
+*/
+    //SmartBulb:bulb1,Neutral,60.0
 
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append("\tTonalidade: ").append(this.tonalidade).append("; ")
+        sb.append("\tTonalidade: ").append(this.mode).append("; ")
                 .append("\tDimensão: ").append(this.dimensao).append("; ")
                 .append("\tConsumo Cold: ").append(ccold).append("; ")
                 .append("\tConsumo Neutral: ").append(cneutral).append("; ")
@@ -180,7 +195,7 @@ public class SmartBulb extends SmartDevice{
         if ((o == null) || (this.getClass() != o.getClass())) return false;
         if (!super.equals(o)) return false;
         SmartBulb s = (SmartBulb) o;
-        return  s.getTonalidade() == this.tonalidade &&
+        return  s.getMode() == this.mode &&
                 s.getDimensao() == this.dimensao;
     }
 

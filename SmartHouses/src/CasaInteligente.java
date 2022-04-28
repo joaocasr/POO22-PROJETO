@@ -273,7 +273,7 @@ public class CasaInteligente {
 
     }
 
-    public static CasaInteligente divide(String line){
+    public static CasaInteligente parseCasa(String line){
         String[] nomes = line.split(",");
         LocalDate inicio = LocalDate.parse(nomes[3]);
         LocalDate fim = LocalDate.parse(nomes[4]);

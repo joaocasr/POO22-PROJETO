@@ -159,7 +159,7 @@ public class UI{
         System.out.println("Dimensão: ");
         int dimensao = scanner.nextInt();
 
-        SmartDevice sd = new SmartBulb(id, on, tonalidade, dimensao, datai, dataf);
+        SmartDevice sd = new SmartBulb(id,tonalidade, on, dimensao, datai, dataf);
         // System.out.print(sd.toString());
         //}
         this.smarthouses.adicionaDevice(id, sd);

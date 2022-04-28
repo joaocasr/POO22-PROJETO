@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,11 +38,11 @@ public class SmartHouses implements Serializable {
         String divisao = null;
         CasaInteligente casaMaisRecente = null;
         for (String linha : linhas) {
-            linhaPartida  = linha.split("-",2);
+            linhaPartida  = linha.split(":",2);
             //divide a linha em 2
             switch (linhaPartida [0]){
                 case "Casa":
-                    CasaInteligente ci  = CasaInteligente.divide(linhaPartida[1]);
+                    CasaInteligente ci  = CasaInteligente.parseCasa(linhaPartida[1]);
                     casas.put(ci.getIdHome(),ci);
                     casaMaisRecente = ci;
                     break;
@@ -49,8 +50,13 @@ public class SmartHouses implements Serializable {
                     if (casaMaisRecente == null) System.out.println("Linha inválida.");
                     divisao = linhaPartida[1];
                     casaMaisRecente.addRoom(divisao);
-
                     break;
+                case "SmartBulb":
+                    if (divisao == null) System.out.println("Linha inválida.");
+                    //SmartBulb sd = parseSmartBulb(linhaPartida[1]);
+                    //casaMaisRecente.addDevice(sd);
+                    //casaMaisRecente.addToRoom(divisao, sd.getId());
+
 
             }
         }
