@@ -1,6 +1,10 @@
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.time.temporal.ChronoUnit;
 
@@ -249,9 +253,9 @@ public class CasaInteligente {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("ID home: ").append(this.idHome).append("\n")
-                        .append("Início do contrato: ").append(this.inicioContrato).append("\n")
-                        .append("Fim do contrato: ").append(this.fimContrato).append("\n")
-                        .append("Morada: ").append(this.morada).append("\n");
+                .append("Início do contrato: ").append(this.inicioContrato).append("\n")
+                .append("Fim do contrato: ").append(this.fimContrato).append("\n")
+                .append("Morada: ").append(this.morada).append("\n");
         this.devices.entrySet().forEach(a->{ sb.append("ID: ").append(a.getKey()).append(" --- SmartDevice: ").append(a.getValue().toString()).append("\n");});
         sb.append("Dispositivos : ");
         for(String a : this.alldevices){
@@ -265,7 +269,7 @@ public class CasaInteligente {
         this.locations.entrySet().forEach(a->{ sb.append("Divisao: ").append(a.getKey()).append(" - Dispositos -> ").append(a.getValue().toString()).append("\n");});
         sb.append("Proprietario: ").append(this.proprietario).append("\n")
                 .append("NIF: ").append(this.NIF);
-        return sb.toString();           
+        return sb.toString();
 
     }
 
@@ -292,7 +296,7 @@ public class CasaInteligente {
         long sum = 0;
         for (SmartDevice sd : this.devices.values())
         {
-            if(sd.getTimeOn().compareTo(init)<=0 && sd.getTimeOff().compareTo(finit)>=0) 
+            if(sd.getTimeOn().compareTo(init)<=0 && sd.getTimeOff().compareTo(finit)>=0)
                 time.add(ChronoUnit.HOURS.between(init, finit));
             else if(sd.getTimeOn().compareTo(init)>=0 && sd.getTimeOff().compareTo(finit)>=0)
                 time.add(ChronoUnit.HOURS.between(sd.getTimeOn(), finit));
@@ -304,7 +308,7 @@ public class CasaInteligente {
 
         for(Long i: time)
             sum += i;
-        
+
         return sum;
     }
 
