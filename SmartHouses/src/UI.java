@@ -1,9 +1,7 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class UI{
 
@@ -54,7 +52,7 @@ public class UI{
                     break;
                 case 6:
                     menu.cls();
-                    adcionaCasas();
+                    geraCasas();
                     break;
                 default:
                     menu.cls();
@@ -132,6 +130,37 @@ public class UI{
 
     }
 
+    public void geraCasas() {
+        List<String> opcoes = new ArrayList<>();
+        opcoes.add("Adicionar casa\n");
+        opcoes.add("Remover casa\n");
+        opcoes.add("Voltar\n");
+
+        Menu menu = new Menu(opcoes);
+        menu.cls();
+        do {
+            menu.executa();
+            switch (menu.getOpcao()) {
+                case 1:
+                    menu.cls();
+                    adicionaCasas();
+                    break;
+                case 2:
+                    menu.cls();
+                    removeCasas();
+                    break;
+                case 3:
+                    menu.cls();
+                    executeMenu();
+                    break;
+                default:
+                    menu.cls();
+                    break;
+            }
+        } while (menu.getOpcao() != 0);
+
+    }
+
 
     public SmartDevice adicionaBulb(){
 
@@ -139,34 +168,39 @@ public class UI{
         Scanner scanner = new Scanner(System.in);
         String id = scanner.nextLine();
         boolean on;
-        //if(!parser.getDispositivos().values()) {
-        System.out.println("(On/OFF): ");
-        String modo = scanner.nextLine();
-        on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
 
-        System.out.println("Quando se pretende ligar o dispositivo " + id + "? (YYYY-MM-DD HH:MM): ");
-        String inicio = scanner.nextLine();
+        if(!smarthouses.existsDevice(id) && !smarthouses.existeDeviceHomes(id)) {
+            System.out.println("(On/OFF): ");
+            String modo = scanner.nextLine();
+            on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
 
-        System.out.println("Quando pretende desligar o dispositivo " + id + "? (YYYY-MM-DD HH:MM): ");
-        String fim = scanner.nextLine();
+            System.out.println("Quando se pretende ligar o dispositivo " + id + "? (YYYY-MM-DD HH:MM): ");
+            String inicio = scanner.nextLine();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
-        LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
+            System.out.println("Quando pretende desligar o dispositivo " + id + "? (YYYY-MM-DD HH:MM): ");
+            String fim = scanner.nextLine();
 
-        System.out.println("Tonalidade: ");
-        int tonalidade = scanner.nextInt();
-        System.out.println("Dimensão: ");
-        int dimensao = scanner.nextInt();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
+            LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
 
-        SmartDevice sd = new SmartBulb(id,tonalidade, on, dimensao, datai, dataf);
-        // System.out.print(sd.toString());
-        //}
-        this.smarthouses.adicionaDevice(id, sd);
-        System.out.print(this.smarthouses.dispositovosTostring());
-        //}
-        //ystem.out.println("O dispositivos já existe na casa com id-> "+idHome);
-        return sd;
+            System.out.println("Tonalidade: ");
+            String tonalidade = scanner.nextLine();
+            System.out.println("Dimensão: ");
+            int dimensao = scanner.nextInt();
+
+            SmartDevice sd = new SmartBulb(id, tonalidade, on, dimensao, datai, dataf);
+            // System.out.print(sd.toString());
+            //}
+            this.smarthouses.adicionaDevice(id, sd);
+            System.out.print(this.smarthouses.dispositovosTostring());
+            //}
+            //ystem.out.println("O dispositivos já existe na casa com id-> "+idHome);
+            return sd;
+        }else{
+            System.out.println("O dispositivos já existe!");
+            return this.smarthouses.getDispositivos().get(id);
+        }
     }
 
 
@@ -176,67 +210,75 @@ public class UI{
         Scanner scanner = new Scanner(System.in);
         String id = scanner.nextLine();
         boolean on;
-        //if(!parser.getDispositivos().containsKey(id)){
-        System.out.println("(On/OFF): ");
-        String modo = scanner.nextLine();
-        on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
+        if(!smarthouses.existsDevice(id) && !smarthouses.existeDeviceHomes(id)) {
+            System.out.println("(On/OFF): ");
+            String modo = scanner.nextLine();
+            on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
 
-        System.out.println("Quando se pretende ligar o dispositivo "+id+ "? (YYYY-MM-DD HH:MM): ");
-        String inicio = scanner.nextLine();
+            System.out.println("Quando se pretende ligar o dispositivo " + id + "? (YYYY-MM-DD HH:MM): ");
+            String inicio = scanner.nextLine();
 
-        System.out.println("Quando pretende desligar o dispositivo "+id+ "? (YYYY-MM-DD HH:MM): ");
-        String fim = scanner.nextLine();
+            System.out.println("Quando pretende desligar o dispositivo " + id + "? (YYYY-MM-DD HH:MM): ");
+            String fim = scanner.nextLine();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
-        LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
+            LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
 
-        System.out.println("Tamanho: ");
-        int tamanho= scanner.nextInt();
-        System.out.println("Resolução: ");
-        int res= scanner.nextInt();
+            System.out.println("Tamanho: ");
+            int tamanho = scanner.nextInt();
+            System.out.println("Resolução: ");
+            int res = scanner.nextInt();
 
-        SmartDevice sd = new SmartCamera(id,on,datai,dataf,res,tamanho);
-        this.smarthouses.adicionaDevice(id,sd);
-        System.out.print(this.smarthouses.dispositovosTostring());
-        return sd;
+            SmartDevice sd = new SmartCamera(id, on, datai, dataf, res, tamanho);
+            this.smarthouses.adicionaDevice(id, sd);
+            System.out.print(this.smarthouses.dispositovosTostring());
+            return sd;
+        }else{
+            System.out.println("O device já existe!");
+            return this.smarthouses.getDispositivos().get(id);
+        }
     }
 
     public SmartDevice adicionaSpeaker(){
+            System.out.println("Digite o ID do dispositivo: ");
+            Scanner scanner = new Scanner(System.in);
+            String id = scanner.nextLine();
+            boolean on;
 
+        if(!smarthouses.existsDevice(id) && !smarthouses.existeDeviceHomes(id)) {
+            System.out.println("(On/OFF): ");
+            String modo = scanner.nextLine();
+            on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
 
-        System.out.println("Digite o ID do dispositivo: ");
-        Scanner scanner = new Scanner(System.in);
-        String id = scanner.nextLine();
-        boolean on;
-        //if(!parser.getDispositivos().containsKey(id)){
-        System.out.println("(On/OFF): ");
-        String modo = scanner.nextLine();
-        on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
+            System.out.println("Quando se pretende ligar o dispositivo " + id + "? (YYYY-MM-DD HH:MM): ");
+            String inicio = scanner.nextLine();
 
-        System.out.println("Quando se pretende ligar o dispositivo "+id+ "? (YYYY-MM-DD HH:MM): ");
-        String inicio = scanner.nextLine();
+            System.out.println("Quando pretende desligar o dispositivo " + id + "? (YYYY-MM-DD HH:MM): ");
+            String fim = scanner.nextLine();
 
-        System.out.println("Quando pretende desligar o dispositivo "+id+ "? (YYYY-MM-DD HH:MM): ");
-        String fim = scanner.nextLine();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
+            LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
-        LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
+            System.out.println("Volume: ");
+            int volume = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Marca: ");
+            String marca = scanner.nextLine();
+            System.out.println("Channel: ");
+            String channel = scanner.nextLine();
 
-        System.out.println("Volume: ");
-        int volume = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Marca: ");
-        String marca= scanner.nextLine();
-        System.out.println("Channel: ");
-        String channel=scanner.nextLine();
+            SmartDevice sd = new SmartSpeaker(id, on, volume, marca, channel, datai, dataf);
+            this.smarthouses.adicionaDevice(id, sd);
+            System.out.print(this.smarthouses.dispositovosTostring());
 
-        SmartDevice sd = new SmartSpeaker(id,on,volume,marca,channel,datai,dataf);
-        this.smarthouses.adicionaDevice(id,sd);
-        System.out.print(this.smarthouses.dispositovosTostring());
+            return sd;
+        }else{
+            System.out.println("O device já existe!");
+            return this.smarthouses.getDispositivos().get(id);
+        }
 
-        return sd;
     }
 
     public void removeDispositivo() {
@@ -249,7 +291,17 @@ public class UI{
 
     }
 
-    public void adcionaCasas() {
+    public void removeCasas() {
+        System.out.println("Digite o ID da casa a remover: ");
+        Scanner scanner = new Scanner(System.in);
+        String idHome = scanner.nextLine();
+
+        this.smarthouses.removeHome(idHome);
+        System.out.print(this.smarthouses.casasTostring());
+
+    }
+
+    public void adicionaCasas() {
 
         System.out.println("Digite o ID da casa: ");
         Scanner scanner = new Scanner(System.in);
@@ -291,12 +343,21 @@ public class UI{
                     System.out.println("Incorrect option");
                     break;
             }
-            scanner.nextLine();
+            //scanner.nextLine();
             CasaInteligente ci = new CasaInteligente(idHome, datai, dataf, morada, proprietario, nif);
-            ci.addDevice(sd);
+            System.out.println("Quantas divisões terá a casa?");
+            int n = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Divisões:");
+            while(n>0){
+                String divisao = scanner.nextLine();
+                ci.addRoom(divisao);
+                n--;
+            }
             System.out.println("Em que divisão pretende adicionar o dispositivo? ");
             String room = scanner.nextLine();
-            ci.addToRoom(room,sd.getID());
+            if(ci.hasRoom(room)) ci.addToRoom(room,sd.getID());
+            ci.addDevice(sd);
             this.smarthouses.adicionaHome(ci);
             System.out.print(this.smarthouses.casasTostring());
 

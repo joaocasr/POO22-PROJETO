@@ -12,13 +12,13 @@ public class SmartBulb extends SmartDevice{
         WARM,
         NEUTRAL,
     }
-    public static Mode fromInteger(int x) {
+    public static Mode fromString(String x) {
         switch(x) {
-            case 0:
+            case "COLD":
                 return Mode.COLD;
-            case 1:
+            case "WARM":
                 return Mode.WARM;
-            case 2:
+            case "NEUTRAL":
                 return Mode.NEUTRAL;
         }
         return null;
@@ -42,9 +42,9 @@ public class SmartBulb extends SmartDevice{
         super(id);
     }
 
-    public SmartBulb(String id,int x, boolean modo , int dim,LocalDateTime timeon ,LocalDateTime timeoff){
+    public SmartBulb(String id,String intensidade, boolean modo , int dim,LocalDateTime timeon ,LocalDateTime timeoff){
         super(id,modo,timeon,timeoff);
-        this.mode = fromInteger(x);
+        this.mode = fromString(intensidade);
         this.dimensao = dim;
     }
 
@@ -158,25 +158,17 @@ public class SmartBulb extends SmartDevice{
         }
         return total;
     }
-/*
+
     public static SmartBulb parseSmartBulb(String line){
-        SmartBulb sb;
         String[] nomes = line.split(",");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime inicio = LocalDateTime.parse(nomes[nomes.length-2], formatter);
-        LocalDateTime fim = LocalDateTime.parse(nomes[nomes.length-2], formatter);
-        if(nomes[nomes.length-1].equals("setOff")) {
-            sb = new SmartBulb(nomes[0], true, Integer.parseInt(nomes[1]), Integer.parseInt(nomes[2]), inicio, fim);
-            sb.turnOff();
-        }
-        else{
-            sb = new SmartBulb(nomes[0],false,Integer.parseInt(nomes[1]),Integer.parseInt(nomes[2]),inicio,fim);
-            sb.turnOn();
-        }
-        return sb;
+        LocalDateTime fim = LocalDateTime.parse(nomes[nomes.length-1], formatter);
+        return new SmartBulb(nomes[0],nomes[1],false,Integer.parseInt(nomes[1]),inicio,fim);
     }
-*/
-    //SmartBulb:bulb1,Neutral,60.0
+
+    //SmartBulb:bulb1,Neutral,true,11,60.0,
+    //    public SmartBulb(String id,String intensidade, boolean modo , int dim,LocalDateTime timeon ,LocalDateTime timeoff){
 
 
     public String toString() {

@@ -121,8 +121,11 @@ public class CasaInteligente {
     }
 
     public void addDevice(SmartDevice s) {
-        if(!existsDeviceHome(s.getID())){
+        if(!existsDeviceHome(s.getID()) && !this.alldevices.contains(s.getID()) ){
             this.devices.put(s.getID(), s);
+            this.alldevices.add(s.getID());
+        }else{
+            System.out.println("Device já existe!");
         }
     }
 
@@ -157,6 +160,16 @@ public class CasaInteligente {
             if(this.locations.get(divisao).contains(id)) exists = true;
         }
         return exists;
+    }
+
+    public void removeAllDevices(String idDevice){
+        this.allrooms.remove(idDevice);
+        this.devices.remove(idDevice);
+        for(String room : this.locations.keySet()){
+            for(String id : this.locations.get(room)){
+                if(id.equals(idDevice)) this.locations.get(room).remove(id);
+            }
+        }
     }
 
     public String getMorada() {

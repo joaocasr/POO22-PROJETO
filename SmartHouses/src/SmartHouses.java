@@ -53,9 +53,9 @@ public class SmartHouses implements Serializable {
                     break;
                 case "SmartBulb":
                     if (divisao == null) System.out.println("Linha inválida.");
-                    //SmartBulb sd = parseSmartBulb(linhaPartida[1]);
-                    //casaMaisRecente.addDevice(sd);
-                    //casaMaisRecente.addToRoom(divisao, sd.getId());
+                    SmartBulb sd = SmartBulb.parseSmartBulb(linhaPartida[1]);
+                    casaMaisRecente.addDevice(sd);
+                    casaMaisRecente.addToRoom(divisao, sd.getID());
 
 
             }
@@ -72,7 +72,7 @@ public class SmartHouses implements Serializable {
     }*/
 
     public boolean existsDevice(String id){
-        return getDispositivos().containsKey(id);
+        return this.dispositivos.containsKey(id);
     }
 
     /*
@@ -94,7 +94,11 @@ public class SmartHouses implements Serializable {
     }
 
     public void removeDevice(String id){
-        this.dispositivos.remove(id);
+       this.dispositivos.remove(id);
+        for(CasaInteligente ci : this.casas.values() ){
+            if(ci.existsDeviceHome(id))
+                ci.removeAllDevices(id);
+        }
     }
 /*
     public void removeDevice(String idHome, String idDevice){
@@ -118,15 +122,14 @@ public class SmartHouses implements Serializable {
     }*/
 
     public boolean existsHome(String idHome){
-        return getCasas().containsKey(idHome);
+        return this.casas.containsKey(idHome);
     }
 
-    public boolean existeDeviceHome(String homeId,String deviceId){
-        boolean exists=false;
-        if(existsHome(homeId) && existsDevice(deviceId)){
-            exists = this.casas.get(homeId).existsDeviceHome(deviceId);
-        }
-        return exists;
+    public boolean existeDeviceHomes(String deviceId){
+        boolean exists = false;
+        long r = this.casas.values().stream().filter((e)->e.existsDeviceHome(deviceId)).count();
+     if(r>0) exists=true;
+     return exists;
     }
 
 
@@ -142,7 +145,7 @@ public class SmartHouses implements Serializable {
     }
 
     public void removeHome(String idHome){
-        this.dispositivos.remove(idHome);
+        this.casas.remove(idHome);
     }
 
     public String dispositovosTostring(){
