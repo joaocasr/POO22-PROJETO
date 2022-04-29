@@ -20,6 +20,7 @@ public class CasaInteligente {
     private List<String> alldevices;
     private List<String> allrooms;
     private Map<String, List<String>> locations; // Espaço -> Lista codigo dos devices
+    private HashMap<String, Log> logs;
 
     public CasaInteligente(String id,LocalDate date1, LocalDate date2,String morada,String proprietario,int NIF) {
         // initialise instance variables
@@ -76,15 +77,22 @@ public class CasaInteligente {
         setLocations(ci.getLocations());
         setAlldevices(ci.getAlldevices());
     }
+       
+    public boolean existsDeviceHome(String id) {
+        return this.devices.containsKey(id);
+    }
+
 
     /*Ligar um dispositivo especifico*/
-    public void setDeviceOn(String devCode) {
-        this.devices.get(devCode).turnOn();
+    public void setDeviceOn(String devCode) throws SmartDevicesException{
+        if(!this.existsDeviceHome(devCode)) throw new SmartDevicesException ("O SmartDevice com id " + devCode + " não existe");
+        else this.devices.get(devCode).turnOn();
     }
 
     /*Desligar um dispositivo especifico*/
-    public void setDeviceOff(String devCode) {
-        this.devices.get(devCode).turnOff();
+    public void setDeviceOff(String devCode) throws SmartDevicesException{
+        if(!this.existsDeviceHome(devCode)) throw new SmartDevicesException ("O SmartDevice com id " + devCode + " não existe");
+        else this.devices.get(devCode).turnOff();
     }
 
     /*Desligar ou Ligar todos os dispositivos*/
@@ -93,7 +101,7 @@ public class CasaInteligente {
     }
 
     /*Desligar ou Ligar todos os dispositivos de uma divisao*/
-    public void setAlldivision(boolean b,String divisao) {
+    public void setAlldivision(boolean b,String divisao) throws SmartDevicesException{
         for( String a :this.locations.get(divisao)){
             getDevice(a).setModo(b);
         }
@@ -106,7 +114,6 @@ public class CasaInteligente {
     }
 
 
-
     public int numeroDispositivos(){
         return this.locations.entrySet().stream().mapToInt((e)->e.getValue().size()).sum();
     }
@@ -115,36 +122,33 @@ public class CasaInteligente {
         return this.locations.get(divisao).size();
     }
 
-
-    public boolean existsDeviceHome(String id) {
-        return this.devices.containsKey(id);
-    }
-
-    public void addDevice(SmartDevice s) {
+    public void addDevice(SmartDevice s) throws SmartDevicesException{
         if(!existsDeviceHome(s.getID()) && !this.alldevices.contains(s.getID()) ){
             this.devices.put(s.getID(), s);
             this.alldevices.add(s.getID());
-        }else{
-            System.out.println("Device já existe!");
-        }
+        }else throw new SmartDevicesException ("O SmartDevice com id " + s + " já existe");
     }
 
-    public SmartDevice getDevice(String s) {
-        return this.devices.get(s);
+    public SmartDevice getDevice(String s) throws SmartDevicesException{
+        if(!this.existsDeviceHome(s)) throw new SmartDevicesException ("O SmartDevice com id " + s + " não existe");
+        else return this.devices.get(s);
     }
 
     public void setDevice(String s, boolean b) {
         this.devices.get(s).setModo(b);
     }
 
-    public void addRoom(String s) {
-        this.allrooms.add(s);
+    public void addRoom(String s) throws RoomException{
+        if(this.hasRoom(s)) throw new RoomException ("A divisão " + s + " já existe");
+        else this.allrooms.add(s);
     }
 
     public boolean hasRoom(String s) {
         return this.allrooms.contains(s);
     }
 
+
+    //CONFIRMAR
     public void addToRoom (String division, String id) {
         if(roomHasDevice(division, id)) this.locations.get(division).add(id);
         else{
@@ -256,7 +260,6 @@ public class CasaInteligente {
     public boolean equals(Object o){
         if(o==this) return true;
         if(o==null || o.getClass()!=this.getClass()) return false;
-        boolean eq = true;
         CasaInteligente ci = (CasaInteligente) o;
         return this.alldevices.equals(ci.getAlldevices()) && this.allrooms.equals(ci.getAllrooms())
                 && this.locations.equals(ci.getLocations()) && this.devices.equals(ci.getDevices())
@@ -324,5 +327,37 @@ public class CasaInteligente {
 
         return sum;
     }
+
+    public boolean hasLog(String s) {
+        return this.logs.containsKey(s);
+    }
+
+
+    //se o log de um dispositivo já existir, elimina-se e coloca-se o novo
+    public void addLog(Log g) throws LogException
+    {
+        if(this.hasLog(g.getIdLog()))
+        {
+            removeLog(g.getIdLog());
+        }
+        this.logs.put(g.getIdLog(),g);
+    }
+
+    public void removeLog(String g) throws LogException
+    {
+        if(!this.hasLog(g)) throw new LogException ("O log " + g + " não existe");
+        else this.logs.remove(g);
+    }
+
+    //public void addAllLogs(LocalDateTime dia) throws LogException
+    //{
+    //    //if(this.hasLog(g.getIdLog())) throw new LogException ("O log " + g.getIdLog() + " já existe");
+    //    //else this.logs.put(g.getIdLog(),g);
+    //    this.devices.forEach((idDevice,device)-> 
+    //    {
+    //        Log l = new Log(idDevice,dia,idDevice,device.getModo());
+    //        this.logs.addLog(l);
+    //    });
+    //}
 
 }

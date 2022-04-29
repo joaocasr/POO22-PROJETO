@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
+
 public class Menu {
     private List<String> opcoes;
     private int opcao;
@@ -47,6 +49,7 @@ public class Menu {
             System.out.println("A opção selecionada é inválida.");
             op = -1;
         }
+        
         return op;
     }
 
