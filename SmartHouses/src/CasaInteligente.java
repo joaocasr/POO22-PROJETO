@@ -131,7 +131,12 @@ public class CasaInteligente {
             this.devices.put(device.getID(), device);
             this.locations.get(idRoom).add(device.getID());
         }
-        else this.locations.get(idRoom).add(device.getID());
+        else
+        {
+            removeDevicesFromRoom(device.getID());
+            this.locations.get(idRoom).add(device.getID());
+        }
+
     }
 
     public boolean roomHasDevice (String divisao, String id) {
@@ -156,9 +161,25 @@ public class CasaInteligente {
         }
     }
 
-    public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, int valor)
+    public void removeDevicesFromRoom(String idDevice) throws SmartDevicesException
     {
-        Fatura f = new Fatura(idFornecedor+":"+idHome, init, finit, morada, NIF, idFornecedor, valor);
+        if (!this.devices.containsKey(idDevice)) throw new SmartDevicesException("O device " + idDevice + " não existe");
+        else
+        {
+            for(String room : this.locations.keySet()){
+                for(String id : this.locations.get(room)){
+                    if(id.equals(idDevice)) this.locations.get(room).remove(id);
+                }
+            }
+        }
+    }
+
+    public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor)
+    {
+        double consumo = 0;
+        while(init.plusDays(1).compareTo(finit)!=0)
+                consumo += this.consumoAllDevicesDia(init);
+        Fatura f = new Fatura(consumo,idFornecedor+":"+idHome, init, finit, morada, NIF, idFornecedor, valor);
         this.faturas.put(f.getIdFatura(),f);
     }
 
@@ -177,6 +198,19 @@ public class CasaInteligente {
     {
         if(!hasFatura(idFatura)) throw new FaturaException("A fatura com o id " + idFatura + " não existe");
         this.faturas.remove(idFatura);
+    }
+
+    public List<Fatura> getFaturas(String idFornecedor)
+    {
+        List<Fatura> faturas = new ArrayList<Fatura>();
+
+        for(Fatura f: this.faturas.values())
+        {
+            if(f.getIdFornecedor().compareTo(idFornecedor)==0)
+                faturas.add(f.clone());
+        }
+
+        return faturas;
     }
 
     public String getMorada() {
@@ -323,6 +357,30 @@ public class CasaInteligente {
         } 
     }
 
+    public void addAllLogsAllDays(LocalDateTime init, LocalDateTime finit) throws LogException
+    {
+        while(init.plusDays(1).compareTo(finit)!=0)
+                    addAllLogs(init);
+    }
+
+
+    public HashMap<String,Log> getAllLogs(LocalDateTime init, LocalDateTime finit)
+    {
+        HashMap<String,Log> all = new HashMap<String,Log>();
+
+        for(Log l: this.logs.values())
+        {
+            if(l.getDia().compareTo(init)>=0 && l.getDia().compareTo(finit)<=0);
+            all.put(l.getIdLog(), l.clone());
+        }
+
+        return all;
+        //return this.logs.entrySet()
+        //                .stream()
+        //                .filter((id,l)->(l.getDia().compareTo(init)>=0 && l.getDia().compareTo(finit)<=0))
+        //                .collect((Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone())));
+    }
+
     public int numberDevicesOn(LocalDateTime dia)
     {
         int count = 0;
@@ -334,7 +392,7 @@ public class CasaInteligente {
         return count;
     }
 
-    public double custoAllDevicesDia(LocalDateTime dia)
+    public double consumoAllDevicesDia(LocalDateTime dia)
     {
         double count = 0;
         for(Log l: this.logs.values())

@@ -1,4 +1,7 @@
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.time.LocalDateTime;
 
 public class ColFornecedor {
@@ -94,9 +97,9 @@ public class ColFornecedor {
                 CasaInteligente casa = f.getAllCasas().get(idCasa);
 
                 while(init.plusDays(1).compareTo(finit)!=0)
-                    gasto = casa.custoAllDevicesDia(init);
+                    gasto = casa.consumoAllDevicesDia(init);
                 
-                gasto *= f.getValorFornecedor(idCasa);
+                gasto *= f.getValorFornecedor(idCasa,init,finit);
                 if(gasto>max)
                 {
                     max=gasto; 
@@ -108,14 +111,13 @@ public class ColFornecedor {
     }
 
     //retorna o id (String) do fornecedor que tem mais faturação
-    public String fornecedorComMaisFaturacao() throws CasaInteligenteException
+    public String fornecedorComMaisFaturacao(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
     {
         String id = "";
         double total = 0, max = 0;
         for(Fornecedor f: this.fornecedores.values())
         {
-            for(String c: f.getAllCasas().keySet())
-                total += f.getAllCasas().get(c).consumoTotalHome()*f.getValorFornecedor(c);
+            f.faturaçaoFornecedor(init,finit);
             
             if(total>max)
             {
@@ -125,5 +127,14 @@ public class ColFornecedor {
             total = 0;   
         }
         return id;
+    }
+
+
+    public List<Fornecedor> ordenarFornecedores(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    {
+        Comparator<Fornecedor> c = (Fornecedor a, Fornecedor b)
+        ->Double.compare(a.faturaçaoFornecedor(init,finit),b.faturaçaoFornecedor(init,finit));
+        
+        return this.fornecedores.values().stream().map(Fornecedor::clone).sorted(c).collect(Collectors.toList());
     }
 }

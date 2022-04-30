@@ -1,7 +1,10 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.time.LocalDateTime;
+import static java.time.temporal.ChronoUnit.DAYS;
 
 public class Fornecedor{
     
@@ -120,7 +123,7 @@ public class Fornecedor{
         for(CasaInteligente c: this.allCasas.values())
         {
             while(init.plusDays(1).compareTo(finit)!=0)
-                t += c.custoAllDevicesDia(init);
+                t += c.consumoAllDevicesDia(init);
             
             if(max < t) 
             {
@@ -131,13 +134,53 @@ public class Fornecedor{
         return id;
     }
 
-    public double getValorFornecedor(String idCasa) throws CasaInteligenteException
+    public double getValorFornecedor(String idCasa, LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
     {
+        double consumo = 0;
         CasaInteligente casa = this.getCasa(idCasa);
+
+        while(init.plusDays(1).compareTo(finit)!=0)
+                consumo += casa.consumoAllDevicesDia(init);
+        
         if(casa.numeroDispositivos()<10)
-            return this.formula.calculo(this.base, this.getImposto(), casa.consumoTotalHome(), this.multiplicador);
+            return this.formula.calculo(this.base, this.getImposto(), consumo, this.multiplicador);
         else
-            return this.formula.calculo(this.base, this.getImposto(), casa.consumoTotalHome(), this.multiplicador-0.1);
+            return this.formula.calculo(this.base, this.getImposto(), consumo, this.multiplicador-0.1);
     }
 
+    public void addFatura(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    {
+        for(CasaInteligente c: this.allCasas.values())
+        {
+            c.addFatura(this.id, init, finit, this.getValorFornecedor(c.getIdHome(),init,finit));
+        }
+    }
+
+    public List<Fatura> faturasEmitidas()
+    {
+        List<Fatura> f = new ArrayList<Fatura>();
+
+        for(CasaInteligente c: this.allCasas.values())
+        {
+            f.addAll(c.getFaturas(this.id));
+        }
+
+        return f;
+    }
+
+    public double faturaçaoFornecedor(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    {
+        double t = 0;
+        for(CasaInteligente c: this.allCasas.values())
+        {
+            t += getValorFornecedor(c.getIdHome(),init,finit);
+        }
+        return t;
+    }
+
+    public int compareTo(Fornecedor o,LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    {
+        return Double.compare(this.faturaçaoFornecedor(init,finit),o.faturaçaoFornecedor(init,finit));
+    }
+    
 }

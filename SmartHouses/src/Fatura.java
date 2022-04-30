@@ -8,6 +8,7 @@ public class Fatura {
     private int NIF;
     private String morada;
     private String idFornecedor;
+    private double consumo;
 
 
     public Fatura()
@@ -21,7 +22,7 @@ public class Fatura {
         this.inicio = null;
     }
 
-    public Fatura(String idFatura,LocalDateTime init, LocalDateTime finit, String morada, int NIF, String idFornecedor, double valor)
+    public Fatura(double consumo, String idFatura,LocalDateTime init, LocalDateTime finit, String morada, int NIF, String idFornecedor, double valor)
     {
         this.idFatura = idFatura;
         this.morada = morada;
@@ -30,6 +31,7 @@ public class Fatura {
         this.fim = finit;
         this.valor = valor;
         this.NIF = NIF;
+        this.consumo = consumo;
     }
 
     public Fatura(Fatura f)
@@ -41,6 +43,12 @@ public class Fatura {
         this.inicio = f.inicio;
         this.valor = f.valor;
         this.NIF = f.NIF;
+        this.consumo = f.consumo;
+    }
+
+    public void setIdFatura(double consumo)
+    {
+        this.consumo = consumo;
     }
 
     public void setIdFatura(String id)
@@ -76,6 +84,11 @@ public class Fatura {
     public void setNif(int NIF)
     {
         this.NIF = NIF;
+    }
+
+    public double getConsumo()
+    {
+        return this.consumo;
     }
 
     public double getValor()
@@ -118,6 +131,7 @@ public class Fatura {
         sb.append("\tIdFatura: " + this.getIdFatura())
             .append("\tIdFornecedor: " + this.getIdFornecedor())
             .append("\tNIF: " + this.getNIF())
+            .append("\tConsumo: " + this.getConsumo())
             .append("\tValor: " + this.getValor())
             .append("\tInicio: " + this.getInicio())
             .append("\tFim: " + this.getFim());
@@ -134,7 +148,8 @@ public class Fatura {
                 this.inicio.equals(sd.getInicio()) &&
                 this.valor==sd.getValor() &&
                 this.morada.equals(sd.morada) &&
-                this.NIF==sd.NIF;
+                this.NIF==sd.NIF &&
+                this.consumo == sd.consumo;
     }
 
     public Fatura clone()

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
+//import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
 
 public class Menu {
     private List<String> opcoes;
@@ -49,7 +49,7 @@ public class Menu {
             System.out.println("A opção selecionada é inválida.");
             op = -1;
         }
-        
+        scanner.close();
         return op;
     }
 
@@ -68,4 +68,6 @@ public class Menu {
     public void cls(){
         System.out.println(System.lineSeparator().repeat(100));
     }
+
+    
 }
