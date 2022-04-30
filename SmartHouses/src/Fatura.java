@@ -1,47 +1,61 @@
 import java.time.LocalDateTime;
-import java.util.HashMap;
 
 public class Fatura {
+    private String idFatura;
     private LocalDateTime inicio;
     private LocalDateTime fim;
-    private String idCasa;
+    private double valor;
+    private int NIF;
+    private String morada;
     private String idFornecedor;
-    private int valor;
-    private HashMap<String, Fornecedor> fornecedores;
+
 
     public Fatura()
     {
-        this.idCasa= "";
+        this.idFatura = "";
+        this.morada="";
+        this.NIF= 0;
         this.idFornecedor = "";
         this.valor=0;
+        this.fim = null;
+        this.inicio = null;
     }
 
-    public Fatura(LocalDateTime init, LocalDateTime finit, String idCasa, String idFornecedor) throws CasaInteligenteException
+    public Fatura(String idFatura,LocalDateTime init, LocalDateTime finit, String morada, int NIF, String idFornecedor, double valor)
     {
-        this.idCasa = idCasa;
+        this.idFatura = idFatura;
+        this.morada = morada;
         this.idFornecedor = idFornecedor;
         this.inicio = init;
         this.fim = finit;
-        this.valor = getValorFornecedor(idCasa, idFornecedor);
+        this.valor = valor;
+        this.NIF = NIF;
     }
 
     public Fatura(Fatura f)
     {
-        this.idCasa = f.idCasa;
+        this.idFatura = f.idFatura;
+        this.morada = f.morada;
         this.idFornecedor = f.idFornecedor;
         this.fim = f.fim;
         this.inicio = f.inicio;
         this.valor = f.valor;
+        this.NIF = f.NIF;
     }
 
-    public void setValor(int valor)
+    public void setIdFatura(String id)
+    {
+        this.idFatura = id;
+    }
+
+    public void setValor(double valor)
     {
         this.valor = valor;
     }
 
-    public void setIdCasa(String casa)
+    public void setMorada(String morada)
     {
-        this.idCasa = casa;
+        this.morada = morada;
     }
 
     public void setIdFornecedor(String id)
@@ -59,22 +73,29 @@ public class Fatura {
         this.fim = fim;
     }
 
-    public int getValor()
+    public void setNif(int NIF)
+    {
+        this.NIF = NIF;
+    }
+
+    public double getValor()
     {
         return this.valor;
     }
 
-    public int getValorFornecedor(String idCasa, String idFornecedor) throws CasaInteligenteException
+    public double getNIF()
     {
-        Fornecedor f = fornecedores.get(idFornecedor);
-        CasaInteligente c = f.getCasa(idCasa); 
-        
-        return 0;
+        return this.NIF;
     }
 
-    public String getIdCasa()
+    public String getIdFatura()
     {
-        return this.idCasa;
+        return this.idFatura;
+    }
+
+    public String getMorada()
+    {
+        return this.morada;
     }
 
     public String getIdFornecedor()
@@ -94,7 +115,12 @@ public class Fatura {
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("AINDA POR FAZER");
+        sb.append("\tIdFatura: " + this.getIdFatura())
+            .append("\tIdFornecedor: " + this.getIdFornecedor())
+            .append("\tNIF: " + this.getNIF())
+            .append("\tValor: " + this.getValor())
+            .append("\tInicio: " + this.getInicio())
+            .append("\tFim: " + this.getFim());
         return sb.toString();
     }
 
@@ -102,11 +128,13 @@ public class Fatura {
         if(o==this) return true;
         else if(o==null || o.getClass()!=this.getClass()) return false;
         Fatura sd = (Fatura) o;
-        return this.idCasa.equals(sd.getIdCasa()) &&
+        return this.idFatura.equals(sd.getIdFatura()) &&
                 this.idFornecedor.equals(sd.getIdFornecedor()) &&
                 this.fim.equals(sd.getFim()) &&
                 this.inicio.equals(sd.getInicio()) &&
-                this.valor==sd.getValor();
+                this.valor==sd.getValor() &&
+                this.morada.equals(sd.morada) &&
+                this.NIF==sd.NIF;
     }
 
     public Fatura clone()
@@ -115,6 +143,3 @@ public class Fatura {
     }
 
 }
-
-
-//nif nome dono casa, periodo facturação, valor

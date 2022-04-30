@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.time.LocalDateTime;
 
 public class ColFornecedor {
     
@@ -81,43 +82,48 @@ public class ColFornecedor {
         return new ColFornecedor(this);
     }
 
-    //public String casaGastouMaisPeriodo(LocalDateTime init, LocalDateTime finit)
-    //{
-    //    String r = "", idCasa = "";
-    //    double max = 0, gasto = 0;
-    //    for(Fornecedor c: this.fornecedores)
-    //    {
-    //        idCasa = c.casaGastouMaisPeriodo(init, finit);
-    //        gasto = c.precoPorDia(idCasa);
-    //        if(gasto>max)
-    //        { 
-    //            max=gasto; 
-    //            r = idCasa;
-    //        }
-    //    }
-    //    return r;
-    //}
+    public String casaGastouMaisPeriodoVariosFornecedores(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    {
+        String r = "", idCasa = "";
+        double max = 0, gasto = 0;
+        for(Fornecedor f: this.fornecedores.values())
+        {
+            idCasa = f.casaGastouMaisPeriodo(init, finit);
+            if(!idCasa.equals(""))
+            {
+                CasaInteligente casa = f.getAllCasas().get(idCasa);
+
+                while(init.plusDays(1).compareTo(finit)!=0)
+                    gasto = casa.custoAllDevicesDia(init);
+                
+                gasto *= f.getValorFornecedor(idCasa);
+                if(gasto>max)
+                {
+                    max=gasto; 
+                    r = idCasa;
+                }
+            }
+        }
+        return r;
+    }
 
     //retorna o id (String) do fornecedor que tem mais faturação
-    //public String fornecedorComMaisFaturacao() 
-    //{
-    //    String id = "";
-    //    double total = 0, max = 0;
-    //    for(Fornecedor f: this.fornecedores)
-    //    {
-    //        Map<String,CasaInteligente> casas = f.getAllCasas();
-    //        for(String c: f.getCasas())
-    //        {
-    //            CasaInteligente home = casas.get(c);
-    //            total += home.consumoTotalHome()*f.precoPorDia(c);
-    //        }
-    //        if(total>max)
-    //        {
-    //            max = total;
-    //            id = f.getId();
-    //        }
-    //        total = 0;   
-    //    }
-    //    return id;
-    //}
+    public String fornecedorComMaisFaturacao() throws CasaInteligenteException
+    {
+        String id = "";
+        double total = 0, max = 0;
+        for(Fornecedor f: this.fornecedores.values())
+        {
+            for(String c: f.getAllCasas().keySet())
+                total += f.getAllCasas().get(c).consumoTotalHome()*f.getValorFornecedor(c);
+            
+            if(total>max)
+            {
+                max = total;
+                id = f.getId();
+            }
+            total = 0;   
+        }
+        return id;
+    }
 }

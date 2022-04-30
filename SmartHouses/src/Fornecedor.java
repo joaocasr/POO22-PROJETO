@@ -1,38 +1,39 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.time.LocalDateTime;
 
 public class Fornecedor{
     
-    //private static final double fatorImposto = 0.5;
-    private int precoDiario;
-    private int imposto;
-    private Map<String, CasaInteligente> allCasas; // identificador -> idCasa
     private String id;
-    
+    private final double base = 2;
+    private final double multiplicador = 0.2;
+    private double imposto;
+    private FormulaEnergia formula;
+    private Map<String, CasaInteligente> allCasas; // identificador -> idCasa
+
 
     public Fornecedor()
     {
-        this.precoDiario = 0;
-        this.imposto = 0;
         this.allCasas = new HashMap<>();
         this.id = "";
+        this.imposto = 0;
     }
 
-    public Fornecedor(int precoDiario, int imposto, String id)
+    public Fornecedor(int base, int imposto, String id, int metodo, FormulaEnergia f)
     {
-        this.precoDiario = precoDiario;
-        this.imposto = imposto;
         this.allCasas = new HashMap<>();
         this.id = id;
+        this.imposto = imposto;
+        this.formula = f;
     }
 
     public Fornecedor(Fornecedor f)
     {
-        this.imposto = f.imposto;
-        this.precoDiario = f.precoDiario;
         setAllCasas(f.getAllCasas());
         this.id = f.id;
+        this.imposto = f.imposto;
+        this.formula = f.formula;
     }
 
     public CasaInteligente getCasa(String idCasa) throws CasaInteligenteException
@@ -41,34 +42,24 @@ public class Fornecedor{
         else return this.allCasas.get(idCasa).clone();
     }
 
-    public void setPrecoDiario(int precoDiario)
-    {
-        this.precoDiario = precoDiario;
-    }
-
-    public void setImposto(int imposto)
-    {
-        this.imposto = imposto;
-    }
-
     public void setId(String id)
     {
         this.id = id;
     }
 
-    public int getPrecoDiario()
+    public void setImposto(double imposto)
     {
-        return this.precoDiario;
-    }
-
-    public int getImposto()
-    {
-        return this.imposto;
+        this.imposto = imposto;
     }
 
     public String getId()
     {
         return this.id;
+    }
+
+    public double getImposto()
+    {
+        return this.imposto;
     }
 
     public void addCasa(CasaInteligente casa) throws CasaInteligenteException
@@ -103,9 +94,7 @@ public class Fornecedor{
         if(o==this) return true;
         if(o==null || o.getClass()!=this.getClass()) return false;
         Fornecedor f = (Fornecedor) o;
-        return f.getPrecoDiario() == this.precoDiario &&
-                f.getImposto() == this.imposto &&
-                f.getId() == this.id &&
+        return f.getId() == this.id &&
                 this.allCasas.equals(f.getAllCasas());
     }
 
@@ -113,8 +102,6 @@ public class Fornecedor{
     {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(this.id).append("; ");
-        sb.append("Preço Diario: ").append(this.precoDiario).append("; "); 
-        sb.append("Imposto: ").append(this.imposto).append("; "); 
 
         allCasas.forEach((id,casa)->{sb.append(casa.toString());});
         
@@ -126,48 +113,31 @@ public class Fornecedor{
         return new Fornecedor(this);
     }
 
-    //public String casaGastouMaisPeriodo(LocalDateTime init, LocalDateTime finit)
-    //{
-    //    String id="";
-    //    long max = 0, time;
-    //    for(CasaInteligente c: this.allCasas.values())
-    //    {
-    //        time = c.ligadoPeriodoTempo(init, finit);
-    //        if(max < time) 
-    //        {
-    //            max = time; 
-    //            id = c.getIdHome();
-    //        }
-    //    }
-    //    return id;
-    //}
-
-    public double precoPorDia(String idCasa) throws CasaInteligenteException
+    public String casaGastouMaisPeriodo(LocalDateTime init, LocalDateTime finit)
     {
-        CasaInteligente home = this.getCasa(idCasa);
-        if(home.numeroDispositivos()>10) return this.precoDiario*home.consumoTotalHome()*(1+this.imposto)*0.9;
-        return this.precoDiario*home.consumoTotalHome()*(1+this.imposto)*0.75;
+        String id="";
+        double max = 0, t = 0;
+        for(CasaInteligente c: this.allCasas.values())
+        {
+            while(init.plusDays(1).compareTo(finit)!=0)
+                t += c.custoAllDevicesDia(init);
+            
+            if(max < t) 
+            {
+                max = t; 
+                id = c.getIdHome();
+            }
+        }
+        return id;
     }
 
-    public double precoPorDia2(String idCasa) throws CasaInteligenteException
+    public double getValorFornecedor(String idCasa) throws CasaInteligenteException
     {
-        CasaInteligente home = allCasas.get(idCasa);
-        if(home.numeroDispositivos()>15) return this.precoDiario*home.consumoTotalHome()*(1+this.imposto)*0.9;
-        return this.precoDiario*home.consumoTotalHome()*(1+this.imposto)*0.75;
-    }
-
-    public double precoPorDia3(String idCasa) throws CasaInteligenteException
-    {
-        CasaInteligente home = allCasas.get(idCasa);
-        if(home.numeroDispositivos()<15) return this.precoDiario*home.consumoTotalHome()*(1+this.imposto)*0.5;
-        return this.precoDiario*home.consumoTotalHome()*(1+this.imposto)*0.85;
-    }
-
-    public double precoPorDia4(String idCasa) throws CasaInteligenteException
-    {
-        CasaInteligente home = allCasas.get(idCasa);
-        if(home.numeroDispositivos()>15) return this.precoDiario*home.consumoTotalHome()*(1+this.imposto)*0.9;
-        return this.precoDiario*home.consumoTotalHome()*(1+this.imposto)*0.75;
+        CasaInteligente casa = this.getCasa(idCasa);
+        if(casa.numeroDispositivos()<10)
+            return this.formula.calculo(this.base, this.getImposto(), casa.consumoTotalHome(), this.multiplicador);
+        else
+            return this.formula.calculo(this.base, this.getImposto(), casa.consumoTotalHome(), this.multiplicador-0.1);
     }
 
 }
