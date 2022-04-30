@@ -1,4 +1,4 @@
-/*import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterAll;
@@ -17,157 +17,113 @@ public class SmartBulbTest {
     public void tearDown()
     {}
 
+
+    /*
+    * a ver
+    *
+    * smartbulb sem argumentos
+    * */
+
     @Test
     public void testConstructor() 
     {
-        SmartBulb smartBulb = new SmartBulb();
-        assertTrue(smartBulb!=null);
-        smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertTrue(smartBulb!=null);
+        SmartBulb smartBulb = new SmartBulb("bulb1");
+        assertNotNull(smartBulb);
+        smartBulb = new SmartBulb("bulb1","NEUTRAL",false,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        assertNotNull(smartBulb);
         smartBulb = new SmartBulb(smartBulb);
-        assertTrue(smartBulb!=null);
-    }
-
-    @Test
-    public void testGetTonalidade() 
-    {
-        SmartBulb smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(3, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(-3, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(50, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb();
-        assertEquals(8, smartCam.getTonalidade());
-    }
-
-    @Test
-    public void testSetTonalidade() 
-    {
-        SmartCamera cam = new SmartCamera("b1",false,1.0,1.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),50,4.5);
-        cam.setResolucao(3);
-        assertEquals(3, cam.getResolucao());
-        for (int i=0; i<25; i++) cam.setResolucao(i);
-        assertEquals(24, cam.getResolucao());
+        assertNotNull(smartBulb);
     }
 
     @Test
     public void testGetDimensao() 
     {
-        SmartBulb smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(3, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(-3, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(50, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb();
-        assertEquals(8, smartCam.getTonalidade());
+        SmartBulb smartBulb = new SmartBulb("bulb1","NEUTRAL",false,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        assertEquals(3, smartBulb.getDimensao());
+        smartBulb = new SmartBulb("bulb1","NEUTRAL",false,-3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        assertEquals(-3, smartBulb.getDimensao());
+        smartBulb = new SmartBulb("bulb1","NEUTRAL",false,50,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        assertEquals(50, smartBulb.getDimensao());
+        // smartBulb = new SmartBulb();
+        // assertEquals(8, smartCam.getDimensao());
     }
-
+// done
     @Test
     public void testSetDimensao() 
     {
-        SmartCamera cam = new SmartCamera("b1",false,1.0,1.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),50,4.5);
-        cam.setResolucao(3);
-        assertEquals(3, cam.getResolucao());
-        for (int i=0; i<25; i++) cam.setResolucao(i);
-        assertEquals(24, cam.getResolucao());
+        SmartBulb bulb = new SmartBulb("bulb1","NEUTRAL",false,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        bulb.setDimensao(3);
+        assertEquals(3, bulb.getDimensao());
+        for (int i=0; i<25; i++) bulb.setDimensao(i);
+        assertEquals(24, bulb.getDimensao());
     }
 
     @Test
-    public void testGetCneutral() 
+    public void testGetMode() 
     {
-        SmartBulb smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(3, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(-3, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(50, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb();
-        assertEquals(8, smartCam.getTonalidade());
+        SmartBulb smartBulb = new SmartBulb("bulb1","NEUTRAL",false,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        assertEquals(SmartBulb.fromString("NEUTRAL"), smartBulb.getMode());
+        smartBulb = new SmartBulb("bulb1","COLD",false,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        assertEquals(SmartBulb.fromString("COLD"), smartBulb.getMode());
+        smartBulb = new SmartBulb("bulb1","WARM",false,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        assertEquals(SmartBulb.fromString("WARM"), smartBulb.getMode());
+        // smartBulb = new SmartBulb();
+        // assertEquals(8, smartCam.getMode());
     }
 
     @Test
-    public void testSetCneutral() 
+    public void testSetMode() 
     {
-        SmartCamera cam = new SmartCamera("b1",false,1.0,1.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),50,4.5);
-        cam.setResolucao(3);
-        assertEquals(3, cam.getResolucao());
-        for (int i=0; i<25; i++) cam.setResolucao(i);
-        assertEquals(24, cam.getResolucao());
+        SmartBulb bulb = new SmartBulb("bulb1","COLD",false,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        bulb.setMode(SmartBulb.Mode.NEUTRAL);
+        assertEquals(SmartBulb.Mode.NEUTRAL, bulb.getMode());
+        bulb.setMode(SmartBulb.Mode.COLD);
+        assertEquals(SmartBulb.Mode.COLD, bulb.getMode());
+        bulb.setMode(SmartBulb.Mode.WARM);
+        assertEquals(SmartBulb.Mode.WARM, bulb.getMode());
+
     }
 
     @Test
-    public void testGetCwarm() 
+    public void testTurnOFFlamp()
     {
-        SmartBulb smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(3, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(-3, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(50, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb();
-        assertEquals(8, smartCam.getTonalidade());
+        SmartBulb smartBulb = new SmartBulb("bulb1","NEUTRAL",true,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        smartBulb.turnOFFlamp();
+        assertFalse(smartBulb.getModo());
     }
 
     @Test
-    public void testSetCwarm() 
+    public void testTurnOnLamp() 
     {
-        SmartCamera cam = new SmartCamera("b1",false,1.0,1.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),50,4.5);
-        cam.setResolucao(3);
-        assertEquals(3, cam.getResolucao());
-        for (int i=0; i<25; i++) cam.setResolucao(i);
-        assertEquals(24, cam.getResolucao());
+        SmartBulb smartBulb = new SmartBulb("bulb1","NEUTRAL",false,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        smartBulb.turnOnLamp();
+        assertTrue(smartBulb.getModo());
     }
 
     @Test
-    public void testGetCcold() 
+    public void testChangetoCold()
     {
-        SmartBulb smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(3, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(-3, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb("bulb1",false,1,5,1.0,2.0,3.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
-        assertEquals(50, smartBulb.getTonalidade());
-        smartBulb = new SmartBulb();
-        assertEquals(8, smartCam.getTonalidade());
+        SmartBulb smartBulb = new SmartBulb("bulb1","NEUTRAL",false,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        smartBulb.changetoCold();
+        assertEquals(SmartBulb.Mode.COLD, smartBulb.getMode());
     }
 
     @Test
-    public void testSetCcold() 
+    public void testChangetoWarm()
     {
-        SmartCamera cam = new SmartCamera("b1",false,1.0,1.0,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),50,4.5);
-        cam.setResolucao(3);
-        assertEquals(3, cam.getResolucao());
-        for (int i=0; i<25; i++) cam.setResolucao(i);
-        assertEquals(24, cam.getResolucao());
+        SmartBulb smartBulb = new SmartBulb("bulb1","NEUTRAL",false,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        smartBulb.changetoWarm();
+        assertEquals(SmartBulb.Mode.WARM, smartBulb.getMode());
     }
 
     @Test
-    public void testTurnOFFlamp(){
-
+    public void testChangetoNeutral()
+    {
+        SmartBulb smartBulb = new SmartBulb("bulb1","COLD",false,3,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45));
+        smartBulb.changetoNeutral();
+        assertEquals(SmartBulb.Mode.NEUTRAL, smartBulb.getMode());
     }
-
-    @Test
-    public void testTurnOnLamp(){
-
-    }
-
-    @Test
-    public void testChangetoCold(){
-
-    }
-
-    @Test
-    public void testChangetoWarm(){
-
-    }
-
-    @Test
-    public void testChangetoNeutral(){
-
-    }
-
+/*
     @Test
     private void testCalculaCold(){
 
@@ -188,6 +144,10 @@ public class SmartBulbTest {
 
     }
 
+    @Test
+    public static SmartBulb parseSmartBulb(String line){
+
+    }
 
 // terminar print
     @Test
@@ -215,4 +175,5 @@ public class SmartBulbTest {
     //public SmartDevice clone(){
     //    return new SmartBulb(this);
     //}
-}*/
+    */
+}

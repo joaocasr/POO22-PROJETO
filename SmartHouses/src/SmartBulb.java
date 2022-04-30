@@ -67,9 +67,9 @@ public class SmartBulb extends SmartDevice{
         this.mode = mode;
     }
 
-    public void turnOFFlamp(SmartBulb sb, LocalDateTime time){
+    public void turnOFFlamp(){
         turnOff();
-        if(sb.getModo()) {
+        if(this.getModo()) {
             if (this.mode == Mode.COLD) {
                 calculaCold();
             }
@@ -86,7 +86,7 @@ public class SmartBulb extends SmartDevice{
         turnOn();
     }
 
-    public void changetoCold(String time){
+    public void changetoCold(){
         if(!getModo()) turnOn();
         if (this.mode == Mode.WARM) {
             calculaWarm();
