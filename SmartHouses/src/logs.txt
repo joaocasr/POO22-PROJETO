@@ -12,7 +12,7 @@ Fornecedor:Luzboa,0.21,a*(b+c+d)
 Fornecedor:Energia Simples,0.12,a+b+c*d
 Fornecedor:SU Electricidade,0.13,(a+b)*c*d
 Fornecedor:EDA,0.14,(a*b)*(c+d)
-Casa:Vicente de Carvalho Castro,365597405,Iberdrola,casa1,Yubetsu-tanko 564-000
+Casa:Vicente de Carvalho Castro,365597405,Iberdrola,casa1,Yubetsu-tanko 564-000 nº 383
 Divisao:Sala de Jantar
 SmartBulb:Warm,11,4.57,bulb1,2022-05-13 05:16:42,2022-06-05 10:36:46,false
 SmartBulb:Neutral,12,4.73,bulb2,2022-05-12 13:48:54,2022-06-24 07:30:45,true
@@ -55,7 +55,7 @@ SmartSpeaker:30,RTP Antena 1 98.3 FM,JBL,5.53,speaker5,2022-04-03 21:16:09,2022-
 SmartBulb:Neutral,9,0.11,bulb20,2022-03-18 14:30:58,2022-06-29 15:36:19,true
 SmartBulb:Neutral,13,1.09,bulb21,2022-03-28 16:11:16,2022-06-29 03:50:19,false
 SmartBulb:Neutral,17,2.76,bulb22,2022-05-17 13:16:01,2022-07-26 13:28:55,true
-Casa:Miguel Velho Raposo,134655929,Endesa,casa2,Taira 755-0000
+Casa:Miguel Velho Raposo,134655929,Endesa,casa2,Taira 755-0000 nº 386
 Divisao:Sala de Estar
 SmartBulb:Neutral,17,3.05,bulb23,2022-04-15 16:23:16,2022-07-05 04:30:20,false
 SmartCamera:(1920x1080),93,6.47,cam10,2022-03-13 20:57:25,2022-05-06 20:14:53,false
@@ -114,7 +114,7 @@ SmartCamera:(1280x720),33,5.55,cam19,2022-04-09 04:41:49,2022-05-14 02:07:04,tru
 Divisao:Sala de Jantar 1
 SmartBulb:Neutral,7,0.14,bulb51,2022-04-09 08:53:03,2022-07-01 19:52:09,false
 SmartCamera:(2160x1440),26,6.18,cam20,2022-03-29 22:22:08,2022-05-01 21:10:46,true
-Casa:Diogo Filipe Duraes Ribeiro,637220731,MEO Energia,casa3,Bentenchō 904-1300
+Casa:Diogo Filipe Duraes Ribeiro,637220731,MEO Energia,casa3,Bentenchō 904-1300 nº 277
 Divisao:Sala de Jantar
 SmartBulb:Neutral,5,2.46,bulb52,2022-03-15 12:33:45,2022-06-08 09:37:37,true
 SmartBulb:Neutral,6,0.18,bulb53,2022-04-28 06:47:18,2022-06-24 07:25:07,false
@@ -158,7 +158,7 @@ SmartCamera:(1280x720),76,0.40,cam24,2022-03-31 18:02:40,2022-05-02 00:21:48,fal
 SmartBulb:Neutral,8,0.15,bulb77,2022-03-24 19:59:10,2022-07-17 08:30:51,true
 SmartCamera:(1366x768),71,7.08,cam25,2022-03-11 17:41:17,2022-05-03 05:23:33,true
 SmartBulb:Warm,10,7.38,bulb78,2022-05-30 16:17:48,2022-07-18 18:07:42,true
-Casa:Pedro Nuno Fernandes Freitas,966919480,SU Electricidade,casa4,Itayagoshi 030-1500
+Casa:Pedro Nuno Fernandes Freitas,966919480,SU Electricidade,casa4,Itayagoshi 030-1500 nº 415
 Divisao:Sala de Jantar
 SmartBulb:Neutral,9,0.18,bulb79,2022-03-26 15:38:35,2022-07-26 17:24:06,false
 SmartBulb:Neutral,10,9.59,bulb80,2022-05-21 15:41:21,2022-07-03 15:17:27,true
@@ -208,7 +208,7 @@ SmartBulb:Warm,9,4.18,bulb104,2022-04-02 17:46:56,2022-07-14 19:36:20,true
 SmartCamera:(1920x1080),95,5.47,cam37,2022-03-21 03:26:11,2022-05-15 20:43:07,false
 SmartBulb:Neutral,5,5.02,bulb105,2022-05-01 13:52:34,2022-07-16 08:40:36,false
 SmartCamera:(1366x768),101,7.15,cam38,2022-03-01 22:34:20,2022-05-02 08:07:43,true
-Casa:Guilherme Lima Barros Gomes Fernandes,299188108,MEO Energia,casa5,Tunugusuku 564-000
+Casa:Guilherme Lima Barros Gomes Fernandes,299188108,MEO Energia,casa5,Tunugusuku 564-000 nº 293
 Divisao:Jardim
 SmartSpeaker:45,Radio Radar,Philips,4.02,speaker25,2022-03-19 22:03:49,2022-04-23 19:30:06,true
 SmartBulb:Neutral,11,3.74,bulb106,2022-05-17 08:58:47,2022-06-18 12:38:29,false
@@ -253,7 +253,7 @@ SmartCamera:(3840x2160),67,7.14,cam48,2022-03-27 17:37:46,2022-05-04 09:16:59,tr
 SmartBulb:Neutral,6,9.44,bulb125,2022-04-22 06:26:46,2022-07-19 15:38:57,false
 SmartBulb:Warm,17,0.16,bulb126,2022-05-05 13:29:54,2022-07-14 14:55:45,false
 SmartBulb:Neutral,11,1.44,bulb127,2022-04-23 06:50:06,2022-06-28 01:46:12,false
-Casa:Tomas Santos Ogando,698509310,Gold Energy,casa6,Chinkobe 030-1500
+Casa:Tomas Santos Ogando,698509310,Gold Energy,casa6,Chinkobe 030-1500 nº 335
 Divisao:Garagem
 SmartCamera:(1280x720),90,4.15,cam49,2022-03-21 08:55:53,2022-05-12 07:54:19,false
 SmartBulb:Warm,17,0.18,bulb128,2022-05-04 10:39:34,2022-07-01 14:36:51,false
@@ -309,7 +309,7 @@ SmartBulb:Warm,12,0.17,bulb155,2022-05-16 16:45:25,2022-07-03 11:18:43,true
 SmartCamera:(1280x720),44,6.22,cam61,2022-04-24 21:25:15,2022-05-02 08:22:52,false
 SmartBulb:Neutral,16,0.24,bulb156,2022-05-15 20:27:47,2022-06-16 17:00:28,false
 SmartBulb:Warm,15,4.31,bulb157,2022-05-15 04:08:35,2022-07-19 00:33:36,true
-Casa:Bernard Ambrosio Georges,990920526,Muon,casa7,Hamanaka-shigai 755-0000
+Casa:Bernard Ambrosio Georges,990920526,Muon,casa7,Hamanaka-shigai 755-0000 nº 386
 Divisao:Escritorio
 SmartBulb:Neutral,5,6.20,bulb158,2022-05-27 13:44:25,2022-06-05 09:20:28,false
 SmartSpeaker:35,Cidade FM,Sennheiser,5.41,speaker34,2022-04-13 07:54:47,2022-06-15 00:18:18,true
@@ -379,7 +379,7 @@ Divisao:Escritorio 2
 SmartBulb:Neutral,13,0.96,bulb185,2022-03-02 23:31:08,2022-07-26 06:12:36,false
 SmartBulb:Neutral,12,7.46,bulb186,2022-04-07 20:10:45,2022-07-03 10:01:36,false
 SmartBulb:Neutral,8,0.19,bulb187,2022-04-06 11:19:09,2022-06-04 18:55:28,true
-Casa:Rui Pedro Oliveira Serrano Morais,028218138,Luzboa,casa8,Notsuharu 574-000
+Casa:Rui Pedro Oliveira Serrano Morais,028218138,Luzboa,casa8,Notsuharu 574-000 nº 492
 Divisao:Escritorio
 SmartBulb:Neutral,11,2.07,bulb188,2022-04-10 23:45:41,2022-06-28 04:10:52,false
 SmartCamera:(1280x720),37,4.95,cam81,2022-03-14 16:58:28,2022-05-03 15:38:46,false
@@ -437,7 +437,7 @@ SmartCamera:(1024x768),84,4.50,cam95,2022-03-20 22:03:48,2022-05-15 13:14:30,fal
 SmartBulb:Neutral,7,4.81,bulb213,2022-04-01 01:53:35,2022-06-09 19:23:43,false
 SmartBulb:Warm,6,0.15,bulb214,2022-04-20 20:15:04,2022-06-15 18:28:04,false
 SmartCamera:(3840x2160),55,3.97,cam96,2022-04-07 18:46:57,2022-05-15 12:12:20,true
-Casa:Andre Oliveira Goncalves,447263069,EDA,casa9,Ue-misaki 354-0000
+Casa:Andre Oliveira Goncalves,447263069,EDA,casa9,Ue-misaki 354-0000 nº 149
 Divisao:Sala de Jantar
 SmartBulb:Neutral,20,0.10,bulb215,2022-05-13 20:36:20,2022-06-09 03:21:16,false
 SmartBulb:Neutral,5,0.18,bulb216,2022-03-30 08:23:49,2022-07-25 07:26:40,true
@@ -466,7 +466,7 @@ Divisao:Escritorio
 SmartBulb:Neutral,7,9.35,bulb230,2022-03-15 00:16:22,2022-06-15 05:30:19,true
 SmartCamera:(2160x1440),87,6.69,cam100,2022-03-27 18:13:33,2022-05-14 23:11:20,false
 SmartBulb:Neutral,19,0.10,bulb231,2022-03-02 02:10:08,2022-07-04 16:09:59,false
-Casa:Orlando Jose da Cunha Palmeira,054636377,EDA,casa10,Komagamine 170-3293
+Casa:Orlando Jose da Cunha Palmeira,054636377,EDA,casa10,Komagamine 170-3293 nº 421
 Divisao:Sala de Jantar
 SmartCamera:(1920x1080),94,5.53,cam101,2022-03-26 00:49:48,2022-05-15 14:09:15,false
 SmartCamera:(1024x768),90,6.85,cam102,2022-03-09 05:21:59,2022-05-12 10:16:03,true
@@ -496,7 +496,7 @@ SmartCamera:(1920x1080),11,5.91,cam108,2022-03-31 23:58:27,2022-05-13 15:20:50,t
 SmartCamera:(3840x2160),120,6.44,cam109,2022-03-12 05:37:53,2022-05-06 18:04:05,false
 SmartBulb:Neutral,8,3.12,bulb239,2022-04-18 18:01:13,2022-07-29 06:29:55,true
 SmartBulb:Warm,17,7.64,bulb240,2022-04-04 18:06:02,2022-07-09 21:25:03,false
-Casa:Simao Jorge da Silva Costa,401348282,EDP Comercial,casa11,Oiwake 574-000
+Casa:Simao Jorge da Silva Costa,401348282,EDP Comercial,casa11,Oiwake 574-000 nº 362
 Divisao:Jardim
 SmartBulb:Neutral,5,0.19,bulb241,2022-04-11 04:40:26,2022-07-21 07:46:44,true
 SmartCamera:(3840x2160),107,5.70,cam110,2022-04-26 00:01:36,2022-05-07 16:35:54,true
@@ -549,7 +549,7 @@ SmartBulb:Neutral,11,0.22,bulb259,2022-04-20 11:12:52,2022-07-21 08:24:15,true
 SmartBulb:Neutral,11,9.30,bulb260,2022-05-25 10:49:51,2022-06-09 09:20:42,true
 Divisao:Garagem
 SmartCamera:(2160x1440),5,4.92,cam126,2022-03-19 09:39:05,2022-05-14 03:13:35,false
-Casa:Carlos Humberto da Silva Ferreira,201451135,Galp Energia,casa12,Urushizaki 904-1300
+Casa:Carlos Humberto da Silva Ferreira,201451135,Galp Energia,casa12,Urushizaki 904-1300 nº 27
 Divisao:Cozinha
 SmartCamera:(1024x768),23,6.81,cam127,2022-03-09 18:53:06,2022-05-03 22:45:44,false
 SmartBulb:Neutral,20,2.18,bulb261,2022-05-02 22:53:51,2022-07-02 08:43:47,true
@@ -559,7 +559,7 @@ SmartCamera:(3840x2160),21,0.44,cam128,2022-03-08 22:30:36,2022-05-13 06:22:47,f
 SmartSpeaker:60,Radio Comercial,Marshall,5.09,speaker65,2022-04-08 17:48:17,2022-05-26 21:01:19,true
 SmartBulb:Neutral,19,0.21,bulb262,2022-05-18 23:55:08,2022-06-05 07:55:25,false
 SmartBulb:Neutral,15,0.10,bulb263,2022-05-09 06:23:12,2022-06-16 21:30:04,true
-Casa:Sofia Manuela Rocha Leite,767542735,Iberdrola,casa13,Satogata 190-0012
+Casa:Sofia Manuela Rocha Leite,767542735,Iberdrola,casa13,Satogata 190-0012 nº 190
 Divisao:Jardim
 SmartBulb:Neutral,8,5.42,bulb264,2022-03-01 21:01:54,2022-06-27 04:27:20,true
 SmartBulb:Warm,14,0.13,bulb265,2022-04-19 01:58:14,2022-06-28 21:14:55,true
@@ -570,7 +570,7 @@ Divisao:Sala de Jantar
 SmartCamera:(1280x720),97,7.12,cam130,2022-03-13 01:42:13,2022-05-11 04:09:43,false
 SmartCamera:(1920x1080),102,5.81,cam131,2022-03-27 16:24:55,2022-05-09 06:38:58,false
 SmartBulb:Neutral,14,0.21,bulb268,2022-03-27 08:28:10,2022-07-22 11:34:15,false
-Casa:Ines Nogueira Ferreira,128996123,Gold Energy,casa14,Nakada 354-0000
+Casa:Ines Nogueira Ferreira,128996123,Gold Energy,casa14,Nakada 354-0000 nº 59
 Divisao:Sala de Estar
 SmartSpeaker:45,Radio Radar,BOSE,5.09,speaker66,2022-03-22 07:25:55,2022-05-28 19:21:53,false
 SmartCamera:(1024x768),5,0.30,cam132,2022-04-11 09:35:10,2022-05-10 23:35:42,true
@@ -612,7 +612,7 @@ SmartCamera:(1366x768),92,6.62,cam141,2022-04-10 04:59:06,2022-05-12 10:54:43,tr
 SmartBulb:Neutral,11,0.21,bulb286,2022-03-25 22:26:17,2022-07-19 23:28:32,false
 SmartBulb:Neutral,5,0.15,bulb287,2022-03-19 09:52:35,2022-07-03 10:39:55,false
 SmartCamera:(1920x1080),24,7.11,cam142,2022-04-29 21:59:40,2022-05-07 00:43:19,false
-Casa:Andre Ye Sun,748522436,YIce,casa15,Itako 564-000
+Casa:Andre Ye Sun,748522436,YIce,casa15,Itako 564-000 nº 263
 Divisao:Sala de Jantar
 SmartBulb:Neutral,12,0.17,bulb288,2022-05-02 16:18:16,2022-06-05 05:34:02,false
 SmartCamera:(1920x1080),26,3.89,cam143,2022-03-22 01:38:48,2022-05-11 08:00:44,true
@@ -626,7 +626,7 @@ SmartCamera:(2160x1440),53,3.79,cam145,2022-03-13 20:03:26,2022-05-12 18:56:41,f
 SmartCamera:(1280x720),62,5.34,cam146,2022-04-01 14:38:11,2022-05-03 07:39:56,false
 SmartSpeaker:53,Radio Radar,BOSE,4.88,speaker72,2022-03-27 01:31:02,2022-06-07 03:13:53,false
 SmartBulb:Cold,12,0.96,bulb291,2022-04-15 00:52:38,2022-07-14 01:03:21,false
-Casa:Rafael Lima Mesquita,107959537,EDP Comercial,casa16,Ar-arume 755-0000
+Casa:Rafael Lima Mesquita,107959537,EDP Comercial,casa16,Ar-arume 755-0000 nº 426
 Divisao:Jardim
 SmartBulb:Neutral,8,2.86,bulb292,2022-04-18 20:00:30,2022-07-25 20:14:09,false
 SmartCamera:(1366x768),43,0.30,cam147,2022-04-21 07:08:47,2022-05-07 18:42:05,true
@@ -658,7 +658,7 @@ SmartBulb:Warm,12,0.18,bulb304,2022-03-20 13:11:29,2022-07-30 06:01:52,true
 SmartBulb:Neutral,17,6.22,bulb305,2022-03-27 05:22:19,2022-07-16 02:18:16,true
 SmartCamera:(1280x720),111,4.04,cam153,2022-03-12 01:27:01,2022-05-02 14:06:02,true
 SmartCamera:(1920x1080),9,0.14,cam154,2022-03-01 12:01:22,2022-05-02 02:56:11,false
-Casa:Telmo Leonel Silva Oliveira,964226097,Galp Energia,casa17,Moikubi 190-0012
+Casa:Telmo Leonel Silva Oliveira,964226097,Galp Energia,casa17,Moikubi 190-0012 nº 40
 Divisao:Cozinha
 SmartBulb:Warm,6,0.28,bulb306,2022-05-19 12:44:54,2022-07-24 18:29:10,false
 SmartBulb:Neutral,5,2.89,bulb307,2022-04-21 16:12:31,2022-07-05 01:07:23,false
@@ -695,7 +695,7 @@ Divisao:Escritorio
 SmartCamera:(1920x1080),87,3.89,cam162,2022-03-04 06:46:40,2022-05-11 03:28:14,true
 SmartBulb:Cold,10,2.44,bulb323,2022-03-26 10:04:28,2022-06-14 21:45:29,false
 SmartBulb:Neutral,6,0.11,bulb324,2022-04-14 04:57:17,2022-07-10 06:58:14,true
-Casa:Joao Ferreira Longo,091953719,MEO Energia,casa18,Kurisu 755-0000
+Casa:Joao Ferreira Longo,091953719,MEO Energia,casa18,Kurisu 755-0000 nº 426
 Divisao:Casa de Banho
 SmartBulb:Neutral,10,0.15,bulb325,2022-04-02 21:26:41,2022-07-14 21:03:33,false
 SmartBulb:Warm,13,0.26,bulb326,2022-04-29 09:58:12,2022-06-11 19:37:12,false
@@ -734,7 +734,7 @@ SmartSpeaker:60,RTP Antena 1 98.3 FM,Bang&Olufsen,4.19,speaker84,2022-03-15 04:0
 SmartCamera:(3840x2160),28,4.71,cam168,2022-03-12 07:24:53,2022-05-07 18:10:45,true
 SmartBulb:Neutral,18,1.87,bulb341,2022-04-29 10:12:25,2022-07-16 19:23:14,true
 SmartBulb:Warm,16,0.10,bulb342,2022-03-04 09:22:58,2022-07-09 22:06:16,true
-Casa:Claudio Alexandre Freitas Bessa,530191794,YIce,casa19,Kami-ochidani 574-000
+Casa:Claudio Alexandre Freitas Bessa,530191794,YIce,casa19,Kami-ochidani 574-000 nº 172
 Divisao:Garagem
 SmartBulb:Neutral,13,1.87,bulb343,2022-03-22 18:37:13,2022-07-04 12:01:15,true
 SmartBulb:Cold,6,8.44,bulb344,2022-03-25 19:33:20,2022-06-23 03:45:24,false
@@ -783,7 +783,7 @@ SmartBulb:Neutral,18,1.37,bulb369,2022-03-02 20:15:51,2022-06-27 20:28:39,true
 SmartBulb:Neutral,15,0.12,bulb370,2022-05-28 23:39:12,2022-06-07 15:57:45,false
 SmartBulb:Neutral,11,5.97,bulb371,2022-03-07 22:19:22,2022-06-13 07:06:49,true
 SmartBulb:Neutral,13,0.14,bulb372,2022-05-27 20:06:40,2022-06-20 12:02:47,true
-Casa:Simao Oliveira Alvim Barroso,256479418,Enat,casa20,Yoshino 755-0000
+Casa:Simao Oliveira Alvim Barroso,256479418,Enat,casa20,Yoshino 755-0000 nº 236
 Divisao:Sala de Jantar
 SmartCamera:(1920x1080),19,5.90,cam176,2022-04-15 19:21:16,2022-05-04 02:01:31,false
 Divisao:Jardim
@@ -825,7 +825,7 @@ SmartCamera:(3840x2160),64,0.14,cam183,2022-03-28 16:51:36,2022-05-09 09:10:20,f
 SmartCamera:(1280x720),51,0.37,cam184,2022-03-26 02:57:04,2022-05-02 21:22:53,true
 SmartBulb:Warm,5,0.17,bulb393,2022-04-03 14:18:38,2022-07-06 00:40:28,true
 SmartBulb:Neutral,11,4.63,bulb394,2022-04-30 20:47:01,2022-06-19 22:00:33,true
-Casa:Joao Daniel da Silva Carvalho,035474064,EDP Comercial,casa21,Aokijima 170-3293
+Casa:Joao Daniel da Silva Carvalho,035474064,EDP Comercial,casa21,Aokijima 170-3293 nº 211
 Divisao:Jardim
 SmartCamera:(1920x1080),39,0.33,cam185,2022-04-17 00:33:35,2022-05-08 18:55:22,false
 SmartSpeaker:60,TSF Radio Noticias,Sony,5.39,speaker91,2022-03-27 10:34:16,2022-04-19 00:08:34,true
@@ -842,7 +842,7 @@ SmartCamera:(1024x768),61,0.14,cam189,2022-03-15 20:43:00,2022-05-14 23:28:19,tr
 SmartCamera:(3840x2160),60,0.36,cam190,2022-04-28 06:59:21,2022-05-15 02:46:54,false
 SmartBulb:Cold,20,8.52,bulb396,2022-04-23 07:37:23,2022-06-24 18:33:32,true
 SmartBulb:Cold,9,0.96,bulb397,2022-05-24 12:57:06,2022-06-05 12:36:42,true
-Casa:Goncalo Lobo Freitas,532125324,Galp Energia,casa22,Ishicha 289-2200
+Casa:Goncalo Lobo Freitas,532125324,Galp Energia,casa22,Ishicha 289-2200 nº 368
 Divisao:Sala de Jantar
 SmartSpeaker:30,M80 Radio,Sony,3.79,speaker95,2022-03-07 15:43:41,2022-05-09 22:36:17,false
 SmartBulb:Neutral,12,4.37,bulb398,2022-03-08 08:58:07,2022-06-25 18:00:45,false
@@ -878,7 +878,7 @@ SmartCamera:(2160x1440),22,5.76,cam195,2022-03-02 21:35:03,2022-05-07 07:50:07,t
 SmartCamera:(1024x768),49,7.17,cam196,2022-03-22 07:25:35,2022-05-09 00:40:32,true
 SmartBulb:Neutral,9,6.17,bulb417,2022-05-28 04:05:14,2022-06-13 02:23:05,false
 SmartBulb:Neutral,19,0.11,bulb418,2022-03-26 04:19:14,2022-07-16 19:34:56,true
-Casa:Manuel Vasconcelos Amaral dos Santos Fernandes,335260796,MEO Energia,casa23,Hiromi 904-1300
+Casa:Manuel Vasconcelos Amaral dos Santos Fernandes,335260796,MEO Energia,casa23,Hiromi 904-1300 nº 67
 Divisao:Sala de Jantar
 SmartCamera:(1920x1080),15,4.54,cam197,2022-04-24 04:22:35,2022-05-02 16:32:32,false
 SmartBulb:Neutral,7,0.13,bulb419,2022-05-16 17:50:50,2022-06-01 06:29:55,true
@@ -938,7 +938,7 @@ SmartBulb:Neutral,13,0.26,bulb445,2022-04-21 21:13:14,2022-06-02 13:17:31,true
 SmartBulb:Neutral,8,0.10,bulb446,2022-04-06 22:17:46,2022-06-05 17:37:47,true
 SmartBulb:Cold,13,0.17,bulb447,2022-03-17 01:58:57,2022-07-27 16:51:26,true
 SmartBulb:Neutral,10,5.18,bulb448,2022-05-17 12:55:54,2022-07-21 15:22:23,false
-Casa:Joao Pedro Silva Neves,066127873,Energia Simples,casa24,Naka-kuwahara 354-0000
+Casa:Joao Pedro Silva Neves,066127873,Energia Simples,casa24,Naka-kuwahara 354-0000 nº 429
 Divisao:Sala de Jantar
 SmartCamera:(1366x768),102,6.61,cam210,2022-03-01 13:11:26,2022-05-06 14:55:58,true
 SmartBulb:Neutral,14,0.12,bulb449,2022-03-20 00:48:18,2022-06-02 12:37:26,true
@@ -1009,7 +1009,7 @@ SmartBulb:Neutral,19,0.18,bulb478,2022-04-11 00:30:47,2022-07-10 18:57:53,false
 SmartBulb:Warm,11,3.80,bulb479,2022-05-12 21:16:39,2022-07-03 13:08:13,false
 SmartCamera:(3840x2160),36,4.76,cam228,2022-03-09 06:57:32,2022-05-05 07:11:58,false
 SmartCamera:(1366x768),104,6.77,cam229,2022-04-21 13:56:18,2022-05-09 17:38:28,true
-Casa:Guilherme Santiago Lopes Pereira,084814078,Energia Simples,casa25,Mōrai 574-000
+Casa:Guilherme Santiago Lopes Pereira,084814078,Energia Simples,casa25,Mōrai 574-000 nº 282
 Divisao:Escritorio
 SmartCamera:(1366x768),50,6.11,cam230,2022-04-15 13:42:23,2022-05-14 22:20:17,true
 SmartBulb:Neutral,17,0.26,bulb480,2022-04-01 09:02:10,2022-06-22 03:12:14,false
@@ -1024,7 +1024,7 @@ SmartBulb:Neutral,19,0.12,bulb484,2022-04-28 12:10:21,2022-06-20 00:44:54,false
 SmartSpeaker:26,Radio Radar,Goodis,5.25,speaker115,2022-03-28 06:55:58,2022-04-20 19:02:44,true
 SmartBulb:Neutral,5,0.12,bulb485,2022-05-30 18:30:13,2022-06-10 15:11:48,false
 SmartBulb:Neutral,13,2.17,bulb486,2022-03-08 05:12:29,2022-07-13 15:39:07,false
-Casa:Pedro Henrique Rosas Ribeiro,461000793,EDA,casa26,Shiramae 190-0012
+Casa:Pedro Henrique Rosas Ribeiro,461000793,EDA,casa26,Shiramae 190-0012 nº 30
 Divisao:Garagem
 SmartCamera:(1024x768),23,6.99,cam233,2022-03-23 21:22:00,2022-05-03 17:41:39,true
 SmartBulb:Neutral,6,0.17,bulb487,2022-03-25 18:04:33,2022-07-27 06:31:53,false
@@ -1074,7 +1074,7 @@ Divisao:Sala de Jantar 1
 SmartBulb:Neutral,19,7.21,bulb515,2022-03-10 01:21:22,2022-06-24 23:28:18,true
 SmartBulb:Warm,18,0.10,bulb516,2022-05-07 22:00:49,2022-07-26 02:46:59,true
 SmartCamera:(1920x1080),7,0.35,cam236,2022-04-19 19:14:39,2022-05-06 15:51:59,false
-Casa:Pedro Jorge Fernandes Martins,712125902,Coopernico,casa27,Kamatsu 574-000
+Casa:Pedro Jorge Fernandes Martins,712125902,Coopernico,casa27,Kamatsu 574-000 nº 362
 Divisao:Sala de Estar
 SmartBulb:Neutral,9,5.34,bulb517,2022-04-06 11:27:36,2022-06-02 18:42:39,true
 SmartCamera:(1024x768),72,3.83,cam237,2022-03-17 06:49:53,2022-05-07 05:17:42,false
@@ -1092,7 +1092,7 @@ SmartCamera:(1280x720),104,0.33,cam241,2022-04-03 03:27:51,2022-05-14 09:25:37,t
 SmartCamera:(1024x768),75,4.39,cam242,2022-04-18 11:51:58,2022-05-12 19:52:29,true
 Divisao:Quarto
 SmartBulb:Neutral,17,6.26,bulb522,2022-04-24 15:33:00,2022-07-08 18:31:40,true
-Casa:Pedro Miguel Castilho Martins,647103885,MEO Energia,casa28,Kosai-shi 564-000
+Casa:Pedro Miguel Castilho Martins,647103885,MEO Energia,casa28,Kosai-shi 564-000 nº 123
 Divisao:Jardim
 SmartSpeaker:60,RFM Oceano Pacifico,BOSE,3.80,speaker124,2022-04-15 12:02:12,2022-05-16 15:44:46,false
 SmartBulb:Neutral,18,0.10,bulb523,2022-04-17 05:03:43,2022-07-29 21:09:07,true
@@ -1154,7 +1154,7 @@ SmartCamera:(2160x1440),92,0.14,cam253,2022-03-27 18:00:42,2022-05-04 23:50:53,f
 SmartBulb:Cold,9,0.27,bulb553,2022-04-29 03:59:20,2022-07-02 08:38:59,false
 SmartBulb:Warm,10,0.10,bulb554,2022-03-10 17:01:25,2022-07-23 20:46:29,true
 SmartBulb:Cold,12,6.85,bulb555,2022-05-27 21:18:04,2022-07-20 02:59:24,false
-Casa:Alexandre Daniel Pinto Teixeira,823857499,YIce,casa29,Tedokon 904-1300
+Casa:Alexandre Daniel Pinto Teixeira,823857499,YIce,casa29,Tedokon 904-1300 nº 67
 Divisao:Casa de Banho
 SmartBulb:Neutral,11,8.91,bulb556,2022-05-21 04:43:39,2022-06-24 05:48:29,false
 Divisao:Cozinha
@@ -1201,7 +1201,7 @@ SmartCamera:(1920x1080),107,0.30,cam267,2022-04-07 08:39:30,2022-05-06 05:22:50,
 SmartBulb:Neutral,15,0.27,bulb568,2022-04-20 11:40:41,2022-06-01 10:24:39,true
 SmartBulb:Neutral,18,8.41,bulb569,2022-03-06 05:54:29,2022-06-25 05:11:44,false
 SmartBulb:Warm,20,2.00,bulb570,2022-05-10 18:06:17,2022-07-11 19:13:51,false
-Casa:Ricardo Silva Machado Araujo,672878530,Iberdrola,casa30,Juroku 030-1500
+Casa:Ricardo Silva Machado Araujo,672878530,Iberdrola,casa30,Juroku 030-1500 nº 135
 Divisao:Cozinha
 SmartBulb:Neutral,13,0.10,bulb571,2022-03-05 19:25:52,2022-06-25 08:15:52,false
 SmartBulb:Neutral,15,0.17,bulb572,2022-03-31 14:31:01,2022-06-19 01:12:22,false
@@ -1214,7 +1214,7 @@ SmartCamera:(1024x768),50,0.37,cam269,2022-04-27 08:43:05,2022-05-15 00:21:00,tr
 SmartBulb:Warm,12,0.12,bulb575,2022-04-01 22:00:33,2022-06-20 06:22:48,false
 SmartBulb:Neutral,10,3.17,bulb576,2022-04-28 08:17:22,2022-06-13 06:04:39,false
 SmartBulb:Neutral,20,2.02,bulb577,2022-04-11 19:31:50,2022-07-20 13:38:09,false
-Casa:Joao Bernardo Teixeira Escudeiro,593777986,Gold Energy,casa31,Teruma 354-0000
+Casa:Joao Bernardo Teixeira Escudeiro,593777986,Gold Energy,casa31,Teruma 354-0000 nº 429
 Divisao:Garagem
 SmartCamera:(3840x2160),63,7.06,cam270,2022-03-05 04:47:42,2022-05-01 18:22:32,true
 SmartSpeaker:33,M80 Radio,BOSE,5.52,speaker144,2022-04-09 08:07:55,2022-04-28 12:18:43,false
@@ -1261,7 +1261,7 @@ SmartBulb:Warm,16,0.16,bulb595,2022-04-02 01:06:32,2022-07-25 22:56:10,true
 SmartBulb:Neutral,5,0.13,bulb596,2022-04-05 11:10:30,2022-07-20 08:01:55,false
 Divisao:Garagem 1
 SmartCamera:(1920x1080),55,5.01,cam280,2022-04-07 08:29:22,2022-05-09 03:46:32,false
-Casa:Diogo Miguel Serra Silva,913359429,Galp Energia,casa32,Beppu 574-000
+Casa:Diogo Miguel Serra Silva,913359429,Galp Energia,casa32,Beppu 574-000 nº 302
 Divisao:Cozinha
 SmartBulb:Warm,16,4.39,bulb597,2022-03-23 23:11:29,2022-07-26 03:52:39,false
 SmartBulb:Neutral,13,8.73,bulb598,2022-05-03 16:34:47,2022-06-24 09:21:39,false
@@ -1279,7 +1279,7 @@ SmartBulb:Warm,8,0.18,bulb604,2022-04-22 08:59:23,2022-06-30 01:34:06,false
 SmartBulb:Warm,9,2.61,bulb605,2022-05-17 08:55:45,2022-06-01 19:31:48,false
 SmartCamera:(1366x768),47,5.26,cam284,2022-03-08 14:19:25,2022-05-03 16:09:48,true
 SmartBulb:Neutral,15,0.10,bulb606,2022-05-09 14:17:57,2022-06-27 14:55:37,false
-Casa:Tiago Alexandre Ferreira Silva,120653813,YIce,casa33,Wora 574-000
+Casa:Tiago Alexandre Ferreira Silva,120653813,YIce,casa33,Wora 574-000 nº 22
 Divisao:Jardim
 SmartBulb:Neutral,5,0.15,bulb607,2022-05-03 17:40:41,2022-06-28 16:05:39,true
 Divisao:Sala de Estar
@@ -1347,7 +1347,7 @@ SmartBulb:Cold,19,0.11,bulb639,2022-04-13 10:25:33,2022-07-17 20:55:11,true
 SmartCamera:(2160x1440),87,5.12,cam301,2022-04-01 11:23:59,2022-05-12 15:07:29,true
 SmartBulb:Neutral,5,0.14,bulb640,2022-03-06 05:52:37,2022-06-18 15:49:17,true
 SmartCamera:(2160x1440),90,6.01,cam302,2022-04-12 09:42:04,2022-05-01 04:15:06,true
-Casa:Jessica Macedo Fernandes,071131578,Muon,casa34,Yaaji 289-2200
+Casa:Jessica Macedo Fernandes,071131578,Muon,casa34,Yaaji 289-2200 nº 58
 Divisao:Sala de Estar
 SmartBulb:Neutral,13,0.96,bulb641,2022-03-15 09:32:02,2022-06-20 05:50:01,true
 SmartSpeaker:70,RTP Antena 1 98.3 FM,Bowers&Wilkins,4.02,speaker158,2022-03-23 17:42:03,2022-04-29 20:18:34,false
@@ -1364,7 +1364,7 @@ SmartCamera:(1366x768),51,0.14,cam305,2022-03-21 14:53:09,2022-05-08 04:05:21,tr
 SmartCamera:(1280x720),47,6.14,cam306,2022-04-09 07:00:37,2022-05-05 19:47:33,false
 SmartSpeaker:80,Radio Comercial,Philips,5.00,speaker161,2022-04-01 22:57:52,2022-05-03 12:16:55,false
 SmartBulb:Neutral,10,2.67,bulb646,2022-05-29 08:18:46,2022-06-29 23:48:23,true
-Casa:Hugo Filipe Silva Abelheira,902918034,Iberdrola,casa35,Hongō 354-0000
+Casa:Hugo Filipe Silva Abelheira,902918034,Iberdrola,casa35,Hongō 354-0000 nº 69
 Divisao:Casa de Banho
 SmartSpeaker:49,Radio Radar,Bang&Olufsen,5.43,speaker162,2022-03-23 14:59:16,2022-04-21 03:18:26,true
 SmartSpeaker:5,Radio Renascenca,Bowers&Wilkins,4.87,speaker163,2022-03-13 10:05:56,2022-05-24 10:17:20,true
@@ -1388,7 +1388,7 @@ SmartSpeaker:55,RFM Oceano Pacifico,LG,5.24,speaker166,2022-03-10 06:08:38,2022-
 SmartBulb:Warm,17,0.17,bulb656,2022-04-12 22:36:56,2022-06-03 00:40:04,false
 SmartBulb:Neutral,8,0.13,bulb657,2022-04-05 08:26:53,2022-07-30 09:59:40,false
 SmartCamera:(1366x768),52,0.30,cam310,2022-04-23 23:46:29,2022-05-01 01:13:09,true
-Casa:Eduardo Fernando Cruz Henriques,306504074,Endesa,casa36,Kami-teshibetsu 904-1300
+Casa:Eduardo Fernando Cruz Henriques,306504074,Endesa,casa36,Kami-teshibetsu 904-1300 nº 167
 Divisao:Jardim
 SmartSpeaker:55,TSF Radio Noticias,JBL,4.34,speaker167,2022-04-04 14:41:36,2022-05-09 07:24:50,false
 SmartSpeaker:29,RFM Oceano Pacifico,Goodis,5.49,speaker168,2022-03-10 11:56:03,2022-05-05 17:28:05,true
@@ -1408,7 +1408,7 @@ SmartBulb:Neutral,8,1.44,bulb664,2022-04-20 00:16:33,2022-06-05 00:43:03,true
 SmartSpeaker:35,Radio Comercial,LG,5.29,speaker170,2022-03-11 20:12:35,2022-05-23 13:41:03,true
 SmartBulb:Neutral,12,0.18,bulb665,2022-04-11 19:17:54,2022-07-17 22:15:18,true
 SmartBulb:Neutral,17,0.11,bulb666,2022-03-29 10:52:27,2022-06-17 22:00:34,false
-Casa:Francisco Luis Rodrigues Claudino,295116354,EDP Comercial,casa37,Miyajima 564-000
+Casa:Francisco Luis Rodrigues Claudino,295116354,EDP Comercial,casa37,Miyajima 564-000 nº 393
 Divisao:Sala de Jantar
 SmartSpeaker:50,Cidade FM,Sennheiser,3.84,speaker171,2022-03-23 19:47:10,2022-05-27 07:19:34,true
 SmartBulb:Warm,12,0.29,bulb667,2022-04-11 19:48:43,2022-07-03 09:14:08,false
@@ -1447,7 +1447,7 @@ SmartBulb:Neutral,16,9.56,bulb687,2022-04-23 05:18:39,2022-06-18 23:28:40,false
 SmartBulb:Neutral,18,0.16,bulb688,2022-03-15 16:07:39,2022-06-28 20:52:50,true
 SmartCamera:(1920x1080),27,0.46,cam318,2022-04-19 10:14:45,2022-05-09 23:20:01,true
 SmartBulb:Neutral,5,2.25,bulb689,2022-04-17 17:50:50,2022-07-09 14:08:44,true
-Casa:Joao Afonso Alvim Oliveira Dias de Almeida,655613173,Luzboa,casa38,Suika 755-0000
+Casa:Joao Afonso Alvim Oliveira Dias de Almeida,655613173,Luzboa,casa38,Suika 755-0000 nº 456
 Divisao:Cozinha
 SmartBulb:Neutral,11,5.27,bulb690,2022-03-25 01:27:51,2022-06-07 05:16:10,false
 Divisao:Jardim
@@ -1457,7 +1457,7 @@ SmartSpeaker:48,Radio Radar,Sony,4.91,speaker175,2022-03-12 23:32:49,2022-06-02 
 SmartBulb:Neutral,13,0.13,bulb691,2022-05-27 05:10:39,2022-07-01 11:29:46,true
 SmartBulb:Warm,20,0.18,bulb692,2022-03-11 06:20:08,2022-07-16 05:49:33,false
 SmartBulb:Neutral,14,7.06,bulb693,2022-05-01 20:08:31,2022-06-23 18:50:44,false
-Casa:Adelio Jose Ferreira Fernandes,468574268,Enat,casa39,Kogota 170-3293
+Casa:Adelio Jose Ferreira Fernandes,468574268,Enat,casa39,Kogota 170-3293 nº 11
 Divisao:Casa de Banho
 SmartSpeaker:40,RTP Antena 1 98.3 FM,Marshall,5.00,speaker176,2022-03-16 17:54:57,2022-06-02 16:55:55,false
 SmartBulb:Neutral,14,1.44,bulb694,2022-03-05 07:53:22,2022-06-17 11:31:06,true
@@ -1508,7 +1508,7 @@ SmartSpeaker:35,RTP Antena 1 98.3 FM,BOSE,5.05,speaker182,2022-04-13 09:13:07,20
 SmartSpeaker:30,Cidade FM,Bowers&Wilkins,5.18,speaker183,2022-03-31 13:16:27,2022-05-19 14:47:35,false
 SmartCamera:(1920x1080),71,6.88,cam328,2022-04-25 09:29:23,2022-05-03 05:45:07,false
 SmartBulb:Neutral,10,6.26,bulb719,2022-05-29 21:59:52,2022-06-04 12:32:01,false
-Casa:Rafael dos Anjos Areas,910032093,Coopernico,casa40,Fuse 574-000
+Casa:Rafael dos Anjos Areas,910032093,Coopernico,casa40,Fuse 574-000 nº 42
 Divisao:Sala de Jantar
 SmartCamera:(1024x768),58,4.67,cam329,2022-03-05 22:56:32,2022-05-03 02:09:57,false
 SmartBulb:Cold,12,1.44,bulb720,2022-04-22 22:15:52,2022-06-22 21:02:02,true
@@ -1556,7 +1556,7 @@ SmartBulb:Neutral,6,6.61,bulb743,2022-03-10 02:42:47,2022-06-10 01:22:38,false
 SmartCamera:(3840x2160),48,0.39,cam335,2022-04-06 16:28:33,2022-05-08 16:18:48,false
 SmartCamera:(1920x1080),58,5.81,cam336,2022-04-06 05:12:42,2022-05-15 02:02:53,true
 SmartBulb:Neutral,19,0.24,bulb744,2022-03-14 18:44:38,2022-06-12 18:45:21,true
-Casa:Simao Pedro Cunha Matos,986848067,Iberdrola,casa41,Kawasaki 354-0000
+Casa:Simao Pedro Cunha Matos,986848067,Iberdrola,casa41,Kawasaki 354-0000 nº 229
 Divisao:Cozinha
 SmartBulb:Warm,17,0.14,bulb745,2022-03-02 17:39:51,2022-06-16 14:35:13,false
 SmartBulb:Neutral,19,0.22,bulb746,2022-05-17 19:43:33,2022-07-12 04:21:18,true
@@ -1581,7 +1581,7 @@ SmartBulb:Neutral,7,0.21,bulb754,2022-05-25 13:09:39,2022-07-06 12:11:27,false
 SmartBulb:Neutral,8,0.27,bulb755,2022-03-17 08:07:54,2022-07-25 00:15:20,true
 Divisao:Casa de Banho
 SmartBulb:Cold,11,0.20,bulb756,2022-05-19 15:42:10,2022-07-23 10:40:04,true
-Casa:Diana Ribeiro Mateus,895149350,Luzboa,casa42,Shibazakichō 564-000
+Casa:Diana Ribeiro Mateus,895149350,Luzboa,casa42,Shibazakichō 564-000 nº 373
 Divisao:Casa de Banho
 SmartBulb:Neutral,13,0.28,bulb757,2022-04-25 03:35:05,2022-07-20 09:26:58,false
 SmartBulb:Neutral,15,0.22,bulb758,2022-04-18 22:40:17,2022-07-20 07:29:24,true
@@ -1615,7 +1615,7 @@ SmartBulb:Neutral,6,6.76,bulb773,2022-05-23 06:48:22,2022-06-04 20:25:40,false
 SmartSpeaker:32,Cidade FM,Philips,5.10,speaker196,2022-03-11 05:52:50,2022-05-20 14:09:31,true
 Divisao:Garagem
 SmartBulb:Neutral,7,0.16,bulb774,2022-04-08 22:25:46,2022-06-16 13:44:40,false
-Casa:Lara Beatriz Pinto Ferreira,252510371,YIce,casa43,Kanazawa 170-3293
+Casa:Lara Beatriz Pinto Ferreira,252510371,YIce,casa43,Kanazawa 170-3293 nº 421
 Divisao:Casa de Banho
 SmartCamera:(1280x720),104,5.42,cam349,2022-03-03 07:41:12,2022-05-08 09:35:21,true
 SmartCamera:(2160x1440),114,3.77,cam350,2022-04-13 02:37:15,2022-05-12 13:59:32,true
@@ -1655,7 +1655,7 @@ SmartSpeaker:30,TSF Radio Noticias,BOSE,5.17,speaker202,2022-03-28 01:37:18,2022
 SmartBulb:Neutral,18,0.14,bulb789,2022-03-27 12:35:32,2022-07-01 07:39:48,true
 SmartBulb:Neutral,6,0.11,bulb790,2022-04-24 10:42:34,2022-06-09 06:14:30,true
 SmartBulb:Neutral,6,2.27,bulb791,2022-04-25 23:31:44,2022-06-28 18:11:05,true
-Casa:Benjamim Meleiro Rodrigues,684554457,Coopernico,casa44,Nesaki 354-0000
+Casa:Benjamim Meleiro Rodrigues,684554457,Coopernico,casa44,Nesaki 354-0000 nº 419
 Divisao:Escritorio
 SmartBulb:Neutral,7,6.30,bulb792,2022-05-16 21:35:37,2022-06-02 18:01:40,true
 SmartBulb:Neutral,19,0.23,bulb793,2022-04-18 19:31:19,2022-07-16 11:09:51,false
@@ -1723,7 +1723,7 @@ SmartBulb:Neutral,18,2.35,bulb831,2022-03-01 13:30:07,2022-07-24 16:07:00,true
 SmartBulb:Warm,17,0.24,bulb832,2022-05-01 01:43:42,2022-07-30 16:04:21,false
 SmartCamera:(1280x720),32,7.09,cam364,2022-03-22 08:09:15,2022-05-07 09:09:46,true
 SmartCamera:(1920x1080),8,6.14,cam365,2022-03-08 02:58:30,2022-05-11 18:47:22,false
-Casa:Joao Antonio Redondo Martins,964258257,SU Electricidade,casa45,Yokota 999-3700
+Casa:Joao Antonio Redondo Martins,964258257,SU Electricidade,casa45,Yokota 999-3700 nº 284
 Divisao:Escritorio
 SmartCamera:(1024x768),119,7.04,cam366,2022-03-21 10:11:52,2022-05-11 02:14:33,false
 SmartCamera:(3840x2160),74,0.29,cam367,2022-03-08 08:20:13,2022-05-08 00:35:05,false
@@ -1767,7 +1767,7 @@ SmartBulb:Cold,11,2.88,bulb854,2022-05-20 00:00:21,2022-06-19 21:29:19,false
 SmartBulb:Warm,15,4.71,bulb855,2022-05-12 00:01:38,2022-06-05 05:21:34,true
 SmartBulb:Cold,15,0.15,bulb856,2022-04-05 00:48:12,2022-07-26 11:01:12,true
 SmartCamera:(1024x768),64,6.29,cam376,2022-04-09 19:40:48,2022-05-03 11:10:45,true
-Casa:Jose Diogo Lopes Faria,167379882,Energia Simples,casa46,Kami-misaka 904-1300
+Casa:Jose Diogo Lopes Faria,167379882,Energia Simples,casa46,Kami-misaka 904-1300 nº 37
 Divisao:Garagem
 SmartBulb:Warm,10,0.29,bulb857,2022-04-09 09:56:19,2022-07-24 11:06:46,false
 SmartCamera:(3840x2160),28,5.84,cam377,2022-04-28 13:42:42,2022-05-10 06:07:44,true
@@ -1820,7 +1820,7 @@ SmartCamera:(2160x1440),41,4.54,cam387,2022-04-23 05:02:19,2022-05-07 20:06:01,t
 SmartBulb:Warm,6,0.14,bulb881,2022-03-16 12:32:12,2022-06-02 00:56:27,true
 SmartBulb:Neutral,10,4.04,bulb882,2022-05-18 23:29:32,2022-07-24 22:46:04,false
 SmartSpeaker:57,Radio Comercial,LG,5.06,speaker219,2022-03-04 14:07:17,2022-04-28 10:51:57,true
-Casa:Artur Jorge Castro Leite,252186140,EDP Comercial,casa47,Binnai 289-2200
+Casa:Artur Jorge Castro Leite,252186140,EDP Comercial,casa47,Binnai 289-2200 nº 198
 Divisao:Garagem
 SmartBulb:Neutral,20,0.17,bulb883,2022-03-25 03:54:59,2022-07-12 13:47:02,false
 SmartBulb:Neutral,17,4.52,bulb884,2022-04-28 15:55:07,2022-07-25 21:14:44,true
@@ -1881,7 +1881,7 @@ SmartBulb:Neutral,5,0.17,bulb912,2022-04-04 02:40:00,2022-07-24 05:45:30,true
 SmartBulb:Cold,19,2.99,bulb913,2022-04-25 07:57:55,2022-05-30 21:29:24,true
 SmartCamera:(3840x2160),29,4.36,cam401,2022-04-01 16:52:39,2022-05-07 18:40:59,true
 SmartSpeaker:65,TSF Radio Noticias,Goodis,3.83,speaker227,2022-03-08 22:11:53,2022-05-12 02:24:30,false
-Casa:Rui Guilherme Bretao Rego dos Santos Monteiro,946176918,Energia Simples,casa48,Shirai 999-3700
+Casa:Rui Guilherme Bretao Rego dos Santos Monteiro,946176918,Energia Simples,casa48,Shirai 999-3700 nº 324
 Divisao:Cozinha
 SmartSpeaker:78,M80 Radio,Bang&Olufsen,3.84,speaker228,2022-03-19 01:02:13,2022-06-04 20:33:51,false
 SmartBulb:Cold,19,8.61,bulb914,2022-03-11 03:23:54,2022-06-19 05:37:35,false
@@ -1946,7 +1946,7 @@ SmartCamera:(3840x2160),25,4.90,cam415,2022-03-31 06:45:30,2022-05-11 21:07:05,t
 SmartBulb:Neutral,5,4.65,bulb942,2022-04-27 14:12:06,2022-06-04 09:30:53,true
 SmartSpeaker:95,RTP Antena 1 98.3 FM,LG,4.21,speaker238,2022-03-10 00:34:30,2022-05-05 10:47:28,true
 SmartBulb:Warm,15,3.47,bulb943,2022-03-22 05:02:22,2022-06-26 19:57:34,false
-Casa:Joao Miguel da Silva Pinto Ferreira,492705044,EDP Comercial,casa49,Himoura 030-1500
+Casa:Joao Miguel da Silva Pinto Ferreira,492705044,EDP Comercial,casa49,Himoura 030-1500 nº 315
 Divisao:Cozinha
 SmartCamera:(3840x2160),35,4.29,cam416,2022-04-28 08:51:17,2022-05-09 17:33:16,true
 SmartBulb:Warm,18,7.37,bulb944,2022-03-02 10:09:13,2022-07-15 18:22:14,true
@@ -1964,7 +1964,7 @@ SmartSpeaker:50,M80 Radio,Marshall,3.67,speaker242,2022-03-26 15:11:27,2022-05-1
 SmartBulb:Warm,7,0.13,bulb949,2022-05-20 16:00:49,2022-06-12 12:24:47,false
 SmartCamera:(1024x768),5,5.97,cam418,2022-04-07 23:21:17,2022-05-05 04:11:43,true
 SmartBulb:Warm,20,0.21,bulb950,2022-04-11 16:14:26,2022-07-27 14:53:52,false
-Casa:Pedro Pereira Sousa,678095268,MEO Energia,casa50,Uku 190-0012
+Casa:Pedro Pereira Sousa,678095268,MEO Energia,casa50,Uku 190-0012 nº 370
 Divisao:Quarto
 SmartBulb:Neutral,7,0.18,bulb951,2022-03-28 17:51:00,2022-07-08 16:03:28,false
 SmartBulb:Neutral,15,9.24,bulb952,2022-04-22 19:15:30,2022-05-30 04:47:53,false
@@ -2036,7 +2036,7 @@ SmartBulb:Neutral,8,4.15,bulb985,2022-04-13 12:33:21,2022-07-15 13:28:15,true
 SmartSpeaker:55,RFM Oceano Pacifico,LG,5.36,speaker251,2022-03-03 17:41:04,2022-06-02 10:07:09,false
 SmartSpeaker:65,Cidade FM,Bang&Olufsen,3.83,speaker252,2022-04-14 22:05:04,2022-06-15 18:39:41,false
 SmartCamera:(3840x2160),6,6.71,cam434,2022-03-10 19:30:52,2022-05-03 11:18:44,false
-Casa:Flavio Alexandre Marques da Silva,504970345,Endesa,casa51,Honna 564-000
+Casa:Flavio Alexandre Marques da Silva,504970345,Endesa,casa51,Honna 564-000 nº 413
 Divisao:Sala de Jantar
 SmartBulb:Neutral,5,0.25,bulb986,2022-04-04 08:02:23,2022-07-21 10:04:01,false
 SmartBulb:Warm,14,1.58,bulb987,2022-03-08 10:32:36,2022-06-30 00:17:08,true
@@ -2100,7 +2100,7 @@ SmartBulb:Neutral,20,0.12,bulb1018,2022-05-06 22:30:57,2022-07-02 10:46:02,true
 SmartCamera:(1920x1080),74,0.38,cam443,2022-03-28 04:15:44,2022-05-06 15:40:23,true
 SmartCamera:(3840x2160),49,0.96,cam444,2022-03-03 20:37:34,2022-05-09 08:39:07,false
 SmartSpeaker:35,MEGA HITS,Philips,5.19,speaker262,2022-04-08 15:16:32,2022-06-02 04:06:55,false
-Casa:Miguel de Sousa Braga,519136609,Energia Simples,casa52,Nishikōri-mura 755-0000
+Casa:Miguel de Sousa Braga,519136609,Energia Simples,casa52,Nishikōri-mura 755-0000 nº 26
 Divisao:Sala de Estar
 SmartBulb:Neutral,11,0.24,bulb1019,2022-05-12 04:19:56,2022-07-12 19:46:11,false
 SmartBulb:Warm,9,6.78,bulb1020,2022-03-29 07:44:49,2022-06-17 15:09:28,false
@@ -2134,7 +2134,7 @@ SmartSpeaker:40,Radio Comercial,Sennheiser,5.32,speaker265,2022-04-12 09:13:44,2
 SmartBulb:Neutral,16,0.29,bulb1032,2022-04-06 21:56:13,2022-07-21 22:54:53,false
 SmartBulb:Warm,10,0.15,bulb1033,2022-03-29 16:35:49,2022-07-04 22:14:37,false
 SmartSpeaker:70,RTP Antena 1 98.3 FM,BOSE,3.82,speaker266,2022-04-14 23:25:10,2022-04-30 19:16:20,true
-Casa:Diana Filipa Ferreira Malheiro Teixeira,271131710,Muon,casa53,Nagasawa 170-3293
+Casa:Diana Filipa Ferreira Malheiro Teixeira,271131710,Muon,casa53,Nagasawa 170-3293 nº 91
 Divisao:Sala de Jantar
 SmartBulb:Warm,16,0.17,bulb1034,2022-03-11 16:31:40,2022-06-26 17:36:57,true
 SmartCamera:(1024x768),81,0.41,cam453,2022-03-01 22:19:15,2022-05-06 00:04:15,true
@@ -2186,7 +2186,7 @@ SmartSpeaker:17,RFM,Marshall,4.06,speaker272,2022-03-26 23:40:55,2022-06-06 06:1
 SmartBulb:Cold,6,2.32,bulb1058,2022-03-27 04:56:37,2022-07-02 23:02:24,true
 SmartSpeaker:72,Radio Renascenca,BOSE,3.96,speaker273,2022-04-01 19:38:08,2022-06-05 05:09:44,true
 SmartCamera:(1366x768),71,5.74,cam464,2022-04-28 18:43:07,2022-05-06 00:25:54,true
-Casa:Luis Miguel Teixeira Fernandes,152665966,Energia Simples,casa54,Benkei 190-0012
+Casa:Luis Miguel Teixeira Fernandes,152665966,Energia Simples,casa54,Benkei 190-0012 nº 480
 Divisao:Cozinha
 SmartCamera:(2160x1440),39,4.23,cam465,2022-04-05 11:34:55,2022-05-08 23:10:15,false
 SmartBulb:Warm,19,0.16,bulb1059,2022-03-22 13:08:01,2022-07-23 20:58:56,true
@@ -2218,7 +2218,7 @@ SmartCamera:(1280x720),75,6.13,cam473,2022-03-22 00:42:44,2022-05-10 17:44:06,tr
 SmartBulb:Neutral,9,0.21,bulb1068,2022-04-05 16:28:06,2022-05-30 17:06:47,true
 SmartBulb:Cold,5,0.10,bulb1069,2022-04-30 18:48:37,2022-07-21 08:29:00,true
 SmartBulb:Neutral,12,2.53,bulb1070,2022-03-12 17:29:59,2022-06-25 13:37:38,true
-Casa:Eduardo Miguel Pacheco Silva,961848267,MEO Energia,casa55,Koichi 755-0000
+Casa:Eduardo Miguel Pacheco Silva,961848267,MEO Energia,casa55,Koichi 755-0000 nº 456
 Divisao:Casa de Banho
 SmartBulb:Warm,14,9.60,bulb1071,2022-05-29 18:07:55,2022-07-13 14:38:29,false
 Divisao:Cozinha
@@ -2239,7 +2239,7 @@ SmartBulb:Warm,9,6.19,bulb1081,2022-03-14 11:12:41,2022-07-09 20:54:21,true
 SmartCamera:(3840x2160),28,5.13,cam475,2022-04-25 14:30:33,2022-05-09 08:41:59,false
 SmartBulb:Neutral,19,0.29,bulb1082,2022-04-07 03:00:01,2022-06-13 14:33:30,false
 SmartBulb:Warm,11,5.80,bulb1083,2022-03-09 04:27:54,2022-07-27 06:20:41,false
-Casa:Guilherme Geraldes Sampaio,995165961,MEO Energia,casa56,Mizukue 564-000
+Casa:Guilherme Geraldes Sampaio,995165961,MEO Energia,casa56,Mizukue 564-000 nº 373
 Divisao:Sala de Estar
 SmartBulb:Neutral,6,1.44,bulb1084,2022-03-18 05:03:00,2022-07-10 18:58:41,true
 Divisao:Escritorio
@@ -2258,7 +2258,7 @@ Divisao:Garagem 1
 SmartBulb:Warm,7,0.11,bulb1091,2022-04-30 23:20:37,2022-06-06 01:22:39,true
 SmartSpeaker:55,Radio Radar,Marshall,5.29,speaker282,2022-04-03 14:02:48,2022-06-01 23:55:14,true
 SmartBulb:Neutral,5,8.82,bulb1092,2022-05-12 03:55:39,2022-06-19 18:10:20,false
-Casa:Joao Manuel Novais da Silva,572797102,EDP Comercial,casa57,Miyazaki 574-000
+Casa:Joao Manuel Novais da Silva,572797102,EDP Comercial,casa57,Miyazaki 574-000 nº 362170
 Divisao:Escritorio
 SmartBulb:Neutral,11,0.25,bulb1093,2022-03-17 16:53:21,2022-06-04 16:09:19,false
 SmartBulb:Warm,9,4.46,bulb1094,2022-05-02 01:48:35,2022-07-16 02:25:01,false
@@ -2301,7 +2301,7 @@ SmartBulb:Warm,16,0.12,bulb1117,2022-03-31 17:58:08,2022-06-15 21:22:16,true
 SmartCamera:(2160x1440),59,6.72,cam486,2022-03-28 02:41:20,2022-05-13 03:20:36,false
 SmartCamera:(1920x1080),61,4.65,cam487,2022-03-21 01:01:34,2022-05-14 12:30:07,false
 SmartBulb:Warm,15,2.55,bulb1118,2022-04-07 08:23:39,2022-07-02 15:54:51,true
-Casa:Joao Pedro Moreira Brito,379541413,Coopernico,casa58,Kōjin 190-0012
+Casa:Joao Pedro Moreira Brito,379541413,Coopernico,casa58,Kōjin 190-0012 nº 496
 Divisao:Jardim
 SmartSpeaker:2,M80 Radio,BOSE,3.75,speaker284,2022-04-15 01:47:46,2022-04-18 06:12:29,true
 SmartBulb:Cold,11,5.59,bulb1119,2022-05-01 14:40:50,2022-07-05 13:17:42,false
@@ -2347,7 +2347,7 @@ SmartBulb:Warm,7,1.37,bulb1139,2022-05-23 16:59:40,2022-06-02 15:03:48,true
 SmartBulb:Cold,12,0.12,bulb1140,2022-04-15 05:41:12,2022-06-03 10:49:56,false
 SmartBulb:Neutral,14,0.27,bulb1141,2022-05-01 02:04:08,2022-07-21 15:29:58,false
 SmartBulb:Neutral,14,0.14,bulb1142,2022-04-17 19:36:10,2022-06-19 12:36:01,true
-Casa:Guilherme de Araujo Soares,866502197,Muon,casa59,Sempōshi 755-0000
+Casa:Guilherme de Araujo Soares,866502197,Muon,casa59,Sempōshi 755-0000 nº 281
 Divisao:Casa de Banho
 SmartCamera:(1366x768),71,4.26,cam499,2022-03-12 12:24:28,2022-05-08 23:28:29,true
 SmartCamera:(1024x768),49,5.36,cam500,2022-04-09 16:07:25,2022-05-03 15:56:40,true
@@ -2379,7 +2379,7 @@ SmartSpeaker:70,MEGA HITS,JBL,5.08,speaker289,2022-04-10 04:19:40,2022-06-06 20:
 Divisao:Jardim
 SmartBulb:Neutral,15,9.31,bulb1158,2022-04-01 14:56:05,2022-07-07 13:59:19,false
 SmartBulb:Neutral,18,9.81,bulb1159,2022-03-18 21:44:52,2022-07-17 01:44:12,true
-Casa:Rodrigo Pires Rodrigues,824334619,Galp Energia,casa60,Kiyamugusuku 170-3293
+Casa:Rodrigo Pires Rodrigues,824334619,Galp Energia,casa60,Kiyamugusuku 170-3293 nº 305
 Divisao:Quarto
 SmartBulb:Neutral,9,0.13,bulb1160,2022-05-28 03:34:40,2022-06-24 11:12:31,false
 SmartBulb:Neutral,15,0.17,bulb1161,2022-05-27 20:28:33,2022-07-26 14:14:01,false
@@ -2446,7 +2446,7 @@ SmartBulb:Warm,18,0.18,bulb1192,2022-05-08 22:20:56,2022-06-06 19:24:59,false
 Divisao:Escritorio 1
 SmartBulb:Warm,10,0.11,bulb1193,2022-04-23 20:32:54,2022-07-21 22:45:30,true
 SmartCamera:(3840x2160),24,7.11,cam519,2022-04-30 06:41:55,2022-05-07 14:53:13,true
-Casa:Carlos Alberto Fernandes Dias da Silva,138833440,YIce,casa61,Harimochi 030-1500
+Casa:Carlos Alberto Fernandes Dias da Silva,138833440,YIce,casa61,Harimochi 030-1500 nº 425
 Divisao:Sala de Estar
 SmartBulb:Neutral,10,0.14,bulb1194,2022-04-27 19:56:12,2022-07-10 05:56:48,false
 SmartBulb:Warm,14,0.18,bulb1195,2022-03-30 03:36:26,2022-07-27 18:32:42,false
@@ -2523,7 +2523,7 @@ SmartSpeaker:37,Radio Renascenca,Philips,4.99,speaker307,2022-03-21 22:39:23,202
 SmartSpeaker:30,RFM,Philips,3.73,speaker308,2022-03-26 19:49:13,2022-04-19 15:59:04,true
 SmartBulb:Neutral,14,0.13,bulb1232,2022-05-29 03:30:57,2022-07-14 00:06:58,true
 SmartBulb:Neutral,9,1.44,bulb1233,2022-04-02 19:25:24,2022-06-27 17:59:53,true
-Casa:Carlos Daniel da Silva Santos,519213345,MEO Energia,casa62,Banyamine 030-1500
+Casa:Carlos Daniel da Silva Santos,519213345,MEO Energia,casa62,Banyamine 030-1500 nº 84
 Divisao:Sala de Estar
 SmartBulb:Neutral,10,0.15,bulb1234,2022-05-05 07:11:38,2022-07-04 13:05:37,true
 SmartCamera:(1024x768),8,4.01,cam535,2022-04-26 20:00:35,2022-05-15 02:57:39,false
@@ -2551,7 +2551,7 @@ SmartBulb:Neutral,5,3.37,bulb1248,2022-04-03 01:57:45,2022-06-14 04:09:26,false
 SmartBulb:Neutral,8,0.15,bulb1249,2022-04-29 21:18:07,2022-06-05 04:29:33,false
 SmartBulb:Warm,11,0.19,bulb1250,2022-05-10 16:05:45,2022-06-14 08:01:01,true
 SmartCamera:(1280x720),30,7.11,cam538,2022-04-12 16:26:36,2022-05-12 03:57:13,true
-Casa:Francisco Pinto Lameirao,614476973,Enat,casa63,Taruta 999-3700
+Casa:Francisco Pinto Lameirao,614476973,Enat,casa63,Taruta 999-3700 nº 327
 Divisao:Jardim
 SmartBulb:Neutral,10,4.42,bulb1251,2022-04-04 23:30:09,2022-07-30 10:39:19,true
 SmartSpeaker:50,RTP Antena 1 98.3 FM,Philips,4.17,speaker311,2022-04-03 05:59:05,2022-05-20 12:32:25,false
@@ -2602,7 +2602,7 @@ SmartBulb:Neutral,11,5.51,bulb1270,2022-04-02 22:18:20,2022-06-08 01:50:05,false
 SmartBulb:Neutral,20,0.21,bulb1271,2022-05-09 05:51:58,2022-07-04 12:50:21,false
 SmartBulb:Cold,14,8.75,bulb1272,2022-03-08 18:53:21,2022-06-26 14:59:34,true
 SmartCamera:(1366x768),43,5.07,cam551,2022-03-31 09:26:14,2022-05-10 16:55:20,true
-Casa:Leonardo de Freitas Marreiros,886218546,SU Electricidade,casa64,Sasebo 904-1300
+Casa:Leonardo de Freitas Marreiros,886218546,SU Electricidade,casa64,Sasebo 904-1300 nº 336
 Divisao:Garagem
 SmartCamera:(2160x1440),114,6.02,cam552,2022-03-24 14:18:54,2022-05-15 15:41:38,false
 SmartBulb:Neutral,17,9.64,bulb1273,2022-03-30 05:40:52,2022-07-10 07:53:30,false
@@ -2637,7 +2637,7 @@ SmartCamera:(1280x720),67,0.25,cam557,2022-03-10 07:03:02,2022-05-04 13:11:07,tr
 SmartBulb:Cold,5,0.96,bulb1290,2022-04-24 09:02:58,2022-06-23 05:48:29,false
 SmartCamera:(1366x768),81,0.29,cam558,2022-03-01 01:14:19,2022-05-10 04:32:25,false
 SmartCamera:(1024x768),17,0.34,cam559,2022-04-16 11:14:00,2022-05-10 15:38:39,false
-Casa:Beatriz Ribeiro Monteiro,506837297,Galp Energia,casa65,Tani 755-0000
+Casa:Beatriz Ribeiro Monteiro,506837297,Galp Energia,casa65,Tani 755-0000 nº 5
 Divisao:Jardim
 SmartCamera:(2160x1440),77,4.19,cam560,2022-04-08 02:59:48,2022-05-02 03:52:27,true
 SmartBulb:Warm,15,0.16,bulb1291,2022-04-15 05:06:39,2022-07-15 01:03:40,false
@@ -2667,7 +2667,7 @@ SmartBulb:Neutral,6,0.23,bulb1302,2022-05-09 03:39:49,2022-06-06 21:41:28,false
 SmartSpeaker:42,M80 Radio,Philips,5.29,speaker324,2022-03-01 18:56:04,2022-06-03 11:34:54,true
 Divisao:Sala de Jantar
 SmartBulb:Warm,7,0.13,bulb1303,2022-05-17 22:49:56,2022-07-14 06:54:51,false
-Casa:Marta Isabel da Silva e Sa,842037533,Gold Energy,casa66,Kameyama 030-1500
+Casa:Marta Isabel da Silva e Sa,842037533,Gold Energy,casa66,Kameyama 030-1500 nº 346
 Divisao:Escritorio
 SmartBulb:Neutral,8,0.21,bulb1304,2022-05-26 04:10:29,2022-06-26 07:19:46,true
 SmartBulb:Neutral,11,7.94,bulb1305,2022-04-18 06:54:53,2022-07-23 10:55:12,false
@@ -2691,14 +2691,14 @@ SmartBulb:Neutral,6,2.81,bulb1315,2022-03-27 10:41:14,2022-06-09 08:16:13,false
 SmartBulb:Cold,17,0.19,bulb1316,2022-04-10 04:01:00,2022-06-26 08:25:08,true
 SmartBulb:Neutral,6,0.11,bulb1317,2022-03-31 23:08:08,2022-06-06 06:41:18,true
 SmartSpeaker:72,RFM Oceano Pacifico,Goodis,5.44,speaker327,2022-03-10 02:56:18,2022-06-13 19:41:17,false
-Casa:Afonso Laureano Barros Amorim,138227846,YIce,casa67,Okitu 755-0000
+Casa:Afonso Laureano Barros Amorim,138227846,YIce,casa67,Okitu 755-0000 nº 229
 Divisao:Garagem
 SmartBulb:Warm,9,4.33,bulb1318,2022-03-03 21:56:12,2022-07-20 04:34:40,true
 SmartBulb:Neutral,7,0.14,bulb1319,2022-05-01 15:43:54,2022-07-02 12:54:25,true
 SmartBulb:Warm,14,0.19,bulb1320,2022-03-18 23:52:02,2022-07-25 11:09:25,true
 Divisao:Jardim
 SmartCamera:(1920x1080),34,6.45,cam572,2022-04-12 04:58:27,2022-05-08 21:30:17,false
-Casa:Gerson Henrique de Araujo Junior,633495089,EDP Comercial,casa68,Kitagata 354-0000
+Casa:Gerson Henrique de Araujo Junior,633495089,EDP Comercial,casa68,Kitagata 354-0000 nº 313
 Divisao:Quarto
 SmartBulb:Neutral,16,8.36,bulb1321,2022-04-07 14:33:37,2022-06-29 21:14:46,false
 SmartBulb:Cold,11,1.14,bulb1322,2022-04-30 13:37:04,2022-07-01 23:12:54,false
@@ -2760,7 +2760,7 @@ Divisao:Cozinha 1
 SmartBulb:Neutral,14,0.22,bulb1357,2022-05-30 14:23:20,2022-07-17 10:57:04,true
 SmartBulb:Cold,16,0.26,bulb1358,2022-03-20 17:09:49,2022-07-02 17:30:34,false
 SmartSpeaker:45,RTP Antena 1 98.3 FM,LG,5.05,speaker334,2022-04-08 04:50:47,2022-05-09 21:40:46,false
-Casa:Ricardo Jose Santos Veloso,520939724,Iberdrola,casa69,Yotsuya 564-000
+Casa:Ricardo Jose Santos Veloso,520939724,Iberdrola,casa69,Yotsuya 564-000 nº 357
 Divisao:Sala de Estar
 SmartBulb:Warm,19,5.85,bulb1359,2022-04-15 15:30:56,2022-07-29 22:30:46,false
 SmartBulb:Neutral,12,4.35,bulb1360,2022-04-28 13:53:33,2022-06-13 03:18:58,true
@@ -2778,7 +2778,7 @@ SmartBulb:Warm,13,0.11,bulb1363,2022-04-01 03:49:22,2022-06-06 18:03:51,true
 SmartBulb:Neutral,13,0.17,bulb1364,2022-04-19 03:21:07,2022-07-18 09:50:30,true
 SmartCamera:(1024x768),45,5.49,cam584,2022-04-03 00:24:04,2022-05-10 17:43:54,true
 SmartBulb:Neutral,15,0.19,bulb1365,2022-04-12 08:16:35,2022-07-01 05:09:01,false
-Casa:Artur Carneiro Neto de Nobrega Luis,351108521,Muon,casa70,Shimoda 904-1300
+Casa:Artur Carneiro Neto de Nobrega Luis,351108521,Muon,casa70,Shimoda 904-1300 nº 124
 Divisao:Cozinha
 SmartBulb:Neutral,5,6.76,bulb1366,2022-04-27 15:38:01,2022-07-08 23:34:55,false
 SmartCamera:(1366x768),26,0.14,cam585,2022-03-12 16:48:33,2022-05-07 04:59:34,false
@@ -2801,7 +2801,7 @@ SmartCamera:(1920x1080),10,4.58,cam588,2022-03-11 20:21:40,2022-05-04 02:26:40,f
 SmartBulb:Neutral,5,0.18,bulb1376,2022-05-15 19:56:37,2022-06-07 09:55:45,false
 Divisao:Sala de Jantar
 SmartBulb:Cold,5,0.15,bulb1377,2022-05-27 12:45:51,2022-06-09 03:11:06,true
-Casa:Diogo Alexandre Rosendo Mendes,397495508,EDA,casa71,Nada 999-3700
+Casa:Diogo Alexandre Rosendo Mendes,397495508,EDA,casa71,Nada 999-3700 nº 395
 Divisao:Garagem
 SmartSpeaker:35,Cidade FM,Bang&Olufsen,5.40,speaker339,2022-04-12 10:58:35,2022-04-29 08:39:44,true
 SmartCamera:(1366x768),16,6.44,cam589,2022-03-30 12:09:13,2022-05-02 14:24:51,true
@@ -2860,7 +2860,7 @@ SmartBulb:Warm,19,4.53,bulb1399,2022-03-19 02:42:21,2022-06-25 12:19:21,false
 SmartBulb:Cold,11,8.29,bulb1400,2022-05-06 11:24:04,2022-06-19 07:44:54,false
 SmartBulb:Warm,6,0.18,bulb1401,2022-05-25 19:41:08,2022-07-12 17:34:40,false
 SmartSpeaker:44,RTP Antena 1 98.3 FM,JBL,4.17,speaker348,2022-03-06 15:44:34,2022-05-25 11:30:06,true
-Casa:Emanuel Lopes Monteiro da Silva,980655772,Iberdrola,casa72,Moto-hakone 030-1500
+Casa:Emanuel Lopes Monteiro da Silva,980655772,Iberdrola,casa72,Moto-hakone 030-1500 nº 82
 Divisao:Garagem
 SmartCamera:(1024x768),37,0.29,cam604,2022-04-11 19:25:04,2022-05-01 15:56:36,false
 SmartCamera:(1366x768),35,6.37,cam605,2022-04-20 21:55:05,2022-05-06 01:22:53,false
@@ -2918,7 +2918,7 @@ SmartBulb:Neutral,7,0.15,bulb1429,2022-04-21 20:00:00,2022-07-25 11:37:27,false
 SmartBulb:Neutral,17,0.20,bulb1430,2022-03-17 08:42:17,2022-06-01 19:29:51,true
 SmartBulb:Neutral,12,7.77,bulb1431,2022-04-11 05:19:07,2022-07-22 20:01:22,true
 SmartBulb:Neutral,9,6.66,bulb1432,2022-03-27 11:11:24,2022-07-02 05:59:56,true
-Casa:Claudia Peixoto Silva,721708239,Iberdrola,casa73,Itazuke 574-000
+Casa:Claudia Peixoto Silva,721708239,Iberdrola,casa73,Itazuke 574-000 nº 45
 Divisao:Quarto
 SmartBulb:Neutral,8,0.28,bulb1433,2022-05-22 13:03:17,2022-07-30 08:21:49,true
 SmartSpeaker:70,Radio Radar,JBL,5.48,speaker354,2022-03-21 17:32:55,2022-05-11 10:32:12,false
@@ -2949,7 +2949,7 @@ SmartCamera:(3840x2160),99,0.42,cam620,2022-04-10 09:54:42,2022-05-03 09:41:04,f
 SmartBulb:Neutral,18,0.13,bulb1445,2022-05-02 21:08:16,2022-06-11 15:21:28,false
 SmartBulb:Neutral,20,0.18,bulb1446,2022-05-11 11:34:53,2022-06-08 22:39:12,true
 SmartSpeaker:40,RFM Oceano Pacifico,Bowers&Wilkins,4.09,speaker359,2022-04-13 00:56:43,2022-06-04 22:49:57,true
-Casa:Guilherme Sousa Silva Martins,750367758,Gold Energy,casa74,Entokomappu 030-1500
+Casa:Guilherme Sousa Silva Martins,750367758,Gold Energy,casa74,Entokomappu 030-1500 nº 314
 Divisao:Escritorio
 SmartCamera:(3840x2160),96,4.12,cam621,2022-03-15 05:14:07,2022-05-15 05:50:35,true
 SmartBulb:Cold,12,0.10,bulb1447,2022-04-14 10:46:40,2022-06-13 03:15:43,true
@@ -3002,7 +3002,7 @@ Divisao:Casa de Banho
 SmartCamera:(1024x768),84,0.44,cam634,2022-04-23 05:45:54,2022-05-14 14:07:14,true
 SmartSpeaker:94,TSF Radio Noticias,BOSE,4.96,speaker370,2022-04-08 18:46:59,2022-05-15 04:57:01,false
 SmartSpeaker:55,Radio Comercial,Sennheiser,4.88,speaker371,2022-03-01 08:24:01,2022-06-09 11:42:46,true
-Casa:Joao Paulo Machado Abreu,372713491,Enat,casa75,Takefu 999-3700
+Casa:Joao Paulo Machado Abreu,372713491,Enat,casa75,Takefu 999-3700 nº 367
 Divisao:Casa de Banho
 SmartBulb:Warm,10,0.11,bulb1465,2022-03-09 22:40:17,2022-06-12 16:19:14,false
 SmartBulb:Neutral,20,0.96,bulb1466,2022-05-29 19:37:22,2022-06-18 10:19:26,false
@@ -3049,7 +3049,7 @@ SmartBulb:Warm,14,0.16,bulb1486,2022-04-24 09:29:21,2022-07-24 02:43:08,true
 SmartBulb:Warm,20,3.96,bulb1487,2022-05-16 09:07:26,2022-06-14 02:16:30,true
 SmartBulb:Neutral,5,9.25,bulb1488,2022-04-10 05:55:45,2022-07-03 13:02:57,true
 SmartBulb:Neutral,11,6.88,bulb1489,2022-03-10 20:59:04,2022-07-19 21:26:59,false
-Casa:Afonso Xavier Cardoso Marques,060488618,YIce,casa76,Kosaka 904-1300
+Casa:Afonso Xavier Cardoso Marques,060488618,YIce,casa76,Kosaka 904-1300 nº 434
 Divisao:Quarto
 SmartSpeaker:50,RTP Antena 1 98.3 FM,Marshall,3.73,speaker379,2022-03-28 00:38:49,2022-04-23 18:48:23,true
 SmartBulb:Neutral,15,4.44,bulb1490,2022-03-15 22:51:39,2022-07-25 11:32:21,true
@@ -3116,7 +3116,7 @@ SmartBulb:Warm,14,0.13,bulb1524,2022-04-13 21:29:07,2022-07-29 13:46:13,true
 SmartCamera:(3840x2160),17,6.24,cam650,2022-04-29 15:13:02,2022-05-01 10:35:14,false
 SmartBulb:Neutral,9,4.72,bulb1525,2022-03-24 15:16:03,2022-07-15 22:24:56,true
 SmartBulb:Cold,6,0.24,bulb1526,2022-05-26 07:07:23,2022-06-16 10:20:46,false
-Casa:Joao Miguel Ferreira Loureiro,259025888,Iberdrola,casa77,Shibuta 999-3700
+Casa:Joao Miguel Ferreira Loureiro,259025888,Iberdrola,casa77,Shibuta 999-3700 nº 364
 Divisao:Sala de Estar
 SmartBulb:Neutral,10,0.11,bulb1527,2022-04-27 15:18:07,2022-07-08 00:57:10,false
 SmartBulb:Neutral,12,4.84,bulb1528,2022-05-01 01:33:48,2022-07-02 16:43:34,true
@@ -3144,7 +3144,7 @@ SmartSpeaker:85,RTP Antena 1 98.3 FM,LG,5.50,speaker391,2022-04-05 01:39:39,2022
 SmartBulb:Neutral,6,7.75,bulb1540,2022-05-03 06:07:52,2022-06-17 12:44:27,false
 SmartSpeaker:3,RFM,BOSE,5.47,speaker392,2022-03-12 01:51:49,2022-06-08 04:23:07,false
 SmartBulb:Neutral,8,3.24,bulb1541,2022-03-15 23:11:32,2022-07-09 14:26:18,true
-Casa:Dinis Goncalves Estrada,534317442,MEO Energia,casa78,Ichiba 999-3700
+Casa:Dinis Goncalves Estrada,534317442,MEO Energia,casa78,Ichiba 999-3700 nº 43
 Divisao:Cozinha
 SmartCamera:(1280x720),109,6.57,cam654,2022-03-26 17:50:09,2022-05-06 03:09:44,false
 SmartBulb:Neutral,10,0.13,bulb1542,2022-05-11 11:27:23,2022-07-07 08:34:38,false
@@ -3185,7 +3185,7 @@ SmartBulb:Neutral,11,1.44,bulb1565,2022-05-13 09:24:01,2022-07-29 12:51:46,true
 SmartCamera:(1920x1080),95,0.44,cam658,2022-04-09 06:38:36,2022-05-15 06:03:49,true
 SmartBulb:Neutral,16,8.99,bulb1566,2022-05-05 23:59:17,2022-06-09 03:51:07,true
 SmartBulb:Neutral,9,3.45,bulb1567,2022-04-04 23:07:06,2022-07-04 15:01:40,false
-Casa:Joao Goncalo de Faria Melo,466169285,EDA,casa79,Hatta 564-000
+Casa:Joao Goncalo de Faria Melo,466169285,EDA,casa79,Hatta 564-000 nº 250
 Divisao:Quarto
 SmartSpeaker:24,RFM Oceano Pacifico,Marshall,4.10,speaker396,2022-03-27 04:35:38,2022-05-24 16:49:57,true
 SmartBulb:Neutral,19,2.45,bulb1568,2022-05-20 08:38:41,2022-07-13 01:49:42,false
@@ -3211,7 +3211,7 @@ SmartCamera:(1280x720),74,3.92,cam662,2022-04-02 17:43:24,2022-05-05 10:38:10,tr
 SmartBulb:Warm,10,0.18,bulb1578,2022-04-10 03:48:24,2022-06-04 18:35:25,true
 SmartCamera:(1280x720),61,5.65,cam663,2022-03-27 08:17:32,2022-05-06 13:53:38,true
 SmartBulb:Warm,15,0.21,bulb1579,2022-04-12 17:35:01,2022-07-08 01:44:21,false
-Casa:Rodrigo Manuel Matos Pereira,410958107,Iberdrola,casa80,Futaba 190-0012
+Casa:Rodrigo Manuel Matos Pereira,410958107,Iberdrola,casa80,Futaba 190-0012 nº 87
 Divisao:Casa de Banho
 SmartBulb:Warm,20,0.15,bulb1580,2022-03-06 08:06:57,2022-07-03 09:51:08,true
 SmartCamera:(1024x768),71,0.32,cam664,2022-03-22 14:20:23,2022-05-07 03:00:22,true
@@ -3264,7 +3264,7 @@ SmartBulb:Neutral,5,0.18,bulb1608,2022-04-25 07:29:00,2022-06-19 01:20:33,true
 SmartCamera:(1920x1080),11,3.78,cam671,2022-04-12 13:30:00,2022-05-06 13:44:15,false
 SmartBulb:Neutral,9,0.13,bulb1609,2022-04-30 07:18:17,2022-06-16 08:12:18,false
 SmartBulb:Neutral,13,0.23,bulb1610,2022-05-07 16:34:50,2022-07-22 15:59:47,false
-Casa:Luis Miguel Moreira Ferreira,107133294,EDA,casa81,Nishifukujima 904-1300
+Casa:Luis Miguel Moreira Ferreira,107133294,EDA,casa81,Nishifukujima 904-1300 nº 308
 Divisao:Sala de Estar
 SmartCamera:(1024x768),7,5.94,cam672,2022-03-21 00:30:21,2022-05-04 12:57:59,true
 Divisao:Cozinha
@@ -3288,7 +3288,7 @@ SmartBulb:Cold,9,0.20,bulb1617,2022-04-16 05:33:03,2022-06-18 12:14:48,true
 SmartBulb:Warm,17,4.07,bulb1618,2022-03-12 13:53:18,2022-06-10 04:39:13,false
 SmartBulb:Neutral,20,0.17,bulb1619,2022-05-12 20:13:32,2022-07-07 15:31:54,true
 SmartBulb:Neutral,17,0.22,bulb1620,2022-04-04 08:46:04,2022-07-10 11:42:55,true
-Casa:Daniel Jose Travessa Pereira,707005775,Galp Energia,casa82,Kinozowa 289-2200
+Casa:Daniel Jose Travessa Pereira,707005775,Galp Energia,casa82,Kinozowa 289-2200 nº 276
 Divisao:Casa de Banho
 SmartCamera:(1024x768),105,0.14,cam677,2022-04-02 01:10:15,2022-05-08 13:50:34,false
 SmartBulb:Cold,6,0.16,bulb1621,2022-03-18 03:46:56,2022-07-15 22:47:00,false
@@ -3303,7 +3303,7 @@ Divisao:Sala de Estar
 SmartBulb:Neutral,7,2.44,bulb1625,2022-03-12 03:32:50,2022-07-15 23:07:00,true
 Divisao:Jardim 1
 SmartBulb:Neutral,19,2.67,bulb1626,2022-04-14 08:17:48,2022-06-26 10:45:52,true
-Casa:Rui Manuel Pereira Pires,145156802,SU Electricidade,casa83,Kebe 755-0000
+Casa:Rui Manuel Pereira Pires,145156802,SU Electricidade,casa83,Kebe 755-0000 nº 178
 Divisao:Escritorio
 SmartSpeaker:32,Cidade FM,Bang&Olufsen,4.30,speaker408,2022-03-24 14:01:28,2022-05-03 13:22:37,true
 SmartCamera:(1280x720),56,6.84,cam680,2022-04-02 05:39:21,2022-05-06 22:39:13,true
@@ -3355,7 +3355,7 @@ SmartBulb:Neutral,12,0.22,bulb1652,2022-05-17 09:04:58,2022-06-07 21:27:16,true
 SmartSpeaker:85,Cidade FM,Sennheiser,5.21,speaker416,2022-03-26 16:28:01,2022-05-15 17:32:07,true
 SmartCamera:(3840x2160),25,0.36,cam688,2022-03-02 21:38:01,2022-05-04 18:42:08,true
 SmartSpeaker:50,MEGA HITS,Marshall,5.22,speaker417,2022-03-15 15:17:25,2022-06-04 08:57:25,false
-Casa:Pedro Miguel Ribeiro Ferreira,772765812,Enat,casa84,Kita-wakamatsu 289-2200
+Casa:Pedro Miguel Ribeiro Ferreira,772765812,Enat,casa84,Kita-wakamatsu 289-2200 nº 288
 Divisao:Casa de Banho
 SmartBulb:Neutral,18,6.62,bulb1653,2022-04-19 22:24:12,2022-07-26 20:35:39,false
 SmartBulb:Cold,12,0.96,bulb1654,2022-05-03 12:00:35,2022-07-29 02:10:59,false
@@ -3403,7 +3403,7 @@ SmartBulb:Cold,5,0.25,bulb1673,2022-04-20 23:33:43,2022-06-25 05:15:23,true
 Divisao:Cozinha
 SmartBulb:Neutral,19,0.28,bulb1674,2022-04-10 02:08:56,2022-06-30 20:44:57,false
 SmartBulb:Neutral,18,0.13,bulb1675,2022-05-02 08:46:36,2022-07-11 00:39:30,true
-Casa:Joao Pedro Malheiro da Costa,255831970,Muon,casa85,Akakina 289-2200
+Casa:Joao Pedro Malheiro da Costa,255831970,Muon,casa85,Akakina 289-2200 nº 84
 Divisao:Sala de Estar
 SmartCamera:(3840x2160),33,5.21,cam699,2022-04-29 04:41:34,2022-05-10 08:14:23,true
 SmartBulb:Neutral,17,8.75,bulb1676,2022-05-22 15:58:57,2022-07-05 09:19:20,false
@@ -3463,7 +3463,7 @@ SmartBulb:Neutral,13,0.19,bulb1704,2022-05-07 18:28:21,2022-07-13 02:58:45,false
 SmartSpeaker:55,Radio Renascenca,Bowers&Wilkins,3.70,speaker430,2022-04-14 21:14:45,2022-05-01 00:35:51,false
 SmartCamera:(2160x1440),85,0.46,cam711,2022-04-28 11:41:47,2022-05-12 19:05:21,false
 SmartCamera:(1366x768),108,0.36,cam712,2022-03-20 05:56:40,2022-05-14 00:56:59,false
-Casa:Joao Alexandre Antunes da Costa Barroso,167935610,Coopernico,casa86,Uiichi 999-3700
+Casa:Joao Alexandre Antunes da Costa Barroso,167935610,Coopernico,casa86,Uiichi 999-3700 nº 403
 Divisao:Sala de Estar
 SmartBulb:Neutral,13,0.23,bulb1705,2022-04-28 17:13:57,2022-06-26 15:05:52,false
 SmartBulb:Neutral,12,0.16,bulb1706,2022-05-28 14:35:10,2022-07-23 00:11:57,true
@@ -3484,7 +3484,7 @@ SmartBulb:Neutral,10,0.18,bulb1712,2022-04-19 10:15:28,2022-07-10 09:28:55,true
 SmartCamera:(1366x768),28,0.31,cam718,2022-04-15 16:41:12,2022-05-08 16:31:26,true
 Divisao:Jardim
 SmartSpeaker:55,Radio Radar,JBL,3.79,speaker431,2022-03-24 01:18:37,2022-05-27 16:24:28,false
-Casa:Andre Castro Alves,084209233,Endesa,casa87,Ise 564-000
+Casa:Andre Castro Alves,084209233,Endesa,casa87,Ise 564-000 nº 151
 Divisao:Cozinha
 SmartBulb:Warm,7,0.14,bulb1713,2022-05-24 01:29:41,2022-06-19 10:26:12,true
 SmartBulb:Neutral,14,9.23,bulb1714,2022-03-25 05:56:20,2022-07-18 04:36:19,true
@@ -3533,7 +3533,7 @@ SmartBulb:Warm,14,0.14,bulb1736,2022-04-02 08:45:10,2022-06-28 14:34:38,true
 SmartCamera:(1366x768),65,0.29,cam730,2022-04-12 14:41:35,2022-05-13 14:20:08,false
 SmartSpeaker:18,RFM,Goodis,3.77,speaker436,2022-03-04 23:44:50,2022-06-05 11:12:08,true
 SmartBulb:Warm,11,0.15,bulb1737,2022-03-23 12:05:09,2022-05-31 05:28:38,false
-Casa:Joao Nuno Pereira Barbosa,042349830,MEO Energia,casa88,Tamana 170-3293
+Casa:Joao Nuno Pereira Barbosa,042349830,MEO Energia,casa88,Tamana 170-3293 nº 254
 Divisao:Sala de Estar
 SmartBulb:Neutral,18,8.41,bulb1738,2022-03-11 20:50:23,2022-06-17 13:37:26,true
 SmartCamera:(3840x2160),8,6.10,cam731,2022-04-14 16:21:03,2022-05-10 08:04:41,false
@@ -3563,7 +3563,7 @@ SmartSpeaker:45,RFM,Philips,3.83,speaker441,2022-03-16 07:21:36,2022-06-05 18:11
 SmartBulb:Neutral,13,6.18,bulb1748,2022-04-20 22:18:57,2022-07-27 17:38:44,false
 SmartBulb:Neutral,7,0.10,bulb1749,2022-05-14 11:56:20,2022-06-06 14:40:40,true
 SmartSpeaker:50,MEGA HITS,Bang&Olufsen,5.17,speaker442,2022-03-02 18:38:02,2022-04-23 03:05:48,true
-Casa:Moises Araujo Antunes,478721229,Endesa,casa89,Ezu 999-3700
+Casa:Moises Araujo Antunes,478721229,Endesa,casa89,Ezu 999-3700 nº 399
 Divisao:Cozinha
 SmartSpeaker:73,RFM,LG,5.12,speaker443,2022-04-15 01:15:37,2022-04-19 13:05:43,true
 Divisao:Casa de Banho
@@ -3611,7 +3611,7 @@ SmartBulb:Warm,11,2.74,bulb1772,2022-03-09 02:18:27,2022-06-25 10:53:00,false
 SmartBulb:Neutral,12,0.10,bulb1773,2022-05-26 01:03:14,2022-06-03 22:19:23,true
 SmartBulb:Warm,11,0.16,bulb1774,2022-05-14 10:01:15,2022-06-20 10:11:20,true
 SmartCamera:(1280x720),91,0.25,cam744,2022-03-24 17:38:52,2022-05-08 11:41:41,true
-Casa:Luis Manuel Fernandes Pereira,052460172,YIce,casa90,Yokokura 354-0000
+Casa:Luis Manuel Fernandes Pereira,052460172,YIce,casa90,Yokokura 354-0000 nº 432
 Divisao:Jardim
 SmartSpeaker:65,M80 Radio,LG,4.23,speaker451,2022-04-02 02:33:42,2022-05-18 22:31:19,true
 SmartBulb:Neutral,13,0.18,bulb1775,2022-05-23 14:04:32,2022-07-22 10:06:39,true
@@ -3638,7 +3638,7 @@ SmartBulb:Neutral,9,4.25,bulb1785,2022-03-10 11:09:55,2022-06-06 22:26:15,false
 SmartBulb:Warm,17,9.41,bulb1786,2022-05-29 15:37:12,2022-07-22 15:05:34,true
 SmartBulb:Neutral,5,4.26,bulb1787,2022-05-10 13:06:52,2022-06-27 16:30:36,false
 SmartBulb:Neutral,9,0.12,bulb1788,2022-03-04 10:40:51,2022-06-02 09:39:32,false
-Casa:Antonio Pedro Dias Braga,041278156,Luzboa,casa91,Hanegase 574-000
+Casa:Antonio Pedro Dias Braga,041278156,Luzboa,casa91,Hanegase 574-000 nº 60
 Divisao:Casa de Banho
 SmartBulb:Neutral,15,0.96,bulb1789,2022-04-04 19:07:13,2022-07-24 02:03:43,true
 SmartBulb:Warm,5,0.11,bulb1790,2022-03-01 22:40:21,2022-07-05 03:16:47,false
@@ -3682,7 +3682,7 @@ Divisao:Garagem
 SmartSpeaker:2,M80 Radio,Sony,3.82,speaker460,2022-03-24 03:13:52,2022-05-01 00:24:32,false
 SmartCamera:(1024x768),32,4.45,cam752,2022-04-05 04:20:40,2022-05-03 21:52:29,true
 SmartCamera:(2160x1440),38,4.72,cam753,2022-03-24 03:25:52,2022-05-13 19:26:24,true
-Casa:Joao Pedro Martins da Silva Freitas Cardoso,480902928,Gold Energy,casa92,Tarasawa 190-0012
+Casa:Joao Pedro Martins da Silva Freitas Cardoso,480902928,Gold Energy,casa92,Tarasawa 190-0012 nº 176
 Divisao:Garagem
 SmartBulb:Neutral,17,3.00,bulb1811,2022-05-15 17:21:52,2022-06-30 12:11:18,false
 SmartBulb:Neutral,9,0.18,bulb1812,2022-05-21 23:53:33,2022-05-31 23:01:27,true
@@ -3727,7 +3727,7 @@ SmartBulb:Neutral,11,0.14,bulb1829,2022-05-06 01:43:50,2022-06-10 16:31:09,false
 SmartCamera:(1920x1080),38,4.89,cam764,2022-04-01 08:46:24,2022-05-15 02:48:27,true
 SmartBulb:Neutral,16,4.56,bulb1830,2022-03-22 08:35:06,2022-06-09 12:27:01,true
 SmartBulb:Neutral,14,0.16,bulb1831,2022-05-03 20:00:43,2022-06-18 03:58:50,true
-Casa:Goncalo Semelhe Sousa Braga,779120087,Muon,casa93,Naka-shihoro 755-0000
+Casa:Goncalo Semelhe Sousa Braga,779120087,Muon,casa93,Naka-shihoro 755-0000 nº 368
 Divisao:Jardim
 SmartCamera:(2160x1440),82,0.47,cam765,2022-04-02 11:56:57,2022-05-11 14:47:40,true
 SmartBulb:Neutral,20,1.44,bulb1832,2022-03-19 08:46:09,2022-07-22 00:16:41,true
@@ -3785,7 +3785,7 @@ SmartSpeaker:40,RTP Antena 1 98.3 FM,Philips,3.74,speaker475,2022-03-08 18:52:44
 SmartCamera:(1366x768),78,0.44,cam775,2022-03-02 15:16:53,2022-05-10 07:11:55,true
 SmartSpeaker:65,Radio Renascenca,JBL,4.28,speaker476,2022-03-07 11:50:22,2022-05-10 07:30:23,true
 SmartBulb:Neutral,12,4.32,bulb1859,2022-03-27 05:41:56,2022-07-23 05:08:05,true
-Casa:Tomas Cardoso Francisco,189097563,SU Electricidade,casa94,Naka-nunome 289-2200
+Casa:Tomas Cardoso Francisco,189097563,SU Electricidade,casa94,Naka-nunome 289-2200 nº 239
 Divisao:Casa de Banho
 SmartSpeaker:45,RFM,Marshall,4.12,speaker477,2022-03-23 10:08:23,2022-05-11 12:10:20,false
 SmartCamera:(1920x1080),112,3.80,cam776,2022-04-26 22:50:33,2022-05-05 11:32:50,true
@@ -3817,7 +3817,7 @@ SmartCamera:(1280x720),87,0.29,cam783,2022-04-04 04:00:31,2022-05-11 08:15:31,tr
 SmartSpeaker:30,Radio Radar,Goodis,5.44,speaker480,2022-03-23 22:04:36,2022-05-11 08:55:11,false
 SmartCamera:(1366x768),62,0.14,cam784,2022-04-06 23:57:11,2022-05-15 15:08:03,false
 SmartBulb:Neutral,5,6.62,bulb1873,2022-03-19 08:51:52,2022-07-13 03:31:29,true
-Casa:Pedro Alfredo Fontes Machado,301493581,Enat,casa95,Yoshino 354-0000
+Casa:Pedro Alfredo Fontes Machado,301493581,Enat,casa95,Yoshino 354-0000 nº 12
 Divisao:Sala de Jantar
 SmartBulb:Warm,19,4.08,bulb1874,2022-05-27 02:05:54,2022-07-21 14:36:34,true
 SmartCamera:(3840x2160),110,0.40,cam785,2022-03-18 18:08:35,2022-05-04 19:11:11,true
@@ -3897,7 +3897,7 @@ SmartCamera:(1024x768),93,7.05,cam807,2022-04-19 04:28:48,2022-05-04 11:32:41,fa
 SmartBulb:Neutral,5,0.15,bulb1912,2022-03-19 14:36:37,2022-07-25 21:32:34,true
 SmartBulb:Warm,19,0.19,bulb1913,2022-05-29 08:21:39,2022-06-06 14:38:09,true
 SmartBulb:Neutral,9,7.95,bulb1914,2022-05-06 20:15:08,2022-05-30 19:08:16,true
-Casa:Rafael Joao Ferreira Gomes,514346039,MEO Energia,casa96,Hoda 574-000
+Casa:Rafael Joao Ferreira Gomes,514346039,MEO Energia,casa96,Hoda 574-000 nº 226
 Divisao:Sala de Estar
 SmartBulb:Neutral,20,1.44,bulb1915,2022-05-13 05:24:58,2022-07-06 06:29:10,true
 SmartBulb:Neutral,13,0.15,bulb1916,2022-04-11 20:52:24,2022-07-02 09:24:23,true
@@ -3909,7 +3909,7 @@ SmartCamera:(2160x1440),97,6.33,cam808,2022-04-10 00:04:30,2022-05-07 02:19:47,f
 Divisao:Sala de Estar 1
 SmartCamera:(2160x1440),33,5.53,cam809,2022-03-29 06:35:40,2022-05-13 18:39:41,false
 SmartBulb:Neutral,8,0.96,bulb1918,2022-03-23 20:34:15,2022-07-05 03:34:25,true
-Casa:David Azevedo Carvalho,380923587,EDA,casa97,Kumihama 755-0000
+Casa:David Azevedo Carvalho,380923587,EDA,casa97,Kumihama 755-0000 nº 86
 Divisao:Sala de Jantar
 SmartBulb:Neutral,16,3.81,bulb1919,2022-04-09 14:07:04,2022-06-10 02:59:41,true
 SmartCamera:(1024x768),81,5.60,cam810,2022-03-31 13:16:50,2022-05-11 20:39:32,true
@@ -3955,7 +3955,7 @@ SmartBulb:Neutral,15,6.18,bulb1938,2022-05-16 01:13:11,2022-07-14 09:45:23,true
 SmartCamera:(1920x1080),80,0.26,cam821,2022-03-03 12:36:47,2022-05-13 09:35:49,false
 SmartBulb:Neutral,13,0.13,bulb1939,2022-04-26 10:01:12,2022-06-19 03:41:51,true
 SmartBulb:Neutral,15,8.23,bulb1940,2022-04-27 20:00:45,2022-06-26 15:44:22,true
-Casa:Luis Carlos Sousa Magalhaes,952698704,Endesa,casa98,Kawashiri 755-0000
+Casa:Luis Carlos Sousa Magalhaes,952698704,Endesa,casa98,Kawashiri 755-0000 nº 94
 Divisao:Jardim
 SmartBulb:Neutral,5,6.36,bulb1941,2022-04-09 08:10:16,2022-07-04 00:20:12,false
 Divisao:Cozinha
@@ -3990,7 +3990,7 @@ SmartCamera:(1920x1080),10,0.14,cam829,2022-03-02 16:56:33,2022-05-13 06:39:40,t
 SmartBulb:Warm,8,0.19,bulb1955,2022-05-26 20:34:27,2022-06-11 17:15:16,true
 SmartBulb:Warm,13,0.13,bulb1956,2022-03-09 16:17:48,2022-06-26 17:41:40,false
 SmartBulb:Neutral,20,0.16,bulb1957,2022-03-14 09:21:38,2022-06-02 11:56:10,false
-Casa:Joao Paulo Sousa Mendes,240111886,Endesa,casa99,Nishimura 999-3700
+Casa:Joao Paulo Sousa Mendes,240111886,Endesa,casa99,Nishimura 999-3700 nº 39
 Divisao:Quarto
 SmartSpeaker:44,M80 Radio,Goodis,5.46,speaker495,2022-03-28 04:46:47,2022-04-21 20:53:17,true
 SmartBulb:Neutral,13,0.15,bulb1958,2022-05-07 09:31:54,2022-05-30 02:10:24,true
@@ -4020,7 +4020,7 @@ SmartBulb:Warm,5,3.55,bulb1969,2022-04-23 13:16:32,2022-07-20 17:35:46,true
 SmartCamera:(2160x1440),25,5.39,cam838,2022-03-13 00:55:03,2022-05-07 19:33:51,true
 SmartCamera:(1366x768),73,6.20,cam839,2022-03-10 22:13:25,2022-05-14 15:06:01,false
 SmartCamera:(1366x768),45,0.41,cam840,2022-03-12 10:18:00,2022-05-09 00:50:41,false
-Casa:Miguel Nogueira Rodrigues,049118385,MEO Energia,casa100,Ishika 354-0000
+Casa:Miguel Nogueira Rodrigues,049118385,MEO Energia,casa100,Ishika 354-0000 nº 295
 Divisao:Jardim
 SmartBulb:Neutral,19,4.02,bulb1970,2022-04-24 01:40:45,2022-06-04 15:51:15,false
 SmartBulb:Neutral,6,1.93,bulb1971,2022-05-06 12:57:01,2022-06-05 14:51:03,false
@@ -4061,7 +4061,7 @@ SmartBulb:Neutral,12,0.13,bulb1987,2022-03-11 03:57:40,2022-06-19 15:45:29,true
 SmartBulb:Neutral,10,0.11,bulb1988,2022-04-13 01:06:17,2022-07-19 00:10:10,false
 SmartBulb:Neutral,16,0.19,bulb1989,2022-05-21 14:42:42,2022-07-14 18:08:53,false
 SmartBulb:Neutral,17,9.66,bulb1990,2022-04-06 14:09:05,2022-07-28 13:51:49,false
-Casa:Fabio Fernandes Silva,245381042,YIce,casa101,Machi 030-1500
+Casa:Fabio Fernandes Silva,245381042,YIce,casa101,Machi 030-1500 nº 70
 Divisao:Jardim
 SmartCamera:(1920x1080),27,0.25,cam849,2022-04-15 12:32:36,2022-05-09 15:04:21,true
 SmartBulb:Warm,17,0.24,bulb1991,2022-05-16 06:27:19,2022-07-10 07:31:25,true
@@ -4098,7 +4098,7 @@ SmartSpeaker:87,Radio Comercial,BOSE,4.94,speaker510,2022-03-30 04:31:25,2022-06
 SmartBulb:Neutral,10,6.01,bulb2005,2022-03-03 18:50:03,2022-07-23 22:59:48,false
 SmartCamera:(1280x720),48,6.40,cam856,2022-03-01 17:44:46,2022-05-08 22:21:13,true
 SmartCamera:(1024x768),120,6.28,cam857,2022-04-29 16:19:25,2022-05-12 15:21:29,false
-Casa:Rui Pedro Esteves Vasques Correia de Oliveira,728139637,Luzboa,casa102,Kukino 190-0012
+Casa:Rui Pedro Esteves Vasques Correia de Oliveira,728139637,Luzboa,casa102,Kukino 190-0012 nº 434
 Divisao:Jardim
 SmartBulb:Neutral,13,0.16,bulb2006,2022-04-22 12:56:09,2022-07-27 17:15:08,true
 SmartBulb:Neutral,7,0.23,bulb2007,2022-03-09 17:09:54,2022-07-28 03:04:21,true
@@ -4153,7 +4153,7 @@ SmartBulb:Neutral,11,9.70,bulb2032,2022-03-29 17:22:39,2022-07-07 11:38:21,false
 SmartSpeaker:40,Radio Renascenca,Philips,4.05,speaker518,2022-03-20 19:14:46,2022-05-18 14:37:27,false
 SmartBulb:Neutral,8,0.15,bulb2033,2022-05-09 07:55:24,2022-06-17 12:12:45,true
 SmartCamera:(1366x768),67,6.80,cam868,2022-04-12 19:31:19,2022-05-05 20:09:51,false
-Casa:Nuno Miguel Leite da Costa,417623321,Iberdrola,casa103,Hamazaki 999-3700
+Casa:Nuno Miguel Leite da Costa,417623321,Iberdrola,casa103,Hamazaki 999-3700 nº 378
 Divisao:Sala de Jantar
 SmartBulb:Neutral,13,0.20,bulb2034,2022-05-25 02:12:00,2022-06-25 09:45:39,true
 SmartBulb:Neutral,7,4.78,bulb2035,2022-05-26 06:02:53,2022-06-13 15:36:53,true
@@ -4170,7 +4170,7 @@ SmartSpeaker:50,Radio Comercial,Bowers&Wilkins,5.45,speaker519,2022-03-10 11:36:
 SmartBulb:Neutral,19,0.14,bulb2042,2022-03-02 14:02:52,2022-06-27 22:42:43,true
 SmartBulb:Neutral,16,0.15,bulb2043,2022-05-19 04:57:59,2022-07-10 08:03:24,true
 SmartSpeaker:62,RFM,Philips,4.89,speaker520,2022-03-17 01:29:53,2022-05-10 11:31:40,true
-Casa:Carlos Diogo Fernandes Pina,223345706,Iberdrola,casa104,Katakake 289-2200
+Casa:Carlos Diogo Fernandes Pina,223345706,Iberdrola,casa104,Katakake 289-2200 nº 467
 Divisao:Garagem
 SmartBulb:Neutral,8,8.47,bulb2044,2022-04-20 18:56:44,2022-07-15 07:15:59,false
 SmartBulb:Cold,5,9.56,bulb2045,2022-03-29 12:50:07,2022-07-24 14:16:08,false
@@ -4218,7 +4218,7 @@ SmartBulb:Neutral,15,1.17,bulb2069,2022-04-08 08:59:30,2022-06-19 10:36:55,false
 SmartCamera:(1280x720),88,0.14,cam877,2022-04-30 19:21:16,2022-05-15 07:56:08,true
 SmartBulb:Warm,5,7.71,bulb2070,2022-05-21 07:19:00,2022-07-13 02:50:05,false
 SmartCamera:(1920x1080),32,0.39,cam878,2022-04-29 11:19:39,2022-05-10 13:28:28,false
-Casa:Goncalo Martins dos Santos,807931160,Coopernico,casa105,Ayukawachō 904-1300
+Casa:Goncalo Martins dos Santos,807931160,Coopernico,casa105,Ayukawachō 904-1300 nº 101
 Divisao:Quarto
 SmartBulb:Neutral,13,0.27,bulb2071,2022-05-09 13:29:00,2022-07-06 06:29:08,false
 SmartCamera:(3840x2160),73,5.82,cam879,2022-04-14 16:11:56,2022-05-05 09:13:55,true
@@ -4243,7 +4243,7 @@ SmartBulb:Cold,12,0.12,bulb2084,2022-03-13 12:33:33,2022-07-13 07:33:17,true
 SmartCamera:(3840x2160),37,4.06,cam882,2022-03-15 01:36:43,2022-05-14 04:26:57,false
 SmartCamera:(3840x2160),60,4.36,cam883,2022-04-23 14:51:42,2022-05-11 04:11:54,false
 SmartSpeaker:5,Radio Renascenca,LG,3.92,speaker525,2022-03-31 10:18:44,2022-05-25 19:23:38,true
-Casa:Jose Pedro Pinheiro da Silva,442613396,Energia Simples,casa106,Kantori 170-3293
+Casa:Jose Pedro Pinheiro da Silva,442613396,Energia Simples,casa106,Kantori 170-3293 nº 97
 Divisao:Quarto
 SmartBulb:Neutral,12,0.96,bulb2085,2022-05-07 22:54:21,2022-07-08 09:02:23,false
 SmartBulb:Neutral,17,0.11,bulb2086,2022-05-18 21:43:58,2022-07-07 14:28:27,false
@@ -4252,7 +4252,7 @@ SmartSpeaker:60,Radio Comercial,Philips,4.23,speaker526,2022-03-11 13:15:28,2022
 SmartBulb:Neutral,5,0.18,bulb2087,2022-03-24 11:46:40,2022-06-26 06:38:45,true
 SmartSpeaker:13,MEGA HITS,Marshall,4.92,speaker527,2022-04-03 09:51:39,2022-06-04 11:03:37,true
 SmartBulb:Neutral,18,0.19,bulb2088,2022-03-21 10:21:36,2022-07-20 20:31:37,false
-Casa:Antonio Ricardo Vieira da Fonseca,018783215,YIce,casa107,Kuzi 904-1300
+Casa:Antonio Ricardo Vieira da Fonseca,018783215,YIce,casa107,Kuzi 904-1300 nº 402
 Divisao:Sala de Estar
 SmartCamera:(1920x1080),30,4.60,cam884,2022-03-26 20:06:32,2022-05-09 06:37:59,true
 SmartBulb:Neutral,16,0.11,bulb2089,2022-04-08 16:56:41,2022-06-28 21:32:17,true
@@ -4283,7 +4283,7 @@ SmartBulb:Neutral,19,0.16,bulb2102,2022-04-09 03:10:54,2022-07-21 01:27:21,false
 SmartSpeaker:35,Radio Comercial,LG,5.51,speaker531,2022-03-24 03:20:29,2022-05-11 15:52:07,true
 SmartBulb:Neutral,9,0.21,bulb2103,2022-05-18 03:00:48,2022-06-30 18:36:41,true
 SmartBulb:Neutral,13,1.44,bulb2104,2022-03-07 14:21:18,2022-07-16 02:09:24,false
-Casa:Joao Duarte Vila Verde Silva,097772619,Muon,casa108,Taso 574-000
+Casa:Joao Duarte Vila Verde Silva,097772619,Muon,casa108,Taso 574-000 nº 317
 Divisao:Escritorio
 SmartBulb:Neutral,12,1.44,bulb2105,2022-04-14 13:46:17,2022-07-01 16:31:10,false
 SmartSpeaker:35,RFM Oceano Pacifico,BOSE,5.52,speaker532,2022-03-26 04:50:48,2022-05-19 20:59:38,false
@@ -4332,7 +4332,7 @@ SmartBulb:Neutral,18,0.16,bulb2128,2022-03-30 15:58:50,2022-07-26 12:07:43,false
 SmartSpeaker:42,MEGA HITS,Bang&Olufsen,5.24,speaker542,2022-03-18 23:48:08,2022-06-03 10:38:50,false
 SmartBulb:Warm,12,6.52,bulb2129,2022-04-29 11:07:06,2022-07-12 06:56:12,false
 SmartCamera:(1366x768),46,4.64,cam896,2022-03-03 14:22:24,2022-05-08 22:16:49,true
-Casa:Pedro Calheno Pinto,914179396,Iberdrola,casa109,Irumagawa 904-1300
+Casa:Pedro Calheno Pinto,914179396,Iberdrola,casa109,Irumagawa 904-1300 nº 492
 Divisao:Sala de Jantar
 SmartBulb:Neutral,13,0.27,bulb2130,2022-04-17 10:02:00,2022-07-20 09:45:00,true
 SmartBulb:Neutral,8,0.10,bulb2131,2022-05-13 09:54:00,2022-06-24 08:04:14,false
@@ -4349,7 +4349,7 @@ SmartBulb:Warm,15,0.15,bulb2136,2022-04-06 12:27:37,2022-07-23 16:37:33,true
 Divisao:Sala de Jantar 2
 SmartBulb:Warm,13,0.22,bulb2137,2022-05-14 10:03:23,2022-07-28 13:07:16,true
 SmartBulb:Neutral,18,2.74,bulb2138,2022-05-25 14:50:51,2022-06-07 23:23:59,false
-Casa:Luis Alberto Barreiro Araujo,875098576,Luzboa,casa110,Tamagusuku 574-000
+Casa:Luis Alberto Barreiro Araujo,875098576,Luzboa,casa110,Tamagusuku 574-000 nº 152
 Divisao:Cozinha
 SmartBulb:Neutral,20,0.18,bulb2139,2022-03-04 11:41:25,2022-06-09 05:32:40,true
 SmartSpeaker:82,Radio Comercial,Goodis,5.42,speaker544,2022-03-24 16:48:04,2022-05-05 05:55:14,true
@@ -4393,7 +4393,7 @@ SmartBulb:Neutral,19,0.14,bulb2156,2022-05-08 07:28:18,2022-05-31 21:45:39,false
 SmartBulb:Neutral,18,0.13,bulb2157,2022-04-12 03:58:39,2022-06-04 23:45:51,false
 SmartBulb:Neutral,7,0.96,bulb2158,2022-05-08 14:35:33,2022-06-08 13:46:28,false
 SmartBulb:Neutral,19,0.28,bulb2159,2022-03-10 17:41:14,2022-06-24 07:04:35,true
-Casa:Martim Luis Delgado Ribeiro,835398546,Luzboa,casa111,Moriguchi 574-000
+Casa:Martim Luis Delgado Ribeiro,835398546,Luzboa,casa111,Moriguchi 574-000 nº 256
 Divisao:Casa de Banho
 SmartCamera:(1280x720),40,5.21,cam912,2022-04-03 15:07:52,2022-05-03 08:57:15,true
 SmartSpeaker:40,TSF Radio Noticias,LG,4.88,speaker547,2022-03-25 22:52:47,2022-05-12 17:04:50,true
@@ -4405,7 +4405,7 @@ SmartBulb:Neutral,15,0.16,bulb2162,2022-03-31 08:26:31,2022-07-03 10:09:39,false
 SmartSpeaker:65,Cidade FM,JBL,3.87,speaker549,2022-03-05 19:14:31,2022-06-12 08:40:20,true
 SmartBulb:Neutral,18,1.44,bulb2163,2022-05-17 02:28:01,2022-05-31 02:00:48,true
 SmartCamera:(1280x720),119,4.83,cam913,2022-03-04 01:00:45,2022-05-11 16:42:27,true
-Casa:Jose Manuel Antunes de Carvalho,758618872,Endesa,casa112,Toide 755-0000
+Casa:Jose Manuel Antunes de Carvalho,758618872,Endesa,casa112,Toide 755-0000 nº 301
 Divisao:Casa de Banho
 SmartBulb:Neutral,13,4.82,bulb2164,2022-05-09 15:50:47,2022-07-21 08:15:30,false
 Divisao:Casa de Banho 1
@@ -4443,7 +4443,7 @@ SmartCamera:(1920x1080),113,3.89,cam918,2022-04-09 04:22:59,2022-05-03 17:54:36,
 SmartSpeaker:65,Radio Comercial,Marshall,5.12,speaker551,2022-03-29 00:41:10,2022-05-02 02:16:02,true
 SmartBulb:Cold,16,5.11,bulb2184,2022-04-21 01:10:19,2022-06-14 06:38:54,true
 SmartCamera:(2160x1440),84,6.42,cam919,2022-04-07 23:16:35,2022-05-11 03:10:56,true
-Casa:Telmo Jose Pereira Maciel,586185742,YIce,casa113,Mikage 170-3293
+Casa:Telmo Jose Pereira Maciel,586185742,YIce,casa113,Mikage 170-3293 nº 280
 Divisao:Quarto
 SmartCamera:(3840x2160),70,6.69,cam920,2022-03-30 22:51:59,2022-05-09 19:23:20,false
 SmartCamera:(1366x768),85,0.41,cam921,2022-03-22 05:41:41,2022-05-10 00:51:30,true
@@ -4476,7 +4476,7 @@ SmartBulb:Cold,13,0.19,bulb2202,2022-05-17 06:04:09,2022-06-12 20:33:22,false
 SmartSpeaker:50,M80 Radio,Sennheiser,4.33,speaker553,2022-03-25 21:38:54,2022-06-06 17:10:24,false
 SmartCamera:(1024x768),113,0.96,cam925,2022-03-06 15:17:56,2022-05-15 09:35:39,true
 SmartBulb:Cold,14,0.11,bulb2203,2022-03-27 04:06:01,2022-07-14 00:13:34,false
-Casa:Rafael Picao Ferreira Correia,023778661,Luzboa,casa114,Michibe 190-0012
+Casa:Rafael Picao Ferreira Correia,023778661,Luzboa,casa114,Michibe 190-0012 nº 286
 Divisao:Quarto
 SmartBulb:Cold,14,2.61,bulb2204,2022-03-15 23:09:44,2022-07-03 17:08:36,true
 SmartBulb:Neutral,9,1.44,bulb2205,2022-05-23 00:44:22,2022-06-23 05:58:43,true
@@ -4541,7 +4541,7 @@ SmartBulb:Neutral,17,0.13,bulb2238,2022-03-08 11:22:27,2022-07-10 05:12:34,false
 SmartCamera:(1366x768),16,6.06,cam934,2022-03-04 14:34:34,2022-05-14 04:34:57,false
 SmartBulb:Neutral,8,4.13,bulb2239,2022-04-02 08:16:11,2022-06-05 23:42:29,false
 SmartCamera:(1366x768),98,0.24,cam935,2022-03-04 23:06:20,2022-05-03 22:18:37,true
-Casa:Joao Miguel Rodrigues da Cunha,767341090,Luzboa,casa115,Tsunogawa 755-0000
+Casa:Joao Miguel Rodrigues da Cunha,767341090,Luzboa,casa115,Tsunogawa 755-0000 nº 441
 Divisao:Casa de Banho
 SmartCamera:(2160x1440),77,4.26,cam936,2022-04-28 10:01:24,2022-05-08 01:24:35,false
 SmartBulb:Neutral,7,0.19,bulb2240,2022-04-27 02:15:00,2022-07-11 12:31:08,false
@@ -4566,7 +4566,7 @@ SmartBulb:Neutral,19,8.65,bulb2249,2022-03-02 07:43:25,2022-06-22 13:17:29,false
 SmartCamera:(1920x1080),31,0.40,cam940,2022-03-02 05:48:25,2022-05-04 23:04:44,false
 SmartBulb:Neutral,8,0.26,bulb2250,2022-05-29 01:39:54,2022-06-15 15:36:04,true
 SmartBulb:Warm,19,0.15,bulb2251,2022-03-18 23:11:52,2022-07-11 03:41:30,false
-Casa:Joao Miguel Faria Leite,536104674,Iberdrola,casa116,Nishiyama 170-3293
+Casa:Joao Miguel Faria Leite,536104674,Iberdrola,casa116,Nishiyama 170-3293 nº 365
 Divisao:Sala de Jantar
 SmartSpeaker:45,TSF Radio Noticias,LG,5.06,speaker564,2022-04-14 09:12:07,2022-06-01 12:19:03,true
 SmartSpeaker:30,Cidade FM,Sony,5.43,speaker565,2022-04-02 13:22:24,2022-05-28 20:57:02,true
@@ -4631,7 +4631,7 @@ SmartBulb:Neutral,16,6.53,bulb2277,2022-03-31 08:32:48,2022-07-29 10:16:42,true
 SmartBulb:Neutral,14,2.37,bulb2278,2022-03-06 00:56:51,2022-06-07 16:45:53,true
 Divisao:Escritorio 1
 SmartCamera:(3840x2160),91,5.64,cam958,2022-04-05 06:13:46,2022-05-01 18:40:32,true
-Casa:Gabriela Moreira Prata,484834626,SU Electricidade,casa117,Sinzi 030-1500
+Casa:Gabriela Moreira Prata,484834626,SU Electricidade,casa117,Sinzi 030-1500 nº 189
 Divisao:Jardim
 SmartBulb:Neutral,13,0.14,bulb2279,2022-04-10 07:46:43,2022-07-26 06:15:53,false
 Divisao:Jardim 1
@@ -4705,7 +4705,7 @@ SmartCamera:(2160x1440),69,3.66,cam978,2022-04-26 09:40:15,2022-05-13 21:58:52,f
 SmartBulb:Neutral,18,0.16,bulb2312,2022-03-29 07:38:53,2022-07-10 14:10:48,true
 SmartBulb:Neutral,5,6.06,bulb2313,2022-04-12 03:29:38,2022-06-09 15:51:35,true
 SmartSpeaker:70,Cidade FM,Bowers&Wilkins,3.86,speaker580,2022-04-06 17:57:51,2022-04-29 18:11:33,false
-Casa:Ricardo Lopes Lucena,670795486,Galp Energia,casa118,Takasaki 354-0000
+Casa:Ricardo Lopes Lucena,670795486,Galp Energia,casa118,Takasaki 354-0000 nº 444
 Divisao:Sala de Jantar
 SmartSpeaker:64,Radio Renascenca,BOSE,4.91,speaker581,2022-03-17 21:48:40,2022-05-06 02:17:52,false
 SmartBulb:Neutral,7,3.44,bulb2314,2022-03-09 04:44:47,2022-06-20 03:08:32,false
@@ -4737,7 +4737,7 @@ SmartBulb:Warm,8,0.27,bulb2325,2022-03-18 01:24:53,2022-07-22 08:24:44,false
 SmartCamera:(3840x2160),61,5.18,cam984,2022-04-01 05:36:09,2022-05-13 15:59:31,true
 SmartBulb:Neutral,6,0.20,bulb2326,2022-03-16 03:40:04,2022-07-24 03:41:43,true
 SmartCamera:(2160x1440),68,6.57,cam985,2022-03-30 13:02:43,2022-05-08 02:01:11,true
-Casa:Joao Paulo Peixoto Castro,318519896,EDA,casa119,Matsugasaki 999-3700
+Casa:Joao Paulo Peixoto Castro,318519896,EDA,casa119,Matsugasaki 999-3700 nº 119
 Divisao:Garagem
 SmartCamera:(2160x1440),118,5.86,cam986,2022-04-17 22:03:45,2022-05-07 14:56:07,false
 SmartCamera:(1024x768),44,0.39,cam987,2022-04-25 06:17:36,2022-05-09 16:45:58,true
@@ -4794,7 +4794,7 @@ SmartSpeaker:45,Radio Radar,Sennheiser,5.05,speaker591,2022-03-22 00:40:42,2022-
 SmartCamera:(2160x1440),51,0.26,cam997,2022-03-14 18:41:14,2022-05-14 22:43:25,true
 SmartBulb:Warm,17,4.41,bulb2355,2022-05-03 02:15:24,2022-07-27 00:02:25,false
 SmartCamera:(1024x768),23,4.33,cam998,2022-03-07 06:04:30,2022-05-05 07:27:49,false
-Casa:Nuno Goncalo Machado Rodrigues,271920219,Energia Simples,casa120,Koashiro 354-0000
+Casa:Nuno Goncalo Machado Rodrigues,271920219,Energia Simples,casa120,Koashiro 354-0000 nº 440
 Divisao:Cozinha
 SmartBulb:Warm,8,5.38,bulb2356,2022-05-14 05:06:02,2022-06-30 09:39:13,true
 SmartBulb:Warm,15,9.14,bulb2357,2022-04-27 17:55:03,2022-06-25 11:39:57,true
@@ -4818,7 +4818,7 @@ SmartCamera:(1366x768),29,5.88,cam1005,2022-03-05 18:53:52,2022-05-08 03:03:33,f
 SmartSpeaker:23,TSF Radio Noticias,Sennheiser,3.88,speaker595,2022-03-29 02:48:01,2022-04-24 00:04:58,true
 SmartCamera:(1280x720),35,6.28,cam1006,2022-04-24 08:02:28,2022-05-01 03:30:20,false
 SmartBulb:Neutral,6,0.11,bulb2363,2022-03-24 18:46:21,2022-06-10 01:57:53,false
-Casa:Joao Pedro Vilas Boas Braga,084136148,MEO Energia,casa121,Kiba 190-0012
+Casa:Joao Pedro Vilas Boas Braga,084136148,MEO Energia,casa121,Kiba 190-0012 nº 229
 Divisao:Sala de Estar
 SmartCamera:(1366x768),58,6.67,cam1007,2022-04-24 12:02:09,2022-05-10 17:52:53,false
 SmartBulb:Neutral,7,0.26,bulb2364,2022-03-23 18:19:21,2022-06-03 21:03:47,false
@@ -4861,7 +4861,7 @@ SmartCamera:(1024x768),25,0.43,cam1012,2022-04-07 13:40:58,2022-05-03 12:02:19,t
 Divisao:Sala de Jantar
 SmartBulb:Warm,14,2.34,bulb2381,2022-03-06 18:03:39,2022-07-05 04:01:23,true
 SmartBulb:Neutral,10,5.73,bulb2382,2022-04-24 19:02:59,2022-07-11 14:45:47,true
-Casa:Ana Filipa Cruz Pinto,875138638,Enat,casa122,Kuzure 354-0000
+Casa:Ana Filipa Cruz Pinto,875138638,Enat,casa122,Kuzure 354-0000 nº 31
 Divisao:Jardim
 SmartCamera:(2160x1440),84,0.45,cam1013,2022-03-23 14:26:00,2022-05-05 11:46:37,false
 SmartBulb:Neutral,18,0.23,bulb2383,2022-04-16 06:29:54,2022-06-21 12:26:31,true
@@ -4876,7 +4876,7 @@ SmartBulb:Neutral,7,0.22,bulb2387,2022-04-18 11:02:08,2022-07-03 10:16:08,true
 SmartBulb:Neutral,19,0.17,bulb2388,2022-03-05 21:53:00,2022-07-04 19:24:51,false
 SmartBulb:Neutral,17,0.14,bulb2389,2022-05-09 11:53:58,2022-07-25 22:16:52,false
 SmartCamera:(1280x720),24,5.17,cam1017,2022-04-15 08:13:26,2022-05-09 09:20:38,true
-Casa:Jose Paulino Ribeiro Freitas,669574932,EDP Comercial,casa123,Imachi 170-3293
+Casa:Jose Paulino Ribeiro Freitas,669574932,EDP Comercial,casa123,Imachi 170-3293 nº 117
 Divisao:Escritorio
 SmartSpeaker:15,MEGA HITS,LG,3.98,speaker606,2022-03-23 17:45:51,2022-05-19 23:48:50,false
 SmartBulb:Warm,13,1.98,bulb2390,2022-04-11 03:27:47,2022-06-06 12:29:24,false
@@ -4901,7 +4901,7 @@ Divisao:Quarto
 SmartBulb:Cold,20,0.10,bulb2401,2022-03-08 23:14:31,2022-07-07 09:53:50,true
 SmartBulb:Neutral,16,0.22,bulb2402,2022-03-11 20:38:05,2022-06-06 14:42:04,true
 SmartBulb:Neutral,16,9.23,bulb2403,2022-04-08 18:49:47,2022-06-30 00:26:08,false
-Casa:Xavier Santos Mota,241383517,MEO Energia,casa124,Naka-moniwa 904-1300
+Casa:Xavier Santos Mota,241383517,MEO Energia,casa124,Naka-moniwa 904-1300 nº 97
 Divisao:Sala de Jantar
 SmartCamera:(1366x768),59,4.87,cam1021,2022-04-22 02:59:58,2022-05-06 08:36:44,true
 Divisao:Sala de Jantar 1
@@ -4949,7 +4949,7 @@ SmartSpeaker:52,Radio Radar,LG,4.93,speaker611,2022-03-23 07:57:25,2022-06-05 16
 SmartBulb:Neutral,6,3.51,bulb2427,2022-04-15 22:06:11,2022-07-07 12:23:46,true
 SmartBulb:Neutral,13,3.77,bulb2428,2022-05-02 04:35:19,2022-06-21 01:49:22,true
 SmartCamera:(2160x1440),26,0.27,cam1031,2022-04-08 16:01:23,2022-05-11 01:58:56,false
-Casa:Miguel Filipe Cidade da Silva,809242147,Iberdrola,casa125,Akadomari 904-1300
+Casa:Miguel Filipe Cidade da Silva,809242147,Iberdrola,casa125,Akadomari 904-1300 nº 271
 Divisao:Sala de Estar
 SmartBulb:Cold,11,0.15,bulb2429,2022-03-14 11:45:25,2022-07-26 00:25:50,true
 SmartSpeaker:45,M80 Radio,Bang&Olufsen,3.73,speaker612,2022-03-07 01:38:36,2022-06-07 10:52:46,true
@@ -4974,7 +4974,7 @@ Divisao:Cozinha
 SmartSpeaker:45,Radio Renascenca,LG,5.07,speaker614,2022-03-04 18:13:53,2022-05-03 22:31:09,true
 SmartCamera:(2160x1440),65,3.87,cam1033,2022-03-05 13:57:55,2022-05-08 17:01:28,false
 SmartCamera:(1920x1080),24,0.14,cam1034,2022-03-15 14:19:16,2022-05-02 15:30:27,true
-Casa:Jose Duarte Pereira de Castro Alves,343018089,MEO Energia,casa126,Higashi-totta 170-3293
+Casa:Jose Duarte Pereira de Castro Alves,343018089,MEO Energia,casa126,Higashi-totta 170-3293 nº 481
 Divisao:Garagem
 SmartCamera:(1024x768),47,0.35,cam1035,2022-03-10 17:00:54,2022-05-03 23:15:53,false
 Divisao:Casa de Banho
@@ -5024,7 +5024,7 @@ SmartBulb:Neutral,11,0.96,bulb2465,2022-04-13 20:53:55,2022-07-17 03:33:13,true
 Divisao:Escritorio
 SmartBulb:Neutral,17,0.27,bulb2466,2022-04-30 09:20:40,2022-07-17 03:54:44,true
 SmartBulb:Neutral,14,4.45,bulb2467,2022-05-19 23:45:39,2022-06-08 01:13:10,true
-Casa:Joao Miguel Amorim Alves,097778517,EDA,casa127,Tokushibetsu 170-3293
+Casa:Joao Miguel Amorim Alves,097778517,EDA,casa127,Tokushibetsu 170-3293 nº 175
 Divisao:Sala de Estar
 SmartBulb:Neutral,14,8.16,bulb2468,2022-03-06 13:13:33,2022-06-22 16:51:35,false
 SmartBulb:Neutral,17,0.14,bulb2469,2022-03-09 08:08:29,2022-07-16 18:04:15,true
@@ -5032,7 +5032,7 @@ SmartCamera:(1366x768),7,6.28,cam1044,2022-04-01 03:50:36,2022-05-02 21:06:38,fa
 Divisao:Cozinha
 SmartBulb:Neutral,11,0.17,bulb2470,2022-04-29 20:37:03,2022-07-21 23:14:57,false
 SmartBulb:Neutral,16,6.15,bulb2471,2022-04-14 07:18:15,2022-07-24 16:49:49,true
-Casa:Ricardo Cardoso Sousa,250990954,EDP Comercial,casa128,Usutaibe 030-1500
+Casa:Ricardo Cardoso Sousa,250990954,EDP Comercial,casa128,Usutaibe 030-1500 nº 209
 Divisao:Garagem
 SmartBulb:Warm,14,0.12,bulb2472,2022-05-02 03:29:19,2022-06-13 02:00:40,false
 SmartCamera:(1920x1080),113,0.24,cam1045,2022-03-02 01:20:19,2022-05-15 02:19:05,false
@@ -5105,7 +5105,7 @@ SmartSpeaker:38,RTP Antena 1 98.3 FM,BOSE,4.06,speaker629,2022-03-25 14:40:36,20
 SmartCamera:(1366x768),87,0.37,cam1059,2022-04-21 06:23:25,2022-05-12 11:04:59,true
 SmartBulb:Neutral,14,0.11,bulb2507,2022-05-18 16:46:23,2022-06-05 04:21:09,true
 SmartCamera:(1920x1080),58,4.41,cam1060,2022-03-04 18:08:41,2022-05-02 03:59:29,false
-Casa:Goncalo Vilar Vale,709580329,Endesa,casa129,Matsusaka 354-0000
+Casa:Goncalo Vilar Vale,709580329,Endesa,casa129,Matsusaka 354-0000 nº 427
 Divisao:Garagem
 SmartCamera:(3840x2160),65,6.72,cam1061,2022-03-04 18:24:58,2022-05-07 02:53:34,false
 SmartBulb:Neutral,10,0.18,bulb2508,2022-04-20 15:28:29,2022-06-24 07:42:00,false
@@ -5143,7 +5143,7 @@ SmartBulb:Neutral,20,0.15,bulb2525,2022-03-03 03:25:25,2022-07-24 20:09:00,false
 SmartBulb:Neutral,19,7.48,bulb2526,2022-04-19 12:26:14,2022-06-02 19:13:05,true
 SmartSpeaker:45,RFM,BOSE,5.00,speaker635,2022-04-04 04:05:58,2022-04-24 21:18:44,true
 SmartBulb:Neutral,15,0.14,bulb2527,2022-04-13 03:30:43,2022-06-20 05:37:16,true
-Casa:Alexandre Eduardo Vieira Martins,406134640,EDA,casa130,Kagimizu 904-1300
+Casa:Alexandre Eduardo Vieira Martins,406134640,EDA,casa130,Kagimizu 904-1300 nº 67
 Divisao:Sala de Jantar
 SmartSpeaker:55,MEGA HITS,BOSE,4.03,speaker636,2022-03-24 09:45:15,2022-05-23 14:32:47,true
 SmartSpeaker:45,RFM Oceano Pacifico,Bang&Olufsen,5.25,speaker637,2022-04-08 13:25:47,2022-05-01 13:46:20,false
@@ -5213,7 +5213,7 @@ SmartSpeaker:73,Radio Radar,Bang&Olufsen,3.94,speaker649,2022-03-22 19:18:54,202
 Divisao:Escritorio 1
 SmartBulb:Neutral,15,5.34,bulb2559,2022-05-07 10:54:37,2022-06-05 07:42:15,false
 SmartCamera:(1280x720),87,6.61,cam1078,2022-04-15 09:50:23,2022-05-02 13:28:52,false
-Casa:Daniel Jose Silva Furtado,851383515,Energia Simples,casa131,Irifuno-chō 904-1300
+Casa:Daniel Jose Silva Furtado,851383515,Energia Simples,casa131,Irifuno-chō 904-1300 nº 356
 Divisao:Cozinha
 SmartCamera:(1024x768),54,6.29,cam1079,2022-03-18 06:20:22,2022-05-02 08:19:15,false
 SmartBulb:Neutral,19,0.22,bulb2560,2022-04-09 10:57:01,2022-06-11 13:02:16,false
@@ -5249,7 +5249,7 @@ SmartCamera:(2160x1440),79,0.96,cam1086,2022-03-31 13:16:35,2022-05-03 10:06:17,
 SmartBulb:Neutral,7,0.15,bulb2576,2022-03-30 14:51:07,2022-06-11 21:28:31,false
 SmartSpeaker:35,Radio Renascenca,Philips,3.79,speaker654,2022-04-03 02:27:09,2022-05-13 18:51:13,false
 SmartBulb:Neutral,5,0.17,bulb2577,2022-03-11 19:40:28,2022-06-07 16:41:20,false
-Casa:Beatriz Pinto Ferreira de Almeida,113310592,Energia Simples,casa132,Jitchaku 755-0000
+Casa:Beatriz Pinto Ferreira de Almeida,113310592,Energia Simples,casa132,Jitchaku 755-0000 nº 497
 Divisao:Sala de Jantar
 SmartBulb:Warm,8,0.12,bulb2578,2022-04-22 00:43:47,2022-06-22 06:49:28,false
 SmartBulb:Neutral,16,0.96,bulb2579,2022-05-24 09:42:48,2022-06-18 23:09:23,false
@@ -5258,7 +5258,7 @@ SmartSpeaker:70,RTP Antena 1 98.3 FM,LG,5.13,speaker655,2022-03-15 12:05:15,2022
 SmartBulb:Neutral,16,0.27,bulb2580,2022-05-21 18:29:02,2022-07-06 15:42:33,false
 SmartBulb:Neutral,6,1.44,bulb2581,2022-04-15 16:15:59,2022-06-09 18:46:35,false
 SmartBulb:Cold,6,4.34,bulb2582,2022-05-23 19:50:28,2022-07-10 09:46:47,false
-Casa:Ana Margarida Campos Pires,305304373,YIce,casa133,Asari 904-1300
+Casa:Ana Margarida Campos Pires,305304373,YIce,casa133,Asari 904-1300 nº 353
 Divisao:Quarto
 SmartSpeaker:60,RFM,Goodis,4.34,speaker656,2022-03-12 06:43:38,2022-05-27 01:44:40,false
 Divisao:Escritorio
@@ -5268,7 +5268,7 @@ SmartBulb:Warm,9,0.15,bulb2584,2022-03-09 12:41:26,2022-06-21 14:41:28,false
 SmartCamera:(1366x768),79,0.33,cam1088,2022-03-31 20:00:15,2022-05-06 12:36:45,false
 SmartBulb:Neutral,13,9.76,bulb2585,2022-04-22 09:07:21,2022-07-11 13:58:35,true
 SmartBulb:Neutral,9,0.13,bulb2586,2022-05-08 08:02:37,2022-06-20 16:59:15,false
-Casa:Joana Catarina Veloso Branco,127167894,Endesa,casa134,Nakamenkodai 564-000
+Casa:Joana Catarina Veloso Branco,127167894,Endesa,casa134,Nakamenkodai 564-000 nº 86
 Divisao:Quarto
 SmartBulb:Neutral,6,1.44,bulb2587,2022-04-01 07:46:54,2022-07-09 03:39:59,true
 SmartBulb:Neutral,6,6.30,bulb2588,2022-04-29 19:28:58,2022-06-07 19:33:44,false
@@ -5295,7 +5295,7 @@ SmartBulb:Neutral,14,4.67,bulb2599,2022-05-08 03:33:05,2022-07-03 15:20:25,true
 SmartSpeaker:26,TSF Radio Noticias,Sony,5.49,speaker661,2022-04-05 03:57:40,2022-04-29 05:22:35,false
 SmartSpeaker:4,RFM Oceano Pacifico,Goodis,3.89,speaker662,2022-03-11 19:48:02,2022-05-23 19:43:39,true
 SmartBulb:Neutral,17,0.21,bulb2600,2022-04-02 21:58:40,2022-07-17 23:44:51,true
-Casa:Tiago Miguel Moreira Bacelar Pereira,858853426,Iberdrola,casa135,Kisyuku 755-0000
+Casa:Tiago Miguel Moreira Bacelar Pereira,858853426,Iberdrola,casa135,Kisyuku 755-0000 nº 465
 Divisao:Sala de Jantar
 SmartBulb:Neutral,17,6.45,bulb2601,2022-04-05 00:30:57,2022-07-20 20:44:45,true
 SmartCamera:(1366x768),81,0.47,cam1092,2022-04-01 07:01:01,2022-05-13 01:12:15,false
@@ -5312,7 +5312,7 @@ SmartBulb:Neutral,5,0.12,bulb2609,2022-03-30 14:17:43,2022-06-14 05:15:33,false
 SmartBulb:Neutral,16,1.44,bulb2610,2022-04-27 10:22:33,2022-07-12 05:11:42,false
 SmartBulb:Neutral,13,8.66,bulb2611,2022-05-20 19:38:14,2022-06-17 20:45:40,false
 SmartCamera:(3840x2160),77,4.94,cam1094,2022-04-07 06:07:04,2022-05-13 13:57:49,false
-Casa:Rodrigo Jorge Pinto Guimaraes,557094304,Energia Simples,casa136,Higashi-sakabe 030-1500
+Casa:Rodrigo Jorge Pinto Guimaraes,557094304,Energia Simples,casa136,Higashi-sakabe 030-1500 nº 306
 Divisao:Cozinha
 SmartSpeaker:47,M80 Radio,Bang&Olufsen,5.11,speaker663,2022-04-11 23:58:18,2022-06-07 09:41:19,true
 SmartCamera:(1280x720),107,6.22,cam1095,2022-03-19 04:41:58,2022-05-01 15:48:08,false
@@ -5376,7 +5376,7 @@ SmartBulb:Neutral,7,0.17,bulb2640,2022-03-11 02:26:36,2022-07-28 16:09:52,false
 SmartBulb:Warm,13,0.18,bulb2641,2022-04-28 05:45:44,2022-07-30 02:46:13,true
 SmartBulb:Warm,15,7.30,bulb2642,2022-04-09 18:08:40,2022-06-30 21:04:02,false
 SmartCamera:(3840x2160),33,3.96,cam1112,2022-03-11 15:41:27,2022-05-03 18:40:41,false
-Casa:Rodrigo Jose Teixeira Freitas,434598571,Gold Energy,casa137,Hisaka 755-0000
+Casa:Rodrigo Jose Teixeira Freitas,434598571,Gold Energy,casa137,Hisaka 755-0000 nº 183
 Divisao:Escritorio
 SmartBulb:Cold,11,0.10,bulb2643,2022-03-23 08:42:52,2022-07-20 05:55:54,true
 SmartCamera:(2160x1440),83,0.96,cam1113,2022-04-26 09:23:43,2022-05-01 15:08:22,false
@@ -5418,7 +5418,7 @@ SmartCamera:(1280x720),91,4.26,cam1121,2022-04-29 05:54:03,2022-05-14 04:35:03,t
 SmartBulb:Neutral,12,9.51,bulb2661,2022-03-02 15:21:42,2022-06-15 00:17:20,true
 SmartBulb:Warm,16,1.44,bulb2662,2022-04-27 03:13:54,2022-07-24 06:14:05,true
 SmartBulb:Warm,11,0.27,bulb2663,2022-04-06 09:35:30,2022-07-12 11:01:42,true
-Casa:Ana Ines Leite,986414961,EDP Comercial,casa138,Ura 564-000
+Casa:Ana Ines Leite,986414961,EDP Comercial,casa138,Ura 564-000 nº 219
 Divisao:Sala de Jantar
 SmartCamera:(3840x2160),53,0.14,cam1122,2022-04-04 13:51:02,2022-05-12 23:41:01,true
 SmartCamera:(3840x2160),81,4.95,cam1123,2022-04-22 00:34:14,2022-05-10 16:34:02,false
@@ -5439,7 +5439,7 @@ Divisao:Quarto
 SmartSpeaker:60,Cidade FM,Philips,4.92,speaker674,2022-04-12 04:59:28,2022-04-18 07:34:20,false
 SmartBulb:Neutral,11,7.40,bulb2673,2022-05-06 00:17:17,2022-06-12 05:58:12,true
 SmartBulb:Warm,8,4.19,bulb2674,2022-05-17 17:33:33,2022-06-09 09:23:35,true
-Casa:Henrique Ribeiro Fernandes,605878563,SU Electricidade,casa139,Funauke 354-0000
+Casa:Henrique Ribeiro Fernandes,605878563,SU Electricidade,casa139,Funauke 354-0000 nº 124
 Divisao:Jardim
 SmartBulb:Neutral,11,5.93,bulb2675,2022-05-10 23:19:39,2022-07-08 09:40:44,true
 Divisao:Casa de Banho
@@ -5474,7 +5474,7 @@ SmartCamera:(1366x768),7,5.88,cam1131,2022-03-20 16:27:24,2022-05-06 23:20:03,fa
 SmartSpeaker:65,MEGA HITS,Philips,5.08,speaker677,2022-04-05 07:06:46,2022-06-12 19:32:30,false
 SmartBulb:Neutral,20,0.11,bulb2688,2022-05-02 20:31:34,2022-06-18 19:56:50,true
 SmartBulb:Cold,11,0.29,bulb2689,2022-05-22 02:12:33,2022-07-09 23:33:03,false
-Casa:Beatriz Ribeiro Terra Almeida,139183985,EDP Comercial,casa140,Shikumi 999-3700
+Casa:Beatriz Ribeiro Terra Almeida,139183985,EDP Comercial,casa140,Shikumi 999-3700 nº 28
 Divisao:Jardim
 SmartBulb:Neutral,9,0.15,bulb2690,2022-03-20 03:06:29,2022-06-09 14:34:49,true
 Divisao:Sala de Estar
@@ -5501,7 +5501,7 @@ SmartCamera:(1920x1080),114,6.93,cam1135,2022-03-14 15:48:08,2022-05-07 08:51:09
 SmartBulb:Neutral,16,0.15,bulb2704,2022-04-20 10:16:04,2022-06-19 16:11:50,false
 SmartBulb:Warm,12,0.16,bulb2705,2022-03-11 15:51:47,2022-06-11 23:41:41,false
 SmartSpeaker:70,RTP Antena 1 98.3 FM,Bowers&Wilkins,5.02,speaker679,2022-03-21 11:05:24,2022-05-01 22:55:41,false
-Casa:Pedro Miguel Machado Bota da Silva,547194621,Iberdrola,casa141,Fujikawa 289-2200
+Casa:Pedro Miguel Machado Bota da Silva,547194621,Iberdrola,casa141,Fujikawa 289-2200 nº 371
 Divisao:Cozinha
 SmartSpeaker:71,M80 Radio,Goodis,4.95,speaker680,2022-04-03 19:07:14,2022-06-13 08:58:16,true
 SmartBulb:Neutral,17,0.23,bulb2706,2022-04-27 22:46:04,2022-07-06 18:47:58,true
@@ -5568,7 +5568,7 @@ SmartBulb:Cold,14,0.29,bulb2741,2022-04-29 11:09:56,2022-06-29 14:42:21,false
 SmartBulb:Neutral,20,6.83,bulb2742,2022-04-27 15:38:44,2022-07-26 02:07:01,false
 SmartBulb:Cold,5,0.25,bulb2743,2022-05-01 09:36:26,2022-07-04 06:19:40,false
 SmartCamera:(1024x768),84,0.30,cam1144,2022-03-10 22:13:32,2022-05-10 08:03:00,false
-Casa:Afonso Miguel Rodrigues Magalhaes,820431351,Enat,casa142,Shimazaki 170-3293
+Casa:Afonso Miguel Rodrigues Magalhaes,820431351,Enat,casa142,Shimazaki 170-3293 nº 232
 Divisao:Quarto
 SmartBulb:Neutral,10,0.13,bulb2744,2022-04-22 17:12:30,2022-06-16 14:45:49,true
 Divisao:Jardim
@@ -5619,7 +5619,7 @@ SmartBulb:Neutral,14,8.65,bulb2770,2022-05-09 16:49:46,2022-06-24 18:55:22,true
 SmartBulb:Neutral,6,0.15,bulb2771,2022-03-10 21:46:43,2022-07-14 11:52:28,false
 Divisao:Cozinha 1
 SmartBulb:Neutral,5,0.11,bulb2772,2022-05-30 19:11:43,2022-07-13 02:30:44,true
-Casa:Bernardo Amado Pereira da Costa,987685754,YIce,casa143,Deguchi 574-000
+Casa:Bernardo Amado Pereira da Costa,987685754,YIce,casa143,Deguchi 574-000 nº 329
 Divisao:Jardim
 SmartBulb:Cold,18,0.13,bulb2773,2022-05-20 05:49:46,2022-07-26 02:00:06,false
 Divisao:Cozinha
@@ -5679,7 +5679,7 @@ SmartBulb:Neutral,12,0.12,bulb2795,2022-05-19 04:43:34,2022-07-15 23:23:02,true
 SmartCamera:(1280x720),82,3.94,cam1167,2022-04-16 18:38:48,2022-05-15 05:46:19,true
 SmartBulb:Warm,14,0.24,bulb2796,2022-03-27 14:54:35,2022-07-09 19:03:08,true
 SmartCamera:(3840x2160),50,0.14,cam1168,2022-04-21 05:52:07,2022-05-15 23:29:38,true
-Casa:Pedro Miguel Rodrigues Gomes,760990558,SU Electricidade,casa144,Mizutamari 354-0000
+Casa:Pedro Miguel Rodrigues Gomes,760990558,SU Electricidade,casa144,Mizutamari 354-0000 nº 3
 Divisao:Escritorio
 SmartSpeaker:33,Radio Comercial,Marshall,5.26,speaker702,2022-03-30 21:18:04,2022-04-20 15:13:54,false
 SmartBulb:Warm,16,0.21,bulb2797,2022-05-14 08:08:44,2022-07-10 20:42:52,false
@@ -5732,7 +5732,7 @@ SmartBulb:Neutral,10,0.19,bulb2826,2022-05-21 15:01:00,2022-06-28 03:29:41,false
 SmartSpeaker:65,Radio Renascenca,Goodis,5.39,speaker705,2022-04-03 12:48:14,2022-04-18 16:28:07,true
 SmartBulb:Neutral,19,0.19,bulb2827,2022-05-07 23:45:59,2022-07-26 22:28:01,true
 SmartBulb:Cold,12,0.10,bulb2828,2022-04-03 23:32:46,2022-07-01 08:11:54,false
-Casa:Paulo Miguel Freitas Oliveira,905718833,Coopernico,casa145,Shirahama 564-000
+Casa:Paulo Miguel Freitas Oliveira,905718833,Coopernico,casa145,Shirahama 564-000 nº 19
 Divisao:Garagem
 SmartBulb:Neutral,13,9.38,bulb2829,2022-05-21 18:35:10,2022-07-20 10:14:07,false
 SmartCamera:(1024x768),32,0.25,cam1177,2022-03-20 12:29:29,2022-05-01 12:40:52,true
@@ -5757,7 +5757,7 @@ SmartBulb:Neutral,18,0.20,bulb2838,2022-05-20 16:48:32,2022-07-18 16:04:24,true
 SmartSpeaker:70,RFM Oceano Pacifico,Sennheiser,5.19,speaker709,2022-03-19 08:46:14,2022-05-09 15:47:34,false
 SmartBulb:Warm,6,0.22,bulb2839,2022-03-29 17:19:59,2022-06-16 04:35:13,true
 SmartBulb:Warm,15,3.09,bulb2840,2022-04-16 12:48:40,2022-06-28 16:30:12,false
-Casa:Ricardo Lopes Santos Silva,015795999,Gold Energy,casa146,Azu 354-0000
+Casa:Ricardo Lopes Santos Silva,015795999,Gold Energy,casa146,Azu 354-0000 nº 270
 Divisao:Jardim
 SmartBulb:Neutral,18,0.16,bulb2841,2022-05-15 23:23:11,2022-07-04 00:59:57,true
 SmartCamera:(1920x1080),43,0.29,cam1182,2022-03-08 04:20:52,2022-05-10 18:06:10,true
@@ -5826,7 +5826,7 @@ SmartBulb:Neutral,13,0.20,bulb2873,2022-05-26 23:41:10,2022-06-06 21:23:00,true
 SmartCamera:(1920x1080),78,4.72,cam1197,2022-03-04 05:21:21,2022-05-15 21:43:45,true
 SmartBulb:Warm,10,0.11,bulb2874,2022-03-08 06:45:02,2022-06-27 07:22:33,false
 SmartBulb:Neutral,12,0.11,bulb2875,2022-04-22 00:32:48,2022-06-10 19:22:33,false
-Casa:Leonardo Araujo Freitas,446088565,Muon,casa147,Wake 190-0012
+Casa:Leonardo Araujo Freitas,446088565,Muon,casa147,Wake 190-0012 nº 368
 Divisao:Garagem
 SmartSpeaker:50,MEGA HITS,Philips,5.04,speaker717,2022-03-19 04:07:55,2022-05-04 09:59:18,true
 SmartBulb:Warm,15,0.18,bulb2876,2022-04-14 00:03:48,2022-07-05 19:57:06,true
@@ -5847,7 +5847,7 @@ SmartBulb:Warm,19,0.11,bulb2883,2022-05-03 05:25:47,2022-07-19 18:06:46,true
 SmartSpeaker:55,MEGA HITS,LG,5.50,speaker722,2022-03-11 15:07:52,2022-05-08 15:12:18,false
 SmartBulb:Neutral,9,3.94,bulb2884,2022-05-12 03:34:23,2022-07-08 23:53:04,false
 SmartBulb:Cold,20,0.20,bulb2885,2022-03-30 23:32:55,2022-06-14 12:13:10,true
-Casa:Ivo Miguel Alves Ribeiro,739313789,EDA,casa148,Tokitsu 289-2200
+Casa:Ivo Miguel Alves Ribeiro,739313789,EDA,casa148,Tokitsu 289-2200 nº 208
 Divisao:Sala de Estar
 SmartCamera:(1920x1080),15,6.12,cam1200,2022-04-01 16:15:38,2022-05-07 10:32:37,true
 SmartBulb:Cold,13,0.16,bulb2886,2022-03-07 22:50:12,2022-06-10 21:31:41,true
@@ -5886,7 +5886,7 @@ SmartBulb:Warm,7,4.18,bulb2903,2022-04-24 18:27:49,2022-07-23 15:53:31,true
 SmartBulb:Cold,16,0.10,bulb2904,2022-05-22 13:55:52,2022-05-30 21:08:45,true
 SmartCamera:(1920x1080),56,5.90,cam1207,2022-04-30 01:36:50,2022-05-04 02:59:44,false
 SmartCamera:(1366x768),47,5.63,cam1208,2022-03-14 14:37:01,2022-05-06 11:26:24,false
-Casa:Emanuel De Jesus Pedrosa Viana,475807746,YIce,casa149,Kawakami 289-2200
+Casa:Emanuel De Jesus Pedrosa Viana,475807746,YIce,casa149,Kawakami 289-2200 nº 215
 Divisao:Sala de Estar
 SmartSpeaker:65,TSF Radio Noticias,Bowers&Wilkins,5.47,speaker728,2022-03-16 23:46:03,2022-05-29 03:05:06,false
 SmartBulb:Neutral,18,4.78,bulb2905,2022-04-11 18:04:39,2022-07-21 22:41:55,true
@@ -5947,7 +5947,7 @@ SmartBulb:Warm,19,0.23,bulb2936,2022-05-17 06:06:42,2022-06-12 21:33:52,true
 SmartBulb:Neutral,10,0.20,bulb2937,2022-05-03 08:22:46,2022-07-18 13:53:19,true
 SmartCamera:(1366x768),65,6.53,cam1218,2022-03-27 11:00:21,2022-05-02 00:39:16,true
 SmartCamera:(1024x768),89,0.26,cam1219,2022-03-28 12:52:24,2022-05-15 06:01:54,false
-Casa:Ines Daniela Alves Ferreira,947632623,Endesa,casa150,Hashinokuchi 030-1500
+Casa:Ines Daniela Alves Ferreira,947632623,Endesa,casa150,Hashinokuchi 030-1500 nº 340
 Divisao:Sala de Estar
 SmartBulb:Neutral,14,8.18,bulb2938,2022-04-01 02:50:51,2022-06-12 23:30:22,false
 SmartBulb:Neutral,8,9.80,bulb2939,2022-05-21 06:50:05,2022-07-22 11:21:36,false
@@ -5972,7 +5972,7 @@ SmartSpeaker:89,RTP Antena 1 98.3 FM,Bang&Olufsen,5.16,speaker737,2022-03-19 12:
 SmartBulb:Neutral,11,2.84,bulb2950,2022-04-12 14:12:54,2022-07-19 21:05:00,true
 SmartBulb:Neutral,9,0.27,bulb2951,2022-03-06 21:42:44,2022-06-21 10:35:12,false
 SmartBulb:Neutral,12,7.18,bulb2952,2022-03-20 00:30:54,2022-06-23 05:05:57,true
-Casa:Mariana Dinis Rodrigues,315129067,Muon,casa151,Dekijima 190-0012
+Casa:Mariana Dinis Rodrigues,315129067,Muon,casa151,Dekijima 190-0012 nº 149
 Divisao:Garagem
 SmartCamera:(1920x1080),12,0.14,cam1223,2022-03-12 19:34:14,2022-05-10 12:27:17,false
 SmartSpeaker:60,Cidade FM,BOSE,3.80,speaker738,2022-03-21 07:29:18,2022-04-30 11:23:09,false
@@ -6039,7 +6039,7 @@ SmartCamera:(3840x2160),84,6.28,cam1241,2022-03-06 07:54:22,2022-05-12 08:52:02,
 SmartBulb:Neutral,14,0.20,bulb2979,2022-04-18 12:35:01,2022-07-04 05:38:24,false
 SmartBulb:Warm,17,7.27,bulb2980,2022-05-25 08:13:41,2022-07-07 17:45:33,false
 SmartBulb:Neutral,5,0.96,bulb2981,2022-04-03 18:34:09,2022-07-20 17:44:10,true
-Casa:Jose Miguel Carvalho Neiva,894865287,EDA,casa152,Shimo-furano 354-0000
+Casa:Jose Miguel Carvalho Neiva,894865287,EDA,casa152,Shimo-furano 354-0000 nº 296
 Divisao:Casa de Banho
 SmartCamera:(1366x768),35,4.03,cam1242,2022-04-19 18:03:09,2022-05-01 18:51:19,true
 SmartBulb:Neutral,8,0.19,bulb2982,2022-03-14 05:49:45,2022-06-18 22:04:26,true
@@ -6096,7 +6096,7 @@ Divisao:Garagem
 SmartBulb:Neutral,12,3.97,bulb3007,2022-04-23 18:47:34,2022-07-26 06:37:04,true
 Divisao:Casa de Banho 2
 SmartCamera:(2160x1440),24,5.90,cam1255,2022-03-12 14:32:47,2022-05-06 16:30:49,false
-Casa:Miguel Ã‚ngelo Silva Senra,004216686,EDA,casa153,Matsubara 755-0000
+Casa:Miguel Ã‚ngelo Silva Senra,004216686,EDA,casa153,Matsubara 755-0000 nº 223
 Divisao:Garagem
 SmartSpeaker:36,M80 Radio,Sony,4.21,speaker754,2022-03-11 17:00:48,2022-06-07 03:58:29,false
 SmartSpeaker:58,RFM Oceano Pacifico,LG,5.27,speaker755,2022-03-04 14:20:39,2022-04-27 20:29:55,true
@@ -6114,7 +6114,7 @@ Divisao:Quarto
 SmartBulb:Neutral,17,0.10,bulb3014,2022-03-05 01:36:06,2022-05-31 17:59:21,true
 SmartBulb:Neutral,11,7.98,bulb3015,2022-03-22 11:11:33,2022-06-19 23:09:11,true
 SmartBulb:Warm,5,0.22,bulb3016,2022-04-21 14:03:33,2022-06-27 16:05:51,false
-Casa:Nuno Guilherme Cruz Varela,350264846,EDP Comercial,casa154,Misaka 564-000
+Casa:Nuno Guilherme Cruz Varela,350264846,EDP Comercial,casa154,Misaka 564-000 nº 118
 Divisao:Escritorio
 SmartSpeaker:60,RFM,LG,4.10,speaker757,2022-03-31 10:02:02,2022-04-20 09:09:20,false
 Divisao:Jardim
@@ -6150,7 +6150,7 @@ SmartCamera:(3840x2160),120,4.30,cam1261,2022-04-10 18:38:28,2022-05-14 18:13:59
 SmartCamera:(1920x1080),120,0.37,cam1262,2022-03-27 11:36:32,2022-05-12 21:49:24,true
 SmartSpeaker:86,MEGA HITS,Goodis,5.44,speaker761,2022-04-07 11:31:17,2022-05-11 10:58:34,false
 SmartSpeaker:30,Radio Radar,JBL,4.15,speaker762,2022-04-11 20:31:25,2022-04-19 20:10:49,false
-Casa:Jose Eduardo da Cunha Rocha,480056592,Gold Energy,casa155,Miyagusuku 289-2200
+Casa:Jose Eduardo da Cunha Rocha,480056592,Gold Energy,casa155,Miyagusuku 289-2200 nº 245
 Divisao:Sala de Estar
 SmartSpeaker:55,MEGA HITS,Marshall,5.04,speaker763,2022-04-10 12:58:13,2022-06-02 15:52:38,true
 Divisao:Casa de Banho
@@ -6192,7 +6192,7 @@ SmartCamera:(1280x720),97,0.32,cam1269,2022-03-24 23:32:46,2022-05-08 02:13:16,f
 SmartCamera:(1024x768),95,6.79,cam1270,2022-04-03 10:18:28,2022-05-08 02:04:58,false
 Divisao:Sala de Jantar
 SmartCamera:(3840x2160),13,4.04,cam1271,2022-03-16 09:58:00,2022-05-03 04:11:07,false
-Casa:Adriana Margarida Martins Goncalves,633734060,Gold Energy,casa156,Iorinouramachi 030-1500
+Casa:Adriana Margarida Martins Goncalves,633734060,Gold Energy,casa156,Iorinouramachi 030-1500 nº 346
 Divisao:Cozinha
 SmartCamera:(3840x2160),79,6.48,cam1272,2022-03-05 03:59:01,2022-05-09 07:56:36,true
 SmartCamera:(3840x2160),52,3.96,cam1273,2022-03-21 10:34:19,2022-05-11 12:16:45,false
@@ -6212,14 +6212,14 @@ SmartBulb:Neutral,6,0.29,bulb3063,2022-03-14 09:39:13,2022-07-26 18:00:45,false
 SmartCamera:(2160x1440),31,6.97,cam1277,2022-03-31 10:00:58,2022-05-09 21:21:06,false
 Divisao:Escritorio
 SmartBulb:Warm,6,0.11,bulb3064,2022-04-14 03:06:00,2022-07-08 02:16:14,true
-Casa:Andre Aristeu Mateus Vinagreiro,647927952,SU Electricidade,casa157,Utafue 755-0000
+Casa:Andre Aristeu Mateus Vinagreiro,647927952,SU Electricidade,casa157,Utafue 755-0000 nº 451
 Divisao:Casa de Banho
 SmartBulb:Neutral,15,0.16,bulb3065,2022-03-19 10:12:21,2022-07-21 23:53:27,true
 SmartCamera:(2160x1440),96,6.16,cam1278,2022-03-08 12:43:14,2022-05-06 10:43:40,true
 Divisao:Sala de Estar
 SmartBulb:Warm,7,0.19,bulb3066,2022-03-29 23:14:19,2022-06-08 12:34:25,true
 SmartBulb:Neutral,11,3.85,bulb3067,2022-04-29 17:42:03,2022-06-04 02:23:34,true
-Casa:Daniel Du,615082530,Gold Energy,casa158,Idemachi 170-3293
+Casa:Daniel Du,615082530,Gold Energy,casa158,Idemachi 170-3293 nº 421
 Divisao:Garagem
 SmartSpeaker:2,RFM Oceano Pacifico,Bowers&Wilkins,4.09,speaker766,2022-03-10 14:16:37,2022-05-09 06:55:26,false
 Divisao:Jardim
@@ -6260,7 +6260,7 @@ SmartSpeaker:60,RFM Oceano Pacifico,Goodis,5.52,speaker771,2022-03-17 15:24:31,2
 SmartBulb:Warm,5,0.15,bulb3088,2022-03-16 04:29:36,2022-06-14 23:28:34,false
 SmartSpeaker:48,M80 Radio,Bowers&Wilkins,5.42,speaker772,2022-03-07 17:56:27,2022-06-04 02:45:17,true
 SmartSpeaker:66,Radio Renascenca,Goodis,5.34,speaker773,2022-04-04 06:04:09,2022-04-27 06:19:23,false
-Casa:Miguel Silva Pinto,772798853,Iberdrola,casa159,Obama 170-3293
+Casa:Miguel Silva Pinto,772798853,Iberdrola,casa159,Obama 170-3293 nº 55
 Divisao:Jardim
 SmartBulb:Neutral,16,0.15,bulb3089,2022-04-23 17:11:01,2022-06-23 01:58:27,true
 SmartCamera:(1366x768),45,0.96,cam1284,2022-03-20 05:55:50,2022-05-09 20:03:51,false
@@ -6337,7 +6337,7 @@ SmartCamera:(1024x768),108,0.47,cam1301,2022-03-19 17:13:09,2022-05-15 10:29:58,
 SmartBulb:Neutral,5,0.19,bulb3127,2022-05-23 15:46:49,2022-07-27 02:04:46,false
 SmartBulb:Warm,16,0.16,bulb3128,2022-03-26 13:57:19,2022-07-23 07:41:20,true
 SmartBulb:Warm,5,2.41,bulb3129,2022-03-17 18:31:29,2022-06-21 04:19:34,true
-Casa:Francisco Maria Sousa Goncalves Paiva,572001676,Gold Energy,casa160,Kashiharachō 030-1500
+Casa:Francisco Maria Sousa Goncalves Paiva,572001676,Gold Energy,casa160,Kashiharachō 030-1500 nº 379
 Divisao:Sala de Estar
 SmartSpeaker:50,MEGA HITS,BOSE,3.94,speaker781,2022-03-19 11:08:17,2022-06-09 06:03:05,false
 SmartCamera:(1280x720),87,0.40,cam1302,2022-03-31 12:22:33,2022-05-06 18:25:30,false
@@ -6351,7 +6351,7 @@ SmartBulb:Neutral,15,0.16,bulb3133,2022-03-06 22:47:50,2022-07-18 02:01:46,false
 SmartBulb:Neutral,13,0.15,bulb3134,2022-04-04 00:43:18,2022-07-07 21:51:09,true
 SmartBulb:Neutral,6,7.12,bulb3135,2022-05-20 18:09:14,2022-07-23 05:25:47,false
 SmartCamera:(1366x768),44,0.28,cam1305,2022-03-24 14:31:42,2022-05-10 12:24:45,false
-Casa:Joao Mateus Costa Coelho,263964418,SU Electricidade,casa161,Nishiōdera 354-0000
+Casa:Joao Mateus Costa Coelho,263964418,SU Electricidade,casa161,Nishiōdera 354-0000 nº 488
 Divisao:Jardim
 SmartCamera:(1366x768),90,6.84,cam1306,2022-04-27 15:40:30,2022-05-08 08:06:02,true
 SmartCamera:(1920x1080),111,6.27,cam1307,2022-03-17 13:25:38,2022-05-01 17:38:05,true
@@ -6378,7 +6378,7 @@ SmartBulb:Neutral,5,0.29,bulb3148,2022-05-01 05:17:03,2022-07-23 21:20:01,false
 SmartSpeaker:60,Cidade FM,Sony,5.01,speaker783,2022-04-04 06:00:29,2022-05-07 12:22:23,true
 SmartBulb:Cold,11,0.22,bulb3149,2022-03-08 05:28:27,2022-06-13 00:32:37,false
 SmartBulb:Cold,11,0.13,bulb3150,2022-05-27 00:44:40,2022-06-28 00:12:17,false
-Casa:Jose Pedro Batista Fonte,256094852,Iberdrola,casa162,Akaska 289-2200
+Casa:Jose Pedro Batista Fonte,256094852,Iberdrola,casa162,Akaska 289-2200 nº 264
 Divisao:Quarto
 SmartBulb:Neutral,15,0.26,bulb3151,2022-04-08 07:38:18,2022-05-31 18:18:38,false
 Divisao:Garagem
@@ -6439,7 +6439,7 @@ SmartBulb:Neutral,11,0.17,bulb3178,2022-03-07 22:21:54,2022-07-17 09:39:01,true
 SmartCamera:(2160x1440),119,6.46,cam1321,2022-03-17 02:59:36,2022-05-15 00:48:24,false
 SmartBulb:Neutral,7,0.15,bulb3179,2022-05-05 09:58:24,2022-06-17 22:27:27,false
 SmartBulb:Neutral,13,4.58,bulb3180,2022-05-21 03:46:46,2022-07-26 21:35:46,false
-Casa:Meriem Khammassi,193941718,SU Electricidade,casa163,Sakanasawa 999-3700
+Casa:Meriem Khammassi,193941718,SU Electricidade,casa163,Sakanasawa 999-3700 nº 228
 Divisao:Jardim
 SmartCamera:(2160x1440),120,0.14,cam1322,2022-04-04 00:35:09,2022-05-02 03:39:53,false
 SmartBulb:Neutral,8,0.22,bulb3181,2022-05-03 00:12:33,2022-07-02 21:40:51,false
@@ -6481,7 +6481,7 @@ SmartCamera:(2160x1440),109,4.12,cam1326,2022-04-08 11:38:56,2022-05-06 11:06:58
 SmartBulb:Neutral,13,0.10,bulb3199,2022-05-21 03:19:25,2022-07-15 06:15:23,true
 SmartBulb:Warm,8,0.19,bulb3200,2022-03-18 10:50:26,2022-06-21 14:26:11,true
 SmartCamera:(3840x2160),36,6.37,cam1327,2022-04-30 12:09:07,2022-05-01 01:11:12,false
-Casa:Carlos Filipe Almeida Dias,224529762,Coopernico,casa164,Yuya 289-2200
+Casa:Carlos Filipe Almeida Dias,224529762,Coopernico,casa164,Yuya 289-2200 nº 341
 Divisao:Sala de Estar
 SmartSpeaker:55,Cidade FM,LG,5.13,speaker800,2022-04-04 04:25:47,2022-06-10 05:33:04,true
 SmartBulb:Neutral,13,0.21,bulb3201,2022-04-23 08:56:11,2022-07-27 08:48:30,false
@@ -6505,7 +6505,7 @@ SmartCamera:(1280x720),8,4.55,cam1330,2022-03-17 08:19:21,2022-05-15 07:36:00,fa
 Divisao:Quarto
 SmartBulb:Neutral,14,5.49,bulb3214,2022-03-08 01:13:49,2022-07-17 18:55:36,true
 SmartBulb:Neutral,7,0.28,bulb3215,2022-04-20 16:20:22,2022-07-01 15:14:29,false
-Casa:Tiago Manuel Da Silva Rego Macedo Alves,107502094,Coopernico,casa165,Takenouchi 170-3293
+Casa:Tiago Manuel Da Silva Rego Macedo Alves,107502094,Coopernico,casa165,Takenouchi 170-3293 nº 350
 Divisao:Casa de Banho
 SmartBulb:Neutral,16,0.17,bulb3216,2022-04-21 08:55:31,2022-07-28 15:52:02,true
 SmartBulb:Neutral,5,0.12,bulb3217,2022-04-02 10:57:52,2022-07-05 15:56:21,false
@@ -6564,7 +6564,7 @@ SmartCamera:(2160x1440),76,3.65,cam1341,2022-04-25 04:23:26,2022-05-03 04:56:40,
 SmartBulb:Warm,18,1.44,bulb3242,2022-04-22 15:34:55,2022-07-02 05:17:16,false
 SmartSpeaker:40,RTP Antena 1 98.3 FM,Marshall,5.53,speaker813,2022-03-27 22:30:59,2022-05-07 19:22:05,false
 SmartBulb:Neutral,12,2.13,bulb3243,2022-03-19 18:24:08,2022-06-17 04:40:05,false
-Casa:Jeanete Alves do Couto,124400987,EDP Comercial,casa166,Aokata 190-0012
+Casa:Jeanete Alves do Couto,124400987,EDP Comercial,casa166,Aokata 190-0012 nº 193
 Divisao:Casa de Banho
 SmartBulb:Neutral,17,0.21,bulb3244,2022-03-11 08:14:44,2022-06-22 23:49:31,true
 SmartBulb:Neutral,12,4.50,bulb3245,2022-05-14 18:11:04,2022-06-15 17:49:10,false
@@ -6587,7 +6587,7 @@ Divisao:Casa de Banho 1
 SmartCamera:(1280x720),79,0.14,cam1345,2022-03-26 23:34:37,2022-05-02 09:25:10,true
 SmartCamera:(3840x2160),43,6.84,cam1346,2022-03-07 07:18:45,2022-05-09 23:21:20,false
 SmartCamera:(1280x720),91,0.37,cam1347,2022-03-25 06:11:31,2022-05-08 10:52:38,false
-Casa:Andre Mateus Pires Presa,983005743,Iberdrola,casa167,Homme 564-000
+Casa:Andre Mateus Pires Presa,983005743,Iberdrola,casa167,Homme 564-000 nº 8
 Divisao:Garagem
 SmartCamera:(1920x1080),10,4.30,cam1348,2022-03-21 02:55:28,2022-05-01 08:50:35,true
 SmartBulb:Neutral,18,0.14,bulb3254,2022-03-16 16:31:18,2022-06-23 16:12:12,true
@@ -6660,7 +6660,7 @@ SmartCamera:(2160x1440),18,3.76,cam1370,2022-03-16 10:05:34,2022-05-07 12:42:31,
 SmartBulb:Neutral,5,6.20,bulb3280,2022-03-26 19:12:39,2022-06-08 06:18:34,false
 SmartBulb:Neutral,8,0.10,bulb3281,2022-05-11 02:50:21,2022-06-24 03:28:24,true
 SmartSpeaker:74,RFM,Goodis,5.07,speaker826,2022-03-12 10:44:27,2022-04-22 19:39:08,true
-Casa:Guilherme Moreno de Passos Sousa,109670503,SU Electricidade,casa168,Kasaoka 190-0012
+Casa:Guilherme Moreno de Passos Sousa,109670503,SU Electricidade,casa168,Kasaoka 190-0012 nº 34
 Divisao:Sala de Jantar
 SmartBulb:Cold,11,0.14,bulb3282,2022-03-27 07:20:49,2022-07-24 15:24:02,false
 SmartCamera:(1366x768),23,0.44,cam1371,2022-03-11 17:51:25,2022-05-12 00:45:36,true
@@ -6689,7 +6689,7 @@ SmartSpeaker:55,RFM,BOSE,5.46,speaker830,2022-03-17 20:21:44,2022-06-01 18:36:57
 SmartBulb:Warm,7,0.16,bulb3292,2022-04-02 18:42:29,2022-06-22 10:07:17,true
 SmartCamera:(2160x1440),95,0.27,cam1377,2022-03-27 09:28:50,2022-05-14 22:35:26,true
 SmartBulb:Cold,18,0.19,bulb3293,2022-04-07 03:37:26,2022-06-08 11:39:23,true
-Casa:Arthur Cardoso Franca,415294714,Coopernico,casa169,Hyotankeushi 999-3700
+Casa:Arthur Cardoso Franca,415294714,Coopernico,casa169,Hyotankeushi 999-3700 nº 264
 Divisao:Casa de Banho
 SmartBulb:Warm,15,0.12,bulb3294,2022-04-02 06:09:50,2022-06-29 18:21:24,false
 SmartCamera:(3840x2160),58,4.76,cam1378,2022-04-03 02:00:21,2022-05-04 08:16:16,false
@@ -6734,7 +6734,7 @@ SmartCamera:(1280x720),52,6.19,cam1388,2022-04-08 16:06:26,2022-05-11 00:45:23,t
 SmartCamera:(1280x720),110,4.39,cam1389,2022-03-31 04:57:41,2022-05-14 10:02:04,true
 SmartBulb:Neutral,14,0.15,bulb3310,2022-04-02 02:27:49,2022-07-08 15:50:06,true
 SmartBulb:Neutral,16,3.69,bulb3311,2022-04-01 11:52:09,2022-05-31 17:16:52,false
-Casa:Bianca Araujo do Vale,347419851,Iberdrola,casa170,Mikasa-chō 999-3700
+Casa:Bianca Araujo do Vale,347419851,Iberdrola,casa170,Mikasa-chō 999-3700 nº 124
 Divisao:Casa de Banho
 SmartCamera:(2160x1440),38,0.41,cam1390,2022-03-18 18:56:05,2022-05-09 05:23:37,true
 SmartBulb:Warm,14,0.29,bulb3312,2022-04-04 13:33:27,2022-07-26 07:45:03,false
@@ -6787,7 +6787,7 @@ SmartBulb:Neutral,20,0.24,bulb3337,2022-03-19 10:23:11,2022-06-27 03:57:24,false
 SmartBulb:Cold,6,7.45,bulb3338,2022-03-07 19:53:35,2022-06-12 12:32:34,false
 SmartBulb:Neutral,18,0.19,bulb3339,2022-04-21 18:50:06,2022-06-14 17:21:39,true
 SmartBulb:Warm,6,0.96,bulb3340,2022-03-09 11:42:18,2022-07-18 23:58:41,false
-Casa:Ana Filipa da Cunha Rebelo,023803972,EDA,casa171,Kitaganegasawa 999-3700
+Casa:Ana Filipa da Cunha Rebelo,023803972,EDA,casa171,Kitaganegasawa 999-3700 nº 414
 Divisao:Garagem
 SmartBulb:Neutral,9,1.91,bulb3341,2022-05-03 09:16:02,2022-07-22 14:05:29,false
 SmartBulb:Neutral,18,0.12,bulb3342,2022-03-20 08:16:28,2022-06-01 13:13:02,false
@@ -6813,7 +6813,7 @@ SmartBulb:Neutral,20,0.10,bulb3352,2022-05-20 09:24:10,2022-06-15 07:14:00,true
 SmartBulb:Cold,9,0.27,bulb3353,2022-05-06 11:39:09,2022-06-25 17:40:34,false
 SmartBulb:Neutral,15,0.20,bulb3354,2022-03-26 16:48:24,2022-06-07 09:35:48,true
 SmartCamera:(1024x768),20,4.46,cam1401,2022-03-30 22:02:08,2022-05-04 08:39:07,false
-Casa:Joao Henrique Costa Ferreira,001146405,Iberdrola,casa172,Sioya 999-3700
+Casa:Joao Henrique Costa Ferreira,001146405,Iberdrola,casa172,Sioya 999-3700 nº 487
 Divisao:Casa de Banho
 SmartSpeaker:65,MEGA HITS,BOSE,5.03,speaker847,2022-03-23 02:26:55,2022-04-28 23:22:50,true
 SmartBulb:Neutral,19,5.41,bulb3355,2022-03-10 13:03:17,2022-06-11 14:28:34,false
@@ -6837,7 +6837,7 @@ Divisao:Jardim
 SmartSpeaker:98,TSF Radio Noticias,LG,3.67,speaker853,2022-03-19 20:53:47,2022-05-28 09:50:04,false
 SmartBulb:Neutral,20,0.15,bulb3365,2022-05-15 04:41:25,2022-06-01 21:02:26,false
 SmartBulb:Neutral,14,8.03,bulb3366,2022-05-26 08:54:35,2022-06-11 23:38:31,true
-Casa:Hugo dos Santos Martins,048370395,EDP Comercial,casa173,Higashi-gōchimachi 904-1300
+Casa:Hugo dos Santos Martins,048370395,EDP Comercial,casa173,Higashi-gōchimachi 904-1300 nº 356
 Divisao:Sala de Jantar
 SmartCamera:(3840x2160),5,3.96,cam1403,2022-03-14 11:16:04,2022-05-15 00:10:06,false
 SmartBulb:Neutral,17,9.42,bulb3367,2022-05-17 09:24:47,2022-07-13 16:04:20,false
@@ -6888,7 +6888,7 @@ SmartCamera:(2160x1440),35,0.31,cam1414,2022-04-13 07:07:02,2022-05-12 01:41:09,
 Divisao:Garagem
 SmartSpeaker:40,M80 Radio,BOSE,5.35,speaker857,2022-04-04 01:15:50,2022-04-22 22:03:06,false
 SmartBulb:Warm,10,0.14,bulb3391,2022-05-26 10:05:51,2022-06-09 15:19:55,true
-Casa:Jose Carlos Goncalves Braz,109366750,MEO Energia,casa174,Ageomura 755-0000
+Casa:Jose Carlos Goncalves Braz,109366750,MEO Energia,casa174,Ageomura 755-0000 nº 243
 Divisao:Quarto
 SmartBulb:Neutral,9,4.10,bulb3392,2022-05-30 02:42:31,2022-06-25 00:12:28,false
 Divisao:Jardim
@@ -6954,7 +6954,7 @@ SmartBulb:Neutral,9,4.63,bulb3425,2022-03-09 12:38:23,2022-07-04 10:44:36,true
 SmartBulb:Neutral,11,3.07,bulb3426,2022-04-23 04:25:47,2022-06-11 07:32:09,false
 SmartBulb:Neutral,10,0.20,bulb3427,2022-03-01 02:28:26,2022-07-20 20:06:19,true
 SmartBulb:Neutral,8,0.14,bulb3428,2022-04-28 03:00:13,2022-06-24 19:58:26,true
-Casa:Joao Pedro Antunes Goncalves,942382904,YIce,casa175,Shijiki 564-000
+Casa:Joao Pedro Antunes Goncalves,942382904,YIce,casa175,Shijiki 564-000 nº 491
 Divisao:Sala de Estar
 SmartBulb:Neutral,11,0.18,bulb3429,2022-03-04 22:57:11,2022-07-08 22:20:42,true
 SmartBulb:Neutral,5,8.06,bulb3430,2022-03-06 17:58:54,2022-05-30 19:43:47,true
@@ -7021,7 +7021,7 @@ SmartBulb:Neutral,11,0.19,bulb3455,2022-04-11 14:16:58,2022-07-19 11:27:42,false
 SmartBulb:Neutral,17,0.27,bulb3456,2022-05-11 17:55:23,2022-06-01 20:22:08,true
 SmartBulb:Neutral,20,0.10,bulb3457,2022-04-07 06:44:39,2022-06-15 02:42:41,false
 SmartCamera:(1366x768),31,0.14,cam1444,2022-04-23 13:37:52,2022-05-08 16:35:29,true
-Casa:Joao Pedro Pereira Caldas,985641766,SU Electricidade,casa176,Kagaya 170-3293
+Casa:Joao Pedro Pereira Caldas,985641766,SU Electricidade,casa176,Kagaya 170-3293 nº 227
 Divisao:Cozinha
 SmartBulb:Warm,5,7.96,bulb3458,2022-03-06 16:32:49,2022-06-14 17:18:51,false
 SmartBulb:Neutral,19,0.19,bulb3459,2022-03-25 20:50:12,2022-06-10 22:23:17,true
@@ -7072,7 +7072,7 @@ Divisao:Garagem 1
 SmartBulb:Warm,11,0.26,bulb3479,2022-03-05 19:38:05,2022-07-11 02:21:15,false
 SmartBulb:Neutral,20,3.60,bulb3480,2022-04-06 12:19:15,2022-07-30 19:48:45,true
 SmartBulb:Neutral,18,1.60,bulb3481,2022-03-02 12:05:42,2022-07-29 22:33:11,false
-Casa:Francisca Quintas Monteiro Barros,137062714,Enat,casa177,Takabu 904-1300
+Casa:Francisca Quintas Monteiro Barros,137062714,Enat,casa177,Takabu 904-1300 nº 365
 Divisao:Cozinha
 SmartBulb:Neutral,16,0.16,bulb3482,2022-03-03 22:33:19,2022-06-18 23:46:19,true
 SmartBulb:Neutral,17,0.13,bulb3483,2022-03-14 06:12:09,2022-06-04 05:23:52,true
@@ -7083,7 +7083,7 @@ SmartCamera:(1366x768),57,4.57,cam1454,2022-03-25 09:08:26,2022-05-10 09:15:32,t
 SmartBulb:Neutral,15,0.11,bulb3485,2022-03-17 14:42:02,2022-07-30 03:04:11,false
 SmartBulb:Neutral,10,4.02,bulb3486,2022-03-22 15:25:04,2022-07-14 06:41:33,false
 SmartCamera:(1920x1080),6,5.40,cam1455,2022-04-13 23:23:31,2022-05-13 05:38:59,false
-Casa:Lucas Rafael da Cunha Franco Robertson,921181110,MEO Energia,casa178,Tomai 030-1500
+Casa:Lucas Rafael da Cunha Franco Robertson,921181110,MEO Energia,casa178,Tomai 030-1500 nº 359
 Divisao:Jardim
 SmartBulb:Warm,14,1.44,bulb3487,2022-03-21 19:22:38,2022-06-28 16:52:43,false
 SmartBulb:Warm,19,3.45,bulb3488,2022-04-07 00:10:53,2022-07-25 19:21:50,true
@@ -7107,7 +7107,7 @@ SmartBulb:Neutral,15,0.24,bulb3494,2022-05-02 09:38:00,2022-07-20 00:04:19,true
 SmartBulb:Neutral,12,6.27,bulb3495,2022-03-19 00:26:50,2022-05-31 15:56:28,true
 SmartBulb:Warm,16,0.29,bulb3496,2022-05-08 19:38:46,2022-07-28 08:11:22,false
 SmartCamera:(1024x768),25,5.29,cam1459,2022-03-26 15:10:13,2022-05-03 03:51:53,false
-Casa:Ricardo Manuel Soares Peixoto,637098366,Enat,casa179,Ikego 354-0000
+Casa:Ricardo Manuel Soares Peixoto,637098366,Enat,casa179,Ikego 354-0000 nº 436
 Divisao:Garagem
 SmartBulb:Neutral,5,0.10,bulb3497,2022-05-02 16:19:41,2022-06-25 03:32:04,false
 SmartCamera:(1366x768),55,5.61,cam1460,2022-04-03 09:52:18,2022-05-01 11:08:22,false
@@ -7176,7 +7176,7 @@ SmartCamera:(1280x720),100,5.41,cam1472,2022-03-15 09:54:29,2022-05-10 05:07:13,
 SmartCamera:(1920x1080),116,0.36,cam1473,2022-03-22 16:07:35,2022-05-02 04:30:38,false
 SmartBulb:Neutral,8,0.18,bulb3531,2022-03-23 12:43:36,2022-06-27 15:37:51,true
 SmartCamera:(2160x1440),9,0.46,cam1474,2022-03-05 18:43:36,2022-05-09 09:33:34,false
-Casa:Joana Isabel Freitas Pereira,940955797,Galp Energia,casa180,Shin-shigai 755-0000
+Casa:Joana Isabel Freitas Pereira,940955797,Galp Energia,casa180,Shin-shigai 755-0000 nº 432
 Divisao:Sala de Jantar
 SmartCamera:(2160x1440),55,5.96,cam1475,2022-03-25 22:46:48,2022-05-09 01:43:20,false
 SmartBulb:Neutral,6,5.04,bulb3532,2022-03-21 05:03:32,2022-07-21 11:19:44,false
@@ -7246,7 +7246,7 @@ SmartCamera:(1280x720),64,0.27,cam1490,2022-04-19 22:47:19,2022-05-07 01:24:52,t
 SmartSpeaker:70,RFM Oceano Pacifico,Sony,4.91,speaker904,2022-03-27 08:42:59,2022-05-27 05:27:16,true
 SmartBulb:Warm,15,0.24,bulb3565,2022-04-04 16:50:12,2022-07-13 00:05:30,false
 SmartCamera:(1920x1080),47,6.33,cam1491,2022-03-21 20:14:38,2022-05-06 12:26:57,false
-Casa:Jaime Abreu Fernandes de Oliveira,571182142,MEO Energia,casa181,Okuryōke 574-000
+Casa:Jaime Abreu Fernandes de Oliveira,571182142,MEO Energia,casa181,Okuryōke 574-000 nº 51
 Divisao:Cozinha
 SmartBulb:Neutral,5,0.11,bulb3566,2022-05-26 11:41:06,2022-06-06 00:26:01,false
 SmartBulb:Warm,15,0.29,bulb3567,2022-03-16 03:33:17,2022-07-22 12:49:39,true
@@ -7305,7 +7305,7 @@ SmartBulb:Neutral,15,2.76,bulb3591,2022-04-10 04:34:22,2022-06-12 21:21:00,true
 SmartCamera:(2160x1440),61,6.05,cam1506,2022-04-07 18:51:44,2022-05-06 18:21:13,true
 SmartCamera:(2160x1440),11,6.68,cam1507,2022-04-07 13:31:00,2022-05-05 03:08:19,true
 SmartBulb:Neutral,11,7.95,bulb3592,2022-04-28 21:55:37,2022-05-31 10:50:27,true
-Casa:Luis Gomes Ferreira,851702876,Gold Energy,casa182,Hika 170-3293
+Casa:Luis Gomes Ferreira,851702876,Gold Energy,casa182,Hika 170-3293 nº 437
 Divisao:Cozinha
 SmartSpeaker:55,RFM,Sennheiser,4.14,speaker911,2022-03-04 09:16:07,2022-05-03 14:21:15,false
 SmartCamera:(1366x768),74,4.65,cam1508,2022-04-15 05:14:38,2022-05-01 03:00:06,true
@@ -7347,7 +7347,7 @@ SmartBulb:Warm,11,0.29,bulb3606,2022-04-12 11:30:58,2022-06-11 08:34:54,false
 SmartCamera:(1920x1080),30,4.37,cam1521,2022-03-13 21:03:03,2022-05-02 07:28:51,false
 SmartSpeaker:23,M80 Radio,JBL,5.20,speaker917,2022-03-03 08:06:53,2022-04-17 21:34:44,true
 SmartBulb:Cold,18,0.19,bulb3607,2022-05-16 03:24:30,2022-06-02 23:01:18,true
-Casa:Joao Pedro Machado Ribeiro,264073655,Galp Energia,casa183,Shukunoura 904-1300
+Casa:Joao Pedro Machado Ribeiro,264073655,Galp Energia,casa183,Shukunoura 904-1300 nº 228
 Divisao:Sala de Jantar
 SmartSpeaker:50,RFM Oceano Pacifico,JBL,3.74,speaker918,2022-03-17 10:54:20,2022-05-04 07:09:30,true
 SmartBulb:Warm,9,0.14,bulb3608,2022-04-17 01:01:34,2022-06-28 19:00:44,false
@@ -7401,7 +7401,7 @@ SmartCamera:(1280x720),101,5.67,cam1532,2022-04-08 01:37:27,2022-05-08 06:58:32,
 SmartBulb:Neutral,16,0.28,bulb3636,2022-05-26 05:10:52,2022-06-20 08:06:40,true
 SmartBulb:Neutral,13,0.28,bulb3637,2022-04-20 20:19:08,2022-07-29 07:37:19,true
 SmartCamera:(1920x1080),89,6.67,cam1533,2022-04-28 10:54:20,2022-05-04 09:24:27,false
-Casa:Tiago Luis Pereira Ferreira,296952664,Muon,casa184,Tsukama 289-2200
+Casa:Tiago Luis Pereira Ferreira,296952664,Muon,casa184,Tsukama 289-2200 nº 275
 Divisao:Casa de Banho
 SmartBulb:Warm,19,0.11,bulb3638,2022-03-29 21:05:19,2022-07-20 19:08:00,false
 SmartBulb:Neutral,11,0.10,bulb3639,2022-04-17 19:13:19,2022-05-31 18:58:13,true
@@ -7452,7 +7452,7 @@ SmartBulb:Neutral,6,7.46,bulb3661,2022-04-13 09:00:12,2022-07-09 04:23:06,false
 SmartCamera:(1280x720),114,0.45,cam1546,2022-03-10 02:17:40,2022-05-15 00:46:54,true
 SmartBulb:Neutral,13,7.73,bulb3662,2022-04-20 19:18:58,2022-07-09 05:20:59,false
 SmartBulb:Neutral,16,0.15,bulb3663,2022-03-07 22:05:37,2022-07-11 09:23:20,true
-Casa:Hugo Manuel Ferreira Novais,109362687,SU Electricidade,casa185,Mori 030-1500
+Casa:Hugo Manuel Ferreira Novais,109362687,SU Electricidade,casa185,Mori 030-1500 nº 407
 Divisao:Jardim
 SmartBulb:Neutral,14,7.27,bulb3664,2022-04-07 23:55:32,2022-07-12 07:40:01,false
 SmartSpeaker:71,RTP Antena 1 98.3 FM,BOSE,3.92,speaker926,2022-04-06 21:11:35,2022-06-02 03:39:16,true
@@ -7466,7 +7466,7 @@ SmartBulb:Neutral,5,0.10,bulb3668,2022-03-05 06:37:44,2022-06-01 14:36:51,false
 SmartBulb:Neutral,11,8.38,bulb3669,2022-04-30 20:22:58,2022-06-24 14:22:11,false
 SmartBulb:Neutral,6,0.28,bulb3670,2022-04-29 17:58:54,2022-06-24 23:22:11,true
 SmartBulb:Warm,17,8.19,bulb3671,2022-03-25 01:59:31,2022-07-05 05:52:44,false
-Casa:Joao Miguel Santos Sa,919214693,Endesa,casa186,Agura 904-1300
+Casa:Joao Miguel Santos Sa,919214693,Endesa,casa186,Agura 904-1300 nº 474
 Divisao:Garagem
 SmartBulb:Warm,19,1.44,bulb3672,2022-04-04 00:11:58,2022-06-19 03:32:20,false
 SmartBulb:Warm,14,5.17,bulb3673,2022-05-04 11:39:44,2022-07-02 08:21:37,true
@@ -7482,7 +7482,7 @@ SmartBulb:Warm,17,5.58,bulb3680,2022-05-14 05:09:07,2022-06-03 01:34:20,true
 SmartBulb:Neutral,19,0.29,bulb3681,2022-03-13 14:13:18,2022-07-21 14:14:26,false
 SmartSpeaker:40,RFM,Goodis,3.84,speaker927,2022-03-10 01:41:23,2022-05-10 03:50:51,true
 SmartBulb:Neutral,11,0.11,bulb3682,2022-05-10 15:44:07,2022-07-09 15:17:40,true
-Casa:Santiago Vicente Ferreira Fernandim Domingues,629273257,Iberdrola,casa187,Tarukishi 999-3700
+Casa:Santiago Vicente Ferreira Fernandim Domingues,629273257,Iberdrola,casa187,Tarukishi 999-3700 nº 121
 Divisao:Sala de Estar
 SmartCamera:(1280x720),77,6.06,cam1550,2022-04-06 06:44:36,2022-05-15 16:46:11,false
 SmartSpeaker:4,Radio Radar,LG,5.26,speaker928,2022-03-21 06:19:44,2022-05-05 19:37:51,false
@@ -7522,7 +7522,7 @@ SmartSpeaker:90,Radio Radar,Bowers&Wilkins,4.33,speaker931,2022-03-03 05:49:01,2
 Divisao:Jardim 2
 SmartCamera:(3840x2160),18,0.26,cam1557,2022-04-29 20:33:19,2022-05-03 06:50:58,false
 SmartCamera:(2160x1440),7,6.36,cam1558,2022-04-25 05:18:35,2022-05-04 02:40:53,false
-Casa:Joao Pedro Dias Faria,090136655,Endesa,casa188,Kami-seya 170-3293
+Casa:Joao Pedro Dias Faria,090136655,Endesa,casa188,Kami-seya 170-3293 nº 358
 Divisao:Sala de Estar
 SmartBulb:Cold,8,0.17,bulb3702,2022-03-14 18:14:04,2022-07-22 14:40:58,true
 SmartBulb:Warm,15,0.18,bulb3703,2022-05-09 14:59:38,2022-07-26 16:04:19,false
@@ -7545,7 +7545,7 @@ Divisao:Jardim
 SmartCamera:(1024x768),115,0.24,cam1564,2022-03-10 03:40:35,2022-05-05 01:08:49,false
 SmartCamera:(1366x768),56,5.91,cam1565,2022-03-01 05:33:53,2022-05-07 17:50:59,true
 SmartCamera:(1024x768),92,5.00,cam1566,2022-04-25 01:44:33,2022-05-09 12:00:29,true
-Casa:Vasco Manuel Araujo Andrade Oliveira,677908495,YIce,casa189,Tonda 289-2200
+Casa:Vasco Manuel Araujo Andrade Oliveira,677908495,YIce,casa189,Tonda 289-2200 nº 95
 Divisao:Garagem
 SmartCamera:(1366x768),67,0.14,cam1567,2022-04-12 09:30:56,2022-05-06 22:27:32,false
 SmartCamera:(1920x1080),18,0.28,cam1568,2022-04-04 18:01:40,2022-05-11 08:34:23,false
@@ -7580,7 +7580,7 @@ SmartBulb:Neutral,9,0.11,bulb3720,2022-05-03 06:31:50,2022-07-05 23:14:16,false
 SmartBulb:Neutral,5,0.18,bulb3721,2022-03-13 23:52:51,2022-06-27 17:45:37,false
 SmartBulb:Warm,13,0.12,bulb3722,2022-05-20 16:40:23,2022-05-30 17:25:18,true
 SmartBulb:Warm,16,8.61,bulb3723,2022-04-24 19:27:16,2022-06-24 20:56:06,false
-Casa:Antonio Santos Gil Afonso,460010837,MEO Energia,casa190,Hama 030-1500
+Casa:Antonio Santos Gil Afonso,460010837,MEO Energia,casa190,Hama 030-1500 nº 29
 Divisao:Jardim
 SmartCamera:(1366x768),61,4.77,cam1580,2022-03-01 20:53:46,2022-05-02 18:41:19,true
 SmartBulb:Neutral,18,0.21,bulb3724,2022-05-25 07:15:49,2022-07-13 16:15:46,true
@@ -7604,7 +7604,7 @@ SmartBulb:Cold,8,0.23,bulb3737,2022-04-15 09:01:15,2022-07-04 01:50:23,false
 Divisao:Cozinha
 SmartBulb:Neutral,13,0.11,bulb3738,2022-03-17 18:31:55,2022-07-04 17:13:41,false
 SmartBulb:Warm,10,6.53,bulb3739,2022-05-29 02:07:46,2022-07-17 02:49:10,true
-Casa:Pedro Antonio Pires Correia Leite Sequeira,180452939,Coopernico,casa191,Suki 354-0000
+Casa:Pedro Antonio Pires Correia Leite Sequeira,180452939,Coopernico,casa191,Suki 354-0000 nº 237
 Divisao:Cozinha
 SmartBulb:Warm,6,0.15,bulb3740,2022-04-12 14:11:52,2022-07-13 09:16:28,true
 SmartSpeaker:40,M80 Radio,Sony,3.90,speaker937,2022-03-09 02:28:46,2022-05-02 07:41:10,false
@@ -7656,7 +7656,7 @@ SmartSpeaker:69,M80 Radio,LG,3.70,speaker943,2022-03-15 01:48:02,2022-06-02 08:3
 SmartSpeaker:58,TSF Radio Noticias,Sony,5.48,speaker944,2022-03-11 19:42:24,2022-04-26 11:07:18,true
 SmartBulb:Warm,5,0.10,bulb3763,2022-03-15 18:02:27,2022-07-26 19:05:51,false
 SmartCamera:(1024x768),75,5.00,cam1595,2022-04-12 06:18:07,2022-05-05 22:05:11,true
-Casa:Paulo Filipe Rodrigues Da Cruz,334517666,EDP Comercial,casa192,Itoi 904-1300
+Casa:Paulo Filipe Rodrigues Da Cruz,334517666,EDP Comercial,casa192,Itoi 904-1300 nº 135
 Divisao:Garagem
 SmartCamera:(1024x768),120,6.09,cam1596,2022-04-23 16:31:27,2022-05-12 04:04:11,true
 SmartBulb:Cold,20,7.92,bulb3764,2022-05-21 16:35:42,2022-07-13 10:33:38,false
@@ -7677,7 +7677,7 @@ SmartBulb:Neutral,15,7.88,bulb3768,2022-03-07 02:32:05,2022-06-14 18:24:26,false
 SmartBulb:Neutral,12,4.81,bulb3769,2022-04-12 15:59:35,2022-06-07 09:09:51,true
 SmartSpeaker:46,Radio Radar,JBL,5.35,speaker949,2022-03-18 14:24:28,2022-05-07 11:28:19,false
 SmartCamera:(3840x2160),88,0.25,cam1601,2022-04-10 22:31:07,2022-05-08 03:21:35,true
-Casa:Marcelo Araujo De Sousa,035265053,MEO Energia,casa193,Betsutoga 030-1500
+Casa:Marcelo Araujo De Sousa,035265053,MEO Energia,casa193,Betsutoga 030-1500 nº 9
 Divisao:Sala de Estar
 SmartBulb:Neutral,13,8.42,bulb3770,2022-03-31 02:57:12,2022-06-11 16:08:56,false
 SmartCamera:(1280x720),34,0.28,cam1602,2022-04-18 02:57:58,2022-05-14 13:40:29,false
@@ -7698,7 +7698,7 @@ SmartBulb:Neutral,8,2.24,bulb3778,2022-03-08 21:53:54,2022-07-17 03:43:44,false
 SmartBulb:Neutral,10,0.18,bulb3779,2022-04-03 14:05:39,2022-07-11 07:35:06,true
 SmartBulb:Neutral,11,9.51,bulb3780,2022-03-08 17:57:06,2022-06-13 12:32:44,true
 SmartCamera:(3840x2160),38,4.86,cam1606,2022-04-10 14:00:02,2022-05-06 08:36:50,true
-Casa:Sandro Manuel Fernandes Duarte,353767401,Muon,casa194,Arimizu 564-000
+Casa:Sandro Manuel Fernandes Duarte,353767401,Muon,casa194,Arimizu 564-000 nº 318
 Divisao:Garagem
 SmartSpeaker:57,Radio Renascenca,Sony,5.15,speaker951,2022-03-27 01:11:22,2022-05-07 11:14:42,false
 SmartBulb:Neutral,14,0.11,bulb3781,2022-04-24 01:03:44,2022-07-02 19:56:52,false
@@ -7736,7 +7736,7 @@ SmartBulb:Neutral,18,3.95,bulb3797,2022-04-07 06:12:38,2022-06-28 08:00:02,true
 SmartBulb:Neutral,10,0.10,bulb3798,2022-04-20 10:03:50,2022-06-22 13:32:19,false
 SmartCamera:(1920x1080),60,5.92,cam1613,2022-03-21 15:46:21,2022-05-05 16:54:36,false
 SmartBulb:Warm,7,0.14,bulb3799,2022-04-24 09:22:19,2022-07-20 13:21:34,true
-Casa:Ana Rita Santos Pocas,168611739,Muon,casa195,Nobo 289-2200
+Casa:Ana Rita Santos Pocas,168611739,Muon,casa195,Nobo 289-2200 nº 428
 Divisao:Cozinha
 SmartBulb:Cold,14,0.19,bulb3800,2022-03-20 07:15:44,2022-06-26 16:31:52,true
 SmartBulb:Neutral,15,9.99,bulb3801,2022-04-23 14:58:59,2022-06-15 04:18:13,true
@@ -7777,7 +7777,7 @@ SmartBulb:Warm,16,5.01,bulb3818,2022-04-23 00:04:20,2022-06-08 14:18:05,false
 SmartBulb:Warm,15,0.15,bulb3819,2022-04-27 04:12:24,2022-07-26 13:37:36,false
 SmartBulb:Neutral,6,0.12,bulb3820,2022-03-19 03:21:15,2022-06-01 12:34:22,false
 SmartBulb:Neutral,5,1.90,bulb3821,2022-05-01 13:00:47,2022-06-19 17:27:38,false
-Casa:Millena de Freitas Santos,235234734,SU Electricidade,casa196,Mayanoheda 289-2200
+Casa:Millena de Freitas Santos,235234734,SU Electricidade,casa196,Mayanoheda 289-2200 nº 143
 Divisao:Jardim
 SmartBulb:Neutral,6,0.12,bulb3822,2022-04-18 04:22:31,2022-07-07 23:52:03,false
 Divisao:Jardim 1
@@ -7806,12 +7806,12 @@ SmartSpeaker:55,RFM Oceano Pacifico,Marshall,5.37,speaker963,2022-04-08 05:14:25
 SmartBulb:Neutral,17,0.10,bulb3833,2022-03-24 13:01:48,2022-07-22 05:00:08,false
 SmartSpeaker:54,RTP Antena 1 98.3 FM,BOSE,4.20,speaker964,2022-03-19 00:23:06,2022-05-07 12:26:16,true
 SmartBulb:Neutral,7,0.11,bulb3834,2022-04-25 09:57:07,2022-07-06 15:04:39,false
-Casa:Miguel Castro Rocha,869879447,Muon,casa197,Noka 564-000
+Casa:Miguel Castro Rocha,869879447,Muon,casa197,Noka 564-000 nº 11
 Divisao:Quarto
 SmartBulb:Neutral,12,0.14,bulb3835,2022-03-29 16:10:12,2022-07-14 15:43:32,false
 Divisao:Garagem
 SmartBulb:Cold,13,0.10,bulb3836,2022-03-20 12:36:15,2022-07-13 03:18:09,false
-Casa:Jose Fernando Monteiro Martins,228459121,SU Electricidade,casa198,Unami 170-3293
+Casa:Jose Fernando Monteiro Martins,228459121,SU Electricidade,casa198,Unami 170-3293 nº 428
 Divisao:Sala de Jantar
 SmartSpeaker:30,RFM,Goodis,5.40,speaker965,2022-04-15 06:42:30,2022-04-21 12:47:28,false
 SmartBulb:Neutral,8,9.99,bulb3837,2022-03-07 09:33:09,2022-07-24 20:53:31,true
@@ -7827,7 +7827,7 @@ Divisao:Casa de Banho
 SmartCamera:(1024x768),31,0.14,cam1625,2022-03-05 01:00:49,2022-05-03 16:11:17,true
 SmartCamera:(1024x768),104,5.95,cam1626,2022-04-02 19:08:10,2022-05-11 02:05:49,true
 SmartBulb:Neutral,7,0.10,bulb3843,2022-05-04 19:09:58,2022-07-02 10:17:34,false
-Casa:Eduardo Cardoso Pereira,171895940,Energia Simples,casa199,Tanigawa 289-2200
+Casa:Eduardo Cardoso Pereira,171895940,Energia Simples,casa199,Tanigawa 289-2200 nº 29
 Divisao:Cozinha
 SmartBulb:Neutral,20,0.17,bulb3844,2022-03-23 04:34:15,2022-07-19 02:48:10,true
 SmartSpeaker:65,M80 Radio,BOSE,3.88,speaker968,2022-03-28 01:04:21,2022-04-23 22:03:51,false
@@ -7873,7 +7873,7 @@ SmartSpeaker:29,RFM,Bowers&Wilkins,4.95,speaker972,2022-03-22 01:48:23,2022-06-1
 SmartBulb:Neutral,18,0.21,bulb3864,2022-03-30 12:09:25,2022-06-02 23:30:51,false
 SmartBulb:Neutral,6,0.21,bulb3865,2022-04-26 02:35:16,2022-07-19 13:42:41,false
 SmartSpeaker:60,RTP Antena 1 98.3 FM,Sennheiser,5.12,speaker973,2022-03-20 12:56:38,2022-04-28 01:31:47,false
-Casa:Carlos Emanuel Leite Machado,398123099,Muon,casa200,Higashimachi 354-0000
+Casa:Carlos Emanuel Leite Machado,398123099,Muon,casa200,Higashimachi 354-0000 nº 23
 Divisao:Cozinha
 SmartBulb:Cold,19,7.02,bulb3866,2022-03-29 01:59:42,2022-06-26 17:44:21,true
 SmartCamera:(2160x1440),27,5.80,cam1638,2022-03-03 03:16:52,2022-05-14 10:53:55,false
