@@ -188,6 +188,7 @@ public class UI{
         }else{
             System.out.println("O dispositivos já existe!");
         }
+        scanner.close();
     }
 
 
@@ -227,6 +228,7 @@ public class UI{
         }else{
             System.out.println("O device já existe!");
         }
+        scanner.close();
     }
 
     public void adicionaSpeaker(){
@@ -269,7 +271,7 @@ public class UI{
         }else{
             System.out.println("O device já existe!");
         }
-
+        scanner.close();
     }
 
     public void removeDispositivo() {
@@ -282,6 +284,7 @@ public class UI{
 
         this.smarthouses.removeDevice(idDevice,idHome);
         System.out.println("[+] Dispositivo removido com sucesso.");
+        scanner.close();
     }
 
     public void removeCasas() {
@@ -292,6 +295,7 @@ public class UI{
         if(this.smarthouses.removeHome(idHome)==0)
             System.out.println("[+] Casa removida com êxito.");
         else System.out.println("A casa que digitou nao existe.");
+        scanner.close();
     }
 
     public void consultaCasas(){
@@ -301,6 +305,7 @@ public class UI{
         if(this.smarthouses.getCasas().get(idHome)!=null)
             System.out.println(this.smarthouses.getCasas().get(idHome));
         else System.out.println("A casa que digitou não existe.");
+        scanner.close();
     }
 
     public void consultaDispositivos(){
@@ -310,6 +315,7 @@ public class UI{
         if(this.smarthouses.getDispositivos().get(idDevice)!=null)
             System.out.println(this.smarthouses.getDispositivos().get(idDevice));
         else System.out.println("O dispositivo digitou não existe.");
+        scanner.close();
     }
 
     public void adicionaCasas() {
@@ -339,7 +345,7 @@ public class UI{
         }
         this.smarthouses.adicionaHome(ci);
         System.out.println("[+] Casa criada com êxito.");
-
+        scanner.close();
     }
 
     public void adicionarDispositivoemCasa(SmartDevice sd){
@@ -355,5 +361,6 @@ public class UI{
             ci.addDevice(sd);
             this.smarthouses.adicionaHome(ci);
         }else System.out.println("Casa não existe");
+        scanner.close();
     }
 }

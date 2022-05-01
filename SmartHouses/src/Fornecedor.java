@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.time.LocalDateTime;
-import static java.time.temporal.ChronoUnit.DAYS;
 
 public class Fornecedor{
     

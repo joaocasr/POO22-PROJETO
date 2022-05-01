@@ -99,14 +99,6 @@ public class CasaInteligente {
         return exists;
     }
 
-    public void addDevice(SmartDevice s) {
-        this.devices.put(s.getID(), s);
-    }
-
-    public SmartDevice getDevice(String s) {
-        return this.devices.get(s);
-    }
-
     public void setDevice(String s, boolean b) {
         this.devices.get(s).setModo(b);
     }
@@ -135,14 +127,7 @@ public class CasaInteligente {
         return exists;
     }
 
-    public void removeDispositivoemDivisao(String idDevice){
-       /* for(String room : this.locations.keySet()){
-            Iterator<String> it = this.locations.get(room).iterator();
-            while(it.hasNext()){
-                String device = it.next();
-                if(device.equals(idDevice)) this.locations.get(room).remove(device);
-            }
-        }*/
+    public void removeDevicesFromRoom(String idDevice){
         for(List<String> l : this.locations.values()){
             if(l.contains(idDevice)) l.remove(idDevice);
         }
@@ -200,7 +185,6 @@ public class CasaInteligente {
     public boolean equals(Object o){
         if(o==this) return true;
         if(o==null || o.getClass()!=this.getClass()) return false;
-        boolean eq = true;
         CasaInteligente ci = (CasaInteligente) o;
         return this.locations.equals(ci.getLocations()) && this.devices.equals(ci.getDevices())
                 && this.proprietario.equals(ci.getProprietario()) && this.NIF==ci.getNIF() && this.morada.equals(ci.getMorada());
@@ -229,7 +213,7 @@ public class CasaInteligente {
         return new CasaInteligente(this);
     }
 
-/*    public void addDevice(SmartDevice s) throws SmartDevicesException{
+    public void addDevice(SmartDevice s) throws SmartDevicesException{
         if(!existsDeviceHome(s.getID())){
             this.devices.put(s.getID(), s);
         }else throw new SmartDevicesException ("O SmartDevice com id " + s + " já existe");
@@ -259,8 +243,6 @@ public class CasaInteligente {
 
     }
 
-
-*/
 
 
     public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor)
