@@ -1,4 +1,3 @@
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,15 +18,6 @@ public class CasaInteligente {
     private HashMap<String, Fatura> faturas;
     //private String idFornecedor;
 
-    public CasaInteligente(String id,String morada,String proprietario,int NIF) {
-        // initialise instance variables
-        this.idHome = id;
-        this.morada = morada;
-        this.devices = new HashMap<>();
-        this.locations = new HashMap<>();
-        this.proprietario = proprietario;
-        this.NIF = NIF;
-    }
 
     public CasaInteligente(String id,String proprietario,int NIF,String morada) {
         // initialise instance variables
@@ -58,11 +48,6 @@ public class CasaInteligente {
         setDevices(ci.getDevices());
         setLocations(ci.getLocations());
     }
-       
-    public boolean existsDeviceHome(String id) {
-        return this.devices.containsKey(id);
-    }
-
 
     /*Ligar um dispositivo especifico*/
     public void setDeviceOn(String devCode) throws SmartDevicesException{
@@ -103,40 +88,43 @@ public class CasaInteligente {
         return this.locations.get(divisao).size();
     }
 
-    public void addDevice(SmartDevice s) throws SmartDevicesException{
-        if(!existsDeviceHome(s.getID())){
-            this.devices.put(s.getID(), s);
-        }else throw new SmartDevicesException ("O SmartDevice com id " + s + " já existe");
+    public boolean existsDeviceHome(String id) {
+        return this.devices.containsKey(id);
     }
 
-    public SmartDevice getDevice(String s) throws SmartDevicesException{
-        if(!this.existsDeviceHome(s)) throw new SmartDevicesException ("O SmartDevice com id " + s + " não existe");
-        else return this.devices.get(s);
+    public boolean checksAllrooms(String id){
+        boolean exists=false;
+        long num = this.locations.values().stream().filter((e)->e.contains(id)).count();
+        if(num>0) exists= true;
+        return exists;
+    }
+
+    public void addDevice(SmartDevice s) {
+        this.devices.put(s.getID(), s);
+    }
+
+    public SmartDevice getDevice(String s) {
+        return this.devices.get(s);
     }
 
     public void setDevice(String s, boolean b) {
         this.devices.get(s).setModo(b);
     }
 
-    public boolean hasRoom(String s) {
-        return this.getLocations().containsKey(s);
+    public void addRoom(String s) {
+        List<String> lista = new ArrayList<>();
+        this.locations.put(s,lista);
     }
 
-    //terceira condição confirma se existe em qualquer sala o dispositivo
-    public void addToRoom (String idRoom, SmartDevice device) throws SmartDevicesException {
-        if (this.getLocations().containsKey(idRoom) && this.roomHasDevice(idRoom,device.getID()) && this.getDevices().containsKey(device.getID())) 
-            throw new SmartDevicesException("O device " + device.getID() +" já existe");
-        else if(!this.getDevices().containsKey(device.getID()))
-        {
-            this.devices.put(device.getID(), device);
-            this.locations.get(idRoom).add(device.getID());
-        }
-        else
-        {
-            removeDevicesFromRoom(device.getID());
-            this.locations.get(idRoom).add(device.getID());
-        }
+    public boolean hasRoom(String s) {
+        return (this.locations.get(s) != null);
+    }
 
+    public void addToRoom (String division, String id) {
+        if(!roomHasDevice(division, id)) this.locations.get(division).add(id);
+        else{
+            System.out.println("Device já existe!");
+        }
     }
 
     public boolean roomHasDevice (String divisao, String id) {
@@ -147,70 +135,17 @@ public class CasaInteligente {
         return exists;
     }
 
-    public void removeDevices(String idDevice) throws SmartDevicesException
-    {
-        if (!this.devices.containsKey(idDevice)) throw new SmartDevicesException("O device " + idDevice + " não existe");
-        else
-        {
-            this.devices.remove(idDevice);
-            for(String room : this.locations.keySet()){
-                for(String id : this.locations.get(room)){
-                    if(id.equals(idDevice)) this.locations.get(room).remove(id);
-                }
+    public void removeDispositivoemDivisao(String idDevice){
+       /* for(String room : this.locations.keySet()){
+            Iterator<String> it = this.locations.get(room).iterator();
+            while(it.hasNext()){
+                String device = it.next();
+                if(device.equals(idDevice)) this.locations.get(room).remove(device);
             }
+        }*/
+        for(List<String> l : this.locations.values()){
+            if(l.contains(idDevice)) l.remove(idDevice);
         }
-    }
-
-    public void removeDevicesFromRoom(String idDevice) throws SmartDevicesException
-    {
-        if (!this.devices.containsKey(idDevice)) throw new SmartDevicesException("O device " + idDevice + " não existe");
-        else
-        {
-            for(String room : this.locations.keySet()){
-                for(String id : this.locations.get(room)){
-                    if(id.equals(idDevice)) this.locations.get(room).remove(id);
-                }
-            }
-        }
-    }
-
-    public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor)
-    {
-        double consumo = 0;
-        while(init.plusDays(1).compareTo(finit)!=0)
-                consumo += this.consumoAllDevicesDia(init);
-        Fatura f = new Fatura(consumo,idFornecedor+":"+idHome, init, finit, morada, NIF, idFornecedor, valor);
-        this.faturas.put(f.getIdFatura(),f);
-    }
-
-    public void addFatura(Fatura f) throws FaturaException
-    {
-        if(hasFatura(f.getIdFatura())) throw new FaturaException("A fatura com o id " + f.getIdFatura() + " já existe");
-        else this.faturas.put(f.getIdFatura(),f);
-    }
-
-    public boolean hasFatura(String idFatura)
-    {
-        return this.faturas.containsKey(idFatura);
-    }
-
-    public void removeFatura(String idFatura) throws FaturaException
-    {
-        if(!hasFatura(idFatura)) throw new FaturaException("A fatura com o id " + idFatura + " não existe");
-        this.faturas.remove(idFatura);
-    }
-
-    public List<Fatura> getFaturas(String idFornecedor)
-    {
-        List<Fatura> faturas = new ArrayList<Fatura>();
-
-        for(Fatura f: this.faturas.values())
-        {
-            if(f.getIdFornecedor().compareTo(idFornecedor)==0)
-                faturas.add(f.clone());
-        }
-
-        return faturas;
     }
 
     public String getMorada() {
@@ -265,6 +200,7 @@ public class CasaInteligente {
     public boolean equals(Object o){
         if(o==this) return true;
         if(o==null || o.getClass()!=this.getClass()) return false;
+        boolean eq = true;
         CasaInteligente ci = (CasaInteligente) o;
         return this.locations.equals(ci.getLocations()) && this.devices.equals(ci.getDevices())
                 && this.proprietario.equals(ci.getProprietario()) && this.NIF==ci.getNIF() && this.morada.equals(ci.getMorada());
@@ -272,39 +208,100 @@ public class CasaInteligente {
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("ID home: ").append(this.idHome).append("\n")
+        sb.append("ID Home: ").append(this.idHome).append("\n")
                 .append("Morada: ").append(this.morada).append("\n");
-        this.devices.entrySet().forEach(a->{ sb.append("ID: ").append(a.getKey()).append(" --- SmartDevice: ").append(a.getValue().toString()).append("\n");});
-        sb.append("Dispositivos : ");
-        for(SmartDevice a : this.devices.values()){
-            sb.append(a.toString()).append(";");
-        };
-        sb.append("\nDivisoes : ");
-        for(String a : this.locations.keySet()){
-            sb.append(a).append(";");
-        };
-        sb.append("\n");
-        this.locations.entrySet().forEach(a->{ sb.append("Divisao: ").append(a.getKey()).append(" - Dispositos -> ").append(a.getValue().toString()).append("\n");});
         sb.append("Proprietario: ").append(this.proprietario).append("\n")
-                .append("NIF: ").append(this.NIF);
+                .append("NIF: ").append(this.NIF).append("\n");
+        //this.devices.entrySet().forEach(a->{ sb.append("ID: ").append(a.getKey()).append(" --- SmartDevice: ").append(a.getValue().toString()).append("\n");});
+              sb.append("----------------------Divisão/Dispositivos----------------------").append("\n");
+        this.locations.entrySet().forEach(a->{ sb.append("Divisão: ").append(a.getKey()).append(" - Dispositos -> ").append(a.getValue().toString()).append("\n");});
+                        sb.append("----------------------------------------------------------------");
         return sb.toString();
 
     }
 
     public static CasaInteligente parseCasa(String line){
-        String[] nomes = line.split(",");
-        int size = nomes.length-3;
-        List<String> disposivos = new ArrayList<>();
-        for(int i=size;i<nomes.length;i++){
-            disposivos.add(nomes[i]);
-        }
-        return new CasaInteligente(nomes[0],nomes[1],Integer.parseInt(nomes[2]),nomes[3]);
+        String[] parte = line.split(",");
+        return new CasaInteligente(parte[3],parte[0],Integer.parseInt(parte[1]),parte[4]);
     }
-
 
     public CasaInteligente clone() {
         return new CasaInteligente(this);
     }
+
+/*    public void addDevice(SmartDevice s) throws SmartDevicesException{
+        if(!existsDeviceHome(s.getID())){
+            this.devices.put(s.getID(), s);
+        }else throw new SmartDevicesException ("O SmartDevice com id " + s + " já existe");
+    }
+
+    public SmartDevice getDevice(String s) throws SmartDevicesException{
+        if(!this.existsDeviceHome(s)) throw new SmartDevicesException ("O SmartDevice com id " + s + " não existe");
+        else return this.devices.get(s);
+    }
+
+
+
+    //terceira condição confirma se existe em qualquer sala o dispositivo
+    public void addToRoom (String idRoom, SmartDevice device) throws SmartDevicesException {
+        if (this.getLocations().containsKey(idRoom) && this.roomHasDevice(idRoom,device.getID()) && this.getDevices().containsKey(device.getID())) 
+            throw new SmartDevicesException("O device " + device.getID() +" já existe");
+        else if(!this.getDevices().containsKey(device.getID()))
+        {
+            this.devices.put(device.getID(), device);
+            this.locations.get(idRoom).add(device.getID());
+        }
+        else
+        {
+            removeDevicesFromRoom(device.getID());
+            this.locations.get(idRoom).add(device.getID());
+        }
+
+    }
+
+
+*/
+
+
+    public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor)
+    {
+        double consumo = 0;
+        while(init.plusDays(1).compareTo(finit)!=0)
+                consumo += this.consumoAllDevicesDia(init);
+        Fatura f = new Fatura(consumo,idFornecedor+":"+idHome, init, finit, morada, NIF, idFornecedor, valor);
+        this.faturas.put(f.getIdFatura(),f);
+    }
+
+    public void addFatura(Fatura f) throws FaturaException
+    {
+        if(hasFatura(f.getIdFatura())) throw new FaturaException("A fatura com o id " + f.getIdFatura() + " já existe");
+        else this.faturas.put(f.getIdFatura(),f);
+    }
+
+    public boolean hasFatura(String idFatura)
+    {
+        return this.faturas.containsKey(idFatura);
+    }
+
+    public void removeFatura(String idFatura) throws FaturaException
+    {
+        if(!hasFatura(idFatura)) throw new FaturaException("A fatura com o id " + idFatura + " não existe");
+        this.faturas.remove(idFatura);
+    }
+
+    public List<Fatura> getFaturas(String idFornecedor)
+    {
+        List<Fatura> faturas = new ArrayList<Fatura>();
+
+        for(Fatura f: this.faturas.values())
+        {
+            if(f.getIdFornecedor().compareTo(idFornecedor)==0)
+                faturas.add(f.clone());
+        }
+
+        return faturas;
+    }
+
 
     public long ligadoPeriodoTempo(LocalDateTime init, LocalDateTime finit)
     {

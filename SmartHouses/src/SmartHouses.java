@@ -1,6 +1,4 @@
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -9,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 public class SmartHouses implements Serializable {
     private Map<String, CasaInteligente> casas; // id casa -> CASA
@@ -30,96 +30,95 @@ public class SmartHouses implements Serializable {
     }
 
 
-    public void parser(String filename) throws FileNotFoundException {
+    public void parser(String filename) throws LinhaException {
         Map<String, CasaInteligente> casas = new HashMap<>();
         Map<String,SmartDevice> dispositivos = new HashMap<>();
         String[] linhaPartida;
         List<String> linhas = lerFicheiro(filename);
         String divisao = null;
+        SmartDevice sd;
+        int i=0;
         CasaInteligente casaMaisRecente = null;
         for (String linha : linhas) {
             linhaPartida  = linha.split(":",2);
             //divide a linha em 2
             switch (linhaPartida [0]){
                 case "Casa":
+                    if(i>1) casas.put(casaMaisRecente.getIdHome(),casaMaisRecente);
                     CasaInteligente ci  = CasaInteligente.parseCasa(linhaPartida[1]);
                     casas.put(ci.getIdHome(),ci);
                     casaMaisRecente = ci;
+                    i++;
                     break;
                 case "Divisao":
-                    if (casaMaisRecente == null) System.out.println("Linha inválida.");
+                    if (casaMaisRecente == null) throw new LinhaException("Linha Inválida!");
                     divisao = linhaPartida[1];
                     casaMaisRecente.addRoom(divisao);
                     break;
                 case "SmartBulb":
-                    if (divisao == null) System.out.println("Linha inválida.");
-                    SmartBulb sd = SmartBulb.parseSmartBulb(linhaPartida[1]);
+                    if (divisao == null) throw new LinhaException("Linha Inválida!");
+                    sd = SmartBulb.parseSmartBulb(linhaPartida[1]);
                     casaMaisRecente.addDevice(sd);
                     casaMaisRecente.addToRoom(divisao, sd.getID());
-
-
+                    dispositivos.put(sd.getID(),sd);
+                    break;
+                case "SmartCamera":
+                    if (divisao == null) throw new LinhaException("Linha Inválida!");
+                    sd = SmartCamera.parseSmartCamera(linhaPartida[1]);
+                    casaMaisRecente.addDevice(sd);
+                    casaMaisRecente.addToRoom(divisao, sd.getID());
+                    dispositivos.put(sd.getID(),sd);
+                    break;
+                case "SmartSpeaker":
+                    if (divisao == null) throw new LinhaException("Linha Inválida!");
+                    sd = SmartSpeaker.parseSmartSpeaker(linhaPartida[1]);
+                    casaMaisRecente.addDevice(sd);
+                    casaMaisRecente.addToRoom(divisao, sd.getID());
+                    dispositivos.put(sd.getID(),sd);
+                    break;
+                case "Fornecedor":
+                    Fornecedor f = Fornecedor.parseFornecedor(linhaPartida[1]);
+                    break;
+                default:
+                    throw new LinhaException("Linha Inválida!");
             }
         }
+        setDispositivos(dispositivos);
+        setCasas(casas);
+
     }
 
-    /*public boolean existsDevice(String id){
-        boolean exists = true;
-        for(List<SmartDevice> lsd : this.dispositivos.values()){
-            if(lsd.stream().map(a->a.getID()).filter(a->a.equals(id)).count()==0) exists=false;
-            else return true;
-        }
-        return exists;
-    }*/
+
+    public void guardaEstado() throws IOException {
+        FileOutputStream file = new FileOutputStream("Estado.obj");
+        ObjectOutputStream out = new ObjectOutputStream(file);
+        out.writeObject(this);
+        out.flush();
+        out.close();
+    }
+
+    public void guardaEstado(String file) throws IOException, ClassNotFoundException {
+        FileInputStream f = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(f);
+        SmartHouses smartHouses = (SmartHouses) in.readObject();
+        in.close();
+        setDispositivos(smartHouses.getDispositivos());
+        setCasas(smartHouses.getCasas());
+    }
 
     public boolean existsDevice(String id){
         return this.dispositivos.containsKey(id);
     }
 
-    /*
-    public void adicionaDevice(String idHome,SmartDevice sd) {
-        if (this.dispositivos.get(idHome) == null) {
-            List<SmartDevice> devices = new ArrayList<>();
-            devices.add(sd);
-            this.dispositivos.put(idHome, devices);
-        } else {
-            if(!existsDevice(sd.getID())) {
-                this.dispositivos.get(idHome).add(sd);
-                this.dispositivos.put(idHome, this.dispositivos.get(idHome));
-            }else System.out.print("[+ Error] \n Dispositivo já existe na casa com id-> "+idHome+"\n");
-        }
-    }*/
-
     public void adicionaDevice(String idDevice,SmartDevice sd) {
         this.dispositivos.put(idDevice,sd);
     }
 
-    public void removeDevice(String id){
-       this.dispositivos.remove(id);
-        for(CasaInteligente ci : this.casas.values() ){
-            if(ci.existsDeviceHome(id))
-                ci.removeAllDevices(id);
-        }
+    public void removeDevice(String idDevice,String idHome) { //id device
+        this.dispositivos.remove(idDevice);
+        this.casas.get(idHome).removeDispositivoemDivisao(idDevice);
     }
-/*
-    public void removeDevice(String idHome, String idDevice){
-        Iterator<SmartDevice> it = this.dispositivos.get(idHome).iterator();
-        boolean exists = false;
-        while(it.hasNext() && !exists){
-            SmartDevice sd = it.next();
-            if(sd.getID().equals(idDevice)) this.dispositivos.get(idHome).remove(sd);
-            exists=true;
-        }
-    }
-*/
 
-    /*
-    public boolean existsHome(String idHome){
-        boolean exists = true;
-        for(List<CasaInteligente> lsd : this.casas.values()){
-            if(lsd.stream().map(CasaInteligente::getIdHome).filter(a->a.equals(idHome)).count()==0) exists = false;
-        }
-        return exists;
-    }*/
 
     public boolean existsHome(String idHome){
         return this.casas.containsKey(idHome);
@@ -128,24 +127,21 @@ public class SmartHouses implements Serializable {
     public boolean existeDeviceHomes(String deviceId){
         boolean exists = false;
         long r = this.casas.values().stream().filter((e)->e.existsDeviceHome(deviceId)).count();
-     if(r>0) exists=true;
-     return exists;
+        if(r>0) exists=true;
+        return exists;
     }
 
-
-    /*
-        public void adicionaHome(String idFornecedor,CasaInteligente ci){
-            List<CasaInteligente> list = new ArrayList<>();
-            list.add(ci);
-            this.casas.put(idFornecedor,list);
-        }
-    */
     public void adicionaHome(CasaInteligente ci){
         this.casas.put(ci.getIdHome(),ci.clone());
     }
 
-    public void removeHome(String idHome){
-        this.casas.remove(idHome);
+    public int removeHome(String idHome){
+        int r=1;
+        if(this.casas.containsKey(idHome)) {
+            r=0;
+            this.casas.remove(idHome);
+        }
+        return r;
     }
 
     public String dispositovosTostring(){
@@ -161,21 +157,19 @@ public class SmartHouses implements Serializable {
     }
 
     public Map<String,CasaInteligente> getCasas() {
-        return casas.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, v->v.getValue().clone()));
+        return casas.entrySet().stream().collect(toMap(Map.Entry::getKey, v->v.getValue().clone()));
     }
 
     public void setCasas(Map<String,CasaInteligente> casas){
-        this.casas = new HashMap<>();
-        casas= casas.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, v->v.getValue().clone()));
+        this.casas = new HashMap<>(casas.values().stream().collect(toMap(CasaInteligente::getIdHome, CasaInteligente::clone)));
     }
 
     public Map<String,SmartDevice> getDispositivos(){
-        return dispositivos.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, v->v.getValue().clone()));
+        return dispositivos.entrySet().stream().collect(toMap(Map.Entry::getKey, v->v.getValue().clone()));
     }
 
     public void setDispositivos(Map<String,SmartDevice> dispositivos) {
-        this.dispositivos = new HashMap<>();
-        dispositivos= dispositivos.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, v->v.getValue().clone()));
+        this.dispositivos = new HashMap<>(dispositivos.values().stream().collect(toMap(SmartDevice::getID, SmartDevice::clone)));
     }
 
     public List<String> lerFicheiro(String nomeFich) {

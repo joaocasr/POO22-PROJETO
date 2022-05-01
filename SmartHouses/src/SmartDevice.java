@@ -5,17 +5,19 @@ public abstract class SmartDevice {
     private boolean modo;//ON: TRUE | OFF: FALSE
     private LocalDateTime timeOn;//hora de ligar
     private LocalDateTime timeOff;//hora que desligar
+    private double consumoBase;
 
 
     public SmartDevice(String id) {
         this.id = id;
     }
 
-    public SmartDevice(String s, boolean b,LocalDateTime timeon,LocalDateTime timeoff) {
+    public SmartDevice(String s, boolean b,LocalDateTime timeon,LocalDateTime timeoff,double consumoBase) {
         this.id = s;
         this.modo = b;
         this.timeOff=timeoff;
         this.timeOn=timeon;
+        this.consumoBase = consumoBase;
     }
 
     public SmartDevice(SmartDevice s) {
@@ -23,8 +25,8 @@ public abstract class SmartDevice {
         this.modo = s.getModo();
         setTimeOff(s.getTimeOff());
         setTimeOn(s.getTimeOn());
+        setConsumoBase(s.getConsumoBase());
     }
-
 
     public void turnOn(){
         this.modo = true;
@@ -34,6 +36,14 @@ public abstract class SmartDevice {
     public void turnOff() {
         this.modo = false;
         setTimeOff(LocalDateTime.now());
+    }
+
+    public double getConsumoBase() {
+        return consumoBase;
+    }
+
+    public void setConsumoBase(double consumoBase) {
+        this.consumoBase = consumoBase;
     }
 
     public boolean getModo() {
@@ -67,9 +77,10 @@ public abstract class SmartDevice {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("ID: ").append(this.id).append("\n")
-                .append("\t\t\t\t\t\tOn: ").append(this.modo).append("; ")
-                .append("\tAcender: ").append(this.timeOn).append("; ")
-                .append("\tDesligar: ").append(this.timeOff).append("; ");
+                .append("\tOn: ").append(this.modo).append(";\n")
+                .append("\tConsumo Base: ").append(this.consumoBase).append(";\n")
+                .append("\tAcender: ").append(this.timeOn).append(";\n")
+                .append("\tDesligar: ").append(this.timeOff).append(";\n");
         return sb.toString();
     }
 

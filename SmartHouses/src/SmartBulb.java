@@ -11,11 +11,11 @@ public class SmartBulb extends SmartDevice{
     }
     public static Mode fromString(String x) {
         switch(x) {
-            case "COLD":
+            case "Cold":
                 return Mode.COLD;
-            case "WARM":
+            case "Warm":
                 return Mode.WARM;
-            case "NEUTRAL":
+            case "Neutral":
                 return Mode.NEUTRAL;
         }
         return null;
@@ -39,8 +39,8 @@ public class SmartBulb extends SmartDevice{
         super(id);
     }
 
-    public SmartBulb(String id,String intensidade, boolean modo , int dim,LocalDateTime timeon ,LocalDateTime timeoff){
-        super(id,modo,timeon,timeoff);
+    public SmartBulb(String id,String intensidade, boolean modo , int dim,LocalDateTime timeon ,LocalDateTime timeoff,double consumoBase){
+        super(id,modo,timeon,timeoff,consumoBase);
         this.mode = fromString(intensidade);
         this.dimensao = dim;
     }
@@ -157,14 +157,13 @@ public class SmartBulb extends SmartDevice{
     }
 
     public static SmartBulb parseSmartBulb(String line){
-        String[] nomes = line.split(",");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime inicio = LocalDateTime.parse(nomes[nomes.length-2], formatter);
-        LocalDateTime fim = LocalDateTime.parse(nomes[nomes.length-1], formatter);
-        return new SmartBulb(nomes[0],nomes[1],false,Integer.parseInt(nomes[1]),inicio,fim);
+        String[] parte = line.split(",");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime inicio = LocalDateTime.parse(parte[4], formatter);
+        LocalDateTime fim = LocalDateTime.parse(parte[5], formatter);
+        return new SmartBulb(parte[3],parte[0],Boolean.parseBoolean(parte[6]),Integer.parseInt(parte[1]),inicio,fim,Double.parseDouble(parte[2]));
     }
-
-    //SmartBulb:bulb1,Neutral,true,11,60.0,
+//logs: SmartBulb:Neutral,7,9.35,bulb3,2022-03-29 07:38:27,2022-05-31 20:23:44,false
     //    public SmartBulb(String id,String intensidade, boolean modo , int dim,LocalDateTime timeon ,LocalDateTime timeoff){
 
 

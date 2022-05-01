@@ -16,11 +16,8 @@ public class Fornecedor{
     private Map<String, CasaInteligente> allCasas; // identificador -> idCasa
 
 
-    public Fornecedor()
-    {
-        this.allCasas = new HashMap<>();
-        this.id = "";
-        this.imposto = 0;
+    public Fornecedor(String id) {
+        this.id = id;
     }
 
     public Fornecedor(int base, int imposto, String id, int metodo, FormulaEnergia f)
@@ -90,6 +87,11 @@ public class Fornecedor{
     {
         this.allCasas = new HashMap<>();
         c.forEach((String,SmartDevice)->this.allCasas.put(String,SmartDevice.clone()));
+    }
+
+    public static Fornecedor parseFornecedor(String line){
+        String[] parte = line.split(",");
+        return new Fornecedor(parte[0]);
     }
 
     public boolean equals(Object o)

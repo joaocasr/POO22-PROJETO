@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
+/*
 public class SmartBulbTest {
 
     @org.junit.jupiter.api.BeforeEach
@@ -18,11 +18,11 @@ public class SmartBulbTest {
     {}
 
 
-    /*
+
     * a ver
     *
     * smartbulb sem argumentos
-    * */
+    *
 
     @Test
     public void testConstructor() 
@@ -175,5 +175,6 @@ public class SmartBulbTest {
     //public SmartDevice clone(){
     //    return new SmartBulb(this);
     //}
-    */
+
 }
+*/

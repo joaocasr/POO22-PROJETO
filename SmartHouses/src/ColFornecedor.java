@@ -129,7 +129,7 @@ public class ColFornecedor {
         return id;
     }
 
-
+/*
     public List<Fornecedor> ordenarFornecedores(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
     {
         Comparator<Fornecedor> c = (Fornecedor a, Fornecedor b)
@@ -137,4 +137,5 @@ public class ColFornecedor {
         
         return this.fornecedores.values().stream().map(Fornecedor::clone).sorted(c).collect(Collectors.toList());
     }
+    */
 }

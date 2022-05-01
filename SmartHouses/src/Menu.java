@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-//import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
-
 public class Menu {
     private List<String> opcoes;
     private int opcao;
@@ -21,7 +19,7 @@ public class Menu {
     }
 
     private void showMenu() {
-                System.out.println(" ********************************** Smart Houses ********************************** \n");
+        System.out.println(" ********************************** Smart Houses ********************************** ");
         for (int i=0; i<this.opcoes.size(); i++) {
             if(i != (this.opcoes.size()-1)) {
                 System.out.print("| * ");
@@ -49,7 +47,6 @@ public class Menu {
             System.out.println("A opção selecionada é inválida.");
             op = -1;
         }
-        scanner.close();
         return op;
     }
 
@@ -65,9 +62,4 @@ public class Menu {
         return this.opcao;
     }
 
-    public void cls(){
-        System.out.println(System.lineSeparator().repeat(100));
-    }
-
-    
 }
