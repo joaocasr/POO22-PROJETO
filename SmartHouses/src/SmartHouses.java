@@ -88,8 +88,8 @@ public class SmartHouses implements Serializable {
 
     }
 
-
-    public void guardaEstado() throws IOException {
+/*  ------------- vao ser usados mais tarde
+    public void guardarEstado() throws IOException {
         FileOutputStream file = new FileOutputStream("Estado.obj");
         ObjectOutputStream out = new ObjectOutputStream(file);
         out.writeObject(this);
@@ -97,15 +97,15 @@ public class SmartHouses implements Serializable {
         out.close();
     }
 
-    public void guardaEstado(String file) throws IOException, ClassNotFoundException {
-        FileInputStream f = new FileInputStream(file);
+    public void carregarEstado(String ficheiro) throws IOException, ClassNotFoundException {
+        FileInputStream f = new FileInputStream(ficheiro);
         ObjectInputStream in = new ObjectInputStream(f);
         SmartHouses smartHouses = (SmartHouses) in.readObject();
         in.close();
         setDispositivos(smartHouses.getDispositivos());
         setCasas(smartHouses.getCasas());
     }
-
+*/
     public boolean existsDevice(String id){
         return this.dispositivos.containsKey(id);
     }
