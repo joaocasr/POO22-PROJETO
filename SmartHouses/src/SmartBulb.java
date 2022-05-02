@@ -35,8 +35,10 @@ public class SmartBulb extends SmartDevice{
     private static final double ccold = vfixo + factorCold;
 
 
-    public SmartBulb(String id){
+    public SmartBulb(String id)
+    {
         super(id);
+        this.dimensao = 5;
     }
 
     public SmartBulb(String id,String intensidade, boolean modo , int dim,LocalDateTime timeon ,LocalDateTime timeoff,double consumoBase){
@@ -170,11 +172,9 @@ public class SmartBulb extends SmartDevice{
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append("\tTonalidade: ").append(this.mode).append("; ")
-                .append("\tDimensão: ").append(this.dimensao).append("; ")
-                .append("\tConsumo Cold: ").append(ccold).append("; ")
-                .append("\tConsumo Neutral: ").append(cneutral).append("; ")
-                .append("\tConsumo Warm: ").append(cwarm).append("\n");
+        sb.append("\tModo: ").append(this.mode).append("; ")
+                .append("\tDimensao: ").append(this.dimensao).append("; ")
+                .append("\tConsumo Base: ").append(this.getConsumoBase()).append("\n");
         return sb.toString();
     }
 
