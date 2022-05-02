@@ -311,6 +311,9 @@ public class CasaInteligente {
         return (this.logs.get(s) != null);
     }
 
+    public boolean hasLogByDay(LocalDateTime dia) {
+        return this.logs.containsKey(dia.toString());
+    }
 
     //se o log de um dispositivo já existir, elimina-se e coloca-se o novo
     public void addLog(Log g) throws LogException
@@ -347,7 +350,8 @@ public class CasaInteligente {
     public void addAllLogsAllDays(LocalDateTime init, LocalDateTime finit) throws LogException
     {
         while(init.plusDays(1).compareTo(finit)!=0)
-                    addAllLogs(init);
+            if(!hasLogByDay(init))        
+                addAllLogs(init);
     }
 
 

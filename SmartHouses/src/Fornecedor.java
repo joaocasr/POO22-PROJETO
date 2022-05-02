@@ -41,6 +41,11 @@ public class Fornecedor{
         else return this.allCasas.get(idCasa).clone();
     }
 
+    public CasaInteligente getCasaWithoutExceptions(String idCasa)
+    {
+        return this.allCasas.get(idCasa).clone();
+    }
+
     public void setId(String id)
     {
         this.id = id;
@@ -135,10 +140,10 @@ public class Fornecedor{
         return id;
     }
 
-    public double getValorFornecedor(String idCasa, LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    public double getValorFornecedor(String idCasa, LocalDateTime init, LocalDateTime finit)
     {
         double consumo = 0;
-        CasaInteligente casa = this.getCasa(idCasa);
+        CasaInteligente casa = this.getCasaWithoutExceptions(idCasa);
 
         while(init.plusDays(1).compareTo(finit)!=0)
                 consumo += casa.consumoAllDevicesDia(init);
@@ -149,7 +154,7 @@ public class Fornecedor{
             return this.formula.calculo(this.base, this.getImposto(), consumo, this.multiplicador-0.1);
     }
 
-    public void addFatura(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException, LogException
+    public void addFatura(LocalDateTime init, LocalDateTime finit) throws LogException
     {
         for(CasaInteligente c: this.allCasas.values())
         {
@@ -169,7 +174,7 @@ public class Fornecedor{
         return f;
     }
 
-    public double faturaçaoFornecedor(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    public double faturaçaoFornecedor(LocalDateTime init, LocalDateTime finit)
     {
         double t = 0;
         for(CasaInteligente c: this.allCasas.values())
@@ -179,7 +184,7 @@ public class Fornecedor{
         return t;
     }
 
-    public int compareTo(Fornecedor o,LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    public int compareTo(Fornecedor o,LocalDateTime init, LocalDateTime finit)
     {
         return Double.compare(this.faturaçaoFornecedor(init,finit),o.faturaçaoFornecedor(init,finit));
     }
