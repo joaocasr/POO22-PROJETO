@@ -14,9 +14,8 @@ public class CasaInteligente {
     private int NIF;
     private Map<String, SmartDevice> devices; // identificador -> SmartDevice
     private Map<String, List<String>> locations; // Espaço -> Lista codigo dos devices
-    private HashMap<String, Log> logs;
+    private HashMap<String, List<Log>> logs; // identificador -> Dia
     private HashMap<String, Fatura> faturas;
-    //private String idFornecedor;
 
 
     public CasaInteligente(String id,String proprietario,int NIF,String morada) {
@@ -308,7 +307,7 @@ public class CasaInteligente {
     }
 
     public boolean hasLog(String s) {
-        return this.logs.containsKey(s);
+        return (this.logs.get(s) != null);
     }
 
 
@@ -318,20 +317,28 @@ public class CasaInteligente {
         if(this.hasLog(g.getIdLog()))
             removeLog(g.getIdLog());
         
-        this.logs.put(g.getIdLog(),g);
+        this.logs.get(g.getIdLog()).add(g.clone());
+        
     }
 
     public void removeLog(String g) throws LogException
     {
         if(!this.hasLog(g)) throw new LogException ("O log " + g + " não existe");
-        else this.logs.remove(g);
+        else if(this.logs.containsKey(g))
+        {
+            for(Log a: this.logs.get(g))
+            {
+                if(g.compareTo(a.getIdLog())==0)
+                    this.logs.get(g).remove(a);
+            }
+        }
     }
 
     public void addAllLogs(LocalDateTime dia) throws LogException
     {
         for(SmartDevice sd: this.devices.values())
         {
-            Log l = new Log(dia+":"+sd.getID(),dia,sd.getID(),sd.getModo());
+            Log l = new Log(dia.toString(),dia,sd.getID(),sd.getModo());
             addLog(l);
         } 
     }
@@ -343,27 +350,27 @@ public class CasaInteligente {
     }
 
 
-    public HashMap<String,Log> getAllLogs(LocalDateTime init, LocalDateTime finit)
+    public List<Log> getAllLogs(LocalDateTime init, LocalDateTime finit)
     {
-        HashMap<String,Log> all = new HashMap<String,Log>();
+        List<Log> all = new ArrayList<Log>();
 
-        for(Log l: this.logs.values())
-        {
-            if(l.getDia().compareTo(init)>=0 && l.getDia().compareTo(finit)<=0);
-            all.put(l.getIdLog(), l.clone());
-        }
+        this.logs.values().forEach((lista)->{
+            for(Log l: lista)
+            {
+                if(l.getDia().compareTo(init)>=0 && l.getDia().compareTo(finit)<=0);
+                    all.add(l.clone());
+            }
+        });;
 
         return all;
-        //return this.logs.entrySet()
-        //                .stream()
-        //                .filter((id,l)->(l.getDia().compareTo(init)>=0 && l.getDia().compareTo(finit)<=0))
-        //                .collect((Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone())));
+
     }
 
     public int numberDevicesOn(LocalDateTime dia)
     {
         int count = 0;
-        for(Log l: this.logs.values())
+        
+        for(Log l: this.logs.get(dia.toString()))
         {
             if(l.getOn() && l.getDia().equals(dia))
                 count++;
@@ -374,7 +381,7 @@ public class CasaInteligente {
     public double consumoAllDevicesDia(LocalDateTime dia)
     {
         double count = 0;
-        for(Log l: this.logs.values())
+        for(Log l: this.logs.get(dia.toString()))
         {
             if(l.getOn() && l.getDia().equals(dia))
                 count+=devices.get(l.getIdDevice()).consumoDiario();
