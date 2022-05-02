@@ -3,7 +3,7 @@ import java.time.format.DateTimeFormatter;
 
 
 public class SmartSpeaker extends SmartDevice {
-    public static final int MAX = 20; //volume máximo
+    public static final int MAX = 100; //volume máximo
 
     private int volume;
     private String marca;
@@ -16,6 +16,7 @@ public class SmartSpeaker extends SmartDevice {
 
     public SmartSpeaker(String id) {
         super(id);
+        this.volume = 0;
     }
 
     public SmartSpeaker(String id, boolean modo, int vol, String marca, String canal, LocalDateTime timeon, LocalDateTime timeoff,double consumoBase) {
@@ -52,8 +53,6 @@ public class SmartSpeaker extends SmartDevice {
     public String getChannel(){
         return this.channel;
     }
-
-
 
     public void setChannel(String c){
         this.channel = c;
@@ -110,7 +109,8 @@ public class SmartSpeaker extends SmartDevice {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
         sb.append("\tVolume: ").append(this.volume).append("; ")
-                .append("\tCanal: ").append(this.channel).append("\n");
+            .append("\tMarca: ").append(this.volume).append("; ")
+            .append("\tCanal: ").append(this.channel).append("\n");
         return sb.toString();
     }
 
