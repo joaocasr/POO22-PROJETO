@@ -26,6 +26,7 @@ public class CasaInteligente {
         this.locations = new HashMap<>();
         this.proprietario = proprietario;
         this.NIF = NIF;
+        this.logs = new HashMap<>();
     }
 
     public CasaInteligente(String id, String morada, Map<String,SmartDevice> dv , Map<String, List<String>> espacos,int nif, String nome) {

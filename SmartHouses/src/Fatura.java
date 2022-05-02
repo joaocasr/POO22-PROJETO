@@ -46,7 +46,7 @@ public class Fatura {
         this.consumo = f.getConsumo();
     }
 
-    public void setIdFatura(double consumo)
+    public void setConsumo(double consumo)
     {
         this.consumo = consumo;
     }
@@ -81,7 +81,7 @@ public class Fatura {
         this.fim = fim;
     }
 
-    public void setNif(int NIF)
+    public void setNIF(int NIF)
     {
         this.NIF = NIF;
     }

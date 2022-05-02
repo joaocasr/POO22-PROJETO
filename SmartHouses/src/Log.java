@@ -11,12 +11,22 @@ public class Log {
     private Boolean on; // true se o dispositivo está ligado
     private Map<String, SmartDevice> devices;
 
+    public Log()
+    {
+        this.id = "";
+        this.dia = null;
+        this.idDevice = "";
+        this.on = false;
+        this.devices = new HashMap<>();
+    }
+
     public Log(String id, LocalDateTime dia, String idDevice, Boolean on)
     {
         this.id = id;
         this.dia = dia;
         this.idDevice = idDevice;
         this.on = on;
+        this.devices = new HashMap<>();
     }
 
     public Log(Log l)

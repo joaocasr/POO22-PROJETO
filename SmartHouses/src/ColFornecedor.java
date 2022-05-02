@@ -1,4 +1,5 @@
 import java.util.Comparator;
+import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,14 +7,14 @@ import java.time.LocalDateTime;
 
 public class ColFornecedor {
     
-    private HashMap<String, Fornecedor> fornecedores;
+    private Map<String, Fornecedor> fornecedores;
 
     public ColFornecedor()
     {
         this.fornecedores = new HashMap<>();
     }
 
-    public ColFornecedor(HashMap<String,Fornecedor> fornecedores)
+    public ColFornecedor(Map<String,Fornecedor> fornecedores)
     {
         this.fornecedores= new HashMap<>();
         fornecedores.forEach((id,value)->{this.fornecedores.put(id,value.clone());});
@@ -24,7 +25,7 @@ public class ColFornecedor {
         this.fornecedores = fornecedores.getFornecedores();
     }
 
-    public void setFornecedor(HashMap<String,Fornecedor> fornecedores)
+    public void setFornecedor(Map<String,Fornecedor> fornecedores)
     {
         this.fornecedores = new HashMap<>();
         fornecedores.forEach((id,value)->{this.fornecedores.put(id,value.clone());});
@@ -36,7 +37,7 @@ public class ColFornecedor {
         else return this.fornecedores.get(id).clone();
     }
 
-    public HashMap<String,Fornecedor> getFornecedores()
+    public Map<String,Fornecedor> getFornecedores()
     {
         HashMap<String,Fornecedor> res = new HashMap<>();
         res.forEach((id,value)->{this.fornecedores.put(id,value.clone());});
