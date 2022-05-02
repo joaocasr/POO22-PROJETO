@@ -149,7 +149,7 @@ public class Fornecedor{
             return this.formula.calculo(this.base, this.getImposto(), consumo, this.multiplicador-0.1);
     }
 
-    public void addFatura(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    public void addFatura(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException, LogException
     {
         for(CasaInteligente c: this.allCasas.values())
         {

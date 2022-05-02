@@ -129,13 +129,23 @@ public class ColFornecedor {
         return id;
     }
 
-/*
+
     public List<Fornecedor> ordenarFornecedores(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
     {
-        Comparator<Fornecedor> c = (Fornecedor a, Fornecedor b)
-        ->Double.compare(a.faturaçaoFornecedor(init,finit),b.faturaçaoFornecedor(init,finit));
+        Comparator<Fornecedor> c = (Fornecedor a, Fornecedor b)->
+        {
+            try
+            {
+                return Double.compare(a.faturaçaoFornecedor(init,finit),b.faturaçaoFornecedor(init,finit));
+            }
+            catch(CasaInteligenteException e)
+            {
+                System.out.print("Erro:" + e.getMessage());
+                return -1;
+            }
+        };
         
         return this.fornecedores.values().stream().map(Fornecedor::clone).sorted(c).collect(Collectors.toList());
     }
-    */
+    
 }

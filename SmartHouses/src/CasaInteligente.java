@@ -14,8 +14,8 @@ public class CasaInteligente {
     private int NIF;
     private Map<String, SmartDevice> devices; // identificador -> SmartDevice
     private Map<String, List<String>> locations; // Espaço -> Lista codigo dos devices
-    private HashMap<String, List<Log>> logs; // identificador -> Dia
-    private HashMap<String, Fatura> faturas;
+    private Map<String, List<Log>> logs; // identificador -> Dia
+    private Map<String, Fatura> faturas;
 
 
     public CasaInteligente(String id,String proprietario,int NIF,String morada) {
@@ -244,9 +244,10 @@ public class CasaInteligente {
 
 
 
-    public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor)
+    public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor) throws LogException
     {
         double consumo = 0;
+        addAllLogsAllDays(init,finit);
         while(init.plusDays(1).compareTo(finit)!=0)
                 consumo += this.consumoAllDevicesDia(init);
         Fatura f = new Fatura(consumo,idFornecedor+":"+idHome, init, finit, morada, NIF, idFornecedor, valor);
