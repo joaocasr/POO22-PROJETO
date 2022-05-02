@@ -48,6 +48,56 @@ public class CasaInteligente {
         setLocations(ci.getLocations());
     }
 
+    public void setMorada(String morada) {
+        this.morada = morada;
+    }
+
+    public void setProprietario(String proprietario) {
+        this.proprietario = proprietario;
+    }
+
+    public void setIdHome(String idHome) {
+        this.idHome = idHome;
+    }
+
+    public void setNIF(int NIF) {
+        this.NIF = NIF;
+    }
+
+    public String getMorada() {
+        return this.morada;
+    }
+
+    public String getProprietario() {
+        return this.proprietario;
+    }
+
+    public int getNIF() {
+        return this.NIF;
+    }
+
+    public String getIdHome() {
+        return idHome;
+    }
+
+    public Map<String,SmartDevice> getDevices(){
+        return this.devices.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone()));
+    }
+    
+    public void setDevices(Map<String,SmartDevice> mdevices){
+        this.devices = new HashMap<>();
+        mdevices.forEach((String,SmartDevice)->this.devices.put(String,SmartDevice.clone()));
+    }
+
+    public Map<String,List<String>> getLocations(){
+        return this.locations.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    public void setLocations(Map<String,List<String>> ml){
+        this.locations = new HashMap<>();
+        ml.forEach((key,value)->this.locations.put(key, new ArrayList<>(value)));
+    }
+
     /*Ligar um dispositivo especifico*/
     public void setDeviceOn(String devCode) throws SmartDevicesException{
         if(!this.existsDeviceHome(devCode)) throw new SmartDevicesException ("O SmartDevice com id " + devCode + " não existe");
@@ -71,7 +121,6 @@ public class CasaInteligente {
             getDevice(a).setModo(b);
         }
     }
-
 
     /*Calcular o consumo total de uma casa*/
     public double consumoTotalHome(){
@@ -132,54 +181,6 @@ public class CasaInteligente {
         }
     }
 
-    public String getMorada() {
-        return this.morada;
-    }
-
-    public void setMorada(String morada) {
-        this.morada = morada;
-    }
-
-    public String getProprietario() {
-        return this.proprietario;
-    }
-
-    public void setProprietario(String proprietario) {
-        this.proprietario = proprietario;
-    }
-
-    public int getNIF() {
-        return this.NIF;
-    }
-
-    public String getIdHome() {
-        return idHome;
-    }
-
-    public void setIdHome(String idHome) {
-        this.idHome = idHome;
-    }
-
-    public void setNIF(int NIF) {
-        this.NIF = NIF;
-    }
-
-    public Map<String,SmartDevice> getDevices(){
-        return this.devices.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone()));
-    }
-    public void setDevices(Map<String,SmartDevice> mdevices){
-        this.devices = new HashMap<>();
-        mdevices.forEach((String,SmartDevice)->this.devices.put(String,SmartDevice.clone()));
-    }
-
-    public Map<String,List<String>> getLocations(){
-        return this.locations.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-    }
-
-    public void setLocations(Map<String,List<String>> ml){
-        this.locations = new HashMap<>();
-        ml.forEach((key,value)->this.locations.put(key, new ArrayList<>(value)));
-    }
 
     public boolean equals(Object o){
         if(o==this) return true;
@@ -241,8 +242,6 @@ public class CasaInteligente {
         }
 
     }
-
-
 
     public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor) throws LogException
     {

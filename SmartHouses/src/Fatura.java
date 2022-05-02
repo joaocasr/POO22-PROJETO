@@ -36,14 +36,14 @@ public class Fatura {
 
     public Fatura(Fatura f)
     {
-        this.idFatura = f.idFatura;
-        this.morada = f.morada;
-        this.idFornecedor = f.idFornecedor;
-        this.fim = f.fim;
-        this.inicio = f.inicio;
-        this.valor = f.valor;
-        this.NIF = f.NIF;
-        this.consumo = f.consumo;
+        this.idFatura = f.getIdFatura();
+        this.morada = f.getMorada();
+        this.idFornecedor = f.getIdFornecedor();
+        this.fim = f.getFim();
+        this.inicio = f.getInicio();
+        this.valor = f.getValor();
+        this.NIF = f.getNIF();
+        this.consumo = f.getConsumo();
     }
 
     public void setIdFatura(double consumo)
@@ -96,7 +96,7 @@ public class Fatura {
         return this.valor;
     }
 
-    public double getNIF()
+    public int getNIF()
     {
         return this.NIF;
     }

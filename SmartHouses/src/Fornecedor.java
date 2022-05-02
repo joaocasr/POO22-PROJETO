@@ -30,9 +30,9 @@ public class Fornecedor{
     public Fornecedor(Fornecedor f)
     {
         setAllCasas(f.getAllCasas());
-        this.id = f.id;
-        this.imposto = f.imposto;
-        this.formula = f.formula;
+        this.id = f.getId();
+        this.imposto = f.getImposto();
+        this.formula = f.getFormula();
     }
 
     public CasaInteligente getCasa(String idCasa) throws CasaInteligenteException
@@ -64,6 +64,16 @@ public class Fornecedor{
     public double getImposto()
     {
         return this.imposto;
+    }
+
+    public FormulaEnergia getFormula()
+    {
+        return this.formula;
+    }
+
+    public void setFormula(FormulaEnergia f)
+    {
+        this.formula=f;
     }
 
     public void addCasa(CasaInteligente casa) throws CasaInteligenteException

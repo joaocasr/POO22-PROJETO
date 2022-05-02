@@ -1,5 +1,8 @@
 import java.time.LocalDateTime;
 import java.util.Map;
+import java.util.HashMap;
+import java.util.stream.Collectors;
+
 
 public class Log {
     private String id;
@@ -18,10 +21,11 @@ public class Log {
 
     public Log(Log l)
     {
-        this.id = l.id;
-        this.dia = l.dia;
-        this.idDevice = l.idDevice;
+        this.id = l.getIdLog();
+        this.dia = l.getDia();
+        this.idDevice = l.getIdDevice();
         this.devices.get(idDevice).setModo(on);
+        setDevices(l.getDevices());
     }
 
     public String getIdLog() {
@@ -50,6 +54,15 @@ public class Log {
 
     public Boolean getOn() {
         return this.on;
+    }
+
+    public Map<String,SmartDevice> getDevices(){
+        return this.devices.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone()));
+    }
+    
+    public void setDevices(Map<String,SmartDevice> mdevices){
+        this.devices = new HashMap<>();
+        mdevices.forEach((String,SmartDevice)->this.devices.put(String,SmartDevice.clone()));
     }
 
     public boolean equals(Object o){
