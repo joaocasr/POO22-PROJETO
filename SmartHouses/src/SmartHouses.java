@@ -57,22 +57,36 @@ public class SmartHouses implements Serializable {
                 case "SmartBulb":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartBulb.parseSmartBulb(linhaPartida[1]);
-                    casaMaisRecente.addDevice(sd);
+                    try {
+                        casaMaisRecente.addDevice(sd);
+                    }
+                    catch(SmartDevicesException s){
+                            System.out.println("Smartdevice não foi possivel adicionar dispositivo");
+                    }
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
                 case "SmartCamera":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartCamera.parseSmartCamera(linhaPartida[1]);
-                    casaMaisRecente.addDevice(sd);
+                    try {
+                        casaMaisRecente.addDevice(sd);
+                    }
+                    catch(SmartDevicesException s){
+                        System.out.println("Smartdevice não foi possivel adicionar dispositivo");
+                    }
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
                 case "SmartSpeaker":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartSpeaker.parseSmartSpeaker(linhaPartida[1]);
-                    casaMaisRecente.addDevice(sd);
-                    casaMaisRecente.addToRoom(divisao, sd.getID());
+                    try {
+                        casaMaisRecente.addDevice(sd);
+                    }
+                    catch(SmartDevicesException s){
+                        System.out.println("Smartdevice não foi possivel adicionar dispositivo");
+                    }                    casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
                 case "Fornecedor":
@@ -87,7 +101,6 @@ public class SmartHouses implements Serializable {
 
     }
 
-/*  ------------- vao ser usados mais tarde
     public void guardarEstado() throws IOException {
         FileOutputStream file = new FileOutputStream("Estado.obj");
         ObjectOutputStream out = new ObjectOutputStream(file);
@@ -104,7 +117,7 @@ public class SmartHouses implements Serializable {
         setDispositivos(smartHouses.getDispositivos());
         setCasas(smartHouses.getCasas());
     }
-*/
+
     public boolean existsDevice(String id){
         return this.dispositivos.containsKey(id);
     }

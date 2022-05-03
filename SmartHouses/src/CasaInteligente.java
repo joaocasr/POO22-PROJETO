@@ -176,6 +176,12 @@ public class CasaInteligente {
         return exists;
     }
 
+    public void removeDispositivoemDivisao(String idDevice){
+        for(List<String> l : this.locations.values()){
+            if(l.contains(idDevice)) l.remove(idDevice);
+        }
+    }
+
     public void removeDevicesFromRoom(String idDevice){
         for(List<String> l : this.locations.values()){
             if(l.contains(idDevice)) l.remove(idDevice);

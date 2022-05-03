@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/CasaInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/CasaInteligente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Fornecedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Fornecedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartHouses.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartHouses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/logs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartSpeakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartSpeakerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

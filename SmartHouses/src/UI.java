@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -21,9 +23,9 @@ public class UI{
         opcoes.add("Ordenação dos maiores consumidores de energia durante um período de tempo\n");
         opcoes.add("Dispositivos\n");
         opcoes.add("Casas\n");
-        opcoes.add("Sair da aplicação");
-
-
+        opcoes.add("Salvar estado\n");
+        opcoes.add("Carregar estado\n");
+        opcoes.add("Carregar do ficheiro logs.txt\n");
 
         Menu menu = new Menu(opcoes);
         do {
@@ -48,6 +50,31 @@ public class UI{
                     geraCasas();
                     break;
                 case 7:
+                    try {
+                        this.smarthouses.guardarEstado();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        System.out.println("Não foi possível guardar o estado da aplicação.");
+                    }
+                    break;
+                case 8:
+                    try {
+                        this.smarthouses.carregarEstado("estado.obj");
+                    }catch (FileNotFoundException f){
+                        System.out.println("Não foi possível carregar o estado da aplicação.");
+                    } catch (IOException | ClassNotFoundException e) {
+                        e.printStackTrace();
+                        System.out.println("Não foi possível carregar o estado da aplicação.");
+                    }
+                    break;
+                case 9:
+                    try{
+                        this.smarthouses.parser("SmartHouses/src/logs.txt");
+                    }catch (LinhaException msg) {
+                        System.out.println("Nao foi possivel carregar a aplicação.");
+                    }
+                    break;
+                case 0:
                     return;
                 default:
                     break;
@@ -188,7 +215,7 @@ public class UI{
         }else{
             System.out.println("O dispositivos já existe!");
         }
-        scanner.close();
+        //scanner.close();
     }
 
 
@@ -228,7 +255,7 @@ public class UI{
         }else{
             System.out.println("O device já existe!");
         }
-        scanner.close();
+       // scanner.close();
     }
 
     public void adicionaSpeaker(){
@@ -271,7 +298,7 @@ public class UI{
         }else{
             System.out.println("O device já existe!");
         }
-        scanner.close();
+      //  scanner.close();
     }
 
     public void removeDispositivo() {
@@ -284,7 +311,7 @@ public class UI{
 
         this.smarthouses.removeDevice(idDevice,idHome);
         System.out.println("[+] Dispositivo removido com sucesso.");
-        scanner.close();
+     //   scanner.close();
     }
 
     public void removeCasas() {
@@ -295,7 +322,7 @@ public class UI{
         if(this.smarthouses.removeHome(idHome)==0)
             System.out.println("[+] Casa removida com êxito.");
         else System.out.println("A casa que digitou nao existe.");
-        scanner.close();
+       // scanner.close();
     }
 
     public void consultaCasas(){
@@ -305,7 +332,7 @@ public class UI{
         if(this.smarthouses.getCasas().get(idHome)!=null)
             System.out.println(this.smarthouses.getCasas().get(idHome));
         else System.out.println("A casa que digitou não existe.");
-        scanner.close();
+       // scanner.close();
     }
 
     public void consultaDispositivos(){
@@ -315,7 +342,7 @@ public class UI{
         if(this.smarthouses.getDispositivos().get(idDevice)!=null)
             System.out.println(this.smarthouses.getDispositivos().get(idDevice));
         else System.out.println("O dispositivo digitou não existe.");
-        scanner.close();
+       // scanner.close();
     }
 
     public void adicionaCasas() {
@@ -345,7 +372,7 @@ public class UI{
         }
         this.smarthouses.adicionaHome(ci);
         System.out.println("[+] Casa criada com êxito.");
-        scanner.close();
+       // scanner.close();
     }
 
     public void adicionarDispositivoemCasa(SmartDevice sd){
@@ -358,9 +385,14 @@ public class UI{
             String room = scanner.nextLine();
             if(ci.hasRoom(room)) ci.addToRoom(room,sd.getID());
             else System.out.println("Divisão não existe");
-            ci.addDevice(sd);
+            try {
+                ci.addDevice(sd);
+            }
+            catch (SmartDevicesException s){
+                System.out.println("Não foi possivel adicionar o dispositivo.");
+            }
             this.smarthouses.adicionaHome(ci);
         }else System.out.println("Casa não existe");
-        scanner.close();
+        //scanner.close();
     }
 }

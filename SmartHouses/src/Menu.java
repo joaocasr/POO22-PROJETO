@@ -32,7 +32,7 @@ public class Menu {
                 System.out.print(i + 1);
                 System.out.print(" -");
                 System.out.print(this.opcoes.get(i));
-                System.out.print("\n___________________________________________________________________________________\n");
+                System.out.print("| * 0- Sair da aplicação\n___________________________________________________________________________________\n");
             }
         }
     }
@@ -47,7 +47,6 @@ public class Menu {
             System.out.println("A opção selecionada é inválida.");
             op = -1;
         }
-        scanner.close();
         return op;
     }
 

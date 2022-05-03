@@ -33,10 +33,10 @@ public class SmartSpeakerTest {
         assertEquals(1, smartSpeaker.getVolume());
         smartSpeaker = new SmartSpeaker("speaker1",false,50,"JBL","Radio Comercial",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),5.0);
         smartSpeaker.volumeUp();
-        assertEquals(51, smartSpeaker.getDimensao());
+        assertEquals(51, smartSpeaker.getVolume());
         smartSpeaker = new SmartSpeaker("speaker1",false,100,"JBL","Radio Comercial",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),5.0);
         smartSpeaker.volumeUp();
-        assertEquals(100, smartSpeaker.getDimensao());
+        assertEquals(100, smartSpeaker.getVolume());
     }
 
     @Test
@@ -54,7 +54,7 @@ public class SmartSpeakerTest {
     public void testGetVolume() 
     {
         SmartSpeaker speaker = new SmartSpeaker("speaker1",false,50,"JBL","Radio Comercial",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),5.0);
-        assertEquals(50, smartSpeaker.getVolume());
+        assertEquals(50, speaker.getVolume());
     }
 
     @Test
@@ -62,11 +62,11 @@ public class SmartSpeakerTest {
     {
         SmartSpeaker speaker = new SmartSpeaker("speaker1",false,0,"JBL","Radio Comercial",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),5.0);
         speaker.setVolume(50);
-        assertEquals(50, smartSpeaker.getVolume());
+        assertEquals(50, speaker.getVolume());
         speaker.setVolume(120);
-        assertEquals(100, smartSpeaker.getVolume());
+        assertEquals(100, speaker.getVolume());
         speaker.setVolume(-5);
-        assertEquals(0, smartSpeaker.getVolume());
+        assertEquals(0, speaker.getVolume());
     }
 
     @Test
@@ -103,7 +103,7 @@ public class SmartSpeakerTest {
     public void testTurnSpeakerOFF()
     {
         SmartSpeaker speaker = new SmartSpeaker("speaker1",true,0,"JBL","Radio Comercial",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),5.0);
-        speaker.turnSpeakerOFF();
+        speaker.turnSpeakerOff();
         assertFalse(speaker.getModo());
     }
 
@@ -140,14 +140,14 @@ public class SmartSpeakerTest {
     {
         SmartSpeaker speaker = new SmartSpeaker("speaker1",true,0,"JBL","Radio Comercial",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),5.0);
         SmartSpeaker speaker2 = new SmartSpeaker("speaker2",true,0,"JBL","Radio Comercial",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),5.0);
-        if(speaker.equals(speaker2)==true) System.out.print("Equals Errado");
-        if(speaker.equals(speaker)==false) System.out.print("Equals Errado");
+        if(speaker.equals(speaker)) System.out.print("Equals Errado");
+        if(!speaker.equals(speaker)) System.out.print("Equals Errado");
     }
     
     @Test
     public void testeClone()
     {
         SmartSpeaker speaker = new SmartSpeaker("speaker1",true,0,"JBL","Radio Comercial",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),5.0);
-        if(speaker.equals(speaker.clone())==false) System.out.print("Clone Errado");
+        if(!speaker.equals(speaker.clone())) System.out.print("Clone Errado");
     }
 }
