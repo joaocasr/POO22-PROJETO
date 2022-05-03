@@ -32,7 +32,7 @@ public class Menu {
                 System.out.print(i + 1);
                 System.out.print(" -");
                 System.out.print(this.opcoes.get(i));
-                System.out.print("___________________________________________________________________________________\n");
+                System.out.print("\n___________________________________________________________________________________\n");
             }
         }
     }

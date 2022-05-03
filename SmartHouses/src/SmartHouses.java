@@ -50,9 +50,9 @@ public class SmartHouses implements Serializable {
                 case "Casa":
                     if(i>1) casas.put(casaMaisRecente.getIdHome(),casaMaisRecente);
                     CasaInteligente ci  = CasaInteligente.parseCasa(linhaPartida[1]);
-                    casas.put(ci.getIdHome(),ci);
+                    casas.put(ci.getIdHome(),ci.clone());
                     try {
-                        fornecedores.get(ci.getIdFornecedor()).addCasa(ci.clone());
+                    (fornecedores.get(ci.getIdFornecedor())).addCasa(ci.clone());
                     }catch (CasaInteligenteException c){
                         System.out.println(c.getMessage());
                     }
@@ -103,6 +103,7 @@ public class SmartHouses implements Serializable {
                 case "Fornecedor":
                     Fornecedor f = Fornecedor.parseFornecedor(linhaPartida[1]);
                     fornecedores.put(f.getId(),f.clone());
+                    //System.out.println(fornecedores.get("Iberdrola").getId());
                     break;
                 default:
                     throw new LinhaException("Linha Inválida!");
@@ -136,8 +137,16 @@ public class SmartHouses implements Serializable {
         return this.dispositivos.containsKey(id);
     }
 
+    public boolean existsFornecedor(String id){
+        return this.fornecedores.containsKey(id);
+    }
+
     public void adicionaDevice(String idDevice,SmartDevice sd) {
-        this.dispositivos.put(idDevice,sd);
+        this.dispositivos.put(idDevice,sd.clone());
+    }
+
+    public void adicionaFornecedor(String id ,Fornecedor f)  {
+        this.fornecedores.put(id,f.clone());
     }
 
     public void removeDevice(String idDevice,String idHome) { //id device
@@ -166,6 +175,15 @@ public class SmartHouses implements Serializable {
         if(this.casas.containsKey(idHome)) {
             r=0;
             this.casas.remove(idHome);
+        }
+        return r;
+    }
+
+    public int removeFornecedor(String id){
+        int r=1;
+        if(this.fornecedores.containsKey(id)) {
+            r=0;
+            this.fornecedores.remove(id);
         }
         return r;
     }

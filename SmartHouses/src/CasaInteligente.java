@@ -27,6 +27,7 @@ public class CasaInteligente {
         this.locations = new HashMap<>();
         this.proprietario = proprietario;
         this.NIF = NIF;
+        this.idFornecedor = idFornecedor;
         this.logs = new HashMap<>();
     }
 
@@ -205,13 +206,14 @@ public class CasaInteligente {
         if(o==null || o.getClass()!=this.getClass()) return false;
         CasaInteligente ci = (CasaInteligente) o;
         return this.locations.equals(ci.getLocations()) && this.devices.equals(ci.getDevices())
-                && this.proprietario.equals(ci.getProprietario()) && this.NIF==ci.getNIF() && this.morada.equals(ci.getMorada());
+                && this.proprietario.equals(ci.getProprietario()) && this.NIF==ci.getNIF() && this.morada.equals(ci.getMorada()) && this.idFornecedor.equals(ci.getIdFornecedor());
     }
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("ID Home: ").append(this.idHome).append("\n")
-                .append("Morada: ").append(this.morada).append("\n");
+        sb.append("\nID Home: ").append(this.idHome).append("\n")
+                .append("Morada: ").append(this.morada).append("\n")
+                .append("Fornecedor: ").append(this.idFornecedor).append("\n");
         sb.append("Proprietario: ").append(this.proprietario).append("\n")
                 .append("NIF: ").append(this.NIF).append("\n");
         //this.devices.entrySet().forEach(a->{ sb.append("ID: ").append(a.getKey()).append(" --- SmartDevice: ").append(a.getValue().toString()).append("\n");});

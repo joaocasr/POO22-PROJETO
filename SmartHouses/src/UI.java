@@ -23,10 +23,11 @@ public class UI{
         opcoes.add("Ordenação dos maiores consumidores de energia durante um período de tempo\n");
         opcoes.add("Dispositivos\n");
         opcoes.add("Casas\n");
+        opcoes.add("Fornecedores\n");
         opcoes.add("Salvar estado\n");
         opcoes.add("Carregar estado\n");
         opcoes.add("Carregar do ficheiro logs.txt\n");
-        opcoes.add("Sair da aplicação\n");
+        opcoes.add("Sair da aplicação");
 
         Menu menu = new Menu(opcoes);
         do {
@@ -66,6 +67,9 @@ public class UI{
                     geraCasas();
                     break;
                 case 7:
+                    Fornecedores();
+                    break;
+                case 8:
                     try {
                         this.smarthouses.guardarEstado();
                     } catch (IOException e) {
@@ -73,7 +77,7 @@ public class UI{
                         System.out.println("Não foi possível guardar o estado da aplicação.");
                     }
                     break;
-                case 8:
+                case 9:
                     try {
                         this.smarthouses.carregarEstado("estado.obj");
                     }catch (FileNotFoundException f){
@@ -83,14 +87,14 @@ public class UI{
                         System.out.println("Não foi possível carregar o estado da aplicação.");
                     }
                     break;
-                case 9:
+                case 10:
                     try{
                         this.smarthouses.parser("SmartHouses/src/logs.txt");
                     }catch (LinhaException msg) {
                         System.out.println("Nao foi possivel carregar a aplicação.");
                     }
                     break;
-                case 10:
+                case 11:
                     return;
                 default:
                     break;
@@ -336,9 +340,19 @@ public class UI{
         String idHome = scanner.nextLine();
 
         if(this.smarthouses.removeHome(idHome)==0)
-            System.out.println("[+] Casa removida com êxito.");
+            System.out.println("[+] Casa removida com sucesso.");
         else System.out.println("A casa que digitou nao existe.");
        // scanner.close();
+    }
+
+    public void removeFornecedores() {
+        System.out.println("Digite o ID do fornecedor a remover: ");
+        Scanner scanner = new Scanner(System.in);
+        String id = scanner.nextLine();
+
+        if(this.smarthouses.removeFornecedor(id)==0)
+            System.out.println("[+] Fornecedor removido com sucesso.");
+        else System.out.println("O fornecedor que digitou nao existe.");
     }
 
     public void consultaCasas(){
@@ -361,7 +375,7 @@ public class UI{
        // scanner.close();
     }
 
-    public void adicionaCasas() {
+    public CasaInteligente adicionaCasas() {
 
         System.out.println("Digite o ID da casa: ");
         Scanner scanner = new Scanner(System.in);
@@ -390,8 +404,9 @@ public class UI{
             n--;
         }
         this.smarthouses.adicionaHome(ci);
-        System.out.println("[+] Casa criada com êxito.");
+        System.out.println("[+] Casa criada com sucesso.");
        // scanner.close();
+        return ci;
     }
 
     public void adicionarDispositivoemCasa(SmartDevice sd){
@@ -414,4 +429,63 @@ public class UI{
         }else System.out.println("Casa não existe");
         //scanner.close();
     }
+
+    public void adicionaFornecedores(){
+        System.out.println("Digite o fornecedor de energia: ");
+        Scanner scanner = new Scanner(System.in);
+        String idFornecedor = scanner.nextLine();
+        if(!this.smarthouses.existsFornecedor(idFornecedor)){
+            System.out.println("Digite o imposto base: ");
+            double imposto = scanner.nextDouble();
+            Fornecedor f = new Fornecedor(idFornecedor,imposto);
+            System.out.println("Digite o número  de casas: ");
+            int n = scanner.nextInt();
+            while(n>0){
+                CasaInteligente ci = adicionaCasas();
+                try {
+                    f.addCasa(ci);
+                } catch (CasaInteligenteException c) {
+                    System.out.println(c.getMessage());
+                }
+                n--;
+            }
+            this.smarthouses.adicionaFornecedor(idFornecedor,f);
+        }else System.out.println("Fornecedor já existe");
+    }
+
+    public void Fornecedores(){
+        List<String> opcoes = new ArrayList<>();
+        opcoes.add("Consultar fornecedor\n");
+        opcoes.add("Adicionar fornecedor\n");
+        opcoes.add("Remover fornecedor\n");
+        opcoes.add("Voltar");
+
+        Menu menu = new Menu(opcoes);
+        do {
+            menu.executa();
+            switch (menu.getOpcao()) {
+                case 1:
+                    Scanner scanner = new Scanner(System.in);
+                    String id =scanner.nextLine();
+                    if(this.smarthouses.getFornecedores().get(id)!=null)
+                        System.out.println(this.smarthouses.getFornecedores().get(id));
+                    else System.out.println("O fornecedor que digitou não existe.");
+                    System.out.println("[+] Fornecedor criado com sucesso.");
+                    break;
+                case 2:
+                    adicionaFornecedores();
+                    break;
+                case 3:
+                    removeFornecedores();
+                    break;
+                case 4:
+                    executeMenu();
+                    break;
+                default:
+                    break;
+            }
+        } while (menu.getOpcao() != 0);
+
+    }
+
 }

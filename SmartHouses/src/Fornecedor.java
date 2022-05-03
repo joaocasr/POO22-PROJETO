@@ -16,20 +16,21 @@ public class Fornecedor{
     private Map<String, CasaInteligente> allCasas; // identificador -> idCasa
 
 
-    public Fornecedor(String id) {
+    public Fornecedor(String id,double imposto) {
         this.id = id;
+        this.imposto = imposto;
+        this.allCasas = new HashMap<>();
+
     }
 
-    public Fornecedor(int imposto, String id, FormulaEnergia f)
-    {
+    public Fornecedor(int imposto, String id, FormulaEnergia f) {
         this.allCasas = new HashMap<>();
         this.id = id;
         this.imposto = imposto;
         this.formula = f;
     }
 
-    public Fornecedor(Fornecedor f)
-    {
+    public Fornecedor(Fornecedor f) {
         setAllCasas(f.getAllCasas());
         this.id = f.getId();
         this.imposto = f.getImposto();
@@ -77,8 +78,7 @@ public class Fornecedor{
         this.formula=f;
     }
 
-    public void addCasa(CasaInteligente casa) throws CasaInteligenteException
-    {
+    public void addCasa(CasaInteligente casa) throws CasaInteligenteException {
         if(this.hasCasa(casa.getIdHome())) throw new CasaInteligenteException ("A casa com id " + casa.getIdHome() + " já existe");
         else this.allCasas.put(casa.getIdHome(),casa);
     }
@@ -94,20 +94,18 @@ public class Fornecedor{
         this.allCasas.remove(idCasa);
     }
 
-    public Map<String,CasaInteligente> getAllCasas() {
+    public Map<String,CasaInteligente> getAllCasas(){
         return this.allCasas.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone()));
     }
 
-    public void setAllCasas(Map<String,CasaInteligente> c)
-    {
+    public void setAllCasas(Map<String,CasaInteligente> c){
         this.allCasas = new HashMap<>();
         c.forEach((String,SmartDevice)->this.allCasas.put(String,SmartDevice.clone()));
     }
 
     public static Fornecedor parseFornecedor(String line){
         String[] parte = line.split(",");
-
-        return new Fornecedor(parte[0]);
+        return new Fornecedor(parte[0],Double.parseDouble(parte[1]));
     }
 
     public boolean equals(Object o)
@@ -122,10 +120,10 @@ public class Fornecedor{
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.append("Id: ").append(this.id).append("; ");
-
-        allCasas.forEach((id,casa)->{sb.append(casa.toString());});
-        
+        sb.append("Id: ").append(this.id).append("; ")
+            .append("Imposto: ").append(this.imposto).append(";");
+        //allCasas.forEach((id,casa)->{sb.append(casa.toString());});
+        sb.append(allCasas);
         return sb.toString();
     }
     
