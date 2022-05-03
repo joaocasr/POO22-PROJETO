@@ -16,9 +16,10 @@ public class CasaInteligente {
     private Map<String, List<String>> locations; // Espaço -> Lista codigo dos devices
     private Map<String, List<Log>> logs; // identificador -> Dia
     private Map<String, Fatura> faturas;
+    private String idFornecedor;
 
 
-    public CasaInteligente(String id,String proprietario,int NIF,String morada) {
+    public CasaInteligente(String id,String proprietario,int NIF,String morada,String idFornecedor) {
         // initialise instance variables
         this.idHome = id;
         this.morada = morada;
@@ -29,12 +30,13 @@ public class CasaInteligente {
         this.logs = new HashMap<>();
     }
 
-    public CasaInteligente(String id, String morada, Map<String,SmartDevice> dv , Map<String, List<String>> espacos,int nif, String nome) {
+    public CasaInteligente(String id, String morada, Map<String,SmartDevice> dv , Map<String, List<String>> espacos,int nif, String nome, String idFornecedor) {
         // initialise instance variables
         this.idHome = id;
         this.morada = morada;
         this.proprietario = nome;
         this.NIF = nif;
+        this.idFornecedor = idFornecedor;
         setDevices(dv);
         setLocations(espacos);
     }
@@ -45,8 +47,17 @@ public class CasaInteligente {
         this.morada = ci.getMorada();
         this.proprietario = ci.getProprietario();
         this.NIF = ci.getNIF();
+        this.idFornecedor = ci.getIdFornecedor();
         setDevices(ci.getDevices());
         setLocations(ci.getLocations());
+    }
+
+    public String getIdFornecedor() {
+        return idFornecedor;
+    }
+
+    public void setIdFornecedor(String idFornecedor) {
+        this.idFornecedor = idFornecedor;
     }
 
     public void setMorada(String morada) {
@@ -213,7 +224,7 @@ public class CasaInteligente {
 
     public static CasaInteligente parseCasa(String line){
         String[] parte = line.split(",");
-        return new CasaInteligente(parte[3],parte[0],Integer.parseInt(parte[1]),parte[4]);
+        return new CasaInteligente(parte[3],parte[0],Integer.parseInt(parte[1]),parte[4],parte[2]);
     }
 
     public CasaInteligente clone() {

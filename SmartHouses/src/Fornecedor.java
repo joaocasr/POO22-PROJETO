@@ -20,7 +20,7 @@ public class Fornecedor{
         this.id = id;
     }
 
-    public Fornecedor(int base, int imposto, String id, int metodo, FormulaEnergia f)
+    public Fornecedor(int imposto, String id, FormulaEnergia f)
     {
         this.allCasas = new HashMap<>();
         this.id = id;
@@ -106,6 +106,7 @@ public class Fornecedor{
 
     public static Fornecedor parseFornecedor(String line){
         String[] parte = line.split(",");
+
         return new Fornecedor(parte[0]);
     }
 

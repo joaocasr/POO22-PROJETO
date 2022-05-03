@@ -26,13 +26,29 @@ public class UI{
         opcoes.add("Salvar estado\n");
         opcoes.add("Carregar estado\n");
         opcoes.add("Carregar do ficheiro logs.txt\n");
+        opcoes.add("Sair da aplicação\n");
 
         Menu menu = new Menu(opcoes);
         do {
             menu.executa();
             switch (menu.getOpcao()) {
                 case 1:
-                    System.out.print("Indefinido1\n\n");
+                    ColFornecedor cf = new ColFornecedor(this.smarthouses.getFornecedores());
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.println("Data de início(YYYY-MM-DD HH:MM): ");
+                    String inicio = scanner.nextLine();
+                    System.out.println("Data de fim(YYYY-MM-DD HH:MM): ");
+                    String fim = scanner.nextLine();
+
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                    LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
+                    LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
+                    try {
+                        cf.casaGastouMaisPeriodoVariosFornecedores(datai, dataf);
+                    }
+                    catch(CasaInteligenteException c){
+                        System.out.println(c.getMessage());
+                    }
                     break;
                 case 2:
                     System.out.print("Indefinido2\n\n");
@@ -74,7 +90,7 @@ public class UI{
                         System.out.println("Nao foi possivel carregar a aplicação.");
                     }
                     break;
-                case 0:
+                case 10:
                     return;
                 default:
                     break;
@@ -360,7 +376,10 @@ public class UI{
         System.out.println("Nome do proprietário : ");
         String proprietario = scanner.nextLine();
 
-        CasaInteligente ci = new CasaInteligente(idHome,proprietario,nif,morada);
+        System.out.println("Fornecedor de energia : ");
+        String fornecedor = scanner.nextLine();
+
+        CasaInteligente ci = new CasaInteligente(idHome,proprietario,nif,morada,fornecedor);
         System.out.println("Quantas divisões terá a casa?");
         int n = scanner.nextInt();
         scanner.nextLine();

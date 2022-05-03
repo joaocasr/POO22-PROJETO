@@ -32,7 +32,7 @@ public class Menu {
                 System.out.print(i + 1);
                 System.out.print(" -");
                 System.out.print(this.opcoes.get(i));
-                System.out.print("| * 0- Sair da aplicação\n___________________________________________________________________________________\n");
+                System.out.print("___________________________________________________________________________________\n");
             }
         }
     }

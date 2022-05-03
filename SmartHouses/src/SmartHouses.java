@@ -12,26 +12,31 @@ import static java.util.stream.Collectors.toMap;
 public class SmartHouses implements Serializable {
     private Map<String, CasaInteligente> casas; // id casa -> CASA
     private Map<String,SmartDevice> dispositivos; // ID Device -> DEVICE
+    private Map<String,Fornecedor> fornecedores; // ID Device -> DEVICE
 
     public SmartHouses(){
         this.casas = new HashMap<>();
         this.dispositivos = new HashMap<>();
+        this.fornecedores = new HashMap<>();
     }
 
-    public SmartHouses(Map<String,CasaInteligente> casas, Map<String,SmartDevice> dispositivos){
+    public SmartHouses(Map<String,CasaInteligente> casas, Map<String,SmartDevice> dispositivos,Map<String,Fornecedor> fornecedores){
         setCasas(casas);
         setDispositivos(dispositivos);
+        setFornecedores(fornecedores);
     }
 
     public SmartHouses(SmartHouses sh){
         setCasas(sh.getCasas());
         setDispositivos(sh.getDispositivos());
+        setFornecedores(sh.getFornecedores());
     }
 
 
     public void parser(String filename) throws LinhaException {
         Map<String, CasaInteligente> casas = new HashMap<>();
         Map<String,SmartDevice> dispositivos = new HashMap<>();
+        Map<String,Fornecedor> fornecedores = new HashMap<>();
         String[] linhaPartida;
         List<String> linhas = lerFicheiro(filename);
         String divisao = null;
@@ -46,6 +51,11 @@ public class SmartHouses implements Serializable {
                     if(i>1) casas.put(casaMaisRecente.getIdHome(),casaMaisRecente);
                     CasaInteligente ci  = CasaInteligente.parseCasa(linhaPartida[1]);
                     casas.put(ci.getIdHome(),ci);
+                    try {
+                        fornecedores.get(ci.getIdFornecedor()).addCasa(ci.clone());
+                    }catch (CasaInteligenteException c){
+                        System.out.println(c.getMessage());
+                    }
                     casaMaisRecente = ci;
                     i++;
                     break;
@@ -61,7 +71,7 @@ public class SmartHouses implements Serializable {
                         casaMaisRecente.addDevice(sd);
                     }
                     catch(SmartDevicesException s){
-                            System.out.println("Smartdevice não foi possivel adicionar dispositivo");
+                            System.out.println(s.getMessage());
                     }
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
@@ -73,7 +83,7 @@ public class SmartHouses implements Serializable {
                         casaMaisRecente.addDevice(sd);
                     }
                     catch(SmartDevicesException s){
-                        System.out.println("Smartdevice não foi possivel adicionar dispositivo");
+                        System.out.println(s.getMessage());
                     }
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
@@ -85,12 +95,14 @@ public class SmartHouses implements Serializable {
                         casaMaisRecente.addDevice(sd);
                     }
                     catch(SmartDevicesException s){
-                        System.out.println("Smartdevice não foi possivel adicionar dispositivo");
-                    }                    casaMaisRecente.addToRoom(divisao, sd.getID());
+                        System.out.println(s.getMessage());
+                    }
+                    casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
                 case "Fornecedor":
                     Fornecedor f = Fornecedor.parseFornecedor(linhaPartida[1]);
+                    fornecedores.put(f.getId(),f.clone());
                     break;
                 default:
                     throw new LinhaException("Linha Inválida!");
@@ -98,6 +110,7 @@ public class SmartHouses implements Serializable {
         }
         setDispositivos(dispositivos);
         setCasas(casas);
+        setFornecedores(fornecedores);
 
     }
 
@@ -116,6 +129,7 @@ public class SmartHouses implements Serializable {
         in.close();
         setDispositivos(smartHouses.getDispositivos());
         setCasas(smartHouses.getCasas());
+        setFornecedores(smartHouses.getFornecedores());
     }
 
     public boolean existsDevice(String id){
@@ -182,6 +196,14 @@ public class SmartHouses implements Serializable {
 
     public void setDispositivos(Map<String,SmartDevice> dispositivos) {
         this.dispositivos = new HashMap<>(dispositivos.values().stream().collect(toMap(SmartDevice::getID, SmartDevice::clone)));
+    }
+
+    public Map<String,Fornecedor> getFornecedores() {
+        return fornecedores.entrySet().stream().collect(toMap(Map.Entry::getKey, v->v.getValue().clone()));
+    }
+
+    public void setFornecedores(Map<String,Fornecedor> fornecedores){
+        this.fornecedores = new HashMap<>(fornecedores.values().stream().collect(toMap(Fornecedor::getId, Fornecedor::clone)));
     }
 
     public List<String> lerFicheiro(String nomeFich) {
