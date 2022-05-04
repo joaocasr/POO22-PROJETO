@@ -9,11 +9,6 @@ public class SmartSpeaker extends SmartDevice {
     private String marca;
     private String channel;
 
-    private static final double fvolume1 = 0.90;
-    private static final double fvolume2 = 1.00 ;
-    private static final double fvolume3 = 1.10;
-    private static final double fvolume4 = 1.20;
-
     public SmartSpeaker(String id) {
         super(id);
         this.volume = 0;
@@ -69,21 +64,7 @@ public class SmartSpeaker extends SmartDevice {
     }
 
     public double consumoDiario() {
-        double consumo=0;
-        if(this.volume>=0 && this.volume <=5) {
-            consumo = this.getConsumoBase() * fvolume1;
-        }
-        else if(this.volume>5 && this.volume <=10) {
-            consumo = this.getConsumoBase() * fvolume2;
-        }
-        else if(this.volume>10 && this.volume <=15) {
-            consumo = this.getConsumoBase() * fvolume3;
-        }
-        else if(this.volume>15 && this.volume <=20) {
-            consumo = this.getConsumoBase() * fvolume4;
-        }
-
-        return consumo;
+        return (this.getConsumoBase()*this.getVolume())/100;
     }
 
     public void turnSpeakerOn(){

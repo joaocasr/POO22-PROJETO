@@ -86,7 +86,7 @@ public class ColFornecedor {
         return new ColFornecedor(this);
     }
 
-    public String casaGastouMaisPeriodoVariosFornecedores(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    public String casaGastouMaisPeriodoVariosFornecedores(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException, LogException
     {
         String r = "", idCasa = "";
         double max = 0, gasto = 0;

@@ -29,6 +29,7 @@ public class CasaInteligente {
         this.NIF = NIF;
         this.idFornecedor = idFornecedor;
         this.logs = new HashMap<>();
+        this.faturas = new HashMap<>();
     }
 
     public CasaInteligente(String id, String morada, Map<String,SmartDevice> dv , Map<String, List<String>> espacos,int nif, String nome, String idFornecedor) {
@@ -40,6 +41,8 @@ public class CasaInteligente {
         this.idFornecedor = idFornecedor;
         setDevices(dv);
         setLocations(espacos);
+        this.faturas = new HashMap<>();
+        this.logs = new HashMap<>();
     }
 
     public CasaInteligente(CasaInteligente ci) {
@@ -51,6 +54,8 @@ public class CasaInteligente {
         this.idFornecedor = ci.getIdFornecedor();
         setDevices(ci.getDevices());
         setLocations(ci.getLocations());
+        setFaturas(ci.getFaturas());
+        setLogs(ci.getLogs());
     }
 
     public String getIdFornecedor() {
@@ -96,14 +101,33 @@ public class CasaInteligente {
     public Map<String,SmartDevice> getDevices(){
         return this.devices.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone()));
     }
+
+    public Map<String,Fatura> getFaturas(){
+        return this.faturas.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone()));
+    }
     
     public void setDevices(Map<String,SmartDevice> mdevices){
         this.devices = new HashMap<>();
         mdevices.forEach((String,SmartDevice)->this.devices.put(String,SmartDevice.clone()));
     }
 
+    public void setFaturas(Map<String,Fatura> f){
+        this.faturas = new HashMap<>();
+        f.forEach((String,Fatura)->this.faturas.put(String,Fatura.clone()));
+    }
+
+
     public Map<String,List<String>> getLocations(){
         return this.locations.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    public Map<String,List<Log>> getLogs(){
+        return this.logs.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    public void setLogs(Map<String,List<Log>> ml){
+        this.logs = new HashMap<>();
+        ml.forEach((key,value)->this.logs.put(key, new ArrayList<>(value)));
     }
 
     public void setLocations(Map<String,List<String>> ml){
@@ -268,8 +292,9 @@ public class CasaInteligente {
         double consumo = 0;
         addAllLogsAllDays(init,finit);
         while(init.plusDays(1).compareTo(finit)!=0)
+        while(init.plusDays(1).compareTo(finit)!=0)
                 consumo += this.consumoAllDevicesDia(init);
-        Fatura f = new Fatura(consumo,idFornecedor+":"+idHome, init, finit, morada, NIF, idFornecedor, valor);
+        Fatura f = new Fatura(consumo,idHome+":"+init.toString()+" to "+finit.toString(), init, finit, morada, NIF, idFornecedor, valor);
         this.faturas.put(f.getIdFatura(),f);
     }
 
@@ -405,11 +430,12 @@ public class CasaInteligente {
     public double consumoAllDevicesDia(LocalDateTime dia)
     {
         double count = 0;
+        if(this.logs.get(dia.toString())!=null){
         for(Log l: this.logs.get(dia.toString()))
         {
             if(l.getOn() && l.getDia().equals(dia))
                 count+=devices.get(l.getIdDevice()).consumoDiario();
-        } 
+        } }
         return count;
     }
 

@@ -20,7 +20,6 @@ public class Fornecedor{
         this.id = id;
         this.imposto = imposto;
         this.allCasas = new HashMap<>();
-
     }
 
     public Fornecedor(int imposto, String id, FormulaEnergia f) {
@@ -132,12 +131,14 @@ public class Fornecedor{
         return new Fornecedor(this);
     }
 
-    public String casaGastouMaisPeriodo(LocalDateTime init, LocalDateTime finit)
+    public String casaGastouMaisPeriodo(LocalDateTime init, LocalDateTime finit) throws LogException
     {
         String id="";
         double max = 0, t = 0;
         for(CasaInteligente c: this.allCasas.values())
         {
+            if(!c.hasFatura(c.getIdHome()+":"+init.toString()+" to "+finit.toString()))
+                c.addFatura(this.getId(),init,finit,getValorFornecedor(c.getIdHome(),init,finit));
             while(init.plusDays(1).compareTo(finit)!=0)
                 t += c.consumoAllDevicesDia(init);
             
