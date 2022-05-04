@@ -47,7 +47,7 @@ public class UI{
                     try {
                         cf.casaGastouMaisPeriodoVariosFornecedores(datai, dataf);
                     }
-                    catch(CasaInteligenteException c){
+                    catch(CasaInteligenteException | LogException c){
                         System.out.println(c.getMessage());
                     }
                     break;
@@ -465,12 +465,12 @@ public class UI{
             menu.executa();
             switch (menu.getOpcao()) {
                 case 1:
+                    System.out.println("Digite o id do fornecedor:");
                     Scanner scanner = new Scanner(System.in);
                     String id =scanner.nextLine();
                     if(this.smarthouses.getFornecedores().get(id)!=null)
                         System.out.println(this.smarthouses.getFornecedores().get(id));
                     else System.out.println("O fornecedor que digitou não existe.");
-                    System.out.println("[+] Fornecedor criado com sucesso.");
                     break;
                 case 2:
                     adicionaFornecedores();

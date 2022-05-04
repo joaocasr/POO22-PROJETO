@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.time.LocalDateTime;
 
-public class Fornecedor{
+public class Fornecedor implements FormulaEnergia{
     
     private String id;
     private final double base = 2;
@@ -199,5 +199,10 @@ public class Fornecedor{
     {
         return Double.compare(this.faturaçaoFornecedor(init,finit),o.faturaçaoFornecedor(init,finit));
     }
-    
+
+    @Override
+    public double calculo(double base, double imposto, double consumoDispositivo, double multiplicador) {
+        //EXEMPLO DE UMA FORMULA
+        return base + (imposto * consumoDispositivo * multiplicador);
+    }
 }
