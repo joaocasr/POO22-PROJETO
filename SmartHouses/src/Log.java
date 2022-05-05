@@ -93,7 +93,7 @@ public class Log {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
         sb.append("\tLog: ").append(this.id).append("; ")
-                .append("\tLog: ").append(this.dia).append("; ")
+                .append("\tDia: ").append(this.dia).append("; ")
                 .append("\tDevice: ").append(this.idDevice).append("; ")
                 .append("\tEstá ligado?: ").append(this.on).append("; ");
         return sb.toString();

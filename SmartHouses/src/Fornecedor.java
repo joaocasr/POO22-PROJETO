@@ -16,13 +16,13 @@ public class Fornecedor implements FormulaEnergia{
     private Map<String, CasaInteligente> allCasas; // identificador -> idCasa
 
 
-    public Fornecedor(String id,double imposto) {
+    public Fornecedor(double imposto, String id) {
         this.id = id;
         this.imposto = imposto;
         this.allCasas = new HashMap<>();
     }
 
-    public Fornecedor(int imposto, String id, FormulaEnergia f) {
+    public Fornecedor(double imposto, String id, FormulaEnergia f) {
         this.allCasas = new HashMap<>();
         this.id = id;
         this.imposto = imposto;

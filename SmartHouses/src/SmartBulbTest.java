@@ -7,7 +7,10 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class SmartBulbTest {
+public class SmartBulbTest 
+{
+    public SmartBulbTest()
+    {}
 
     @org.junit.jupiter.api.BeforeEach
     public void setUp()
