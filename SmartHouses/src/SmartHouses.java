@@ -1,5 +1,7 @@
-import Formulas.*;
-import Exceptions.*;
+import Model.Formulas.*;
+import Model.Exceptions.*;
+import Model.*;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -14,7 +16,7 @@ import static java.util.stream.Collectors.toMap;
 public class SmartHouses implements Serializable {
     private Map<String, CasaInteligente> casas; // id casa -> CASA
     private Map<String,SmartDevice> dispositivos; // ID Device -> DEVICE
-    private Map<String,Fornecedor> fornecedores; // ID Fornecedor -> FORNECEDOR
+    private Map<String,Fornecedor> fornecedores; // ID Model.Fornecedor -> FORNECEDOR
 
 
     public SmartHouses(){
@@ -38,7 +40,7 @@ public class SmartHouses implements Serializable {
 
     public void parser(String filename) throws LinhaException {
         Map<String, CasaInteligente> casas = new HashMap<>();
-        Map<String,SmartDevice> dispositivos = new HashMap<>();
+        Map<String, SmartDevice> dispositivos = new HashMap<>();
         Map<String,Fornecedor> fornecedores = new HashMap<>();
         Map<String,FormulaEnergia> formulas = new HashMap<>();
         formulas.put("EDP Comercial", new FormulaEDP());
@@ -83,7 +85,7 @@ public class SmartHouses implements Serializable {
                     divisao = linhaPartida[1];
                     casaMaisRecente.addRoom(divisao);
                     break;
-                case "SmartBulb":
+                case "Model.SmartBulb":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartBulb.parseSmartBulb(linhaPartida[1]);
                     try {
@@ -95,7 +97,7 @@ public class SmartHouses implements Serializable {
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
-                case "SmartCamera":
+                case "Model.SmartCamera":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartCamera.parseSmartCamera(linhaPartida[1]);
                     try {
@@ -107,7 +109,7 @@ public class SmartHouses implements Serializable {
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
-                case "SmartSpeaker":
+                case "Model.SmartSpeaker":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartSpeaker.parseSmartSpeaker(linhaPartida[1]);
                     try {
@@ -119,7 +121,7 @@ public class SmartHouses implements Serializable {
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
-                case "Fornecedor":
+                case "Model.Fornecedor":
                     Fornecedor f = Fornecedor.parseFornecedor(linhaPartida[1],formulas);
                     fornecedores.put(f.getId(),f.clone());
                     //System.out.println(fornecedores.get("Iberdrola").getId());
@@ -235,7 +237,7 @@ public class SmartHouses implements Serializable {
         this.dispositivos = new HashMap<>(dispositivos.values().stream().collect(toMap(SmartDevice::getID, SmartDevice::clone)));
     }
 
-    public Map<String,Fornecedor> getFornecedores() {
+    public Map<String, Fornecedor> getFornecedores() {
         return fornecedores.entrySet().stream().collect(toMap(Map.Entry::getKey, v->v.getValue().clone()));
     }
 

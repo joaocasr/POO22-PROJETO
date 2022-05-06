@@ -3,14 +3,16 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import Exceptions.*;
+import Model.Exceptions.*;
+import Model.*;
+
 import java.time.format.DateTimeParseException;
 
 public class UI{
 
     private SmartHouses smarthouses;
 
-    //private Map<String,Formulas.FormulaEnergia> formulas;
+    //private Map<String,Model.Formulas.FormulaEnergia> formulas;
 
     public UI(SmartHouses newSmarthouses)
     {
@@ -116,9 +118,9 @@ public class UI{
 
     public void Dispositivos(){
         List<String> opcoes = new ArrayList<>();
-        opcoes.add("SmartBulb\n");
-        opcoes.add("SmartSpeaker\n");
-        opcoes.add("SmartCamera\n");
+        opcoes.add("Model.SmartBulb\n");
+        opcoes.add("Model.SmartSpeaker\n");
+        opcoes.add("Model.SmartCamera\n");
         opcoes.add("Consultar dispositivos\n");
         opcoes.add("Voltar");
 
@@ -363,7 +365,7 @@ public class UI{
         String id = scanner.nextLine();
 
         if(this.smarthouses.removeFornecedor(id)==0)
-            System.out.println("[+] Fornecedor removido com sucesso.");
+            System.out.println("[+] Model.Fornecedor removido com sucesso.");
         else System.out.println("O fornecedor que digitou nao existe.");
     }
 
@@ -402,7 +404,7 @@ public class UI{
         System.out.println("Nome do proprietário : ");
         String proprietario = scanner.nextLine();
 
-        System.out.println("Fornecedor de energia : ");
+        System.out.println("Model.Fornecedor de energia : ");
         String fornecedor = scanner.nextLine();
 
         CasaInteligente ci = new CasaInteligente(idHome,proprietario,nif,morada,fornecedor);
@@ -462,7 +464,7 @@ public class UI{
                 n--;
             }
             this.smarthouses.adicionaFornecedor(idFornecedor,f);
-        }else System.out.println("Fornecedor já existe");
+        }else System.out.println("Model.Fornecedor já existe");
     }
 
     public void Fornecedores(){

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import Model.*;
 
 public class Menu {
     private List<String> opcoes;
