@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import Exceptions.*;
+import java.time.format.DateTimeParseException;
 
 public class UI{
 
@@ -38,16 +39,25 @@ public class UI{
                 case 1:
                     ColFornecedor cf = new ColFornecedor(this.smarthouses.getFornecedores());
                     Scanner scanner = new Scanner(System.in);
-                    System.out.println("Data de início(YYYY-MM-DD HH:MM): ");
-                    String inicio = scanner.nextLine();
-                    System.out.println("Data de fim(YYYY-MM-DD HH:MM): ");
-                    String fim = scanner.nextLine();
+                    String inicio = "", fim="";
+                    try
+                    {
+                        System.out.println("Data de início(YYYY-MM-DD HH:MM): ");
+                        inicio = scanner.nextLine();
 
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                    LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
-                    LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
-                    try {
+                        System.out.println("Data de fim(YYYY-MM-DD HH:MM): ");
+                        fim = scanner.nextLine();
+
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                        LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
+                        LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
+
                         cf.casaGastouMaisPeriodoVariosFornecedores(datai, dataf);
+                    }
+                    catch (DateTimeParseException e)
+                    {
+                        System.out.println("Formato data errado");
+                        menu.getOpcao();
                     }
                     catch(LogNotExistsException c){
                         System.out.println(c.getMessage());

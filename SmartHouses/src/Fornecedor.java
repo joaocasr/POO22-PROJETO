@@ -1,3 +1,4 @@
+import Formulas.FormulaEDP;
 import Formulas.FormulaEnergia;
 import Exceptions.*;
 import java.util.HashMap;
@@ -22,7 +23,7 @@ public class Fornecedor{
         this.allCasas = new HashMap<>();
     }
 
-    public Fornecedor(int imposto, String id, FormulaEnergia f) {
+    public Fornecedor(double imposto, String id, FormulaEnergia f) {
         this.allCasas = new HashMap<>();
         this.id = id;
         this.imposto = imposto;
@@ -104,9 +105,8 @@ public class Fornecedor{
 
     public static Fornecedor parseFornecedor(String line, Map<String, FormulaEnergia> formulas){
         String[] parte = line.split(",");
-
-
-        return new Fornecedor(Integer.parseInt(parte[0]), parte[1], formulas.get(parte[0]));
+        //EDP Comercial,0.16
+        return new Fornecedor(Double.parseDouble(parte[1]), parte[0], formulas.get(parte[0]));
     }
 
     public boolean equals(Object o)
@@ -122,7 +122,8 @@ public class Fornecedor{
     {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(this.id).append("; ")
-            .append("Imposto: ").append(this.imposto).append(";");
+            .append("Imposto: ").append(this.imposto).append(";")
+                .append("Formula: ").append(this.formula).append(";\n");
         //allCasas.forEach((id,casa)->{sb.append(casa.toString());});
         sb.append(allCasas);
         return sb.toString();
@@ -163,7 +164,7 @@ public class Fornecedor{
 
 
         if(casa.numeroDispositivos()<10)
-            return this.formula.calculo(this.base, this.getImposto(), consumo, this.multiplicador);
+            return formula.calculo(this.base, this.getImposto(), consumo, this.multiplicador);
         else
             return this.formula.calculo(this.base, this.getImposto(), consumo, this.multiplicador-0.1);
     }
