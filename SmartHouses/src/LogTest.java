@@ -3,6 +3,9 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /*
     ver funcoes 
@@ -26,11 +29,11 @@ public class LogTest
     public void testConstrutor()
     {
         Log log = new Log();
-        assertEquals(log!=NULL);
+        assertNotNull(log);
         log = new Log("logId",LocalDateTime.of(2022,3,25,15,45),"bulb1",false);
-        assertEquals(log!=NULL);
+        assertNotNull(log);
         Log log2 = new Log(log);
-        assertEquals(log2!=NULL);
+        assertNotNull(log2);
     }
 
     @Test

@@ -2,15 +2,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import Exceptions.*;
 
 public class UI{
 
     private SmartHouses smarthouses;
 
-    public UI(SmartHouses newSmarthouses){
+    //private Map<String,Formulas.FormulaEnergia> formulas;
+
+    public UI(SmartHouses newSmarthouses)
+    {
         this.smarthouses = new SmartHouses(newSmarthouses);
     }
 
@@ -47,7 +49,7 @@ public class UI{
                     try {
                         cf.casaGastouMaisPeriodoVariosFornecedores(datai, dataf);
                     }
-                    catch(CasaInteligenteException | LogException c){
+                    catch(LogNotExistsException c){
                         System.out.println(c.getMessage());
                     }
                     break;
@@ -422,7 +424,7 @@ public class UI{
             try {
                 ci.addDevice(sd);
             }
-            catch (SmartDevicesException s){
+            catch ( SmartDeviceAlreadyExistsException s){
                 System.out.println("Não foi possivel adicionar o dispositivo.");
             }
             this.smarthouses.adicionaHome(ci);
@@ -444,7 +446,7 @@ public class UI{
                 CasaInteligente ci = adicionaCasas();
                 try {
                     f.addCasa(ci);
-                } catch (CasaInteligenteException c) {
+                } catch ( CasaInteligenteAlreadyExistsException c) {
                     System.out.println(c.getMessage());
                 }
                 n--;

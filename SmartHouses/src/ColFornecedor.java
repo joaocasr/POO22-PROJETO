@@ -1,3 +1,5 @@
+import Exceptions.*;
+
 import java.util.Comparator;
 import java.util.Map;
 import java.util.HashMap;
@@ -31,16 +33,16 @@ public class ColFornecedor {
         fornecedores.forEach((id,value)->{this.fornecedores.put(id,value.clone());});
     }
 
-    public Fornecedor getFornecedor(String id) throws FornecedorException
+    public Fornecedor getFornecedor(String id) throws FornecedorNotExistsException
     {
-        if(!this.containsFornecedor(id)) throw new FornecedorException ("O Fornecedor com id " + id + " não existe");
+        if(!this.containsFornecedor(id)) throw new FornecedorNotExistsException ("O Fornecedor com id " + id + " não existe");
         else return this.fornecedores.get(id).clone();
     }
 
     public Map<String,Fornecedor> getFornecedores()
     {
         HashMap<String,Fornecedor> res = new HashMap<>();
-        res.forEach((id,value)->{this.fornecedores.put(id,value.clone());});
+        this.fornecedores.forEach((id,value)->{res.put(id,value.clone());});
         return res;
     }
 
@@ -49,15 +51,15 @@ public class ColFornecedor {
         return this.fornecedores.containsKey(f);
     }
 
-    public void addFornecedor (Fornecedor f) throws FornecedorException
+    public void addFornecedor (Fornecedor f) throws FornecedorAlreadyExistsException
     {
-        if(this.containsFornecedor(f.getId())) throw new FornecedorException ("O Fornecedor com id " + f.getId() + " já existe");
+        if(this.containsFornecedor(f.getId())) throw new FornecedorAlreadyExistsException ("O Fornecedor com id " + f.getId() + " já existe");
         this.fornecedores.put(f.getId(),f.clone());
     }
 
-    public void removeFornecedor (String id) throws FornecedorException
+    public void removeFornecedor (String id) throws FornecedorNotExistsException
     {
-        if(this.containsFornecedor(id)) throw new FornecedorException ("O Fornecedor com id " + id + " não existe");
+        if(this.containsFornecedor(id)) throw new FornecedorNotExistsException ("O Fornecedor com id " + id + " não existe");
         this.fornecedores.remove(id);
     }
 
@@ -86,7 +88,7 @@ public class ColFornecedor {
         return new ColFornecedor(this);
     }
 
-    public String casaGastouMaisPeriodoVariosFornecedores(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException, LogException
+    public String casaGastouMaisPeriodoVariosFornecedores(LocalDateTime init, LocalDateTime finit) throws LogNotExistsException
     {
         String r = "", idCasa = "";
         double max = 0, gasto = 0;
@@ -112,26 +114,24 @@ public class ColFornecedor {
     }
 
     //retorna o id (String) do fornecedor que tem mais faturação
-    public String fornecedorComMaisFaturacao(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    public String fornecedorComMaisFaturacao(LocalDateTime init, LocalDateTime finit)
     {
         String id = "";
-        double total = 0, max = 0;
+        double total, max = 0;
         for(Fornecedor f: this.fornecedores.values())
         {
-            f.faturaçaoFornecedor(init,finit);
+            total = f.faturaçaoFornecedor(init,finit);
             
-            if(total>max)
-            {
+            if(total>max) {
                 max = total;
                 id = f.getId();
             }
-            total = 0;   
         }
         return id;
     }
 
 
-    public List<Fornecedor> ordenarFornecedores(LocalDateTime init, LocalDateTime finit) throws CasaInteligenteException
+    public List<Fornecedor> ordenarFornecedores(LocalDateTime init, LocalDateTime finit)
     {
         Comparator<Fornecedor> c = (Fornecedor a, Fornecedor b)-> 
         {return Double.compare(a.faturaçaoFornecedor(init,finit),b.faturaçaoFornecedor(init,finit));};

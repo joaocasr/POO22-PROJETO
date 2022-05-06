@@ -1,3 +1,5 @@
+import Exceptions.*;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -136,14 +138,14 @@ public class CasaInteligente {
     }
 
     /*Ligar um dispositivo especifico*/
-    public void setDeviceOn(String devCode) throws SmartDevicesException{
-        if(!this.existsDeviceHome(devCode)) throw new SmartDevicesException ("O SmartDevice com id " + devCode + " não existe");
+    public void setDeviceOn(String devCode) throws SmartDeviceNotExistsException {
+        if(!this.existsDeviceHome(devCode)) throw new SmartDeviceNotExistsException ("O SmartDevice com id " + devCode + " não existe");
         else this.devices.get(devCode).turnOn();
     }
 
     /*Desligar um dispositivo especifico*/
-    public void setDeviceOff(String devCode) throws SmartDevicesException{
-        if(!this.existsDeviceHome(devCode)) throw new SmartDevicesException ("O SmartDevice com id " + devCode + " não existe");
+    public void setDeviceOff(String devCode) throws SmartDeviceNotExistsException {
+        if(!this.existsDeviceHome(devCode)) throw new SmartDeviceNotExistsException ("O SmartDevice com id " + devCode + " não existe");
         else this.devices.get(devCode).turnOff();
     }
 
@@ -153,7 +155,8 @@ public class CasaInteligente {
     }
 
     /*Desligar ou Ligar todos os dispositivos de uma divisao*/
-    public void setAlldivision(boolean b,String divisao) throws SmartDevicesException{
+    public void setAlldivision(boolean b,String divisao) throws SmartDeviceNotExistsException
+    {
         for( String a :this.locations.get(divisao)){
             getDevice(a).setModo(b);
         }
@@ -257,23 +260,23 @@ public class CasaInteligente {
         return new CasaInteligente(this);
     }
 
-    public void addDevice(SmartDevice s) throws SmartDevicesException{
+    public void addDevice(SmartDevice s) throws SmartDeviceAlreadyExistsException{
         if(!existsDeviceHome(s.getID())){
             this.devices.put(s.getID(), s);
-        }else throw new SmartDevicesException ("O SmartDevice com id " + s + " já existe");
+        }else throw new SmartDeviceAlreadyExistsException ("O SmartDevice com id " + s + " já existe");
     }
 
-    public SmartDevice getDevice(String s) throws SmartDevicesException{
-        if(!this.existsDeviceHome(s)) throw new SmartDevicesException ("O SmartDevice com id " + s + " não existe");
+    public SmartDevice getDevice(String s) throws SmartDeviceNotExistsException{
+        if(!this.existsDeviceHome(s)) throw new SmartDeviceNotExistsException ("O SmartDevice com id " + s + " não existe");
         else return this.devices.get(s);
     }
 
 
 
     //terceira condição confirma se existe em qualquer sala o dispositivo
-    public void addToRoom (String idRoom, SmartDevice device) throws SmartDevicesException {
+    public void addToRoom (String idRoom, SmartDevice device) throws SmartDeviceAlreadyExistsException {
         if (this.getLocations().containsKey(idRoom) && this.roomHasDevice(idRoom,device.getID()) && this.getDevices().containsKey(device.getID())) 
-            throw new SmartDevicesException("O device " + device.getID() +" já existe");
+            throw new SmartDeviceAlreadyExistsException("O device " + device.getID() +" já existe");
         else if(!this.getDevices().containsKey(device.getID()))
         {
             this.devices.put(device.getID(), device);
@@ -287,20 +290,20 @@ public class CasaInteligente {
 
     }
 
-    public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor) throws LogException
+    public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor) throws LogNotExistsException
     {
         double consumo = 0;
         addAllLogsAllDays(init,finit);
-        while(init.plusDays(1).compareTo(finit)!=0)
+
         while(init.plusDays(1).compareTo(finit)!=0)
                 consumo += this.consumoAllDevicesDia(init);
-        Fatura f = new Fatura(consumo,idHome+":"+init.toString()+" to "+finit.toString(), init, finit, morada, NIF, idFornecedor, valor);
+        Fatura f = new Fatura(consumo,idHome+":"+init+" to "+finit, init, finit, morada, NIF, idFornecedor, valor);
         this.faturas.put(f.getIdFatura(),f);
     }
 
-    public void addFatura(Fatura f) throws FaturaException
+    public void addFatura(Fatura f) throws FaturaAlreadyExistsException
     {
-        if(hasFatura(f.getIdFatura())) throw new FaturaException("A fatura com o id " + f.getIdFatura() + " já existe");
+        if(hasFatura(f.getIdFatura())) throw new FaturaAlreadyExistsException("A fatura com o id " + f.getIdFatura() + " já existe");
         else this.faturas.put(f.getIdFatura(),f);
     }
 
@@ -309,15 +312,15 @@ public class CasaInteligente {
         return this.faturas.containsKey(idFatura);
     }
 
-    public void removeFatura(String idFatura) throws FaturaException
+    public void removeFatura(String idFatura) throws FaturaNotExistsException
     {
-        if(!hasFatura(idFatura)) throw new FaturaException("A fatura com o id " + idFatura + " não existe");
+        if(!hasFatura(idFatura)) throw new FaturaNotExistsException("A fatura com o id " + idFatura + " não existe");
         this.faturas.remove(idFatura);
     }
 
     public List<Fatura> getFaturas(String idFornecedor)
     {
-        List<Fatura> faturas = new ArrayList<Fatura>();
+        List<Fatura> faturas = new ArrayList<>();
 
         for(Fatura f: this.faturas.values())
         {
@@ -360,7 +363,7 @@ public class CasaInteligente {
     }
 
     //se o log de um dispositivo já existir, elimina-se e coloca-se o novo
-    public void addLog(Log g) throws LogException
+    public void addLog(Log g) throws LogNotExistsException
     {
         if(this.hasLog(g.getIdLog()))
             removeLog(g.getIdLog());
@@ -369,9 +372,9 @@ public class CasaInteligente {
         
     }
 
-    public void removeLog(String g) throws LogException
+    public void removeLog(String g) throws LogNotExistsException
     {
-        if(!this.hasLog(g)) throw new LogException ("O log " + g + " não existe");
+        if(!this.hasLog(g)) throw new LogNotExistsException ("O log " + g + " não existe");
         else if(this.logs.containsKey(g))
         {
             for(Log a: this.logs.get(g))
@@ -382,7 +385,7 @@ public class CasaInteligente {
         }
     }
 
-    public void addAllLogs(LocalDateTime dia) throws LogException
+    public void addAllLogs(LocalDateTime dia) throws LogNotExistsException
     {
         for(SmartDevice sd: this.devices.values())
         {
@@ -391,7 +394,7 @@ public class CasaInteligente {
         } 
     }
 
-    public void addAllLogsAllDays(LocalDateTime init, LocalDateTime finit) throws LogException
+    public void addAllLogsAllDays(LocalDateTime init, LocalDateTime finit) throws LogNotExistsException
     {
         while(init.plusDays(1).compareTo(finit)!=0)
             if(!hasLogByDay(init))        
@@ -401,15 +404,15 @@ public class CasaInteligente {
 
     public List<Log> getAllLogs(LocalDateTime init, LocalDateTime finit)
     {
-        List<Log> all = new ArrayList<Log>();
+        List<Log> all = new ArrayList<>();
 
         this.logs.values().forEach((lista)->{
             for(Log l: lista)
             {
-                if(l.getDia().compareTo(init)>=0 && l.getDia().compareTo(finit)<=0);
+                if(l.getDia().compareTo(init)>=0 && l.getDia().compareTo(finit)<=0)
                     all.add(l.clone());
             }
-        });;
+        });
 
         return all;
 

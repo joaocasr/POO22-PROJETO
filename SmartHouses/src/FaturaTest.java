@@ -20,11 +20,11 @@ public class FaturaTest
     public void testConstrutor()
     {
         Fatura fat = new Fatura();
-        assertEquals(fat!=NULL);
+        assertNotNull(fat);
         fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0);
-        assertEquals(fat!=NULL);
+        assertNotNull(fat);
         Fatura fat2 = new Fatura(fat);
-        assertEquals(fat2!=NULL);
+        assertNotNull(fat2);
     }
 
     @Test

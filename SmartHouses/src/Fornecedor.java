@@ -1,4 +1,5 @@
-import java.beans.Expression;
+import Formulas.FormulaEnergia;
+import Exceptions.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
@@ -6,7 +7,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.time.LocalDateTime;
 
-public class Fornecedor implements FormulaEnergia{
+public class Fornecedor{
     
     private String id;
     private final double base = 2;
@@ -15,14 +16,13 @@ public class Fornecedor implements FormulaEnergia{
     private FormulaEnergia formula;
     private Map<String, CasaInteligente> allCasas; // identificador -> idCasa
 
-
-    public Fornecedor(double imposto, String id) {
+    public Fornecedor(String id,double imposto) {
         this.id = id;
         this.imposto = imposto;
         this.allCasas = new HashMap<>();
     }
 
-    public Fornecedor(double imposto, String id, FormulaEnergia f) {
+    public Fornecedor(int imposto, String id, FormulaEnergia f) {
         this.allCasas = new HashMap<>();
         this.id = id;
         this.imposto = imposto;
@@ -36,9 +36,9 @@ public class Fornecedor implements FormulaEnergia{
         this.formula = f.getFormula();
     }
 
-    public CasaInteligente getCasa(String idCasa) throws CasaInteligenteException
+    public CasaInteligente getCasa(String idCasa) throws CasaInteligenteNotExistsException
     {
-        if(!this.hasCasa(idCasa)) throw new CasaInteligenteException ("A casa com id " + idCasa + " não existe");
+        if(!this.hasCasa(idCasa)) throw new CasaInteligenteNotExistsException ("A casa com id " + idCasa + " não existe");
         else return this.allCasas.get(idCasa).clone();
     }
 
@@ -77,8 +77,8 @@ public class Fornecedor implements FormulaEnergia{
         this.formula=f;
     }
 
-    public void addCasa(CasaInteligente casa) throws CasaInteligenteException {
-        if(this.hasCasa(casa.getIdHome())) throw new CasaInteligenteException ("A casa com id " + casa.getIdHome() + " já existe");
+    public void addCasa(CasaInteligente casa) throws CasaInteligenteAlreadyExistsException {
+        if(this.hasCasa(casa.getIdHome())) throw new CasaInteligenteAlreadyExistsException ("A casa com id " + casa.getIdHome() + " já existe");
         else this.allCasas.put(casa.getIdHome(),casa);
     }
 
@@ -87,9 +87,9 @@ public class Fornecedor implements FormulaEnergia{
         return this.allCasas.containsKey(idCasa);
     }
 
-    public void removeCasa(String idCasa) throws CasaInteligenteException
+    public void removeCasa(String idCasa) throws CasaInteligenteNotExistsException
     {
-        if(!this.hasCasa(idCasa)) throw new CasaInteligenteException ("A casa com id " + idCasa + " não existe");
+        if(!this.hasCasa(idCasa)) throw new CasaInteligenteNotExistsException ("A casa com id " + idCasa + " não existe");
         this.allCasas.remove(idCasa);
     }
 
@@ -102,9 +102,11 @@ public class Fornecedor implements FormulaEnergia{
         c.forEach((String,SmartDevice)->this.allCasas.put(String,SmartDevice.clone()));
     }
 
-    public static Fornecedor parseFornecedor(String line){
+    public static Fornecedor parseFornecedor(String line, Map<String, FormulaEnergia> formulas){
         String[] parte = line.split(",");
-        return new Fornecedor(parte[0],Double.parseDouble(parte[1]));
+
+
+        return new Fornecedor(Integer.parseInt(parte[0]), parte[1], formulas.get(parte[0]));
     }
 
     public boolean equals(Object o)
@@ -131,7 +133,7 @@ public class Fornecedor implements FormulaEnergia{
         return new Fornecedor(this);
     }
 
-    public String casaGastouMaisPeriodo(LocalDateTime init, LocalDateTime finit) throws LogException
+    public String casaGastouMaisPeriodo(LocalDateTime init, LocalDateTime finit) throws LogNotExistsException
     {
         String id="";
         double max = 0, t = 0;
@@ -158,14 +160,15 @@ public class Fornecedor implements FormulaEnergia{
 
         while(init.plusDays(1).compareTo(finit)!=0)
                 consumo += casa.consumoAllDevicesDia(init);
-        
+
+
         if(casa.numeroDispositivos()<10)
             return this.formula.calculo(this.base, this.getImposto(), consumo, this.multiplicador);
         else
             return this.formula.calculo(this.base, this.getImposto(), consumo, this.multiplicador-0.1);
     }
 
-    public void addFatura(LocalDateTime init, LocalDateTime finit) throws LogException
+    public void addFatura(LocalDateTime init, LocalDateTime finit) throws LogNotExistsException
     {
         for(CasaInteligente c: this.allCasas.values())
         {
@@ -198,11 +201,5 @@ public class Fornecedor implements FormulaEnergia{
     public int compareTo(Fornecedor o,LocalDateTime init, LocalDateTime finit)
     {
         return Double.compare(this.faturaçaoFornecedor(init,finit),o.faturaçaoFornecedor(init,finit));
-    }
-
-    @Override
-    public double calculo(double base, double imposto, double consumoDispositivo, double multiplicador) {
-        //EXEMPLO DE UMA FORMULA
-        return base + (imposto * consumoDispositivo * multiplicador);
     }
 }

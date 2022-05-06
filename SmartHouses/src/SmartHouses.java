@@ -1,3 +1,5 @@
+import Formulas.*;
+import Exceptions.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -12,7 +14,8 @@ import static java.util.stream.Collectors.toMap;
 public class SmartHouses implements Serializable {
     private Map<String, CasaInteligente> casas; // id casa -> CASA
     private Map<String,SmartDevice> dispositivos; // ID Device -> DEVICE
-    private Map<String,Fornecedor> fornecedores; // ID Device -> DEVICE
+    private Map<String,Fornecedor> fornecedores; // ID Fornecedor -> FORNECEDOR
+
 
     public SmartHouses(){
         this.casas = new HashMap<>();
@@ -37,6 +40,22 @@ public class SmartHouses implements Serializable {
         Map<String, CasaInteligente> casas = new HashMap<>();
         Map<String,SmartDevice> dispositivos = new HashMap<>();
         Map<String,Fornecedor> fornecedores = new HashMap<>();
+        Map<String,FormulaEnergia> formulas = new HashMap<>();
+        formulas.put("EDP Comercial", new FormulaEDP());
+        formulas.put("Galp Energia", new FormulaGalp());
+        formulas.put("Iberdrola", new FormulaIberdrola());
+        formulas.put("Endesa", new FormulaEndesa());
+        formulas.put("Gold Energy", new FormulaGoldEnergy());
+        formulas.put("Coopernico", new FormulaCoopernico());
+        formulas.put("Enat", new FormulaEnat());
+        formulas.put("YIce", new FormulaYIce());
+        formulas.put("MEO Energia", new FormulaMEO());
+        formulas.put("Muon", new FormulaMuon());
+        formulas.put("Luzboa", new FormulaLuzboa());
+        formulas.put("Energia Simples", new FormulaEnergiaSimples());
+        formulas.put("SU Electricidade", new FormulaSUElectricidade());
+        formulas.put("EDA", new FormulaEDA());
+
         String[] linhaPartida;
         List<String> linhas = lerFicheiro(filename);
         String divisao = null;
@@ -53,7 +72,7 @@ public class SmartHouses implements Serializable {
                     casas.put(ci.getIdHome(),ci.clone());
                     try {
                     (fornecedores.get(ci.getIdFornecedor())).addCasa(ci.clone());
-                    }catch (CasaInteligenteException c){
+                    }catch (CasaInteligenteAlreadyExistsException c){
                         System.out.println(c.getMessage());
                     }
                     casaMaisRecente = ci;
@@ -70,7 +89,7 @@ public class SmartHouses implements Serializable {
                     try {
                         casaMaisRecente.addDevice(sd);
                     }
-                    catch(SmartDevicesException s){
+                    catch(SmartDeviceAlreadyExistsException s){
                             System.out.println(s.getMessage());
                     }
                     casaMaisRecente.addToRoom(divisao, sd.getID());
@@ -82,7 +101,7 @@ public class SmartHouses implements Serializable {
                     try {
                         casaMaisRecente.addDevice(sd);
                     }
-                    catch(SmartDevicesException s){
+                    catch(SmartDeviceAlreadyExistsException s){
                         System.out.println(s.getMessage());
                     }
                     casaMaisRecente.addToRoom(divisao, sd.getID());
@@ -94,14 +113,14 @@ public class SmartHouses implements Serializable {
                     try {
                         casaMaisRecente.addDevice(sd);
                     }
-                    catch(SmartDevicesException s){
+                    catch(SmartDeviceAlreadyExistsException s){
                         System.out.println(s.getMessage());
                     }
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
                 case "Fornecedor":
-                    Fornecedor f = Fornecedor.parseFornecedor(linhaPartida[1]);
+                    Fornecedor f = Fornecedor.parseFornecedor(linhaPartida[1],formulas);
                     fornecedores.put(f.getId(),f.clone());
                     //System.out.println(fornecedores.get("Iberdrola").getId());
                     break;

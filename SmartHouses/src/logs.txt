@@ -4,7 +4,7 @@ Fornecedor:Iberdrola,0.21,a+b+c+d
 Fornecedor:Endesa,0.17,(a+b+c)*d
 Fornecedor:Gold Energy,0.23,(a+c+d)*b
 Fornecedor:Coopernico,0.09,a+b+(c*d)
-Fornecedor:Enat,0.11,a*b*(c+d)
+Fornecedor:Formulas.FormulaEnat,0.11,a*b*(c+d)
 Fornecedor:YIce,0.13,(a+b)*(c+d)
 Fornecedor:MEO Energia,0.18,(a+b+c)*d
 Fornecedor:Muon,0.20,a+b*c+d
@@ -783,7 +783,7 @@ SmartBulb:Neutral,18,1.37,bulb369,2022-03-02 20:15:51,2022-06-27 20:28:39,true
 SmartBulb:Neutral,15,0.12,bulb370,2022-05-28 23:39:12,2022-06-07 15:57:45,false
 SmartBulb:Neutral,11,5.97,bulb371,2022-03-07 22:19:22,2022-06-13 07:06:49,true
 SmartBulb:Neutral,13,0.14,bulb372,2022-05-27 20:06:40,2022-06-20 12:02:47,true
-Casa:Simao Oliveira Alvim Barroso,256479418,Enat,casa20,Yoshino 755-0000 nº 236
+Casa:Simao Oliveira Alvim Barroso,256479418,Formulas.FormulaEnat,casa20,Yoshino 755-0000 nº 236
 Divisao:Sala de Jantar
 SmartCamera:(1920x1080),19,5.90,cam176,2022-04-15 19:21:16,2022-05-04 02:01:31,false
 Divisao:Jardim
@@ -1457,7 +1457,7 @@ SmartSpeaker:48,Radio Radar,Sony,4.91,speaker175,2022-03-12 23:32:49,2022-06-02 
 SmartBulb:Neutral,13,0.13,bulb691,2022-05-27 05:10:39,2022-07-01 11:29:46,true
 SmartBulb:Warm,20,0.18,bulb692,2022-03-11 06:20:08,2022-07-16 05:49:33,false
 SmartBulb:Neutral,14,7.06,bulb693,2022-05-01 20:08:31,2022-06-23 18:50:44,false
-Casa:Adelio Jose Ferreira Fernandes,468574268,Enat,casa39,Kogota 170-3293 nº 11
+Casa:Adelio Jose Ferreira Fernandes,468574268,Formulas.FormulaEnat,casa39,Kogota 170-3293 nº 11
 Divisao:Casa de Banho
 SmartSpeaker:40,RTP Antena 1 98.3 FM,Marshall,5.00,speaker176,2022-03-16 17:54:57,2022-06-02 16:55:55,false
 SmartBulb:Neutral,14,1.44,bulb694,2022-03-05 07:53:22,2022-06-17 11:31:06,true
@@ -2551,7 +2551,7 @@ SmartBulb:Neutral,5,3.37,bulb1248,2022-04-03 01:57:45,2022-06-14 04:09:26,false
 SmartBulb:Neutral,8,0.15,bulb1249,2022-04-29 21:18:07,2022-06-05 04:29:33,false
 SmartBulb:Warm,11,0.19,bulb1250,2022-05-10 16:05:45,2022-06-14 08:01:01,true
 SmartCamera:(1280x720),30,7.11,cam538,2022-04-12 16:26:36,2022-05-12 03:57:13,true
-Casa:Francisco Pinto Lameirao,614476973,Enat,casa63,Taruta 999-3700 nº 327
+Casa:Francisco Pinto Lameirao,614476973,Formulas.FormulaEnat,casa63,Taruta 999-3700 nº 327
 Divisao:Jardim
 SmartBulb:Neutral,10,4.42,bulb1251,2022-04-04 23:30:09,2022-07-30 10:39:19,true
 SmartSpeaker:50,RTP Antena 1 98.3 FM,Philips,4.17,speaker311,2022-04-03 05:59:05,2022-05-20 12:32:25,false
@@ -3002,7 +3002,7 @@ Divisao:Casa de Banho
 SmartCamera:(1024x768),84,0.44,cam634,2022-04-23 05:45:54,2022-05-14 14:07:14,true
 SmartSpeaker:94,TSF Radio Noticias,BOSE,4.96,speaker370,2022-04-08 18:46:59,2022-05-15 04:57:01,false
 SmartSpeaker:55,Radio Comercial,Sennheiser,4.88,speaker371,2022-03-01 08:24:01,2022-06-09 11:42:46,true
-Casa:Joao Paulo Machado Abreu,372713491,Enat,casa75,Takefu 999-3700 nº 367
+Casa:Joao Paulo Machado Abreu,372713491,Formulas.FormulaEnat,casa75,Takefu 999-3700 nº 367
 Divisao:Casa de Banho
 SmartBulb:Warm,10,0.11,bulb1465,2022-03-09 22:40:17,2022-06-12 16:19:14,false
 SmartBulb:Neutral,20,0.96,bulb1466,2022-05-29 19:37:22,2022-06-18 10:19:26,false
@@ -3355,7 +3355,7 @@ SmartBulb:Neutral,12,0.22,bulb1652,2022-05-17 09:04:58,2022-06-07 21:27:16,true
 SmartSpeaker:85,Cidade FM,Sennheiser,5.21,speaker416,2022-03-26 16:28:01,2022-05-15 17:32:07,true
 SmartCamera:(3840x2160),25,0.36,cam688,2022-03-02 21:38:01,2022-05-04 18:42:08,true
 SmartSpeaker:50,MEGA HITS,Marshall,5.22,speaker417,2022-03-15 15:17:25,2022-06-04 08:57:25,false
-Casa:Pedro Miguel Ribeiro Ferreira,772765812,Enat,casa84,Kita-wakamatsu 289-2200 nº 288
+Casa:Pedro Miguel Ribeiro Ferreira,772765812,Formulas.FormulaEnat,casa84,Kita-wakamatsu 289-2200 nº 288
 Divisao:Casa de Banho
 SmartBulb:Neutral,18,6.62,bulb1653,2022-04-19 22:24:12,2022-07-26 20:35:39,false
 SmartBulb:Cold,12,0.96,bulb1654,2022-05-03 12:00:35,2022-07-29 02:10:59,false
@@ -3817,7 +3817,7 @@ SmartCamera:(1280x720),87,0.29,cam783,2022-04-04 04:00:31,2022-05-11 08:15:31,tr
 SmartSpeaker:30,Radio Radar,Goodis,5.44,speaker480,2022-03-23 22:04:36,2022-05-11 08:55:11,false
 SmartCamera:(1366x768),62,0.14,cam784,2022-04-06 23:57:11,2022-05-15 15:08:03,false
 SmartBulb:Neutral,5,6.62,bulb1873,2022-03-19 08:51:52,2022-07-13 03:31:29,true
-Casa:Pedro Alfredo Fontes Machado,301493581,Enat,casa95,Yoshino 354-0000 nº 12
+Casa:Pedro Alfredo Fontes Machado,301493581,Formulas.FormulaEnat,casa95,Yoshino 354-0000 nº 12
 Divisao:Sala de Jantar
 SmartBulb:Warm,19,4.08,bulb1874,2022-05-27 02:05:54,2022-07-21 14:36:34,true
 SmartCamera:(3840x2160),110,0.40,cam785,2022-03-18 18:08:35,2022-05-04 19:11:11,true
@@ -4861,7 +4861,7 @@ SmartCamera:(1024x768),25,0.43,cam1012,2022-04-07 13:40:58,2022-05-03 12:02:19,t
 Divisao:Sala de Jantar
 SmartBulb:Warm,14,2.34,bulb2381,2022-03-06 18:03:39,2022-07-05 04:01:23,true
 SmartBulb:Neutral,10,5.73,bulb2382,2022-04-24 19:02:59,2022-07-11 14:45:47,true
-Casa:Ana Filipa Cruz Pinto,875138638,Enat,casa122,Kuzure 354-0000 nº 31
+Casa:Ana Filipa Cruz Pinto,875138638,Formulas.FormulaEnat,casa122,Kuzure 354-0000 nº 31
 Divisao:Jardim
 SmartCamera:(2160x1440),84,0.45,cam1013,2022-03-23 14:26:00,2022-05-05 11:46:37,false
 SmartBulb:Neutral,18,0.23,bulb2383,2022-04-16 06:29:54,2022-06-21 12:26:31,true
@@ -5568,7 +5568,7 @@ SmartBulb:Cold,14,0.29,bulb2741,2022-04-29 11:09:56,2022-06-29 14:42:21,false
 SmartBulb:Neutral,20,6.83,bulb2742,2022-04-27 15:38:44,2022-07-26 02:07:01,false
 SmartBulb:Cold,5,0.25,bulb2743,2022-05-01 09:36:26,2022-07-04 06:19:40,false
 SmartCamera:(1024x768),84,0.30,cam1144,2022-03-10 22:13:32,2022-05-10 08:03:00,false
-Casa:Afonso Miguel Rodrigues Magalhaes,820431351,Enat,casa142,Shimazaki 170-3293 nº 232
+Casa:Afonso Miguel Rodrigues Magalhaes,820431351,Formulas.FormulaEnat,casa142,Shimazaki 170-3293 nº 232
 Divisao:Quarto
 SmartBulb:Neutral,10,0.13,bulb2744,2022-04-22 17:12:30,2022-06-16 14:45:49,true
 Divisao:Jardim
@@ -7072,7 +7072,7 @@ Divisao:Garagem 1
 SmartBulb:Warm,11,0.26,bulb3479,2022-03-05 19:38:05,2022-07-11 02:21:15,false
 SmartBulb:Neutral,20,3.60,bulb3480,2022-04-06 12:19:15,2022-07-30 19:48:45,true
 SmartBulb:Neutral,18,1.60,bulb3481,2022-03-02 12:05:42,2022-07-29 22:33:11,false
-Casa:Francisca Quintas Monteiro Barros,137062714,Enat,casa177,Takabu 904-1300 nº 365
+Casa:Francisca Quintas Monteiro Barros,137062714,Formulas.FormulaEnat,casa177,Takabu 904-1300 nº 365
 Divisao:Cozinha
 SmartBulb:Neutral,16,0.16,bulb3482,2022-03-03 22:33:19,2022-06-18 23:46:19,true
 SmartBulb:Neutral,17,0.13,bulb3483,2022-03-14 06:12:09,2022-06-04 05:23:52,true
@@ -7107,7 +7107,7 @@ SmartBulb:Neutral,15,0.24,bulb3494,2022-05-02 09:38:00,2022-07-20 00:04:19,true
 SmartBulb:Neutral,12,6.27,bulb3495,2022-03-19 00:26:50,2022-05-31 15:56:28,true
 SmartBulb:Warm,16,0.29,bulb3496,2022-05-08 19:38:46,2022-07-28 08:11:22,false
 SmartCamera:(1024x768),25,5.29,cam1459,2022-03-26 15:10:13,2022-05-03 03:51:53,false
-Casa:Ricardo Manuel Soares Peixoto,637098366,Enat,casa179,Ikego 354-0000 nº 436
+Casa:Ricardo Manuel Soares Peixoto,637098366,Formulas.FormulaEnat,casa179,Ikego 354-0000 nº 436
 Divisao:Garagem
 SmartBulb:Neutral,5,0.10,bulb3497,2022-05-02 16:19:41,2022-06-25 03:32:04,false
 SmartCamera:(1366x768),55,5.61,cam1460,2022-04-03 09:52:18,2022-05-01 11:08:22,false
