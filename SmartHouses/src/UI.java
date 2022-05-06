@@ -39,40 +39,16 @@ public class UI{
             menu.executa();
             switch (menu.getOpcao()) {
                 case 1:
-                    ColFornecedor cf = new ColFornecedor(this.smarthouses.getFornecedores());
-                    Scanner scanner = new Scanner(System.in);
-                    String inicio = "", fim="";
-                    try
-                    {
-                        System.out.println("Data de início(YYYY-MM-DD HH:MM): ");
-                        inicio = scanner.nextLine();
-
-                        System.out.println("Data de fim(YYYY-MM-DD HH:MM): ");
-                        fim = scanner.nextLine();
-
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                        LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
-                        LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
-
-                        cf.casaGastouMaisPeriodoVariosFornecedores(datai, dataf);
-                    }
-                    catch (DateTimeParseException e)
-                    {
-                        System.out.println("Formato data errado");
-                        menu.getOpcao();
-                    }
-                    catch(LogNotExistsException c){
-                        System.out.println(c.getMessage());
-                    }
+                    System.out.println(executaDados(1));
                     break;
                 case 2:
-                    System.out.print("Indefinido2\n\n");
+                    System.out.println(executaDados(2));
                     break;
                 case 3:
                     System.out.print("Indefinido3\n\n");
                     break;
                 case 4:
-                    System.out.print("Indefinido4\n\n");
+                    System.out.print("Indefinido3\n\n");
                     break;
                 case 5:
                     Dispositivos();
@@ -118,9 +94,9 @@ public class UI{
 
     public void Dispositivos(){
         List<String> opcoes = new ArrayList<>();
-        opcoes.add("Model.SmartBulb\n");
-        opcoes.add("Model.SmartSpeaker\n");
-        opcoes.add("Model.SmartCamera\n");
+        opcoes.add("SmartBulb\n");
+        opcoes.add("SmartSpeaker\n");
+        opcoes.add("SmartCamera\n");
         opcoes.add("Consultar dispositivos\n");
         opcoes.add("Voltar");
 
@@ -365,7 +341,7 @@ public class UI{
         String id = scanner.nextLine();
 
         if(this.smarthouses.removeFornecedor(id)==0)
-            System.out.println("[+] Model.Fornecedor removido com sucesso.");
+            System.out.println("[+] Fornecedor removido com sucesso.");
         else System.out.println("O fornecedor que digitou nao existe.");
     }
 
@@ -404,7 +380,7 @@ public class UI{
         System.out.println("Nome do proprietário : ");
         String proprietario = scanner.nextLine();
 
-        System.out.println("Model.Fornecedor de energia : ");
+        System.out.println("Fornecedor de energia : ");
         String fornecedor = scanner.nextLine();
 
         CasaInteligente ci = new CasaInteligente(idHome,proprietario,nif,morada,fornecedor);
@@ -464,7 +440,7 @@ public class UI{
                 n--;
             }
             this.smarthouses.adicionaFornecedor(idFornecedor,f);
-        }else System.out.println("Model.Fornecedor já existe");
+        }else System.out.println("Fornecedor já existe");
     }
 
     public void Fornecedores(){
@@ -501,5 +477,36 @@ public class UI{
         } while (menu.getOpcao() != 0);
 
     }
+
+    public String executaDados(int n){
+        ColFornecedor cf = new ColFornecedor(this.smarthouses.getFornecedores());
+        Scanner scanner = new Scanner(System.in);
+        String inicio = "", fim="";
+        String resp="";
+        try
+        {
+            System.out.println("Data de início(YYYY-MM-DD HH:MM): ");
+            inicio = scanner.nextLine();
+
+            System.out.println("Data de fim(YYYY-MM-DD HH:MM): ");
+            fim = scanner.nextLine();
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
+            LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
+
+           if(n==1) resp= cf.casaGastouMaisPeriodoVariosFornecedores(datai, dataf);
+           if(n==2) resp= cf.fornecedorComMaisFaturacao(datai, dataf);
+        }
+        catch (DateTimeParseException e)
+        {
+            System.out.println("Formato data errado");
+        }
+        catch(LogNotExistsException c){
+            System.out.println(c.getMessage());
+        }
+        return resp;
+    }
+
 
 }

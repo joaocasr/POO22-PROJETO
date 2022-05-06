@@ -73,7 +73,8 @@ public class SmartHouses implements Serializable {
                     CasaInteligente ci  = CasaInteligente.parseCasa(linhaPartida[1]);
                     casas.put(ci.getIdHome(),ci.clone());
                     try {
-                    (fornecedores.get(ci.getIdFornecedor())).addCasa(ci.clone());
+                    if(fornecedores.get(ci.getIdFornecedor())!=null)
+                        fornecedores.get(ci.getIdFornecedor()).addCasa(ci.clone());
                     }catch (CasaInteligenteAlreadyExistsException c){
                         System.out.println(c.getMessage());
                     }

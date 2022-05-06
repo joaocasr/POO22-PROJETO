@@ -137,7 +137,8 @@ public class ColFornecedor {
     {
         Comparator<Fornecedor> c = (Fornecedor a, Fornecedor b)-> 
         {return Double.compare(a.faturaçaoFornecedor(init,finit),b.faturaçaoFornecedor(init,finit));};
-        
+
+
         return this.fornecedores.values().stream().map(Fornecedor::clone).sorted(c).collect(Collectors.toList());
     }
     

@@ -3,8 +3,37 @@
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Fornecedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Fornecedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/ColFornecedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/ColFornecedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartHouses.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartHouses.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartHouses.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/CasaInteligente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/CasaInteligenteException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/ColFornecedor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Fatura.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/FaturaException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/FormulaEnergia.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Fornecedor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/FornecedorException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/LinhaException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Log.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/LogException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/RoomException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartBulb$Mode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartBulb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartBulbTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartCamera.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartCameraTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartDevice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartDevicesException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartHouses.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartHouses.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartSpeaker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartSpeakerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/UI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/logs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

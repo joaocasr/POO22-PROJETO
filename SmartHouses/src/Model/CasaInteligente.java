@@ -242,7 +242,7 @@ public class CasaInteligente {
         StringBuilder sb = new StringBuilder();
         sb.append("\nID Home: ").append(this.idHome).append("\n")
                 .append("Morada: ").append(this.morada).append("\n")
-                .append("Model.Fornecedor: ").append(this.idFornecedor).append("\n");
+                .append("Fornecedor: ").append(this.idFornecedor).append("\n");
         sb.append("Proprietario: ").append(this.proprietario).append("\n")
                 .append("NIF: ").append(this.NIF).append("\n");
         //this.devices.entrySet().forEach(a->{ sb.append("ID: ").append(a.getKey()).append(" --- Model.SmartDevice: ").append(a.getValue().toString()).append("\n");});
