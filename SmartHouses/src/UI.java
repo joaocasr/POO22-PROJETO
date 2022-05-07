@@ -97,6 +97,9 @@ public class UI{
         opcoes.add("SmartBulb\n");
         opcoes.add("SmartSpeaker\n");
         opcoes.add("SmartCamera\n");
+        opcoes.add("Configurações\n");
+        opcoes.add("SmartBulb - Tonalidade\n");
+        opcoes.add("SmartSpeaker - Volume\n");
         opcoes.add("Consultar dispositivos\n");
         opcoes.add("Voltar");
 
@@ -114,9 +117,18 @@ public class UI{
                     geraDispositivos(3);
                     break;
                 case 4:
-                    consultaDispositivos();
+                    ligaDesliga();
                     break;
                 case 5:
+                    tonBulb();
+                    break;
+                case 6:
+                    volSpk();
+                    break;
+                case 7:
+                    consultaDispositivos();
+                    break;
+                case 8:
                     executeMenu();
                     break;
                 default:
@@ -352,7 +364,44 @@ public class UI{
         if(this.smarthouses.getCasas().get(idHome)!=null)
             System.out.println(this.smarthouses.getCasas().get(idHome));
         else System.out.println("A casa que digitou não existe.");
-       // scanner.close();
+    }
+
+    public void ligaDesliga(){
+        System.out.println("Digite o ID do dispositivo: ");
+        Scanner scanner = new Scanner(System.in);
+        String idDevice = scanner.nextLine();
+        System.out.println("(On/OFF): ");
+        String modo = scanner.nextLine();
+        boolean on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
+        if(this.smarthouses.getDispositivos().get(idDevice)!=null){
+            this.smarthouses.gestaoDevices(idDevice,on);
+            if(!on) System.out.println("Dispositivo desligado.");
+            else System.out.println("Dispositivo ligado.");
+        }
+        else System.out.println("O dispositivo que digitou não existe.");
+    }
+    public void tonBulb(){
+        System.out.println("Digite o ID do dispositivo: ");
+        Scanner scanner = new Scanner(System.in);
+        String idDevice = scanner.nextLine();
+        System.out.print("1-WARM\n2-COLD\n3-NEUTRAL\nTonalidade->");
+        int ton = scanner.nextInt();
+        if(this.smarthouses.getDispositivos().get(idDevice)!=null){
+            this.smarthouses.colocaTon(idDevice,ton);
+        }
+        else System.out.println("O dispositivo que digitou não existe.");
+    }
+
+    public void volSpk(){
+        System.out.println("Digite o ID do dispositivo: ");
+        Scanner scanner = new Scanner(System.in);
+        String idDevice = scanner.nextLine();
+        System.out.println("Volume: ");
+        int vol = scanner.nextInt();
+        if(this.smarthouses.getDispositivos().get(idDevice)!=null){
+            this.smarthouses.colocaVol(idDevice,vol);
+        }
+        else System.out.println("O dispositivo que digitou não existe.");
     }
 
     public void consultaDispositivos(){
@@ -361,7 +410,7 @@ public class UI{
         String idDevice = scanner.nextLine();
         if(this.smarthouses.getDispositivos().get(idDevice)!=null)
             System.out.println(this.smarthouses.getDispositivos().get(idDevice));
-        else System.out.println("O dispositivo digitou não existe.");
+        else System.out.println("O dispositivo que digitou não existe.");
        // scanner.close();
     }
 

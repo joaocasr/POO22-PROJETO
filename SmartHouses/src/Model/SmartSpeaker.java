@@ -92,7 +92,7 @@ public class SmartSpeaker extends SmartDevice {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
         sb.append("\tVolume: ").append(this.volume).append("; ")
-            .append("\tMarca: ").append(this.volume).append("; ")
+            .append("\tMarca: ").append(this.marca).append("; ")
             .append("\tCanal: ").append(this.channel).append("\n");
         return sb.toString();
     }

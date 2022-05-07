@@ -96,5 +96,4 @@ public abstract class SmartDevice {
     public abstract SmartDevice clone();
 
     public abstract double consumoDiario();
-
 }

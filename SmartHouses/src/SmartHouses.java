@@ -176,6 +176,23 @@ public class SmartHouses implements Serializable {
         this.casas.get(idHome).removeDispositivoemDivisao(idDevice);
     }
 
+    public void gestaoDevices(String idDevice,boolean modo) { //id device
+        this.dispositivos.get(idDevice).setModo(modo);
+    }
+
+    public void colocaTon(String idDevice,int ton) { //id device
+        if(ton==1)
+            if(this.dispositivos.get(idDevice) instanceof SmartBulb) ((SmartBulb) this.dispositivos.get(idDevice)).setMode(SmartBulb.Mode.WARM);
+        if(ton==2)
+            if(this.dispositivos.get(idDevice) instanceof SmartBulb) ((SmartBulb) this.dispositivos.get(idDevice)).setMode(SmartBulb.Mode.COLD);
+        if(ton==3)
+            if(this.dispositivos.get(idDevice) instanceof SmartBulb) ((SmartBulb) this.dispositivos.get(idDevice)).setMode(SmartBulb.Mode.NEUTRAL);
+    }
+
+    public void colocaVol(String idDevice,int vol) { //id device
+            if (this.dispositivos.get(idDevice) instanceof SmartSpeaker) ((SmartSpeaker) this.dispositivos.get(idDevice)).setVolume(vol);
+    }
+
 
     public boolean existsHome(String idHome){
         return this.casas.containsKey(idHome);
