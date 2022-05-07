@@ -112,6 +112,7 @@ public class ColFornecedor {
                 }
             }
         }
+        if(r.compareTo("")==0) return "Não ha faturas registadas";
         return r;
     }
 
@@ -128,6 +129,7 @@ public class ColFornecedor {
                 max = total;
                 id = f.getId();
             }
+            //System.out.println("Fornecedor: " + f.getId() + ": total = " + total);
         }
         return id;
     }

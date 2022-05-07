@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -39,16 +40,27 @@ public class UI{
             menu.executa();
             switch (menu.getOpcao()) {
                 case 1:
-                    System.out.println(executaDados(1));
+                    executaDados(1);
                     break;
                 case 2:
-                    System.out.println(executaDados(2));
+                    executaDados(2);
                     break;
                 case 3:
-                    System.out.print("Indefinido3\n\n");
+
+                    System.out.println("Id/Nome do Fornecedor: ");
+                    Scanner scanner = new Scanner(System.in);
+                    String id = scanner.nextLine();
+                    Fornecedor f = new Fornecedor(this.smarthouses.getFornecedores().get(id));
+                    int n = 0;
+                    for(Fatura fatura: f.faturasEmitidas()) {
+                        System.out.println(f.toString());
+                        n++;
+                    }
+                    if(n==0)
+                        System.out.print("Não há faturas registadas\n\n");
                     break;
                 case 4:
-                    System.out.print("Indefinido3\n\n");
+                    executaDados(4);
                     break;
                 case 5:
                     Dispositivos();
@@ -70,7 +82,7 @@ public class UI{
                 case 9:
                     try {
                         this.smarthouses.carregarEstado("estado.obj");
-                    }catch (FileNotFoundException f){
+                    }catch (FileNotFoundException fnf){
                         System.out.println("Não foi possível carregar o estado da aplicação.");
                     } catch (IOException | ClassNotFoundException e) {
                         e.printStackTrace();
@@ -527,11 +539,11 @@ public class UI{
 
     }
 
-    public String executaDados(int n){
+    public void executaDados(int n){
         ColFornecedor cf = new ColFornecedor(this.smarthouses.getFornecedores());
         Scanner scanner = new Scanner(System.in);
         String inicio = "", fim="";
-        String resp="";
+
         try
         {
             System.out.println("Data de início(YYYY-MM-DD HH:MM): ");
@@ -544,8 +556,14 @@ public class UI{
             LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
             LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
 
-           if(n==1) resp= cf.casaGastouMaisPeriodoVariosFornecedores(datai, dataf);
-           if(n==2) resp= cf.fornecedorComMaisFaturacao(datai, dataf);
+           if(n==1) System.out.println(cf.casaGastouMaisPeriodoVariosFornecedores(datai, dataf));
+           if(n==2) System.out.println(cf.fornecedorComMaisFaturacao(datai, dataf));
+           if(n==4)
+           {
+               DecimalFormat d = new DecimalFormat("#0.00");
+               for(Fornecedor f: cf.ordenarFornecedores(datai,dataf))
+                   System.out.println(f.getId() + ": " + d.format(f.faturaçaoFornecedor(datai, dataf)) + "€");
+           }
         }
         catch (DateTimeParseException e)
         {
@@ -554,7 +572,7 @@ public class UI{
         catch(LogNotExistsException c){
             System.out.println(c.getMessage());
         }
-        return resp;
+
     }
 
 
