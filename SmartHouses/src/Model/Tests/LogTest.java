@@ -1,11 +1,9 @@
-package Model.Tests;
-import Model.Log;
 import java.time.LocalDateTime;
-
-import org.junit.jupiter.api.Assertions;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.stream.Collectors;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /*
     ver funcoes 
@@ -40,7 +38,7 @@ public class LogTest
     public void testGetIdLog() 
     {
         Log log = new Log("logId",LocalDateTime.of(2022,3,25,15,45),"bulb1",false);
-        Assertions.assertEquals("logId",log.getIdLog());
+        assertEquals("logId",log.getIdLog());
     }
 
     @Test
@@ -48,14 +46,14 @@ public class LogTest
     {
         Log log = new Log("logId",LocalDateTime.of(2022,3,25,15,45),"bulb1",false);
         log.setIdLog("logId2");
-        Assertions.assertEquals("logId2",log.getIdLog());
+        assertEquals("logId2",log.getIdLog());
     }
 
     @Test
     public void testGetIdDevice() 
     {
         Log log = new Log("logId",LocalDateTime.of(2022,3,25,15,45),"bulb1",false);
-        Assertions.assertEquals("bulb1",log.getIdDevice());
+        assertEquals("bulb1",log.getIdDevice());
     }
 
     @Test
@@ -63,14 +61,14 @@ public class LogTest
     {
         Log log = new Log("logId",LocalDateTime.of(2022,3,25,15,45),"bulb1",false);
         log.setIdDevice("bulb2");
-        Assertions.assertEquals("bulb2",log.getIdDevice());
+        assertEquals("bulb2",log.getIdDevice());
     }
 
     @Test
     public void testGetDia() 
     {
         Log log = new Log("logId",LocalDateTime.of(2022,3,25,15,45),"bulb1",false);
-        Assertions.assertEquals(LocalDateTime.of(2022,3,25,15,45),log.getDia());
+        assertEquals(LocalDateTime.of(2022,3,25,15,45),log.getDia());
     }
 
     @Test
@@ -78,28 +76,30 @@ public class LogTest
     {
         Log log = new Log("logId",LocalDateTime.of(2022,3,25,15,45),"bulb1",false);
         log.setDia(LocalDateTime.of(2022,3,25,15,45));
-        Assertions.assertEquals(LocalDateTime.of(2022,3,25,15,45),log.getDia());
+        assertEquals(LocalDateTime.of(2022,3,25,15,45),log.getDia());
     }
 
     @Test
     public void testGetOn() 
     {
         Log log = new Log("logId",LocalDateTime.of(2022,3,25,15,45),"bulb1",false);
-        Assertions.assertEquals(false,log.getOn());
+        assertEquals(false,log.getOn());
     }
 
     @Test
     public void testGetDevices()
     {
+        // undone
         Log log = new Log("logId",LocalDateTime.of(2022,3,25,15,45),"bulb1",false);
-        Assertions.assertEquals("",log.getDevices());
+        assertEquals("",log.getDevices());
     }
     
     @Test
     public void testSetDevices()
     {
+        // undone
         Log log = new Log("logId",LocalDateTime.of(2022,3,25,15,45),"bulb1",false);
-        Assertions.assertEquals("",log.getDevices());
+        assertEquals("",log.getDevices());
     }
 
     @Test
@@ -115,7 +115,7 @@ public class LogTest
     public void testToString() 
     {
         Log log = new Log("logId",LocalDateTime.of(2022,3,25,15,45),"bulb1",false);
-        Assertions.assertEquals("Model.Log: logId; Dia: 2022-3-25 15:45; Device: bulb1; Está ligado?: false",log.toString());
+        assertEquals("Log: logId; Dia: 2022-3-25 15:45; Device: bulb1; Está ligado?: false",log.toString());
     }
     
     @Test

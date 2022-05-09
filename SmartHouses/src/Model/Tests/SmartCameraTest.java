@@ -1,19 +1,11 @@
-package Model.Tests;
-import Model.SmartCamera;
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-    /*
-        falta fazer o calculo
-        ver como ficam as horas no toString!!!
-        parseSmartCamera
-    */
 public class SmartCameraTest 
 {
 
@@ -48,13 +40,13 @@ public class SmartCameraTest
     public void testGetResolucao()
     {
         SmartCamera smartCam = new SmartCamera("cam",false,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"(1280x720)",3,4.5);
-        Assertions.assertEquals(3, smartCam.getResolucao());
+        assertEquals(3, smartCam.getResolucao());
         smartCam = new SmartCamera("cam",false,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"(1280x720)",3,4.5);
-        Assertions.assertEquals("(1280x720)", smartCam.getResolucao());
+        assertEquals("(1280x720)", smartCam.getResolucao());
         SmartCamera smartCam2 = new SmartCamera(smartCam);
-        Assertions.assertEquals(50, smartCam.getResolucao());
+        assertEquals(50, smartCam.getResolucao());
         smartCam = new SmartCamera("cam");
-        Assertions.assertEquals("(1280x720)", smartCam.getResolucao());
+        assertEquals("(1280x720)", smartCam.getResolucao());
     }
 
     @Test
@@ -62,20 +54,20 @@ public class SmartCameraTest
     {
         SmartCamera cam = new SmartCamera("cam",false,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"(1280x720)",3,4.5);
         cam.setResolucao("(1920x1080)");
-        Assertions.assertEquals("(1920x1080)", cam.getResolucao());
+        assertEquals("(1920x1080)", cam.getResolucao());
     }
 
     @Test
     public void testGetTamanho()
     {
         SmartCamera smartCam = new SmartCamera("cam",false,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"(1280x720)",3,4.5);
-        Assertions.assertEquals(3, smartCam.getTamanho());
+        assertEquals(3, smartCam.getTamanho());
         smartCam = new SmartCamera("cam",false,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"(1280x720)",-3,4.5);
-        Assertions.assertEquals(-3, smartCam.getTamanho());
+        assertEquals(-3, smartCam.getTamanho());
         SmartCamera smartCam2 = new SmartCamera(smartCam);
-        Assertions.assertEquals(-3, smartCam.getTamanho());
+        assertEquals(-3, smartCam.getTamanho());
         smartCam = new SmartCamera("cam");
-        Assertions.assertEquals(250000, smartCam.getTamanho());
+        assertEquals(250000, smartCam.getTamanho());
     }
 
     @Test
@@ -83,9 +75,9 @@ public class SmartCameraTest
     {
         SmartCamera cam = new SmartCamera("cam",false,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"(1280x720)",3,4.5);
         cam.setTamanho(3);
-        Assertions.assertEquals(3, cam.getTamanho());
+        assertEquals(3, cam.getTamanho());
         for (int i=0; i<25; i++) cam.setTamanho(i);
-        Assertions.assertEquals(24, cam.getTamanho());
+        assertEquals(24, cam.getTamanho());
     }
 
     @Test
@@ -93,7 +85,7 @@ public class SmartCameraTest
     {
         SmartCamera cam = new SmartCamera("cam",false,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"(1280x720)",3,4.5);
         cam.turnCameraOn();
-        Assertions.assertEquals(true,cam.getModo());
+        assertEquals(true,cam.getModo());
     }
 
     @Test
@@ -101,31 +93,31 @@ public class SmartCameraTest
     {
         SmartCamera cam = new SmartCamera("cam",true,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"(1280x720)",3,4.5);
         cam.turnCameraOff();
-        Assertions.assertEquals(false,cam.getModo());
+        assertEquals(false,cam.getModo());
     }
 
     @Test
     public void testConsumoDiario()
     {
         SmartCamera cam = new SmartCamera("cam",true,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"(1280x720)",3,4.5);
-        Assertions.assertEquals(13.5, cam.consumoDiario());
+        assertEquals(13.5, cam.consumoDiario());
         cam = new SmartCamera("cam");
-        Assertions.assertEquals(2000000, cam.consumoDiario());
+        assertEquals(2000000, cam.consumoDiario());
         cam = new SmartCamera(cam);
-        Assertions.assertEquals(2000000, cam.consumoDiario());
+        assertEquals(2000000, cam.consumoDiario());
     }
     
     @Test
     public void testToString()
     {
         SmartCamera cam = new SmartCamera("cam");
-        Assertions.assertEquals("Tamanho: 250000.0Mb; Resolução: 8px; ID: ; Modo: false; Consumo Total: 0.0; Período Total: 0.0; Hora ligada: null; Hora apagada: null;", cam.toString());
+        assertEquals("Tamanho: 250000.0Mb; Resolução: 8px; ID: ; Modo: false; Consumo Total: 0.0; Período Total: 0.0; Hora ligada: null; Hora apagada: null;", cam.toString());
 
         cam = new SmartCamera("cam",true,LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"(1280x720)",3,4.5);
-        Assertions.assertEquals("Tamanho: 4.5Mb; Resolução: 3px; ID: b1; Modo: false; Consumo Total: 1.0; Período Total: 1.0; Hora ligada: 2022-03-25T15:45; Hora apagada: 2022-03-25T15:45;", cam.toString());
+        assertEquals("Tamanho: 4.5Mb; Resolução: 3px; ID: b1; Modo: false; Consumo Total: 1.0; Período Total: 1.0; Hora ligada: 2022-03-25T15:45; Hora apagada: 2022-03-25T15:45;", cam.toString());
 
         SmartCamera camera = new SmartCamera(cam);
-        Assertions.assertEquals("Tamanho: 4.5Mb; Resolução: 3px; ID: b1; Modo: false; Consumo Total: 1.0; Período Total: 1.0; Hora ligada: 2022-03-25T15:45; Hora apagada: 2022-03-25T15:45;", camera.toString());
+        assertEquals("Tamanho: 4.5Mb; Resolução: 3px; ID: b1; Modo: false; Consumo Total: 1.0; Período Total: 1.0; Hora ligada: 2022-03-25T15:45; Hora apagada: 2022-03-25T15:45;", camera.toString());
     }
 
     @Test

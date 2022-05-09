@@ -1,10 +1,6 @@
-package Model.Tests;
-import Model.Fatura;
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class FaturaTest 
@@ -36,7 +32,7 @@ public class FaturaTest
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
         fat.setConsumo(7.0);
-        Assertions.assertEquals(7.0,fat.getConsumo());
+        assertEquals(7.0,fat.getConsumo());
     }
 
     @Test
@@ -44,7 +40,7 @@ public class FaturaTest
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
         fat.setIdFatura("fatura2");
-        Assertions.assertEquals("fatura2",fat.getIdFatura());
+        assertEquals("fatura2",fat.getIdFatura());
     }
 
     @Test
@@ -52,7 +48,7 @@ public class FaturaTest
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
         fat.setValor(20);
-        Assertions.assertEquals(20,fat.getValor());
+        assertEquals(20,fat.getValor());
     }
 
     @Test
@@ -60,7 +56,7 @@ public class FaturaTest
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
         fat.setMorada("Rua 26 de Maio");
-        Assertions.assertEquals("Rua 26 de Maio",fat.getMorada());
+        assertEquals("Rua 26 de Maio",fat.getMorada());
     }
 
     @Test
@@ -68,7 +64,7 @@ public class FaturaTest
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
         fat.setIdFornecedor("IBERDROLA");
-        Assertions.assertEquals("IBERDROLA",fat.getIdFornecedor());
+        assertEquals("IBERDROLA",fat.getIdFornecedor());
     }
 
     @Test
@@ -76,7 +72,7 @@ public class FaturaTest
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
         fat.setInicio(LocalDateTime.of(2023,4,26,16,46));
-        Assertions.assertEquals(LocalDateTime.of(2023,4,26,16,46),fat.getInicio());
+        assertEquals(LocalDateTime.of(2023,4,26,16,46),fat.getInicio());
     }
 
     @Test
@@ -84,7 +80,7 @@ public class FaturaTest
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
         fat.setFim(LocalDateTime.of(2023,4,26,16,46));
-        Assertions.assertEquals(LocalDateTime.of(2023,4,26,16,46),fat.getFim());
+        assertEquals(LocalDateTime.of(2023,4,26,16,46),fat.getFim());
     }
 
     @Test
@@ -92,70 +88,70 @@ public class FaturaTest
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
         fat.setNIF(987654321);
-        Assertions.assertEquals(987654321,fat.getIdFornecedor());
+        assertEquals(987654321,fat.getIdFornecedor());
     }
 
     @Test
     public void testGetConsumo()
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
-        Assertions.assertEquals(5.0,fat.getConsumo());
+        assertEquals(5.0,fat.getConsumo());
     }
 
     @Test
     public void testGetValor()
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
-        Assertions.assertEquals(10.0,fat.getValor());
+        assertEquals(10.0,fat.getValor());
     }
 
     @Test
     public void testGetNIF()
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
-        Assertions.assertEquals(123456789,fat.getNIF());
+        assertEquals(123456789,fat.getNIF());
     }
 
     @Test
     public void testGetIdFatura()
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
-        Assertions.assertEquals("fatura1",fat.getIdFatura());
+        assertEquals("fatura1",fat.getIdFatura());
     }
 
     @Test
     public void testGetMorada()
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
-        Assertions.assertEquals("Rua 25 Abril",fat.getMorada());
+        assertEquals("Rua 25 Abril",fat.getMorada());
     }
 
     @Test
     public void testGetIdFornecedor()
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
-        Assertions.assertEquals("EDP",fat.getIdFornecedor());
+        assertEquals("EDP",fat.getIdFornecedor());
     }
 
     @Test
     public void testGetInicio()
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
-        Assertions.assertEquals(LocalDateTime.of(2022,3,25,15,45),fat.getInicio());
+        assertEquals(LocalDateTime.of(2022,3,25,15,45),fat.getInicio());
     }
 
     @Test
     public void testGetFim()
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
-        Assertions.assertEquals(LocalDateTime.of(2022,3,25,15,45),fat.getFim());
+        assertEquals(LocalDateTime.of(2022,3,25,15,45),fat.getFim());
     }
 
     @Test
     public void testToString()
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
-        Assertions.assertEquals("IdFatura: fatura1; IdFornecedor: EDP; NIF: 123456789; Consumo: 5.0; Valor: 10.0; Inicio: 2022-3-25 15:45; Fim: 2022-3-25 15:45;",fat.toString());
+        assertEquals("IdFatura: fatura1; IdFornecedor: EDP; NIF: 123456789; Consumo: 5.0; Valor: 10.0; Inicio: 2022-3-25 15:45; Fim: 2022-3-25 15:45;",fat.toString());
     }
 
     @Test
