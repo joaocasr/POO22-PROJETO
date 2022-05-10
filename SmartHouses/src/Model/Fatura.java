@@ -156,7 +156,7 @@ public class Fatura {
 
     public Fatura clone()
     {
-        return this.clone();
+        return new Fatura(this);
     }
 
 }
