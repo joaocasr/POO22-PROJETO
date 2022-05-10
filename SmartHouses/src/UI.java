@@ -33,12 +33,15 @@ public class UI{
         opcoes.add("Salvar estado\n");
         opcoes.add("Carregar estado\n");
         opcoes.add("Carregar do ficheiro logs.txt\n");
+        opcoes.add("Mudar data\n");
         opcoes.add("Sair da aplicação");
+        Scanner scanner = new Scanner(System.in);
 
         Menu menu = new Menu(opcoes);
         do {
             menu.executa();
             switch (menu.getOpcao()) {
+
                 case 1:
                     executaDados(1);
                     break;
@@ -48,7 +51,6 @@ public class UI{
                 case 3:
 
                     System.out.println("Id/Nome do Fornecedor: ");
-                    Scanner scanner = new Scanner(System.in);
                     String id = scanner.nextLine();
                     Fornecedor f = new Fornecedor(this.smarthouses.getFornecedores().get(id));
                     int n = 0;
@@ -97,6 +99,24 @@ public class UI{
                     }
                     break;
                 case 11:
+                    try {
+                        System.out.println("Data de início(YYYY-MM-DD HH:MM): ");
+                        String date = scanner.nextLine();
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                        LocalDateTime newDate = LocalDateTime.parse(date, formatter);
+                        this.smarthouses.atualiza(newDate);
+                        this.smarthouses.setDate(newDate);
+                    }
+                    catch (DateTimeParseException e)
+                    {
+                        System.out.println("Formato data errado");
+                    }
+                    catch (LogNotExistsException e)
+                    {
+                        System.out.println("Erro ao criar os logs");
+                    }
+                    break;
+                case 12:
                     return;
                 default:
                     break;
@@ -239,11 +259,8 @@ public class UI{
             double consumo = scanner.nextDouble();
 
             SmartDevice sd = new SmartBulb(id, tonalidade, on, dimensao, datai, dataf,consumo);
-            // System.out.print(sd.toString());
-            //}
             this.smarthouses.adicionaDevice(id, sd);
-            //System.out.print(this.smarthouses.dispositovosTostring());
-            //}
+
             adicionarDispositivoemCasa(sd);
             System.out.println("[+] Dispositivo adicionado com sucesso.");
         }else{

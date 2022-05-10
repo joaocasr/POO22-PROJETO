@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,26 +18,62 @@ public class SmartHouses implements Serializable {
     private Map<String, CasaInteligente> casas; // id casa -> CASA
     private Map<String,SmartDevice> dispositivos; // ID Device -> DEVICE
     private Map<String,Fornecedor> fornecedores; // ID Model.Fornecedor -> FORNECEDOR
-
+    private LocalDateTime Now;
 
     public SmartHouses(){
         this.casas = new HashMap<>();
         this.dispositivos = new HashMap<>();
         this.fornecedores = new HashMap<>();
+
     }
 
-    public SmartHouses(Map<String,CasaInteligente> casas, Map<String,SmartDevice> dispositivos,Map<String,Fornecedor> fornecedores){
+    public SmartHouses(Map<String,CasaInteligente> casas, Map<String,SmartDevice> dispositivos,Map<String,Fornecedor> fornecedores, LocalDateTime date){
         setCasas(casas);
         setDispositivos(dispositivos);
         setFornecedores(fornecedores);
+        this.Now = date;
     }
 
     public SmartHouses(SmartHouses sh){
         setCasas(sh.getCasas());
         setDispositivos(sh.getDispositivos());
         setFornecedores(sh.getFornecedores());
+        this.Now = sh.getDate();
     }
 
+    public void automatizar(String filename)
+    {
+        String[] linhaPartida;
+        List<String> linhas = lerFicheiro(filename);
+        String aux = "";
+
+        for (String linha : linhas) {
+            //data, dispositivo, accao
+            linhaPartida = linha.split(":-->", 2);
+            if(aux.compareTo(linhaPartida[0])==0)
+            {
+                // no mesmo dia
+
+                if(fornecedores.get(linhaPartida[1])!=null)
+                {
+                    // pode alteraValorDesconto ou alteraFormula
+                }
+                else if(casas.get(linhaPartida[1])!=null)
+                {
+                    // pode adicionar ou retirar dispositivos
+                    // ligar ou desliga-los
+                    // mudar morada
+                }
+
+            }
+            else
+            {
+                // em dias diferentes
+                aux = linhaPartida[0];
+            }
+        }
+
+    }
 
     public void parser(String filename) throws LinhaException {
         Map<String, CasaInteligente> casas = new HashMap<>();
@@ -263,6 +300,16 @@ public class SmartHouses implements Serializable {
         this.fornecedores = new HashMap<>(fornecedores.values().stream().collect(toMap(Fornecedor::getId, Fornecedor::clone)));
     }
 
+    public LocalDateTime getDate()
+    {
+        return this.Now;
+    }
+
+    public void setDate(LocalDateTime date)
+    {
+        this.Now = date;
+    }
+
     public List<String> lerFicheiro(String nomeFich) {
         List<String> lines;
         try { lines = Files.readAllLines(Paths.get(nomeFich), StandardCharsets.UTF_8); }
@@ -270,7 +317,11 @@ public class SmartHouses implements Serializable {
         return lines;
     }
 
-
+    public void atualiza(LocalDateTime newDate) throws Model.Exceptions.LogNotExistsException
+    {
+        for(Fornecedor f: this.fornecedores.values())
+            f.addFatura(this.Now, newDate);
+    }
     public SmartHouses clone(){
         return new SmartHouses(this);
     }

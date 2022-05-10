@@ -7,9 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.stream.Collectors;
 import java.time.temporal.ChronoUnit;
 import org.junit.jupiter.api.Test;
+import Model.*;
+import Model.Exceptions.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+/*
 public class CasaInteligenteTest 
 {
     public CasaInteligenteTest()
@@ -586,3 +588,4 @@ public class CasaInteligenteTest
     }
 
 }
+*/

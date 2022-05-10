@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
     ver funcoes 
         faltam getdevice e setdevice
 */
-
+/*
 public class LogTest 
 {
     public LogTest()
@@ -125,3 +125,5 @@ public class LogTest
         if(log.equals(log.clone())==false) System.out.print("Clone Errado");
     }
 }
+
+ */

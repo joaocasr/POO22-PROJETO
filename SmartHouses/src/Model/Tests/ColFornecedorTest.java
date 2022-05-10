@@ -2,7 +2,7 @@ import java.util.Map;
 import java.util.HashMap;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-
+/*
 public class ColFornecedorTest 
 {
     public ColFornecedorTest ()
@@ -122,3 +122,4 @@ public class ColFornecedorTest
     }
     
 }
+*/
