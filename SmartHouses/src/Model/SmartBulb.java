@@ -32,7 +32,7 @@ public class SmartBulb extends SmartDevice{
     private static final double factorCold = 1.1;
     private static final double factorNeutral = 1.0;
 
-    private static final double cneutral = vfixo + factorNeutral;; //consumo neutral
+    private static final double cneutral = vfixo + factorNeutral; //consumo neutral
     private static final double cwarm = vfixo + factorWarm;
     private static final double ccold = vfixo + factorCold;
 

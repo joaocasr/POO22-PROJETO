@@ -49,28 +49,28 @@ public class SmartHouses implements Serializable {
 
         for (String linha : linhas) {
             //data, dispositivo, accao
-            linhaPartida = linha.split(":-->", 2);
-            if(aux.compareTo(linhaPartida[0])==0)
-            {
-                // no mesmo dia
+            linhaPartida = linha.split("-", 2);
+            String[] parte = linhaPartida[1].split(",");
+            if(fornecedores.get(parte[0])!=null) { // é um fornecedor
 
-                if(fornecedores.get(linhaPartida[1])!=null)
-                {
-                    // pode alteraValorDesconto ou alteraFormula
+                // pode alteraValorDesconto ou alteraFormula
                 }
-                else if(casas.get(linhaPartida[1])!=null)
-                {
+            else if(casas.get(parte[0])!=null){ // é uma casa
+                    if(parte[2]==null) casas.get(parte[0]).setIdFornecedor(parte[1]); //muda de fornecedor
+                    else if(parte[3]==null) {
+                        try {
+                            if(parte[2].equals("setOn"))
+                                casas.get(parte[0]).getDevice(parte[1]).setModo(true);
+                            else casas.get(parte[0]).getDevice(parte[1]).setModo(false);
+                        } catch (SmartDeviceNotExistsException e) {
+                            e.printStackTrace();
+                        }
+                    }
                     // pode adicionar ou retirar dispositivos
                     // ligar ou desliga-los
                     // mudar morada
-                }
+            }
 
-            }
-            else
-            {
-                // em dias diferentes
-                aux = linhaPartida[0];
-            }
         }
 
     }

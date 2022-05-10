@@ -3,30 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaCoopernico.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaCoopernico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEDA.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEDA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEDP.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEDP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnat.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEndesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEndesa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnergia.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnergia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnergiaSimples.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnergiaSimples.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaGalp.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaGalp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaGoldEnergy.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaGoldEnergy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaIberdrola.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaIberdrola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaLuzboa.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaLuzboa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaMEO.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaMEO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaMuon.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaMuon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaSUElectricidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaSUElectricidade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaYIce.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaYIce.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/CasaInteligenteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/CasaInteligenteTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/ColFornecedorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/ColFornecedorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/FaturaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/FaturaTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/FornecedorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/FornecedorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/LogTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/LogTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartCameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartCameraTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartBulb.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartBulb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartHouses.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartHouses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,12 +39,9 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ritavaz02/Documentos/Uminho/POO/POO22-PROJETO&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
