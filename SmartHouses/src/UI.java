@@ -55,19 +55,31 @@ public class UI{
                     linha = pedido.getEspecificacoes().split(",");
                     SmartDevice sdB = new SmartBulb(linha[0], linha[1], Boolean.parseBoolean(linha[2]), Integer.parseInt(linha[3]),Double.parseDouble(linha[4]));
                     this.smarthouses.adicionaDevice(linha[0], sdB);
-                    adicionarDispositivoemCasa(sdB,pedido.getId());
+                    try {
+                        adicionarDispositivoemCasa(sdB,pedido.getId());
+                    } catch (SmartDeviceAlreadyExistsException e) {
+                        System.out.println("O SmartDevice com id "+ sdB.getID() +"já existe");
+                    }
                     break;
                 case "adicionaCamera":
                     linha = pedido.getEspecificacoes().split(",");
                     SmartDevice sdC = new SmartCamera(linha[0], Boolean.parseBoolean(linha[1]), linha[2], Integer.parseInt(linha[3]),Double.parseDouble(linha[4]));
                     this.smarthouses.adicionaDevice(linha[0], sdC);
-                    adicionarDispositivoemCasa(sdC,pedido.getId());
+                    try {
+                        adicionarDispositivoemCasa(sdC,pedido.getId());
+                    } catch (SmartDeviceAlreadyExistsException e) {
+                        System.out.println("O SmartDevice com id "+ sdC.getID() +"já existe");
+                    }
                     break;
                 case "adicionaSpeaker":
                     linha = pedido.getEspecificacoes().split(",");
                     SmartDevice sdS = new SmartSpeaker(linha[0], Boolean.parseBoolean(linha[1]), Integer.parseInt(linha[2]), linha[3], linha[4],Double.parseDouble(linha[5]));
                     this.smarthouses.adicionaDevice(linha[0], sdS);
-                    adicionarDispositivoemCasa(sdS,pedido.getId());
+                    try {
+                        adicionarDispositivoemCasa(sdS,pedido.getId());
+                    } catch (SmartDeviceAlreadyExistsException e) {
+                        System.out.println("O SmartDevice com id "+ sdS.getID() +"já existe");
+                    }
                     break;
                 case "removeDispositivo":
                     this.smarthouses.removeDevice(pedido.getEspecificacoes(),pedido.getId());
@@ -85,7 +97,11 @@ public class UI{
                     this.smarthouses.colocaVol(linha[0],Integer.parseInt(linha[1]));
                     break;
                 case "alteraFornecedor":
-                    this.smarthouses.alteraFornecedor(pedido.getId(),pedido.getEspecificacoes());
+                    try {
+                        this.smarthouses.alteraFornecedor(pedido.getId(),pedido.getEspecificacoes());
+                    } catch (CasaInteligenteNotExistsException e) {
+                        e.printStackTrace();
+                    }
 
                 default:
                     break;
@@ -183,7 +199,11 @@ public class UI{
                     try{
                         this.smarthouses.parser("SmartHouses/src/logs.txt");
                     }catch (LinhaException msg) {
-                        System.out.println("Nao foi possivel carregar a aplicação.");
+                        System.out.println("Nao foi possivel carregar a aplicação - Erro linha.");
+                    }catch (SmartDeviceAlreadyExistsException msg) {
+                        System.out.println("Nao foi possivel carregar a aplicação- Erro device já existe.");
+                    }catch (CasaInteligenteAlreadyExistsException msg) {
+                        System.out.println("Nao foi possivel carregar a aplicação- Erro casa já existe.");
                     }
                     break;
                 case 10:
@@ -435,11 +455,11 @@ public class UI{
         String idHome = scanner.nextLine();
         if(this.smarthouses.existsHome(idHome))
         {
-            System.out.println("HERE\n");
+
             List<String> opcoes = new ArrayList<>();
             opcoes.add("Informações gerais da Casa\n");
             opcoes.add("Dispositivos\n");
-            opcoes.add("MuderFornecedor");
+            opcoes.add("MuderFornecedor\n");
             opcoes.add("Voltar");
 
             Menu menu = new Menu(opcoes);
@@ -547,19 +567,15 @@ public class UI{
         scanner.close();
     }
 
-    public void adicionarDispositivoemCasa(SmartDevice sd, String idHome){
+    public void adicionarDispositivoemCasa(SmartDevice sd, String idHome) throws SmartDeviceAlreadyExistsException{
         Scanner scanner = new Scanner(System.in);
         CasaInteligente ci = this.smarthouses.getCasas().get(idHome);
         System.out.println("Em que divisão pretende adicionar o dispositivo? ");
         String room = scanner.nextLine();
         if(ci.hasRoom(room)) ci.addToRoom(room,sd.getID());
         else System.out.println("Divisão não existe");
-        try {
-            ci.addDevice(sd);
-        }
-        catch ( SmartDeviceAlreadyExistsException s){
-            System.out.println("Não foi possivel adicionar o dispositivo.");
-        }
+        if(ci.addDevice(sd)==1) throw new SmartDeviceAlreadyExistsException ("O SmartDevice com id "+ sd.getID() +"já existe");
+
         this.smarthouses.adicionaHome(ci);
 
         scanner.close();

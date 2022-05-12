@@ -76,7 +76,7 @@ public class SmartHouses implements Serializable {
 
     }
 
-    public void parser(String filename) throws LinhaException {
+    public void parser(String filename) throws LinhaException,SmartDeviceAlreadyExistsException,CasaInteligenteAlreadyExistsException {
         Map<String, CasaInteligente> casas = new HashMap<>();
         Map<String, SmartDevice> dispositivos = new HashMap<>();
         Map<String,Fornecedor> fornecedores = new HashMap<>();
@@ -111,12 +111,8 @@ public class SmartHouses implements Serializable {
                     if(i>1) casas.put(casaMaisRecente.getIdHome(),casaMaisRecente);
                     CasaInteligente ci  = CasaInteligente.parseCasa(linhaPartida[1]);
                     casas.put(ci.getIdHome(),ci.clone());
-                    try {
                     if(fornecedores.get(ci.getIdFornecedor())!=null)
-                        fornecedores.get(ci.getIdFornecedor()).addCasa(ci.clone());
-                    }catch (CasaInteligenteAlreadyExistsException c){
-                        System.out.println(c.getMessage());
-                    }
+                        if(fornecedores.get(ci.getIdFornecedor()).addCasa(ci.clone())==1) throw new CasaInteligenteAlreadyExistsException ("A casa com id " + ci.getIdHome() + " já existe");
                     casaMaisRecente = ci;
                     i++;
                     break;
@@ -128,43 +124,27 @@ public class SmartHouses implements Serializable {
                 case "SmartBulb":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartBulb.parseSmartBulb(linhaPartida[1]);
-                    try {
-                        casaMaisRecente.addDevice(sd);
-                    }
-                    catch(SmartDeviceAlreadyExistsException s){
-                            System.out.println(s.getMessage());
-                    }
+                    if(casaMaisRecente.addDevice(sd)==1) throw new SmartDeviceAlreadyExistsException ("O SmartDevice com id "+ sd.getID() +"já existe");
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
                 case "SmartCamera":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartCamera.parseSmartCamera(linhaPartida[1]);
-                    try {
-                        casaMaisRecente.addDevice(sd);
-                    }
-                    catch(SmartDeviceAlreadyExistsException s){
-                        System.out.println(s.getMessage());
-                    }
+                    if(casaMaisRecente.addDevice(sd)==1) throw new SmartDeviceAlreadyExistsException ("O SmartDevice com id "+ sd.getID() +"já existe");
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
                 case "SmartSpeaker":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartSpeaker.parseSmartSpeaker(linhaPartida[1]);
-                    try {
-                        casaMaisRecente.addDevice(sd);
-                    }
-                    catch(SmartDeviceAlreadyExistsException s){
-                        System.out.println(s.getMessage());
-                    }
+                    if(casaMaisRecente.addDevice(sd)==1) throw new SmartDeviceAlreadyExistsException ("O SmartDevice com id "+ sd.getID() +"já existe");
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
                 case "Fornecedor":
                     Fornecedor f = Fornecedor.parseFornecedor(linhaPartida[1],formulas);
                     fornecedores.put(f.getId(),f.clone());
-                    //System.out.println(fornecedores.get("Iberdrola").getId());
                     break;
                 default:
                     throw new LinhaException("Linha Inválida!");
@@ -336,22 +316,14 @@ public class SmartHouses implements Serializable {
             f.addFatura(this.Now, newDate);
     }
 
-    public void alteraFornecedor(String idHome, String idFornecedor)
-    {
+    public void alteraFornecedor(String idHome, String idFornecedor) throws CasaInteligenteNotExistsException{
         this.casas.get(idHome).setIdFornecedor(idFornecedor);
-        try {
-            this.fornecedores.get(this.casas.get(idHome).getIdFornecedor()).removeCasa(idHome);
-            this.fornecedores.get(idFornecedor).addCasa(this.casas.get(idHome).clone());
-        }
-        catch(CasaInteligenteAlreadyExistsException c)
-        {
-            System.out.println("Casa já existe neste fornecedor");
-        }
-        catch (CasaInteligenteNotExistsException e)
-        {
-            System.out.println("Casa não existe neste fornecedor");
-        }
+
+        if (this.fornecedores.get(this.casas.get(idHome).getIdFornecedor()).removeCasa(idHome) == 1) throw new CasaInteligenteNotExistsException("O fornecedor nao possui a casa");
+        this.fornecedores.get(idFornecedor).addCasa(this.casas.get(idHome).clone());
+
     }
+
     public SmartHouses clone(){
         return new SmartHouses(this);
     }

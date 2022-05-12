@@ -3,14 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartHouses.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartHouses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Fornecedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Fornecedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartHouses.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartHouses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartDevice.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/SmartHouses.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Model/CasaInteligente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/Model/CasaInteligente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Model/Fornecedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/Model/Fornecedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Model/SmartHouses.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/Model/SmartHouses.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/UI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,13 +46,10 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ritavaz02/Documentos/POO22-PROJETO&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />

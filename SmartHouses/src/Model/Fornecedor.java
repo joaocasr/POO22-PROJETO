@@ -79,9 +79,10 @@ public class Fornecedor{
         this.formula=f;
     }
 
-    public void addCasa(CasaInteligente casa) throws CasaInteligenteAlreadyExistsException {
-        if(this.hasCasa(casa.getIdHome())) throw new CasaInteligenteAlreadyExistsException ("A casa com id " + casa.getIdHome() + " já existe");
-        else this.allCasas.put(casa.getIdHome(),casa);
+    public int addCasa(CasaInteligente casa){
+        int r=0;
+        if(this.hasCasa(casa.getIdHome())) r=1;
+        return r;
     }
 
     public boolean hasCasa(String idCasa)
@@ -89,10 +90,11 @@ public class Fornecedor{
         return this.allCasas.containsKey(idCasa);
     }
 
-    public void removeCasa(String idCasa) throws CasaInteligenteNotExistsException
-    {
-        if(!this.hasCasa(idCasa)) throw new CasaInteligenteNotExistsException ("A casa com id " + idCasa + " não existe");
-        this.allCasas.remove(idCasa);
+    public int removeCasa(String idCasa){
+        int r=0;
+        if(!this.hasCasa(idCasa)) r=1;
+        else this.allCasas.remove(idCasa);
+        return r;
     }
 
     public Map<String,CasaInteligente> getAllCasas(){

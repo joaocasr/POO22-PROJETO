@@ -152,7 +152,7 @@ public class CasaInteligente {
     }
 
     /*Desligar ou Ligar todos os dispositivos*/
-    public void setAll(boolean b) {
+    public void setallDevices(boolean b) {
         this.devices.values().forEach(a->a.setModo(b));
     }
 
@@ -268,10 +268,13 @@ public class CasaInteligente {
         return new CasaInteligente(this);
     }
 
-    public void addDevice(SmartDevice s) throws SmartDeviceAlreadyExistsException{
+    public int addDevice(SmartDevice s) {
+        int r=1;
         if(!existsDeviceHome(s.getID())){
             this.devices.put(s.getID(), s);
-        }else throw new SmartDeviceAlreadyExistsException ("O Model.SmartDevice com id " + s + " já existe");
+            r= 0;
+        }
+        return r;
     }
 
     public SmartDevice getDevice(String s) throws SmartDeviceNotExistsException{
