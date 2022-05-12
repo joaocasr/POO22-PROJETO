@@ -7,6 +7,7 @@ import java.util.*;
 import Model.Exceptions.*;
 import Model.*;
 import Model.Tests.Pedido;
+import Model.SmartHouses;
 
 import java.time.format.DateTimeParseException;
 
@@ -15,15 +16,16 @@ public class UI{
     private SmartHouses smarthouses;
 
     private List <Pedido> pedidos;
+    private List <Pedido> pedidosMudançaFornecedor;
 
     public UI(SmartHouses newSmarthouses)
     {
         this.smarthouses = new SmartHouses(newSmarthouses);
     }
 
-    public void executaListPedidos()
+    public void executaListPedidos(int i)
     {
-        if(this.pedidos!=null)
+        if(i==0 && this.pedidos!=null)
         {
             for(Pedido pedido: this.pedidos)
             {
@@ -31,6 +33,15 @@ public class UI{
             }
             this.pedidos = null;
         }
+        if(i==1 && this.pedidosMudançaFornecedor!=null)
+        {
+            for(Pedido pedido: this.pedidosMudançaFornecedor)
+            {
+                executaPedido(pedido);
+            }
+            this.pedidos = null;
+        }
+
     }
 
     public void executaPedido(Pedido pedido)
@@ -73,6 +84,9 @@ public class UI{
                     linha = pedido.getEspecificacoes().split(",");
                     this.smarthouses.colocaVol(linha[0],Integer.parseInt(linha[1]));
                     break;
+                case "alteraFornecedor":
+                    this.smarthouses.alteraFornecedor(pedido.getId(),pedido.getEspecificacoes());
+
                 default:
                     break;
             }
@@ -178,7 +192,9 @@ public class UI{
                         String date = scanner.nextLine();
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                         LocalDateTime newDate = LocalDateTime.parse(date, formatter);
-                        this.smarthouses.atualiza(newDate);
+                        executaListPedidos(0); // executa os elementos da lista de faturas
+                        this.smarthouses.atualiza(newDate); // cria faturas
+                        executaListPedidos(1);
                         this.smarthouses.setDate(newDate);
                         System.out.println("Data atualizada\n");
                     }
@@ -423,6 +439,7 @@ public class UI{
             List<String> opcoes = new ArrayList<>();
             opcoes.add("Informações gerais da Casa\n");
             opcoes.add("Dispositivos\n");
+            opcoes.add("MuderFornecedor");
             opcoes.add("Voltar");
 
             Menu menu = new Menu(opcoes);
@@ -437,6 +454,10 @@ public class UI{
                         Dispositivos(idHome);
                         break;
                     case 3:
+                        System.out.println("Digite o nome do Fornecedor: ");
+                        String idFornecedor = scanner.nextLine();
+                        this.pedidosMudançaFornecedor.add(new Pedido(smarthouses.getDate(),"casa",idHome,"alteraFornecedor",idFornecedor));
+                    case 4:
                         break;
                 }
             } while (menu.getOpcao() != 0);
@@ -654,6 +675,4 @@ public class UI{
         }
 
     }
-
-
 }

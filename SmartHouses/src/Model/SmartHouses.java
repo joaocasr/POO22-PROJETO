@@ -1,6 +1,7 @@
+package Model;
+
 import Model.Formulas.*;
 import Model.Exceptions.*;
-import Model.*;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -106,6 +107,7 @@ public class SmartHouses implements Serializable {
             //divide a linha em 2
             switch (linhaPartida [0]){
                 case "Casa":
+
                     if(i>1) casas.put(casaMaisRecente.getIdHome(),casaMaisRecente);
                     CasaInteligente ci  = CasaInteligente.parseCasa(linhaPartida[1]);
                     casas.put(ci.getIdHome(),ci.clone());
@@ -175,7 +177,7 @@ public class SmartHouses implements Serializable {
     }
 
     public void guardarEstado() throws IOException {
-        FileOutputStream file = new FileOutputStream("Estado.obj");
+        FileOutputStream file = new FileOutputStream("estado.obj");
         ObjectOutputStream out = new ObjectOutputStream(file);
         out.writeObject(this);
         out.flush();
@@ -332,6 +334,23 @@ public class SmartHouses implements Serializable {
     {
         for(Fornecedor f: this.fornecedores.values())
             f.addFatura(this.Now, newDate);
+    }
+
+    public void alteraFornecedor(String idHome, String idFornecedor)
+    {
+        this.casas.get(idHome).setIdFornecedor(idFornecedor);
+        try {
+            this.fornecedores.get(this.casas.get(idHome).getIdFornecedor()).removeCasa(idHome);
+            this.fornecedores.get(idFornecedor).addCasa(this.casas.get(idHome).clone());
+        }
+        catch(CasaInteligenteAlreadyExistsException c)
+        {
+            System.out.println("Casa já existe neste fornecedor");
+        }
+        catch (CasaInteligenteNotExistsException e)
+        {
+            System.out.println("Casa não existe neste fornecedor");
+        }
     }
     public SmartHouses clone(){
         return new SmartHouses(this);

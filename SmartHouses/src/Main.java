@@ -1,3 +1,5 @@
+import Model.SmartHouses;
+
 public class Main {
     public static void main(String[] args) {
         SmartHouses smartHouses = new SmartHouses();
@@ -5,7 +7,7 @@ public class Main {
 
 
       /*  try{
-            smartHouses.parser("SmartHouses/src/logs.txt");
+            smartHouses.parser("Model.SmartHouses/src/logs.txt");
         } catch (Model.Exceptions.LinhaException msg) {
             System.out.println("Nao foi possivel carregar a aplicação.");
         }*/

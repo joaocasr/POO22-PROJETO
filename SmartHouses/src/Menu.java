@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import Model.*;
 
@@ -40,16 +41,27 @@ public class Menu {
 
     private int lerOpcao() {
         int op;
-        Scanner scanner = new Scanner(System.in);
+        Scanner is = new Scanner(System.in);
 
-        System.out.print("\n Selecione uma opção: ");
-        op = scanner.nextInt();
+        System.out.print("Digite a opção: ");
+        try {
+            String line = is.nextLine();
+            op = Integer.parseInt(line);
+        }
+        catch (NumberFormatException e) { // Não foi inscrito um int
+            op = -1;
+        }
+        catch (NoSuchElementException f)
+        {
+            op = -1;
+        }
         if (op<0 || op>this.opcoes.size()) {
-            System.out.println("A opção selecionada é inválida.");
+            System.out.println("Opção Inválida!!!");
             op = -1;
         }
         return op;
     }
+
 
     public ArrayList<String> getOpcoes() {
         return new ArrayList<>(this.opcoes);
