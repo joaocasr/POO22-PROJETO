@@ -24,7 +24,7 @@ public class SmartHouses implements Serializable {
         this.casas = new HashMap<>();
         this.dispositivos = new HashMap<>();
         this.fornecedores = new HashMap<>();
-
+        this.Now = java.time.LocalDateTime.now();
     }
 
     public SmartHouses(Map<String,CasaInteligente> casas, Map<String,SmartDevice> dispositivos,Map<String,Fornecedor> fornecedores, LocalDateTime date){
@@ -123,7 +123,7 @@ public class SmartHouses implements Serializable {
                     divisao = linhaPartida[1];
                     casaMaisRecente.addRoom(divisao);
                     break;
-                case "Model.SmartBulb":
+                case "SmartBulb":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartBulb.parseSmartBulb(linhaPartida[1]);
                     try {
@@ -135,7 +135,7 @@ public class SmartHouses implements Serializable {
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
-                case "Model.SmartCamera":
+                case "SmartCamera":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartCamera.parseSmartCamera(linhaPartida[1]);
                     try {
@@ -147,7 +147,7 @@ public class SmartHouses implements Serializable {
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
-                case "Model.SmartSpeaker":
+                case "SmartSpeaker":
                     if (divisao == null) throw new LinhaException("Linha Inválida!");
                     sd = SmartSpeaker.parseSmartSpeaker(linhaPartida[1]);
                     try {
@@ -159,7 +159,7 @@ public class SmartHouses implements Serializable {
                     casaMaisRecente.addToRoom(divisao, sd.getID());
                     dispositivos.put(sd.getID(),sd);
                     break;
-                case "Model.Fornecedor":
+                case "Fornecedor":
                     Fornecedor f = Fornecedor.parseFornecedor(linhaPartida[1],formulas);
                     fornecedores.put(f.getId(),f.clone());
                     //System.out.println(fornecedores.get("Iberdrola").getId());
@@ -235,6 +235,10 @@ public class SmartHouses implements Serializable {
         return this.casas.containsKey(idHome);
     }
 
+    public boolean existsHomeInFornecedor(String idHome, String idFornecedor){
+        return this.fornecedores.get(idFornecedor).hasCasa(idHome);
+    }
+
     public boolean existeDeviceHomes(String deviceId){
         boolean exists = false;
         long r = this.casas.values().stream().filter((e)->e.existsDeviceHome(deviceId)).count();
@@ -242,13 +246,20 @@ public class SmartHouses implements Serializable {
         return exists;
     }
 
+    public boolean existeDeviceInHome(String deviceId, String idHome){
+        boolean exists = false;
+        if(this.casas.get(idHome).hasDevice(deviceId));
+        { exists=true;}
+        return exists;
+    }
+
     public void adicionaHome(CasaInteligente ci){
         this.casas.put(ci.getIdHome(),ci.clone());
     }
 
-    public int removeHome(String idHome){
+    public int removeHome(String idHome, String idFornecedor){
         int r=1;
-        if(this.casas.containsKey(idHome)) {
+        if(this.fornecedores.get(idFornecedor).hasCasa(idHome)) {
             r=0;
             this.casas.remove(idHome);
         }

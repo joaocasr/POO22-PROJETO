@@ -10,8 +10,13 @@ public abstract class SmartDevice {
     private double consumoBase;
 
 
-    public SmartDevice(String id) {
+    public SmartDevice(String id, boolean modo, double consumoBase)
+    {
         this.id = id;
+        this.modo=modo;
+        this.consumoBase = consumoBase;
+        if(modo==true) this.timeOn=java.time.LocalDateTime.now();
+        this.timeOff=null;
     }
 
     public SmartDevice(String s, boolean b,LocalDateTime timeon,LocalDateTime timeoff,double consumoBase) {

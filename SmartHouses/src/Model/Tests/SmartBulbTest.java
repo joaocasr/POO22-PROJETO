@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-
+/*
 public class SmartBulbTest 
 {
     public SmartBulbTest()
@@ -119,8 +119,7 @@ public class SmartBulbTest
         smartBulb.changetoNeutral();
         Assertions.assertEquals(SmartBulb.Mode.NEUTRAL, smartBulb.getMode());
     }
-/*
-    @Test
+   @Test
     private void testCalculaCold()
     {
 
@@ -145,7 +144,7 @@ public class SmartBulbTest
     public static Model.SmartBulb parseSmartBulb(String line){
 
     }
-*/
+
 
     @Test
     public void testToString() {
@@ -175,3 +174,4 @@ public class SmartBulbTest
         if(bulb.equals(bulb.clone())==false) System.out.print("Clone Errado");
     }
 }
+*/

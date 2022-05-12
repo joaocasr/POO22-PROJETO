@@ -37,10 +37,16 @@ public class SmartBulb extends SmartDevice{
     private static final double ccold = vfixo + factorCold;
 
 
-    public SmartBulb(String id)
-    {
-        super(id);
-        this.dimensao = 5;
+    //public SmartBulb(String id)
+    //{
+    //    super(id);
+    //    this.dimensao = 5;
+    //}
+
+    public SmartBulb(String id,String intensidade, boolean modo , int dim,double consumoBase){
+        super(id,modo,consumoBase);
+        this.mode = fromString(intensidade);
+        this.dimensao = dim;
     }
 
     public SmartBulb(String id,String intensidade, boolean modo , int dim,LocalDateTime timeon ,LocalDateTime timeoff,double consumoBase){
@@ -162,10 +168,11 @@ public class SmartBulb extends SmartDevice{
 
     public static SmartBulb parseSmartBulb(String line){
         String[] parte = line.split(",");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime inicio = LocalDateTime.parse(parte[4], formatter);
-        LocalDateTime fim = LocalDateTime.parse(parte[5], formatter);
-        return new SmartBulb(parte[3],parte[0],Boolean.parseBoolean(parte[6]),Integer.parseInt(parte[1]),inicio,fim,Double.parseDouble(parte[2]));
+        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        //LocalDateTime inicio = LocalDateTime.parse(parte[4], formatter);
+        //LocalDateTime fim = LocalDateTime.parse(parte[5], formatter);
+        //return new SmartBulb(parte[3],parte[0],Boolean.parseBoolean(parte[6]),Integer.parseInt(parte[1]),inicio,fim,Double.parseDouble(parte[2]));
+        return new SmartBulb(parte[3],parte[0],Boolean.parseBoolean(parte[6]),Integer.parseInt(parte[1]),Double.parseDouble(parte[2]));
     }
 //logs: Model.SmartBulb:Neutral,7,9.35,bulb3,2022-03-29 07:38:27,2022-05-31 20:23:44,false
     //    public Model.SmartBulb(String id,String intensidade, boolean modo , int dim,LocalDateTime timeon ,LocalDateTime timeoff){

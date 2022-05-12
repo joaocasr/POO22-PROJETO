@@ -3,8 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartBulb.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartBulb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartDevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartSpeaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartSpeaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartBulbTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartBulbTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartSpeakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartSpeakerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/SmartHouses.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/SmartHouses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/logs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +48,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/ritavaz02/Documentos/POO22-PROJETO"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />

@@ -11,9 +11,16 @@ public class SmartSpeaker extends SmartDevice {
     private String marca;
     private String channel;
 
-    public SmartSpeaker(String id) {
-        super(id);
-        this.volume = 0;
+    //public SmartSpeaker(String id) {
+    //    super(id);
+    //    this.volume = 0;
+    //}
+
+    public SmartSpeaker(String id, boolean modo, int vol, String marca, String canal, double consumoBase) {
+        super(id, modo, consumoBase);
+        this.volume = vol;
+        this.channel = canal;
+        this.marca = marca;
     }
 
     public SmartSpeaker(String id, boolean modo, int vol, String marca, String canal, LocalDateTime timeon, LocalDateTime timeoff,double consumoBase) {
@@ -79,10 +86,11 @@ public class SmartSpeaker extends SmartDevice {
 
     public static SmartSpeaker parseSmartSpeaker(String line){
         String[] parte = line.split(",");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime inicio = LocalDateTime.parse(parte[5], formatter);
-        LocalDateTime fim = LocalDateTime.parse(parte[6], formatter);
-        return new SmartSpeaker(parte[4],Boolean.parseBoolean(parte[7]),Integer.parseInt(parte[0]),parte[2],parte[1],inicio,fim,Double.parseDouble(parte[3]));
+        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        //LocalDateTime inicio = LocalDateTime.parse(parte[5], formatter);
+        //LocalDateTime fim = LocalDateTime.parse(parte[6], formatter);
+        //return new SmartSpeaker(parte[4],Boolean.parseBoolean(parte[7]),Integer.parseInt(parte[0]),parte[2],parte[1],inicio,fim,Double.parseDouble(parte[3]));
+        return new SmartSpeaker(parte[4],Boolean.parseBoolean(parte[7]),Integer.parseInt(parte[0]),parte[2],parte[1],Double.parseDouble(parte[3]));
     }
     //Model.SmartSpeaker:2,Radio Renascenca,LG,5.54,speaker1,2022-04-11 09:23:48,2022-05-30 06:33:00,false
     //    public Model.SmartSpeaker(String id, boolean modo, int vol, String marca, String canal, LocalDateTime timeon, LocalDateTime timeoff) {

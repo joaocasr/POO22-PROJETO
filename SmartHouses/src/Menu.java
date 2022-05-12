@@ -20,7 +20,7 @@ public class Menu {
     }
 
     private void showMenu() {
-        System.out.println(" ********************************** Smart Houses ********************************** ");
+        System.out.println(" ************************************************************************** ");
         for (int i=0; i<this.opcoes.size(); i++) {
             if(i != (this.opcoes.size()-1)) {
                 System.out.print("| * ");

@@ -209,6 +209,12 @@ public class CasaInteligente {
         }
     }
 
+    public boolean hasDevice (String id) {
+        boolean exists = false;
+        if (this.devices.containsKey(id)) {exists = true;}
+        return exists;
+    }
+
     public boolean roomHasDevice (String divisao, String id) {
         boolean exists = false;
         if (this.locations.containsKey(divisao)) {
@@ -295,7 +301,7 @@ public class CasaInteligente {
     public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor) throws LogNotExistsException
     {
         double consumo = 0;
-        addAllLogsAllDays(init,finit);
+        //addAllLogsAllDays(init,finit);
 
         while(init.plusDays(1).compareTo(finit)!=0)
                 consumo += this.consumoAllDevicesDia(init);
