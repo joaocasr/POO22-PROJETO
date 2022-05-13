@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 
 public class Log {
-    private String id;
     private LocalDateTime dia;
     private String idDevice;
     private Boolean on; // true se o dispositivo está ligado
@@ -15,16 +14,14 @@ public class Log {
 
     public Log()
     {
-        this.id = "";
         this.dia = null;
         this.idDevice = "";
         this.on = false;
         this.devices = new HashMap<>();
     }
 
-    public Log(String id, LocalDateTime dia, String idDevice, Boolean on)
+    public Log(LocalDateTime dia, String idDevice, Boolean on)
     {
-        this.id = id;
         this.dia = dia;
         this.idDevice = idDevice;
         this.on = on;
@@ -33,19 +30,10 @@ public class Log {
 
     public Log(Log l)
     {
-        this.id = l.getIdLog();
         this.dia = l.getDia();
         this.idDevice = l.getIdDevice();
         this.devices.get(idDevice).setModo(on);
         setDevices(l.getDevices());
-    }
-
-    public String getIdLog() {
-        return this.id;
-    }
-
-    public void setIdLog(String id) {
-        this.id = id;
     }
 
     public String getIdDevice() {
@@ -83,8 +71,7 @@ public class Log {
         Log l = (Log) o;
         return this.idDevice.equals(l.getIdDevice()) &&
                 this.dia.equals(l.getDia()) &&
-                this.on == l.getOn() &&
-                this.id == l.getIdLog();
+                this.on == l.getOn();
     }
 
     public Log clone() {
@@ -94,8 +81,7 @@ public class Log {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append("\tModel.Log: ").append(this.id).append("; ")
-                .append("\tDia: ").append(this.dia).append("; ")
+        sb.append("\tDia: ").append(this.dia).append("; ")
                 .append("\tDevice: ").append(this.idDevice).append("; ")
                 .append("\tEstá ligado?: ").append(this.on).append("; ");
         return sb.toString();

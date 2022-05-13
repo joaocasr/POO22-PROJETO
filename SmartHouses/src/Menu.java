@@ -75,4 +75,8 @@ public class Menu {
         return this.opcao;
     }
 
+    public void setOpcao(int i) {
+        this.opcao = i;
+    }
+
 }

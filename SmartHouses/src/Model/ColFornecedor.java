@@ -131,6 +131,7 @@ public class ColFornecedor {
             }
             //System.out.println("Fornecedor: " + f.getId() + ": total = " + total);
         }
+        if(id.compareTo("")==0) id = "Não há faturas registadas.";
         return id;
     }
 

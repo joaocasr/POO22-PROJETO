@@ -304,7 +304,8 @@ public class CasaInteligente {
     public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor) throws LogNotExistsException
     {
         double consumo = 0;
-        //addAllLogsAllDays(init,finit);
+
+
 
         while(init.plusDays(1).compareTo(finit)!=0)
                 consumo += this.consumoAllDevicesDia(init);
@@ -373,39 +374,36 @@ public class CasaInteligente {
         return this.logs.containsKey(dia.toString());
     }
 
-    //se o log de um dispositivo já existir, elimina-se e coloca-se o novo
-    public void addLog(Log g) throws LogNotExistsException
+
+    public void addLog(Log g) throws LogAlreadyExistsException
     {
-        if(this.hasLog(g.getIdLog()))
-            removeLog(g.getIdLog());
-        
-        this.logs.get(g.getIdLog()).add(g.clone());
-        
+        if(this.logs.get(g.getDia()).contains(g)) throw new LogAlreadyExistsException("O log " + g + "já existe");
+        this.logs.get(g.getDia()).add(g.clone());
     }
 
-    public void removeLog(String g) throws LogNotExistsException
-    {
-        if(!this.hasLog(g)) throw new LogNotExistsException ("O log " + g + " não existe");
-        else if(this.logs.containsKey(g))
-        {
-            for(Log a: this.logs.get(g))
-            {
-                if(g.compareTo(a.getIdLog())==0)
-                    this.logs.get(g).remove(a);
-            }
-        }
-    }
+    //public void removeLog(String g) throws LogNotExistsException
+    //{
+    //    if(!this.hasLog(g)) throw new LogNotExistsException ("O log " + g + " não existe");
+    //    else if(this.logs.containsKey(g))
+    //    {
+    //        for(Log a: this.logs.get(g))
+    //        {
+    //            if(g.compareTo(a.getDia())==0)
+    //                this.logs.get(g).remove(a);
+    //        }
+    //    }
+    //}
 
-    public void addAllLogs(LocalDateTime dia) throws LogNotExistsException
+    public void addAllLogs(LocalDateTime dia) throws LogAlreadyExistsException
     {
         for(SmartDevice sd: this.devices.values())
         {
-            Log l = new Log(dia.toString(),dia,sd.getID(),sd.getModo());
-            addLog(l);
+            Log l = new Log(dia,sd.getID(),sd.getModo());
+            addLog(l.clone());
         } 
     }
 
-    public void addAllLogsAllDays(LocalDateTime init, LocalDateTime finit) throws LogNotExistsException
+    public void addAllLogsAllDays(LocalDateTime init, LocalDateTime finit) throws LogAlreadyExistsException
     {
         while(init.plusDays(1).compareTo(finit)!=0)
             if(!hasLogByDay(init))        

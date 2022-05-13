@@ -324,6 +324,26 @@ public class SmartHouses implements Serializable {
 
     }
 
+    public void setAllDevicesHome(String idHome, boolean modo)
+    {
+        this.casas.get(idHome).setallDevices(modo);
+    }
+
+    public void addLogExecute(String idHome, Log g) throws LogAlreadyExistsException
+    {
+        this.casas.get(idHome).addLog(g);
+    }
+
+    public void addLogChangeMode(String idHome, LocalDateTime date, Boolean mode) throws LogAlreadyExistsException
+    {
+        CasaInteligente ci = this.casas.get(idHome);
+        for(SmartDevice s: ci.getDevices().values())
+        {
+            ci.addLog(new Log(date,s.getID(),mode));
+        }
+    }
+
+
     public SmartHouses clone(){
         return new SmartHouses(this);
     }
