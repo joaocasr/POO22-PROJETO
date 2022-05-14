@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import Model.Exceptions.*;
 import Model.*;
-import Model.Tests.Pedido;
+import Model.Pedido;
 import Model.SmartHouses;
 
 import java.time.format.DateTimeParseException;
@@ -250,7 +250,7 @@ public class UI{
         opcoes.add("Configurações\n");
         opcoes.add("SmartBulb - Tonalidade\n");
         opcoes.add("SmartSpeaker - Volume\n");
-        opcoes.add("Ligar/Desligar todos os dispositivos");
+        opcoes.add("Ligar/Desligar todos os dispositivos\n");
         opcoes.add("Consultar dispositivos\n");
         opcoes.add("Voltar");
 
@@ -368,7 +368,7 @@ public class UI{
         }else{
             System.out.println("O dispositivos já existe!");
         }
-        scanner.close();
+        //scanner.close();
     }
 
 
@@ -393,7 +393,7 @@ public class UI{
         }else{
             System.out.println("O device já existe!");
         }
-        scanner.close();
+        //scanner.close();
     }
 
     public void adicionaSpeaker(String idHome){
@@ -420,7 +420,7 @@ public class UI{
         }else{
             System.out.println("O device já existe!");
         }
-        scanner.close();
+        //scanner.close();
     }
 
     public void removeDispositivo(String idHome) {
@@ -445,7 +445,7 @@ public class UI{
             this.pedidos.add(new Pedido(smarthouses.getDate(),"fornecedor",idFornecedor,"removeCasas",idHome));
         }
         else System.out.println("A casa que digitou nao existe.");
-        scanner.close();
+        //scanner.close();
     }
 
     public void removeFornecedores() {
@@ -493,7 +493,7 @@ public class UI{
             } while (menu.getOpcao() != 0);
         }
         else System.out.println("A casa que digitou não existe.");
-        scanner.close();
+        //scanner.close();
     }
 
     public void ligaDesliga(String idHome){
@@ -507,7 +507,7 @@ public class UI{
             this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"ligaDesliga",idDevice+","+modo));
         }
         else System.out.println("O dispositivo que digitou não existe nesta casa.");
-        scanner.close();
+        //scanner.close();
     }
     public void tonBulb(String idHome){
         Scanner scanner = new Scanner(System.in);
@@ -533,7 +533,7 @@ public class UI{
             this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"volSpk",idDevice+","+vol));
         }
         else System.out.println("O dispositivo que digitou não existe nesta casa.");
-        scanner.close();
+        //scanner.close();
     }
 
     public void consultaDispositivos(String idHome){
@@ -574,7 +574,7 @@ public class UI{
             this.pedidos.add(new Pedido(smarthouses.getDate(),"fornecedor",idFornecedor,"adicionaCasas",idHome+","+morada+","+nif+","+proprietario+","+divisoes));
         }
         else System.out.println("Casa com esse id já existe");
-        scanner.close();
+        //scanner.close();
     }
 
     public void adicionarDispositivoemCasa(SmartDevice sd, String idHome) throws SmartDeviceAlreadyExistsException{
@@ -588,7 +588,7 @@ public class UI{
 
         this.smarthouses.adicionaHome(ci);
 
-        scanner.close();
+        //scanner.close();
     }
 
     public void adicionaFornecedores(){

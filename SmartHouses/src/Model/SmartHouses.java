@@ -229,9 +229,8 @@ public class SmartHouses implements Serializable {
     }
 
     public boolean existeDeviceInHome(String deviceId, String idHome){
-        boolean exists = false;
-        if(this.casas.get(idHome).hasDevice(deviceId));
-        { exists=true;}
+        boolean exists=false;
+        if(this.casas.get(idHome).hasDevice(deviceId)) exists=true;
         return exists;
     }
 
