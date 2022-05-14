@@ -108,8 +108,6 @@ public class Fornecedor{
 
     public static Fornecedor parseFornecedor(String line, Map<String, FormulaEnergia> formulas){
         String[] parte = line.split(",");
-        //EDP Comercial,0.16
-        //System.out.println(formulas.get(parte[0]));
         return new Fornecedor(Double.parseDouble(parte[1]), parte[0], formulas.get(parte[0]));
     }
 
@@ -144,9 +142,7 @@ public class Fornecedor{
         double max = 0, t = 0;
         for(CasaInteligente c: this.allCasas.values())
         {
-            while(init.plusDays(1).compareTo(finit)!=0)
-                t += c.consumoAllDevicesDia(init);
-            
+            t = c.calculaConsumo(init,finit);
             if(max < t) 
             {
                 max = t; 
@@ -156,14 +152,9 @@ public class Fornecedor{
         return id;
     }
 
-    public double getValorFornecedor(String idCasa, LocalDateTime init, LocalDateTime finit)
+    public double getValorFornecedor(String idCasa, LocalDateTime init, LocalDateTime finit, double consumo)
     {
-        double consumo = 0;
         CasaInteligente casa = this.getCasaWithoutExceptions(idCasa);
-
-        while(init.plusDays(1).compareTo(finit)!=0)
-                consumo += casa.consumoAllDevicesDia(init);
-
 
         if(casa.numeroDispositivos()<10)
             return formula.calculo(this.base, this.getImposto(), consumo, this.multiplicador);
@@ -175,7 +166,7 @@ public class Fornecedor{
     {
         for(CasaInteligente c: this.allCasas.values())
         {
-            c.addFatura(this.id, init, finit, this.getValorFornecedor(c.getIdHome(),init,finit));
+            c.addFatura(this.id, init, finit, getValorFornecedor(c.getIdHome(),init,finit,c.calculaConsumo(init,finit)));
         }
     }
 
@@ -196,7 +187,7 @@ public class Fornecedor{
         double t = 0;
         for(CasaInteligente c: this.allCasas.values())
         {
-            t += getValorFornecedor(c.getIdHome(),init,finit);
+            t += getValorFornecedor(c.getIdHome(),init,finit,c.calculaConsumo(init,finit));
         }
         return t;
     }

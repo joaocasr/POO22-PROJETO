@@ -3,12 +3,12 @@ package Model;
 import Model.Exceptions.*;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.time.temporal.ChronoUnit;
 
 public class CasaInteligente {
 
@@ -18,7 +18,7 @@ public class CasaInteligente {
     private int NIF;
     private Map<String, SmartDevice> devices; // identificador -> Model.SmartDevice
     private Map<String, List<String>> locations; // Espaço -> Lista codigo dos devices
-    private Map<String, List<Log>> logs; // identificador -> Dia
+    private Map<String, List<Log>> logs; // identificador -> idDispositivo
     private Map<String, Fatura> faturas;
     private String idFornecedor;
 
@@ -164,12 +164,6 @@ public class CasaInteligente {
         }
     }
 
-    /*Calcular o consumo total de uma casa*/
-    public double consumoTotalHome(){
-        return this.devices.entrySet().stream().mapToDouble((e)->e.getValue().consumoDiario()).sum();
-    }
-
-
     public int numeroDispositivos(){
         return this.locations.entrySet().stream().mapToInt((e)->e.getValue().size()).sum();
     }
@@ -210,9 +204,7 @@ public class CasaInteligente {
     }
 
     public boolean hasDevice (String id) {
-        boolean exists = false;
-        if (this.devices.containsKey(id)) {exists = true;}
-        return exists;
+        return this.devices.containsKey(id);
     }
 
     public boolean roomHasDevice (String divisao, String id) {
@@ -300,23 +292,54 @@ public class CasaInteligente {
         }
 
     }
-
-    public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor) throws LogNotExistsException
+    public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor)
     {
-        double consumo = 0;
 
+        Fatura f = new Fatura(calculaConsumo(init,finit),idHome+":"+init+" to "+finit, init, finit, morada, NIF, idFornecedor, valor);
+        this.faturas.put(f.getIdFatura(),f.clone());
 
-
-        while(init.plusDays(1).compareTo(finit)!=0)
-                consumo += this.consumoAllDevicesDia(init);
-        Fatura f = new Fatura(consumo,idHome+":"+init+" to "+finit, init, finit, morada, NIF, idFornecedor, valor);
-        this.faturas.put(f.getIdFatura(),f);
     }
 
-    public void addFatura(Fatura f) throws FaturaAlreadyExistsException
+    public double calculaConsumo(LocalDateTime init, LocalDateTime finit)
     {
-        if(hasFatura(f.getIdFatura())) throw new FaturaAlreadyExistsException("A fatura com o id " + f.getIdFatura() + " já existe");
-        else this.faturas.put(f.getIdFatura(),f);
+        boolean flag = false;
+        int i, len;
+        double consumo=0;
+
+        for(SmartDevice sd: this.devices.values())
+        {
+            len = this.logs.get(sd.getID()).size();
+            if(len>0)
+            {
+                i=0;
+                Log l = this.logs.get(sd.getID()).get(i);
+                while (i < len && l.getDia().compareTo(init) <= 0) {
+                    flag = l.getMode();
+                    i++;
+                    l = this.logs.get(sd.getID()).get(i);
+                }
+                if(i<len)
+                {
+                    while(i<len && this.logs.get(sd.getID()).get(i).getDia().compareTo(finit) < 0)
+                    {
+                        if(!this.logs.get(sd.getID()).get(i).getMode() && flag) {
+                            consumo += sd.consumoDiario() * ChronoUnit.DAYS.between(init,this.logs.get(sd.getID()).get(i).getDia());
+                            flag = false;
+                        }
+                        if(this.logs.get(sd.getID()).get(i).getMode() && !flag)
+                        {
+                            flag = true;
+                            init = this.logs.get(sd.getID()).get(i).getDia();
+                        }
+                        i++;
+                    }
+                    if (i!=len && flag)
+                        consumo += sd.consumoDiario() * ChronoUnit.DAYS.between(init, finit);
+                }
+            }
+
+        }
+        return consumo;
     }
 
     public boolean hasFatura(String idFatura)
@@ -343,29 +366,6 @@ public class CasaInteligente {
         return faturas;
     }
 
-
-    public long ligadoPeriodoTempo(LocalDateTime init, LocalDateTime finit)
-    {
-        List<Long> time = new ArrayList<>();
-        long sum = 0;
-        for (SmartDevice sd : this.devices.values())
-        {
-            if(sd.getTimeOn().compareTo(init)<=0 && sd.getTimeOff().compareTo(finit)>=0)
-                time.add(ChronoUnit.HOURS.between(init, finit));
-            else if(sd.getTimeOn().compareTo(init)>=0 && sd.getTimeOff().compareTo(finit)>=0)
-                time.add(ChronoUnit.HOURS.between(sd.getTimeOn(), finit));
-            else if(sd.getTimeOn().compareTo(init)<=0 && sd.getTimeOff().compareTo(finit)<=0)
-                time.add(ChronoUnit.HOURS.between(init, sd.getTimeOff()));
-            else if(sd.getTimeOn().compareTo(init)>=0 && sd.getTimeOff().compareTo(finit)<=0)
-                time.add(ChronoUnit.HOURS.between(sd.getTimeOn(), sd.getTimeOff()));
-        }
-
-        for(Long i: time)
-            sum += i;
-
-        return sum;
-    }
-
     public boolean hasLog(String s) {
         return (this.logs.get(s) != null);
     }
@@ -375,56 +375,38 @@ public class CasaInteligente {
     }
 
 
-    public void addLog(Log g) throws LogAlreadyExistsException
+    public void addLog(String idDevice,Log g) throws LogAlreadyExistsException
     {
-        if(this.logs.get(g.getDia()).contains(g)) throw new LogAlreadyExistsException("O log " + g + "já existe");
-        this.logs.get(g.getDia()).add(g.clone());
-    }
-
-    //public void removeLog(String g) throws LogNotExistsException
-    //{
-    //    if(!this.hasLog(g)) throw new LogNotExistsException ("O log " + g + " não existe");
-    //    else if(this.logs.containsKey(g))
-    //    {
-    //        for(Log a: this.logs.get(g))
-    //        {
-    //            if(g.compareTo(a.getDia())==0)
-    //                this.logs.get(g).remove(a);
-    //        }
-    //    }
-    //}
-
-    public void addAllLogs(LocalDateTime dia) throws LogAlreadyExistsException
-    {
-        for(SmartDevice sd: this.devices.values())
+        if(this.logs.get(idDevice).contains(g)) throw new LogAlreadyExistsException("O log " + g + "já existe");
+        if(this.logs.get(idDevice).size()==0)
         {
-            Log l = new Log(dia,sd.getID(),sd.getModo());
-            addLog(l.clone());
-        } 
+            List newLogD = new ArrayList();
+            newLogD.add(g.clone());
+            this.logs.put(idDevice,newLogD);
+        }
+        else this.logs.get(idDevice).add(g.clone());
     }
 
-    public void addAllLogsAllDays(LocalDateTime init, LocalDateTime finit) throws LogAlreadyExistsException
+    public void addLog(LocalDateTime date, String idDevice, boolean mode)
     {
-        while(init.plusDays(1).compareTo(finit)!=0)
-            if(!hasLogByDay(init))        
-                addAllLogs(init);
+        Log g = new Log(date,mode);
+        if(this.logs.get(idDevice).size()==0)
+        {
+            List newLogD = new ArrayList();
+            newLogD.add(g.clone());
+            this.logs.put(idDevice,newLogD);
+        }
+        else
+        {
+            this.logs.get(idDevice).add(g.clone());
+        }
     }
 
-
-    public List<Log> getAllLogs(LocalDateTime init, LocalDateTime finit)
+    // quando se remove um dispositivo, removesse também todos os logs associados a ele da hash de logs
+    public void removeLog(String idDevice) throws LogNotExistsException
     {
-        List<Log> all = new ArrayList<>();
-
-        this.logs.values().forEach((lista)->{
-            for(Log l: lista)
-            {
-                if(l.getDia().compareTo(init)>=0 && l.getDia().compareTo(finit)<=0)
-                    all.add(l.clone());
-            }
-        });
-
-        return all;
-
+        if(!this.hasLog(idDevice)) throw new LogNotExistsException ("Não existem logs no device " + idDevice);
+        else this.logs.remove(idDevice);
     }
 
     public int numberDevicesOn(LocalDateTime dia)
@@ -433,22 +415,9 @@ public class CasaInteligente {
         
         for(Log l: this.logs.get(dia.toString()))
         {
-            if(l.getOn() && l.getDia().equals(dia))
+            if(l.getMode() && l.getDia().equals(dia))
                 count++;
         } 
         return count;
     }
-
-    public double consumoAllDevicesDia(LocalDateTime dia)
-    {
-        double count = 0;
-        if(this.logs.get(dia.toString())!=null){
-        for(Log l: this.logs.get(dia.toString()))
-        {
-            if(l.getOn() && l.getDia().equals(dia))
-                count+=devices.get(l.getIdDevice()).consumoDiario();
-        } }
-        return count;
-    }
-
 }

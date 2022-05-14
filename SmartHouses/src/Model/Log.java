@@ -1,47 +1,27 @@
 package Model;
 
 import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.stream.Collectors;
-
 
 public class Log {
     private LocalDateTime dia;
-    private String idDevice;
-    private Boolean on; // true se o dispositivo está ligado
-    private Map<String, SmartDevice> devices;
+    private Boolean mode; // true se o dispositivo está ligado
 
     public Log()
     {
         this.dia = null;
-        this.idDevice = "";
-        this.on = false;
-        this.devices = new HashMap<>();
+        this.mode = false;
     }
 
-    public Log(LocalDateTime dia, String idDevice, Boolean on)
+    public Log(LocalDateTime dia, Boolean mode)
     {
         this.dia = dia;
-        this.idDevice = idDevice;
-        this.on = on;
-        this.devices = new HashMap<>();
+        this.mode = mode;
     }
 
     public Log(Log l)
     {
+        this.mode = l.getMode();
         this.dia = l.getDia();
-        this.idDevice = l.getIdDevice();
-        this.devices.get(idDevice).setModo(on);
-        setDevices(l.getDevices());
-    }
-
-    public String getIdDevice() {
-        return this.idDevice;
-    }
-
-    public void setIdDevice(String id) {
-        this.idDevice = id;
     }
 
     public LocalDateTime getDia() {
@@ -52,26 +32,16 @@ public class Log {
         this.dia = dia;
     }
 
-    public Boolean getOn() {
-        return this.on;
-    }
-
-    public Map<String,SmartDevice> getDevices(){
-        return this.devices.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,(e)->e.getValue().clone()));
-    }
-    
-    public void setDevices(Map<String,SmartDevice> mdevices){
-        this.devices = new HashMap<>();
-        mdevices.forEach((String,SmartDevice)->this.devices.put(String,SmartDevice.clone()));
+    public Boolean getMode() {
+        return this.mode;
     }
 
     public boolean equals(Object o){
         if(o==this) return true;
         if(o==null || o.getClass()!=this.getClass()) return false;
         Log l = (Log) o;
-        return this.idDevice.equals(l.getIdDevice()) &&
-                this.dia.equals(l.getDia()) &&
-                this.on == l.getOn();
+        return this.dia.equals(l.getDia()) &&
+                this.mode == l.getMode();
     }
 
     public Log clone() {
@@ -82,8 +52,7 @@ public class Log {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
         sb.append("\tDia: ").append(this.dia).append("; ")
-                .append("\tDevice: ").append(this.idDevice).append("; ")
-                .append("\tEstá ligado?: ").append(this.on).append("; ");
+                .append("\tEstá ligado?: ").append(this.mode).append("; ");
         return sb.toString();
     }
 

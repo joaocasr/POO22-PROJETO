@@ -55,11 +55,12 @@ public class UI{
             {
                 case "adicionaBulb":
                     linha = pedido.getEspecificacoes().split(",");
+                    //linha = id+","+on+","+tonalidade+","+dimensao+","+consumo
                     SmartDevice sdB = new SmartBulb(linha[0], linha[1], Boolean.parseBoolean(linha[2]), Integer.parseInt(linha[3]),Double.parseDouble(linha[4]));
                     this.smarthouses.adicionaDevice(linha[0], sdB);
                     try {
                         adicionarDispositivoemCasa(sdB,pedido.getId());
-                        this.smarthouses.addLogExecute(pedido.getId(),new Log(pedido.getDate(),linha[0],Boolean.parseBoolean(linha[2])));
+                        this.smarthouses.addLogExecute(pedido.getId(),linha[0],new Log(pedido.getDate(),Boolean.parseBoolean(linha[2])));
                     }
                     catch (SmartDeviceAlreadyExistsException | LogAlreadyExistsException e) {
                         System.out.println(e.getMessage());
@@ -71,7 +72,7 @@ public class UI{
                     this.smarthouses.adicionaDevice(linha[0], sdC);
                     try {
                         adicionarDispositivoemCasa(sdC,pedido.getId());
-                        this.smarthouses.addLogExecute(pedido.getId(),new Log(pedido.getDate(),linha[0],Boolean.parseBoolean(linha[1])));
+                        this.smarthouses.addLogExecute(pedido.getId(),linha[0],new Log(pedido.getDate(),Boolean.parseBoolean(linha[1])));
                     } catch (SmartDeviceAlreadyExistsException | LogAlreadyExistsException e) {
                         System.out.println(e.getMessage());
                     }
@@ -82,13 +83,18 @@ public class UI{
                     this.smarthouses.adicionaDevice(linha[0], sdS);
                     try {
                         adicionarDispositivoemCasa(sdS,pedido.getId());
-                        this.smarthouses.addLogExecute(pedido.getId(),new Log(pedido.getDate(),linha[0],Boolean.parseBoolean(linha[1])));
+                        this.smarthouses.addLogExecute(pedido.getId(),linha[0],new Log(pedido.getDate(),Boolean.parseBoolean(linha[1])));
                     } catch (SmartDeviceAlreadyExistsException | LogAlreadyExistsException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case "removeDispositivo":
-                    this.smarthouses.removeDevice(pedido.getEspecificacoes(),pedido.getId());
+                    try{
+                    this.smarthouses.removeDevice(pedido.getEspecificacoes(),pedido.getId());}
+                    catch (LogNotExistsException e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case "ligaDesliga":
                     linha = pedido.getEspecificacoes().split(",");
@@ -429,7 +435,7 @@ public class UI{
         String idDevice = scanner.nextLine();
         if(this.smarthouses.existeDeviceInHome(idDevice,idHome))
         {
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"removeDispositivo",""));
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"removeDispositivo",idDevice));
         }
         else System.out.println("O device não existe nesta casa.");
         scanner.close();
@@ -520,7 +526,7 @@ public class UI{
             this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"tonBulb",idDevice+","+ton));
         }
         else System.out.println("O dispositivo que digitou não existe nesta casa.");
-        scanner.close();
+        //scanner.close();
     }
 
     public void volSpk(String idHome){

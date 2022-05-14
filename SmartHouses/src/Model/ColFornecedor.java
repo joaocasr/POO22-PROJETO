@@ -100,11 +100,8 @@ public class ColFornecedor {
             if(!idCasa.equals(""))
             {
                 CasaInteligente casa = f.getAllCasas().get(idCasa);
-
-                while(init.plusDays(1).compareTo(finit)!=0)
-                    gasto = casa.consumoAllDevicesDia(init);
-                
-                gasto *= f.getValorFornecedor(idCasa,init,finit);
+                casa.calculaConsumo(init,finit);
+                gasto = f.getValorFornecedor(casa.getIdHome(),init,finit,casa.calculaConsumo(init,finit));
                 if(gasto>max)
                 {
                     max=gasto; 
@@ -129,7 +126,6 @@ public class ColFornecedor {
                 max = total;
                 id = f.getId();
             }
-            //System.out.println("Fornecedor: " + f.getId() + ": total = " + total);
         }
         if(id.compareTo("")==0) id = "Não há faturas registadas.";
         return id;

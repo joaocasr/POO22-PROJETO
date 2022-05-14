@@ -3,6 +3,7 @@ package Model;
 import Model.Formulas.*;
 import Model.Exceptions.*;
 
+import javax.swing.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -190,7 +191,8 @@ public class SmartHouses implements Serializable {
         this.fornecedores.put(id,f.clone());
     }
 
-    public void removeDevice(String idDevice,String idHome) { //id device
+    public void removeDevice(String idDevice,String idHome) throws LogNotExistsException {
+        this.casas.get(idHome).removeLog(idDevice);
         this.dispositivos.remove(idDevice);
         this.casas.get(idHome).removeDispositivoemDivisao(idDevice);
     }
@@ -229,8 +231,9 @@ public class SmartHouses implements Serializable {
     }
 
     public boolean existeDeviceInHome(String deviceId, String idHome){
-        boolean exists=false;
-        if(this.casas.get(idHome).hasDevice(deviceId)) exists=true;
+        boolean exists = false;
+        if(this.casas.get(idHome).hasDevice(deviceId));
+        	exists=true;
         return exists;
     }
 
@@ -328,9 +331,9 @@ public class SmartHouses implements Serializable {
         this.casas.get(idHome).setallDevices(modo);
     }
 
-    public void addLogExecute(String idHome, Log g) throws LogAlreadyExistsException
+    public void addLogExecute(String idHome, String idDevice, Log g) throws LogAlreadyExistsException
     {
-        this.casas.get(idHome).addLog(g);
+        this.casas.get(idHome).addLog(idDevice,g);
     }
 
     public void addLogChangeMode(String idHome, LocalDateTime date, Boolean mode) throws LogAlreadyExistsException
@@ -338,7 +341,7 @@ public class SmartHouses implements Serializable {
         CasaInteligente ci = this.casas.get(idHome);
         for(SmartDevice s: ci.getDevices().values())
         {
-            ci.addLog(new Log(date,s.getID(),mode));
+            ci.addLog(s.getID(),new Log(date,mode));
         }
     }
 
