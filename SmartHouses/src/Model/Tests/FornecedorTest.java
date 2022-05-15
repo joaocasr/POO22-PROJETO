@@ -1,4 +1,5 @@
 package Model.Tests;
+import Model.Formulas.*;
 import Model.Fornecedor;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
@@ -19,9 +20,11 @@ public class FornecedorTest {
     @Test
     public void testConstructor() 
     {
+        FormulaEDP form =  new FormulaEDP();
+
         Fornecedor forn= new Fornecedor("EDP",10);
         assertNotNull(forn);
-        forn= new Fornecedor(10,"EDP",2);
+        forn= new Fornecedor(10,"EDP",form);
         assertNotNull(forn);
         Fornecedor forn2= new Fornecedor(forn);
         assertNotNull(forn2);
@@ -30,7 +33,9 @@ public class FornecedorTest {
     @Test
     public void testSetId()
     {
-        Fornecedor forn= new Fornecedor(10,"EDP",2);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn= new Fornecedor(10,"EDP",form);
         forn.setId("b");
         assertEquals("b", forn.getId());
     }
@@ -38,7 +43,9 @@ public class FornecedorTest {
     @Test
     public void testSetImposto()
     {
-        Fornecedor forn= new Fornecedor(10,"EDP",2);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn= new Fornecedor(10,"EDP",form);
         forn.setImposto(3);
         assertEquals(3, forn.getImposto());
         for (int i=0; i<25; i++) forn.setImposto(i);
@@ -46,21 +53,26 @@ public class FornecedorTest {
     }
 
     @Test
-    public void testGetId() {
-        Fornecedor forn = new Fornecedor(10, "EDP", 2);
+    public void testGetId()
+    {
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn = new Fornecedor(10, "EDP",form);
         assertEquals("EDP", forn.getId());
         forn = new Fornecedor(forn);
         assertEquals("EDP", forn.getId());
-        forn = new Fornecedor(1, "", 0);
+        forn = new Fornecedor(1, "",form);
         assertEquals("", forn.getId());
     }
 
     @Test
     public void testGetImposto() 
     {
-        Fornecedor forn= new Fornecedor(10,"EDP",2);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn= new Fornecedor(10,"EDP",form);
         assertEquals(2, forn.getImposto());
-        forn= new Fornecedor(-2,"EDP",2);
+        forn= new Fornecedor(-2,"EDP",form);
         assertEquals(-2, forn.getImposto());
         forn= new Fornecedor(forn);
         assertEquals(-2, forn.getImposto());
@@ -69,17 +81,21 @@ public class FornecedorTest {
     @Test
     public void testSetFormula()
     {
-        Fornecedor forn= new Fornecedor(10,"EDP",2);
-        forn.setFormula(3);
-        assertEquals(3,forn.getFormula());
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forne = new Fornecedor(10,"EDP",form);
+        forne.setFormula(form);
+        assertEquals(form,forne.getFormula());
 
     }
 
     @Test
     public void testEquals()
     {
-        Fornecedor forn = new Fornecedor(10,"EDP",2);
-        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",3);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn = new Fornecedor(10,"EDP",form);
+        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",form);
         if(forn.equals(forn2)) System.out.print("Equals Errado");
         if(!forn.equals(forn)) System.out.print("Equals Errado");
     }
@@ -87,37 +103,19 @@ public class FornecedorTest {
     @Test
     public void testToString()
     {
-        Fornecedor forn = new Fornecedor(10,"EDP",2);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn = new Fornecedor(10,"EDP",form);
         assertEquals("Id: EDP; Imposto:10;",forn.toString());
     }
     
     @Test
     public void testClone()
     {
-        Fornecedor forn = new Fornecedor(10,"EDP",2);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn = new Fornecedor(10,"EDP",form);
         if(!forn.equals(forn.clone())) System.out.print("Clone Errado");
-    }
-
-    @Test
-    public void testCasas()
-    {
-        Fornecedor forn = new Fornecedor(10,"EDP",2);
-        CasaInteligente c = new CasaInteligente();
-        c.setIdHome(1);
-        forn.addCasa(c);
-        assertTrue(forn.hasCasa(1));
-        forn.removeCasa(1);
-        assertFalse(forn.hasCasa(1));
-
-        CasaInteligente c2 = new CasaInteligente();
-        c2.setIdHome(2);
-        forn.addCasa(c);
-        forn.addCasa(c2);
-
-        c2.setIdHome(1);
-        assertEquals(true, c2.equals(c));
-
-        assertEquals(true,c2.equals(c2.clone()));
     }
 
 }

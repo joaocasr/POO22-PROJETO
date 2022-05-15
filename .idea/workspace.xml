@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartBulb.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartBulb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/CasaInteligenteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/CasaInteligenteTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/ColFornecedorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/ColFornecedorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/FaturaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/FaturaTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/FornecedorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/FornecedorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/LogTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/LogTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartBulbTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartBulbTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartCameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartCameraTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartSpeakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/SmartSpeakerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

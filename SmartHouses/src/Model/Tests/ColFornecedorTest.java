@@ -1,5 +1,6 @@
 package Model.Tests;
 import Model.ColFornecedor;
+import Model.Formulas.FormulaEDP;
 import Model.Fornecedor;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,8 +26,10 @@ public class ColFornecedorTest
         ColFornecedor cf = new ColFornecedor();
         assertNotNull(cf);
 
-        Fornecedor forn = new Fornecedor(10,"EDP",2);
-        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",3);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn = new Fornecedor(10,"EDP",form);
+        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",form);
         
         Map<String,Fornecedor> fornecedores = new HashMap<>();
         fornecedores.put(forn.getId(),forn.clone());
@@ -41,8 +44,10 @@ public class ColFornecedorTest
     @Test
     public void testSetFornecedor()
     {
-        Fornecedor forn = new Fornecedor(10,"EDP",2);
-        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",3);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn = new Fornecedor(10,"EDP",form);
+        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",form);
 
         Map<String,Fornecedor> fornecedores = new HashMap<>();
         fornecedores.put(forn.getId(),forn.clone());
@@ -56,8 +61,10 @@ public class ColFornecedorTest
     @Test
     public void testGetFornecedor()
     {
-        Fornecedor forn = new Fornecedor(10,"EDP",2);
-        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",3);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn = new Fornecedor(10,"EDP",form);
+        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",form);
 
         Map<String,Fornecedor> fornecedores = new HashMap<>();
         fornecedores.put(forn.getId(),forn.clone());
@@ -71,8 +78,10 @@ public class ColFornecedorTest
     @Test
     public void testGetFornecedores()
     {
-        Fornecedor forn = new Fornecedor(10,"EDP",2);
-        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",3);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn = new Fornecedor(10,"EDP",form);
+        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",form);
 
         Map<String,Fornecedor> fornecedores = new HashMap<>();
         fornecedores.put(forn.getId(),forn.clone());
@@ -86,8 +95,10 @@ public class ColFornecedorTest
     @Test
     public void testEquals()
     {
-        Fornecedor forn = new Fornecedor(10,"EDP",2);
-        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",3);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn = new Fornecedor(10,"EDP",form);
+        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",form);
 
         Map<String,Fornecedor> fornecedores1 = new HashMap<>();
         fornecedores1.put(forn.getId(),forn.clone());
@@ -105,7 +116,9 @@ public class ColFornecedorTest
     @Test
     public void testToString()
     {
-        Fornecedor forn = new Fornecedor(10,"EDP",2);
+        FormulaEDP form =  new FormulaEDP();
+
+        Fornecedor forn = new Fornecedor(10,"EDP",form);
 
         Map<String,Fornecedor> fornecedores = new HashMap<>();
         fornecedores.put(forn.getId(),forn.clone());
