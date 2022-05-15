@@ -1,8 +1,11 @@
-import java.util.Map;
+package Model.Tests;
+import Model.ColFornecedor;
+import Model.Fornecedor;
 import java.util.HashMap;
+import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-/*
+
 public class ColFornecedorTest 
 {
     public ColFornecedorTest ()
@@ -95,15 +98,14 @@ public class ColFornecedorTest
         ColFornecedor cf = new ColFornecedor(fornecedores1);
         ColFornecedor cf2 = new ColFornecedor(fornecedores2);
 
-        if(cf.equals(cf2)==true) System.out.print("Equals Errado");
-        if(cf.equals(cf)==false) System.out.print("Equals Errado");
+        if(cf.equals(cf2)) System.out.print("Equals Errado");
+        if(!cf.equals(cf)) System.out.print("Equals Errado");
     }
 
     @Test
     public void testToString()
     {
         Fornecedor forn = new Fornecedor(10,"EDP",2);
-        Fornecedor forn2 = new Fornecedor(15,"Iberdrola",3);
 
         Map<String,Fornecedor> fornecedores = new HashMap<>();
         fornecedores.put(forn.getId(),forn.clone());
@@ -118,8 +120,8 @@ public class ColFornecedorTest
     public void testClone()
     {
         ColFornecedor cf = new ColFornecedor(); 
-        if(cf.equals(cf.clone())==false) System.out.print("Clone Errado");
+        if(!cf.equals(cf.clone())) System.out.print("Clone Errado");
     }
     
 }
-*/
+

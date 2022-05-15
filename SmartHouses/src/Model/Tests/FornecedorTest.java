@@ -1,7 +1,8 @@
+package Model.Tests;
+import Model.Fornecedor;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import java.util.*;
-/*
+
 public class FornecedorTest {
 
     public FornecedorTest()
@@ -18,7 +19,9 @@ public class FornecedorTest {
     @Test
     public void testConstructor() 
     {
-        Fornecedor forn= new Fornecedor(10,"EDP",2);
+        Fornecedor forn= new Fornecedor("EDP",10);
+        assertNotNull(forn);
+        forn= new Fornecedor(10,"EDP",2);
         assertNotNull(forn);
         Fornecedor forn2= new Fornecedor(forn);
         assertNotNull(forn2);
@@ -48,7 +51,7 @@ public class FornecedorTest {
         assertEquals("EDP", forn.getId());
         forn = new Fornecedor(forn);
         assertEquals("EDP", forn.getId());
-        forn = new Fornecedor(1, 2000, "");
+        forn = new Fornecedor(1, "", 0);
         assertEquals("", forn.getId());
     }
 
@@ -57,7 +60,7 @@ public class FornecedorTest {
     {
         Fornecedor forn= new Fornecedor(10,"EDP",2);
         assertEquals(2, forn.getImposto());
-        forn= new Fornecedor(10,"EDP",2);
+        forn= new Fornecedor(-2,"EDP",2);
         assertEquals(-2, forn.getImposto());
         forn= new Fornecedor(forn);
         assertEquals(-2, forn.getImposto());
@@ -77,8 +80,8 @@ public class FornecedorTest {
     {
         Fornecedor forn = new Fornecedor(10,"EDP",2);
         Fornecedor forn2 = new Fornecedor(15,"Iberdrola",3);
-        if(forn.equals(forn2)==true) System.out.print("Equals Errado");
-        if(forn.equals(forn)==false) System.out.print("Equals Errado");
+        if(forn.equals(forn2)) System.out.print("Equals Errado");
+        if(!forn.equals(forn)) System.out.print("Equals Errado");
     }
     
     @Test
@@ -92,7 +95,7 @@ public class FornecedorTest {
     public void testClone()
     {
         Fornecedor forn = new Fornecedor(10,"EDP",2);
-        if(forn.equals(forn.clone())==false) System.out.print("Clone Errado");
+        if(!forn.equals(forn.clone())) System.out.print("Clone Errado");
     }
 
     @Test
@@ -102,9 +105,9 @@ public class FornecedorTest {
         CasaInteligente c = new CasaInteligente();
         c.setIdHome(1);
         forn.addCasa(c);
-        assertEquals(true, forn.hasCasa(1));
+        assertTrue(forn.hasCasa(1));
         forn.removeCasa(1);
-        assertEquals(false, forn.hasCasa(1));
+        assertFalse(forn.hasCasa(1));
 
         CasaInteligente c2 = new CasaInteligente();
         c2.setIdHome(2);
@@ -118,4 +121,3 @@ public class FornecedorTest {
     }
 
 }
-*/

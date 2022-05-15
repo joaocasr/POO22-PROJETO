@@ -130,7 +130,7 @@ public class SmartBulb extends SmartDevice{
         return 1 * ccold;
     }
     //consumo total acumulado
-    private double calculaNeutral(){
+    public double calculaNeutral(){
         return 2 * cneutral;
     }
     /*

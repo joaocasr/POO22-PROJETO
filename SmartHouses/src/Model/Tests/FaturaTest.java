@@ -1,8 +1,9 @@
+package Model.Tests;
+import Model.Fatura;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-/*
+
 public class FaturaTest 
 {
     public FaturaTest()
@@ -158,17 +159,17 @@ public class FaturaTest
     public void testEquals(){
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
         Fatura fat2 = new Fatura(5.0,"fatura2",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
-        if(fat.equals(fat2)==true) System.out.print("Equals Errado");
-        if(fat.equals(fat)==false) System.out.print("Equals Errado");
+        if(fat.equals(fat2)) System.out.print("Equals Errado");
+        if(!fat.equals(fat)) System.out.print("Equals Errado");
     }
 
     @Test
     public void testClone()
     {
         Fatura fat = new Fatura(5.0,"fatura1",LocalDateTime.of(2022,3,25,15,45),LocalDateTime.of(2022,3,25,15,45),"Rua 25 Abril",123456789,"EDP",10.0); 
-        if(fat.equals(fat.clone())==false) System.out.print("Clone Errado");
+        if(!fat.equals(fat.clone())) System.out.print("Clone Errado");
     }
 
 }
 
- */
+
