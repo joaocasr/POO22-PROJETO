@@ -3,7 +3,7 @@ package Model;
 import Model.Formulas.*;
 import Model.Exceptions.*;
 
-import javax.swing.*;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -41,40 +41,6 @@ public class SmartHouses implements Serializable {
         setDispositivos(sh.getDispositivos());
         setFornecedores(sh.getFornecedores());
         this.Now = sh.getDate();
-    }
-
-    public void automatizar(String filename)
-    {
-        String[] linhaPartida;
-        List<String> linhas = lerFicheiro(filename);
-        String aux = "";
-
-        for (String linha : linhas) {
-            //data, dispositivo, accao
-            linhaPartida = linha.split("-", 2);
-            String[] parte = linhaPartida[1].split(",");
-            if(fornecedores.get(parte[0])!=null) { // é um fornecedor
-
-                // pode alteraValorDesconto ou alteraFormula
-                }
-            else if(casas.get(parte[0])!=null){ // é uma casa
-                    if(parte[2]==null) casas.get(parte[0]).setIdFornecedor(parte[1]); //muda de fornecedor
-                    else if(parte[3]==null) {
-                        try {
-                            if(parte[2].equals("setOn"))
-                                casas.get(parte[0]).getDevice(parte[1]).setModo(true);
-                            else casas.get(parte[0]).getDevice(parte[1]).setModo(false);
-                        } catch (SmartDeviceNotExistsException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    // pode adicionar ou retirar dispositivos
-                    // ligar ou desliga-los
-                    // mudar morada
-            }
-
-        }
-
     }
 
     public void parser(String filename) throws LinhaException,SmartDeviceAlreadyExistsException,CasaInteligenteAlreadyExistsException {

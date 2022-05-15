@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import Model.Exceptions.*;
 import Model.*;
@@ -49,18 +50,19 @@ public class UI{
     public void executaPedido(Pedido pedido)
     {
         String[] linha;
+        boolean on;
         if(pedido.getTipo().compareTo("casa")==0)
         {
             switch (pedido.getFuncao())
             {
                 case "adicionaBulb":
                     linha = pedido.getEspecificacoes().split(",");
-                    //linha = id+","+on+","+tonalidade+","+dimensao+","+consumo
-                    SmartDevice sdB = new SmartBulb(linha[0], linha[1], Boolean.parseBoolean(linha[2]), Integer.parseInt(linha[3]),Double.parseDouble(linha[4]));
+                    //linha = id+","+","+tonalidade+","+dimensao+","+consumo
+                    SmartDevice sdB = new SmartBulb(linha[0], linha[1],pedido.getMode(), Integer.parseInt(linha[3]),Double.parseDouble(linha[4]));
                     this.smarthouses.adicionaDevice(linha[0], sdB);
                     try {
                         adicionarDispositivoemCasa(sdB,pedido.getId());
-                        this.smarthouses.addLogExecute(pedido.getId(),linha[0],new Log(pedido.getDate(),Boolean.parseBoolean(linha[2])));
+                        this.smarthouses.addLogExecute(pedido.getId(),linha[0],new Log(pedido.getDate(),pedido.getMode()));
                     }
                     catch (SmartDeviceAlreadyExistsException | LogAlreadyExistsException e) {
                         System.out.println(e.getMessage());
@@ -68,22 +70,22 @@ public class UI{
                     break;
                 case "adicionaCamera":
                     linha = pedido.getEspecificacoes().split(",");
-                    SmartDevice sdC = new SmartCamera(linha[0], Boolean.parseBoolean(linha[1]), linha[2], Integer.parseInt(linha[3]),Double.parseDouble(linha[4]));
+                    SmartDevice sdC = new SmartCamera(linha[0], pedido.getMode(), linha[2], Integer.parseInt(linha[3]),Double.parseDouble(linha[4]));
                     this.smarthouses.adicionaDevice(linha[0], sdC);
                     try {
                         adicionarDispositivoemCasa(sdC,pedido.getId());
-                        this.smarthouses.addLogExecute(pedido.getId(),linha[0],new Log(pedido.getDate(),Boolean.parseBoolean(linha[1])));
+                        this.smarthouses.addLogExecute(pedido.getId(),linha[0],new Log(pedido.getDate(),pedido.getMode()));
                     } catch (SmartDeviceAlreadyExistsException | LogAlreadyExistsException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case "adicionaSpeaker":
                     linha = pedido.getEspecificacoes().split(",");
-                    SmartDevice sdS = new SmartSpeaker(linha[0], Boolean.parseBoolean(linha[1]), Integer.parseInt(linha[2]), linha[3], linha[4],Double.parseDouble(linha[5]));
+                    SmartDevice sdS = new SmartSpeaker(linha[0],pedido.getMode(), Integer.parseInt(linha[2]), linha[3], linha[4],Double.parseDouble(linha[5]));
                     this.smarthouses.adicionaDevice(linha[0], sdS);
                     try {
                         adicionarDispositivoemCasa(sdS,pedido.getId());
-                        this.smarthouses.addLogExecute(pedido.getId(),linha[0],new Log(pedido.getDate(),Boolean.parseBoolean(linha[1])));
+                        this.smarthouses.addLogExecute(pedido.getId(),linha[0],new Log(pedido.getDate(),pedido.getMode()));
                     } catch (SmartDeviceAlreadyExistsException | LogAlreadyExistsException e) {
                         System.out.println(e.getMessage());
                     }
@@ -98,9 +100,9 @@ public class UI{
                     break;
                 case "ligaDesliga":
                     linha = pedido.getEspecificacoes().split(",");
-                    this.smarthouses.gestaoDevices(linha[0],Boolean.parseBoolean(linha[1]));
+                    this.smarthouses.gestaoDevices(linha[0],pedido.getMode());
                     try {
-                        this.smarthouses.addLogChangeMode(pedido.getId(), pedido.getDate(), Boolean.parseBoolean(linha[1]));
+                        this.smarthouses.addLogChangeMode(pedido.getId(), pedido.getDate(), pedido.getMode());
                     }
                     catch (LogAlreadyExistsException e){System.out.println(e.getMessage());}
                     break;
@@ -119,7 +121,7 @@ public class UI{
                         e.printStackTrace();
                     }
                 case "setAllDevicesHome":
-                    this.smarthouses.setAllDevicesHome(pedido.getId(),Boolean.parseBoolean(pedido.getEspecificacoes()));
+                    this.smarthouses.setAllDevicesHome(pedido.getId(),pedido.getMode());
 
                 default:
                     break;
@@ -132,7 +134,8 @@ public class UI{
                     this.smarthouses.removeHome(pedido.getId(),pedido.getEspecificacoes());
                     break;
                 case "removeFornecedores":
-                    this.smarthouses.removeFornecedor(pedido.getId());
+                    if(this.smarthouses.removeFornecedor(pedido.getId())==1)
+                        System.out.println("Não existe fornecedor com esse id.");
                     break;
                 case "adicionaCasas":
                     linha = pedido.getEspecificacoes().split(",");
@@ -159,6 +162,7 @@ public class UI{
         opcoes.add("Carregar estado\n");
         opcoes.add("Carregar do ficheiro logs.txt\n");
         opcoes.add("Alterar data\n");
+        opcoes.add("Automatizar\n");
         opcoes.add("Sair da aplicação");
         Scanner scanner = new Scanner(System.in);
 
@@ -225,11 +229,16 @@ public class UI{
                         String date = scanner.nextLine();
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                         LocalDateTime newDate = LocalDateTime.parse(date, formatter);
-                        executaListPedidos(0); // executa os pedidos normais
-                        this.smarthouses.atualiza(newDate); // cria faturas
-                        executaListPedidos(1); // executa as mudanças de fornecedores
-                        this.smarthouses.setDate(newDate);
-                        System.out.println("Data atualizada\n");
+                        if(this.smarthouses.getDate().compareTo(newDate)>=0)
+                            System.out.println("Não pode colocar uma data anterior a " + this.smarthouses.getDate().format(formatter));
+                        else
+                        {
+                            executaListPedidos(0); // executa os pedidos normais
+                            this.smarthouses.atualiza(newDate); // cria faturas
+                            executaListPedidos(1); // executa as mudanças de fornecedores
+                            this.smarthouses.setDate(newDate);
+                            System.out.println("Data atualizada\n");
+                        }
                     }
                     catch (DateTimeParseException e)
                     {
@@ -241,6 +250,11 @@ public class UI{
                     }
                     break;
                 case 11:
+                    System.out.println("Caminho para o ficheiro: ");
+                    String path = scanner.nextLine();
+                    automatizar(path);
+                    break;
+                case 12:
                     return;
                 default:
                     break;
@@ -284,6 +298,7 @@ public class UI{
                     break;
                 case 7:
                     setAllDevicesHome(idHome);
+                    break;
                 case 8:
                     consultaDispositivos(idHome);
                     break;
@@ -369,8 +384,8 @@ public class UI{
             String dimensao = scanner.nextLine();
             System.out.println("Consumo base: ");
             String consumo = scanner.nextLine();
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"adicionaBulb",id+","+on+","+tonalidade+","+dimensao+","+consumo));
-
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"adicionaBulb",id+","+","+tonalidade+","+dimensao+","+consumo,on));
+            executaListPedidos(0);
         }else{
             System.out.println("O dispositivos já existe!");
         }
@@ -395,7 +410,8 @@ public class UI{
             String res = scanner.nextLine();
             System.out.println("Consumo base: ");
             String consumo = scanner.nextLine();
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"adicionaCamera",id+","+on+","+tamanho+","+res+","+consumo));
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"adicionaCamera",id+","+","+tamanho+","+res+","+consumo,on));
+            executaListPedidos(0);
         }else{
             System.out.println("O device já existe!");
         }
@@ -422,7 +438,8 @@ public class UI{
             String channel = scanner.nextLine();
             System.out.println("Consumo base: ");
             String consumo = scanner.nextLine();
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"adicionaSpeaker",id+","+on+","+volume+","+marca+","+channel+","+consumo));
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"adicionaSpeaker",id+","+","+volume+","+marca+","+channel+","+consumo,on));
+            executaListPedidos(0);
         }else{
             System.out.println("O device já existe!");
         }
@@ -435,7 +452,8 @@ public class UI{
         String idDevice = scanner.nextLine();
         if(this.smarthouses.existeDeviceInHome(idDevice,idHome))
         {
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"removeDispositivo",idDevice));
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"removeDispositivo",idDevice,false));
+            executaListPedidos(0);
         }
         else System.out.println("O device não existe nesta casa.");
         scanner.close();
@@ -448,7 +466,8 @@ public class UI{
 
         if(this.smarthouses.existsHomeInFornecedor(idHome,idFornecedor))
         {
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"fornecedor",idFornecedor,"removeCasas",idHome));
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"fornecedor",idFornecedor,"removeCasas",idHome, false));
+            executaListPedidos(0);
         }
         else System.out.println("A casa que digitou nao existe.");
         //scanner.close();
@@ -459,8 +478,10 @@ public class UI{
         Scanner scanner = new Scanner(System.in);
         String id = scanner.nextLine();
 
-        if(this.smarthouses.existsFornecedor(id))
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"fornecedor",id,"removeFornecedores",""));
+        if(this.smarthouses.existsFornecedor(id)) {
+            this.pedidos.add(new Pedido(smarthouses.getDate(), "fornecedor", id, "removeFornecedores", "",false));
+            executaListPedidos(0);
+        }
         else System.out.println("O fornecedor que digitou nao existe.");
         scanner.close();
     }
@@ -492,7 +513,7 @@ public class UI{
                     case 3:
                         System.out.println("Digite o nome do Fornecedor: ");
                         String idFornecedor = scanner.nextLine();
-                        this.pedidosMudancaFornecedor.add(new Pedido(smarthouses.getDate(),"casa",idHome,"alteraFornecedor",idFornecedor));
+                        this.pedidosMudancaFornecedor.add(new Pedido(smarthouses.getDate(),"casa",idHome,"alteraFornecedor",idFornecedor, false));
                     case 4:
                         break;
                 }
@@ -510,7 +531,9 @@ public class UI{
         {
             System.out.println("(On/OFF): ");
             String modo = scanner.nextLine();
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"ligaDesliga",idDevice+","+modo));
+            boolean on = modo.equals("on") || modo.equals("ON") || modo.equals("On") || modo.equals("oN");
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"ligaDesliga",idDevice,on));
+            executaListPedidos(0);
         }
         else System.out.println("O dispositivo que digitou não existe nesta casa.");
         //scanner.close();
@@ -523,7 +546,8 @@ public class UI{
         {
             System.out.print("1-WARM\n2-COLD\n3-NEUTRAL\nTonalidade->");
             String ton = scanner.nextLine();
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"tonBulb",idDevice+","+ton));
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"tonBulb",idDevice+","+ton, false));
+            executaListPedidos(0);
         }
         else System.out.println("O dispositivo que digitou não existe nesta casa.");
         //scanner.close();
@@ -536,7 +560,8 @@ public class UI{
         if(this.smarthouses.existeDeviceInHome(idDevice,idHome)) {
             System.out.println("Volume: ");
             String vol = scanner.nextLine();
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"volSpk",idDevice+","+vol));
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"volSpk",idDevice+","+vol,false));
+            executaListPedidos(0);
         }
         else System.out.println("O dispositivo que digitou não existe nesta casa.");
         //scanner.close();
@@ -577,7 +602,8 @@ public class UI{
                 n--;
             }
             divisoes = divisoes + "]";
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"fornecedor",idFornecedor,"adicionaCasas",idHome+","+morada+","+nif+","+proprietario+","+divisoes));
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"fornecedor",idFornecedor,"adicionaCasas",idHome+","+morada+","+nif+","+proprietario+","+divisoes,false));
+            executaListPedidos(0);
         }
         else System.out.println("Casa com esse id já existe");
         //scanner.close();
@@ -606,7 +632,8 @@ public class UI{
             //double imposto = scanner.nextDouble();
             String imposto = scanner.nextLine();
             //Fornecedor f = new Fornecedor(idFornecedor,imposto);
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"fornecedor",idFornecedor,"adicionaFornecedores",imposto));
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"fornecedor",idFornecedor,"adicionaFornecedores",imposto,false));
+            executaListPedidos(0);
             System.out.println("Digite o número  de casas: ");
             int n = scanner.nextInt();
             while(n>0){
@@ -713,6 +740,58 @@ public class UI{
         Scanner scanner = new Scanner(System.in);
         System.out.println("Modo: ");
         String modo = scanner.nextLine();
-        this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"setAllDevicesHome",modo));
+        boolean on = modo.equals("on") || modo.equals("ON") || modo.equals("On") || modo.equals("oN");
+        this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"setAllDevicesHome","",on));
+        executaListPedidos(0);
+    }
+
+    public void automatizar(String filename)
+    {
+        //arg = SmartHouses/src/simulacao.txt
+        String[] parte;
+        List<String> linhas = this.smarthouses.lerFicheiro(filename);
+        String aux = "";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime date;
+        LocalDateTime init = java.time.LocalDateTime.now();
+        boolean on;
+
+        for (String linha : linhas) {
+            parte = linha.split(",");
+
+            try {
+                date = LocalDateTime.parse(parte[0], formatter);
+
+                if(this.smarthouses.getDate().compareTo(date)>0)
+                    System.out.println("Não pode colocar uma data anterior a " + init.format(formatter));
+                else if (this.smarthouses.getDate().compareTo(date)<0)
+                {
+                    executaListPedidos(0); // executa os pedidos normais
+                    this.smarthouses.atualiza(date); // cria faturas
+                    executaListPedidos(1); // executa as mudanças de fornecedores
+                    this.smarthouses.setDate(date);
+                }
+
+                if (parte[2].compareTo("alteraFornecedor") == 0) {
+                    this.pedidosMudancaFornecedor.add(new Pedido(date, parte[1], parte[2], parte[3], parte[4],false));
+                }
+                else if(parte[4].compareTo("")==0){
+                    this.pedidos.add(new Pedido(date, parte[1], parte[2], parte[3], parte[4],false));
+                }
+                else
+                {
+                    on = parte[5].equals("on") || parte[5].equals("On") || parte[5].equals("ON") || parte[5].equals("oN");
+                    this.pedidos.add(new Pedido(date, parte[1], parte[2], parte[3], parte[4],on));
+                }
+            }
+            catch (DateTimeParseException e)
+            {
+                System.out.println("Formato data errado");
+            }
+            catch (Model.Exceptions.LogNotExistsException l)
+            {
+                System.out.println("Não existem dados em memória de logs");
+            }
+        }
     }
 }

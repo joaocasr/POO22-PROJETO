@@ -8,14 +8,16 @@ public class Pedido {
     private String id;
     private String funcao;
     private String especificacoes;
+    private boolean mode;
 
-    public Pedido(LocalDateTime date, String tipo, String id, String funcao, String especificacoes)
+    public Pedido(LocalDateTime date, String tipo, String id, String funcao, String especificacoes, boolean mode)
     {
         this.date = date;
         this.tipo = tipo;
         this.id = id;
         this.funcao = funcao;
         this.especificacoes = especificacoes;
+        this.mode = mode;
     }
 
     public LocalDateTime getDate() {
@@ -58,5 +60,12 @@ public class Pedido {
         this.especificacoes = especificacoes;
     }
 
+    public boolean getMode() {
+        return mode;
+    }
+
+    public void setMode(boolean mode) {
+        this.mode = mode;
+    }
 
 }

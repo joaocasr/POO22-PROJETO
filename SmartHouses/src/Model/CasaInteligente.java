@@ -154,6 +154,7 @@ public class CasaInteligente {
     /*Desligar ou Ligar todos os dispositivos*/
     public void setallDevices(boolean b) {
         this.devices.values().forEach(a->a.setModo(b));
+        System.out.println("here " + this.devices.get("bulb284").toString());
     }
 
     /*Desligar ou Ligar todos os dispositivos de uma divisao*/
