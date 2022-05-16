@@ -43,7 +43,7 @@ public class SmartHouses implements Serializable {
         this.Now = sh.getDate();
     }
 
-    public void parser(String filename) throws LinhaException,SmartDeviceAlreadyExistsException,CasaInteligenteAlreadyExistsException {
+    public void parser(String filename) throws LinhaException, SmartDeviceAlreadyExistsException, CasaInteligenteAlreadyExistsException, CasaInteligenteNotExistsException {
         Map<String, CasaInteligente> casas = new HashMap<>();
         Map<String, SmartDevice> dispositivos = new HashMap<>();
         Map<String,Fornecedor> fornecedores = new HashMap<>();
@@ -74,12 +74,11 @@ public class SmartHouses implements Serializable {
             //divide a linha em 2
             switch (linhaPartida [0]){
                 case "Casa":
-
                     if(i>1) casas.put(casaMaisRecente.getIdHome(),casaMaisRecente);
                     CasaInteligente ci  = CasaInteligente.parseCasa(linhaPartida[1]);
                     casas.put(ci.getIdHome(),ci.clone());
-                    if(fornecedores.get(ci.getIdFornecedor())!=null)
-                        if(fornecedores.get(ci.getIdFornecedor()).addCasa(ci.clone())==1) throw new CasaInteligenteAlreadyExistsException ("A casa com id " + ci.getIdHome() + " já existe");
+                    if((fornecedores.get(ci.getIdFornecedor())!=null))
+                        if((fornecedores.get(ci.getIdFornecedor())).addCasa(ci)==1) throw new CasaInteligenteAlreadyExistsException("Fornecedor já tem essa casa");
                     casaMaisRecente = ci;
                     i++;
                     break;

@@ -38,8 +38,7 @@ public class Fornecedor{
         this.formula = f.getFormula();
     }
 
-    public CasaInteligente getCasa(String idCasa) throws CasaInteligenteNotExistsException
-    {
+    public CasaInteligente getCasa(String idCasa) throws CasaInteligenteNotExistsException {
         if(!this.hasCasa(idCasa)) throw new CasaInteligenteNotExistsException ("A casa com id " + idCasa + " não existe");
         else return this.allCasas.get(idCasa).clone();
     }
@@ -82,6 +81,7 @@ public class Fornecedor{
     public int addCasa(CasaInteligente casa){
         int r=0;
         if(this.hasCasa(casa.getIdHome())) r=1;
+        else this.allCasas.put(casa.getIdHome(),casa.clone());
         return r;
     }
 
@@ -126,8 +126,8 @@ public class Fornecedor{
         sb.append("Id: ").append(this.id).append("; ")
             .append("Imposto: ").append(this.imposto).append(";")
                 .append("Formula: ").append(this.formula).append(";\n");
-        //allCasas.forEach((id,casa)->{sb.append(casa.toString());});
-        sb.append(allCasas);
+        allCasas.forEach((id,casa)->{sb.append(casa.toString());});
+        //sb.append(allCasas);
         return sb.toString();
     }
     

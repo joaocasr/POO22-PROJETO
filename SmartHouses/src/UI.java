@@ -3,20 +3,21 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.util.*;
 import Model.Exceptions.*;
 import Model.*;
 import Model.Pedido;
 import Model.SmartHouses;
 
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class UI{
 
     private SmartHouses smarthouses;
 
-    private List <Pedido> pedidos;
+    private List<Pedido> pedidos;
     private List <Pedido> pedidosMudancaFornecedor;
 
     public UI(SmartHouses newSmarthouses) {
@@ -222,6 +223,9 @@ public class UI{
                     }catch (CasaInteligenteAlreadyExistsException msg) {
                         System.out.println("Nao foi possivel carregar a aplicação- Erro casa já existe.");
                     }
+                    catch (CasaInteligenteNotExistsException msg) {
+                        System.out.println("Nao foi possivel carregar a aplicação- Erro casa não existe.");
+                    }
                     break;
                 case 10:
                     try {
@@ -374,7 +378,6 @@ public class UI{
         String id = scanner.nextLine();
         boolean on;
 
-        if(!this.smarthouses.existsDevice(id) && !this.smarthouses.existeDeviceInHome(id,idHome)) {
             System.out.println("(On/OFF): ");
             String modo = scanner.nextLine();
             on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
@@ -386,10 +389,8 @@ public class UI{
             String consumo = scanner.nextLine();
             this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"adicionaBulb",id+","+","+tonalidade+","+dimensao+","+consumo,on));
             executaListPedidos(0);
-        }else{
-            System.out.println("O dispositivos já existe!");
-        }
-        //scanner.close();
+
+        scanner.close();
     }
 
 
@@ -399,7 +400,6 @@ public class UI{
         Scanner scanner = new Scanner(System.in);
         String id = scanner.nextLine();
         boolean on;
-        if(!this.smarthouses.existsDevice(id) && !this.smarthouses.existeDeviceInHome(id,idHome)) {
             System.out.println("(On/OFF): ");
             String modo = scanner.nextLine();
             on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
@@ -412,10 +412,8 @@ public class UI{
             String consumo = scanner.nextLine();
             this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"adicionaCamera",id+","+","+tamanho+","+res+","+consumo,on));
             executaListPedidos(0);
-        }else{
-            System.out.println("O device já existe!");
-        }
-        //scanner.close();
+
+        scanner.close();
     }
 
     public void adicionaSpeaker(String idHome){
@@ -425,7 +423,6 @@ public class UI{
         String id = scanner.nextLine();
         boolean on;
 
-        if(!this.smarthouses.existsDevice(id) && !this.smarthouses.existeDeviceInHome(id,idHome)) {
             System.out.println("(On/OFF): ");
             String modo = scanner.nextLine();
             on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
@@ -440,10 +437,8 @@ public class UI{
             String consumo = scanner.nextLine();
             this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"adicionaSpeaker",id+","+","+volume+","+marca+","+channel+","+consumo,on));
             executaListPedidos(0);
-        }else{
-            System.out.println("O device já existe!");
-        }
-        //scanner.close();
+
+        scanner.close();
     }
 
     public void removeDispositivo(String idHome) {
@@ -515,6 +510,7 @@ public class UI{
                         String idFornecedor = scanner.nextLine();
                         this.pedidosMudancaFornecedor.add(new Pedido(smarthouses.getDate(),"casa",idHome,"alteraFornecedor",idFornecedor, false));
                     case 4:
+                        executeMenu();
                         break;
                 }
             } while (menu.getOpcao() != 0);
@@ -676,6 +672,7 @@ public class UI{
                                     geraCasas(id);
                                     break;
                                 case 3:
+                                    Fornecedores();
                                     break;
                             }
                         } while (menu2.getOpcao() != 0);

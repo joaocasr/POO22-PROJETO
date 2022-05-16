@@ -21,7 +21,7 @@ public class Menu {
     }
 
     private void showMenu() {
-        System.out.println(" ************************************************************************** ");
+        System.out.println(" ***********************************-SmartHouses-*************************************** ");
         for (int i=0; i<this.opcoes.size(); i++) {
             if(i != (this.opcoes.size()-1)) {
                 System.out.print("| * ");
@@ -34,7 +34,7 @@ public class Menu {
                 System.out.print(i + 1);
                 System.out.print(" -");
                 System.out.print(this.opcoes.get(i));
-                System.out.print("\n___________________________________________________________________________________\n");
+                System.out.print("\n_____________________________________________________________________________________\n");
             }
         }
     }

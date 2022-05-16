@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Fornecedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Fornecedor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartHouses.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartHouses.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/simulacao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/simulacao.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +44,9 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ritavaz02/Documentos/Uminho/POO/POO22-PROJETO&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
