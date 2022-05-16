@@ -53,6 +53,7 @@ public class UI{
         try {
             this.smarthouses.adicionaDevice(idDevice, sd);
             this.smarthouses.addDeviceToRoom(idHome,room,sd);
+            //System.out.println("IDHome:" + idHome + ", IDDecvice:"+ idDevice+"\n");
             this.smarthouses.addLogExecute(idHome,idDevice,new Log(date,mode));
         }
         catch (SmartDeviceAlreadyExistsException | LogAlreadyExistsException e) {
@@ -71,7 +72,7 @@ public class UI{
                 case "adicionaBulb":
                     linha = pedido.getEspecificacoes().split(",");
                     //linha = id+","+tonalidade+","+dimensao+","+consumo+","+room
-                    System.out.println(pedido.toString());
+                    //System.out.println(pedido.toString());
                     SmartDevice sdB = new SmartBulb(linha[0], linha[1],pedido.getMode(), Integer.parseInt(linha[2]),Double.parseDouble(linha[3]));
                     addDeviceExecute(pedido.getId(),linha[0],linha[4],sdB,pedido.getDate(),pedido.getMode());
                     break;
@@ -116,9 +117,11 @@ public class UI{
                     } catch (CasaInteligenteNotExistsException e) {
                         e.printStackTrace();
                     }
+                    break;
                 case "setAllDevicesHome":
+                    //System.out.println(pedido.toString());
                     this.smarthouses.setAllDevicesHome(pedido.getId(),pedido.getMode());
-
+                    break;
                 default:
                     break;
             }
@@ -471,7 +474,7 @@ public class UI{
             executaListPedidos(0);
         }
         else System.out.println("O device não existe nesta casa.");
-        scanner.close();
+        //scanner.close();
     }
 
     public void removeCasas(String idFornecedor) {
@@ -498,7 +501,7 @@ public class UI{
             executaListPedidos(0);
         }
         else System.out.println("O fornecedor que digitou nao existe.");
-        scanner.close();
+        //scanner.close();
     }
 
     public void consultaCasas(){
@@ -604,7 +607,6 @@ public class UI{
 
             System.out.println("NIF do proprietário: ");
             String nif = scanner.nextLine();
-            scanner.nextLine();
             System.out.println("Nome do proprietário : ");
             String proprietario = scanner.nextLine();
             System.out.println("Quantas divisões terá a casa?");

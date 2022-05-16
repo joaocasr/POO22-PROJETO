@@ -47,6 +47,7 @@ public class CasaInteligente {
         setLocations(espacos);
         this.faturas = new HashMap<>();
         this.logs = new HashMap<>();
+        setLogs(null);
     }
 
     public CasaInteligente(CasaInteligente ci) {
@@ -154,6 +155,7 @@ public class CasaInteligente {
     /*Desligar ou Ligar todos os dispositivos*/
     public void setallDevices(boolean b) {
         this.devices.values().forEach(a->a.setModo(b));
+        //System.out.println(this.devices.get("bulb284").getModo());
     }
 
     /*Desligar ou Ligar todos os dispositivos de uma divisao*/
@@ -368,15 +370,16 @@ public class CasaInteligente {
         return (this.logs.get(s) != null);
     }
 
-    public boolean hasLogByDay(LocalDateTime dia) {
-        return this.logs.containsKey(dia.toString());
+    public boolean hasLogByDevice(String idDevice, Log l) {
+        if(!hasLog(idDevice)) return false;
+        if(this.logs.get(idDevice).size()==0) return false;
+        return this.logs.get(idDevice).contains(l);
     }
-
 
     public void addLog(String idDevice,Log g) throws LogAlreadyExistsException
     {
-        if(this.logs.get(idDevice).contains(g)) throw new LogAlreadyExistsException("O log " + g + "já existe");
-        if(this.logs.get(idDevice).size()==0)
+        if(this.hasLogByDevice(idDevice,g)) throw new LogAlreadyExistsException("O log " + g + "já existe");
+        if(this.logs.get(idDevice)==null)
         {
             List newLogD = new ArrayList();
             newLogD.add(g.clone());
