@@ -68,4 +68,15 @@ public class Pedido {
         this.mode = mode;
     }
 
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "date=" + date +
+                ", tipo='" + tipo + '\'' +
+                ", id='" + id + '\'' +
+                ", funcao='" + funcao + '\'' +
+                ", especificacoes='" + especificacoes + '\'' +
+                ", mode=" + mode +
+                '}';
+    }
 }

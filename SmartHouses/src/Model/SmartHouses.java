@@ -196,10 +196,7 @@ public class SmartHouses implements Serializable {
     }
 
     public boolean existeDeviceInHome(String deviceId, String idHome){
-        boolean exists = false;
-        if(this.casas.get(idHome).hasDevice(deviceId));
-        	exists=true;
-        return exists;
+        return this.casas.get(idHome).hasDevice(deviceId);
     }
 
     public void adicionaHome(CasaInteligente ci){
@@ -308,6 +305,11 @@ public class SmartHouses implements Serializable {
         {
             ci.addLog(s.getID(),new Log(date,mode));
         }
+    }
+
+    public void addDeviceToRoom(String idHouse, String room, SmartDevice sd) throws SmartDeviceAlreadyExistsException
+    {
+        this.casas.get(idHouse).addToRoom(room,sd);
     }
 
 

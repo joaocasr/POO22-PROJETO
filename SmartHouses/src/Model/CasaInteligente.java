@@ -154,7 +154,6 @@ public class CasaInteligente {
     /*Desligar ou Ligar todos os dispositivos*/
     public void setallDevices(boolean b) {
         this.devices.values().forEach(a->a.setModo(b));
-        System.out.println("here " + this.devices.get("bulb284").toString());
     }
 
     /*Desligar ou Ligar todos os dispositivos de uma divisao*/
@@ -197,11 +196,9 @@ public class CasaInteligente {
         return (this.locations.get(s) != null);
     }
 
-    public void addToRoom (String division, String id) {
+    public void addToRoom (String division, String id) throws SmartDeviceAlreadyExistsException{
         if(!roomHasDevice(division, id)) this.locations.get(division).add(id);
-        else{
-            System.out.println("Device já existe!");
-        }
+        else throw new SmartDeviceAlreadyExistsException("O dispositivo já existe nesta divisão da casa");
     }
 
     public boolean hasDevice (String id) {
