@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/CasaInteligente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/ColFornecedor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartHouses.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartHouses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Tests/ColFornecedorTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartHouses/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Model/CasaInteligente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/Model/CasaInteligente.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

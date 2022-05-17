@@ -133,8 +133,13 @@ public class UI{
                     this.smarthouses.removeHome(pedido.getId(),pedido.getEspecificacoes());
                     break;
                 case "removeFornecedores":
-                    if(this.smarthouses.removeFornecedor(pedido.getId())==1)
-                        System.out.println("Não existe fornecedor com esse id.");
+                    try{
+                        this.smarthouses.removeFornecedor(pedido.getId());
+                    }
+                    catch(FornecedorNotExistsException e )
+                    {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case "adicionaCasas":
                     linha = pedido.getEspecificacoes().split(",");
@@ -705,7 +710,6 @@ public class UI{
     }
 
     public void executaDados(int n){
-        ColFornecedor cf = new ColFornecedor(this.smarthouses.getFornecedores());
         Scanner scanner = new Scanner(System.in);
         String inicio, fim;
 
@@ -721,12 +725,12 @@ public class UI{
             LocalDateTime datai = LocalDateTime.parse(inicio, formatter);
             LocalDateTime dataf = LocalDateTime.parse(fim, formatter);
 
-           if(n==1) System.out.println(cf.casaGastouMaisPeriodoVariosFornecedores(datai, dataf));
-           if(n==2) System.out.println(cf.fornecedorComMaisFaturacao(datai, dataf));
+           if(n==1) System.out.println(this.smarthouses.casaGastouMaisPeriodoVariosFornecedores(datai, dataf));
+           if(n==2) System.out.println(this.smarthouses.fornecedorComMaisFaturacao(datai, dataf));
            if(n==4)
            {
                DecimalFormat d = new DecimalFormat("#0.00");
-               for(Fornecedor f: cf.ordenarFornecedores(datai,dataf))
+               for(Fornecedor f: this.smarthouses.ordenarFornecedores(datai,dataf))
                    System.out.println(f.getId() + ": " + d.format(f.faturaçaoFornecedor(datai, dataf)) + "€");
            }
         }
