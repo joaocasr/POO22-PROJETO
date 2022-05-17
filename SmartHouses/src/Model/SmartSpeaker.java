@@ -58,7 +58,7 @@ public class SmartSpeaker extends SmartDevice {
     public void setVolume(int v){
         if(v>=MAX) this.volume= MAX;
         else if(v<=0) this.volume =0;
-        this.volume=v;
+        else this.volume=v;
     }
 
     public double consumoDiario() {
