@@ -215,12 +215,6 @@ public class CasaInteligente {
         return exists;
     }
 
-    public void removeDispositivoemDivisao(String idDevice){
-        for(List<String> l : this.locations.values()){
-            if(l.contains(idDevice)) l.remove(idDevice);
-        }
-    }
-
     public void removeDevicesFromRoom(String idDevice){
         for(List<String> l : this.locations.values()){
             if(l.contains(idDevice)) l.remove(idDevice);
@@ -308,9 +302,9 @@ public class CasaInteligente {
 
         for(SmartDevice sd: this.devices.values())
         {
-            len = this.logs.get(sd.getID()).size();
-            if(len>0)
+            if(this.logs.get(sd.getID())!=null)
             {
+                len = this.logs.get(sd.getID()).size();
                 i=0;
                 Log l = this.logs.get(sd.getID()).get(i);
                 while (i < len && l.getDia().compareTo(init) <= 0) {

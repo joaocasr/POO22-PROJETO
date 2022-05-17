@@ -158,24 +158,41 @@ public class SmartHouses implements Serializable {
     public void removeDevice(String idDevice,String idHome) throws LogNotExistsException {
         this.casas.get(idHome).removeLog(idDevice);
         this.dispositivos.remove(idDevice);
-        this.casas.get(idHome).removeDispositivoemDivisao(idDevice);
+        this.casas.get(idHome).removeDevicesFromRoom(idDevice);
     }
 
-    public void gestaoDevices(String idDevice,boolean modo) { //id device
+    public void gestaoDevices(String idHome, String idDevice,boolean modo) throws SmartDeviceNotExistsException{ //id device
         this.dispositivos.get(idDevice).setModo(modo);
+        this.casas.get(idHome).getDevice(idDevice).setModo(modo);
     }
 
-    public void colocaTon(String idDevice,int ton) { //id device
+    public void colocaTon(String idHome,String idDevice,int ton) throws SmartDeviceNotExistsException { //id device
         if(ton==1)
-            if(this.dispositivos.get(idDevice) instanceof SmartBulb) ((SmartBulb) this.dispositivos.get(idDevice)).setMode(SmartBulb.Mode.WARM);
+            if(this.dispositivos.get(idDevice) instanceof SmartBulb)
+            {
+                ((SmartBulb) this.dispositivos.get(idDevice)).setMode(SmartBulb.Mode.WARM);
+                ((SmartBulb) this.casas.get(idHome).getDevice(idDevice)).setMode(SmartBulb.Mode.WARM);
+            }
         if(ton==2)
-            if(this.dispositivos.get(idDevice) instanceof SmartBulb) ((SmartBulb) this.dispositivos.get(idDevice)).setMode(SmartBulb.Mode.COLD);
+            if(this.dispositivos.get(idDevice) instanceof SmartBulb)
+            {
+                ((SmartBulb) this.dispositivos.get(idDevice)).setMode(SmartBulb.Mode.COLD);
+                ((SmartBulb) this.casas.get(idHome).getDevice(idDevice)).setMode(SmartBulb.Mode.COLD);
+            }
         if(ton==3)
-            if(this.dispositivos.get(idDevice) instanceof SmartBulb) ((SmartBulb) this.dispositivos.get(idDevice)).setMode(SmartBulb.Mode.NEUTRAL);
+            if(this.dispositivos.get(idDevice) instanceof SmartBulb)
+            {
+                ((SmartBulb) this.dispositivos.get(idDevice)).setMode(SmartBulb.Mode.NEUTRAL);
+                ((SmartBulb) this.casas.get(idHome).getDevice(idDevice)).setMode(SmartBulb.Mode.NEUTRAL);
+            }
     }
 
-    public void colocaVol(String idDevice,int vol) { //id device
-            if (this.dispositivos.get(idDevice) instanceof SmartSpeaker) ((SmartSpeaker) this.dispositivos.get(idDevice)).setVolume(vol);
+    public void colocaVol(String idHome, String idDevice,int vol)  throws SmartDeviceNotExistsException{ //id device
+            if (this.dispositivos.get(idDevice) instanceof SmartSpeaker)
+            {
+                ((SmartSpeaker) this.dispositivos.get(idDevice)).setVolume(vol);
+                ((SmartSpeaker) this.casas.get(idHome).getDevice(idDevice)).setVolume(vol);
+            }
     }
 
 
@@ -198,17 +215,14 @@ public class SmartHouses implements Serializable {
         return this.casas.get(idHome).hasDevice(deviceId);
     }
 
-    public void adicionaHome(CasaInteligente ci){
+    public void adicionaHome(String fornecedor,CasaInteligente ci){
         this.casas.put(ci.getIdHome(),ci.clone());
+        this.fornecedores.get(fornecedor).addCasa(ci.clone());
     }
 
-    public int removeHome(String idHome, String idFornecedor){
-        int r=1;
-        if(this.fornecedores.get(idFornecedor).hasCasa(idHome)) {
-            r=0;
-            this.casas.remove(idHome);
-        }
-        return r;
+    public void removeHome(String idHome, String idFornecedor){
+        this.casas.remove(idHome);
+        this.fornecedores.get(idFornecedor).removeCasa(idHome);
     }
 
     public String dispositovosTostring(){
@@ -268,6 +282,12 @@ public class SmartHouses implements Serializable {
     {
         for(Fornecedor f: this.fornecedores.values())
             f.addFatura(this.Now, newDate);
+
+        for(CasaInteligente c: this.casas.values())
+        {
+            if(this.fornecedores.get(c.getIdFornecedor())!=null)
+                c.addFatura(c.getIdFornecedor(), this.Now, newDate, this.fornecedores.get(c.getIdFornecedor()).getValorFornecedor(c.getIdHome(),this.Now,newDate,c.calculaConsumo(this.Now,newDate)));
+        }
     }
 
     public void alteraFornecedor(String idHome, String idFornecedor) throws CasaInteligenteNotExistsException{
@@ -281,20 +301,25 @@ public class SmartHouses implements Serializable {
     public void setAllDevicesHome(String idHome, boolean modo)
     {
         this.casas.get(idHome).setallDevices(modo);
+        this.dispositivos.values().forEach(a->a.setModo(modo));
     }
 
-    public void addLogExecute(String idHome, String idDevice, Log g) throws LogAlreadyExistsException
+    public void addLogExecute(String idHome, String idDevice, Log g) throws LogAlreadyExistsException,CasaInteligenteNotExistsException
     {
-        this.casas.get(idHome).addLog(idDevice,g);
+        this.casas.get(idHome).addLog(idDevice,g.clone());
+        this.fornecedores.get(this.casas.get(idHome).getIdFornecedor()).getCasa(idHome).addLog(idDevice,g.clone());
     }
 
-    public void addLogChangeMode(String idHome, LocalDateTime date, Boolean mode) throws LogAlreadyExistsException
+    public void addLogChangeMode(String idHome, LocalDateTime date, Boolean mode) throws LogAlreadyExistsException, CasaInteligenteNotExistsException
     {
         CasaInteligente ci = this.casas.get(idHome);
+        CasaInteligente ci2 = this.fornecedores.get(this.casas.get(idHome).getIdFornecedor()).getCasa(idHome);
         for(SmartDevice s: ci.getDevices().values())
         {
             ci.addLog(s.getID(),new Log(date,mode));
+            ci2.addLog(s.getID(),new Log(date,mode));
         }
+
     }
 
     public void addDeviceToRoom(String idHouse, String room, SmartDevice sd) throws SmartDeviceAlreadyExistsException

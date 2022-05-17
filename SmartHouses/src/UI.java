@@ -56,7 +56,7 @@ public class UI{
             //System.out.println("IDHome:" + idHome + ", IDDecvice:"+ idDevice+"\n");
             this.smarthouses.addLogExecute(idHome,idDevice,new Log(date,mode));
         }
-        catch (SmartDeviceAlreadyExistsException | LogAlreadyExistsException e) {
+        catch (SmartDeviceAlreadyExistsException | LogAlreadyExistsException | CasaInteligenteNotExistsException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -97,19 +97,34 @@ public class UI{
                     break;
                 case "ligaDesliga":
                     linha = pedido.getEspecificacoes().split(",");
-                    this.smarthouses.gestaoDevices(linha[0],pedido.getMode());
                     try {
+                        this.smarthouses.gestaoDevices(pedido.getId(),linha[0],pedido.getMode());
                         this.smarthouses.addLogChangeMode(pedido.getId(), pedido.getDate(), pedido.getMode());
                     }
-                    catch (LogAlreadyExistsException e){System.out.println(e.getMessage());}
+                    catch (LogAlreadyExistsException | SmartDeviceNotExistsException | CasaInteligenteNotExistsException e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case "tonBulb":
                     linha = pedido.getEspecificacoes().split(",");
-                    this.smarthouses.colocaTon(linha[0],Integer.parseInt(linha[1]));
+                    try{
+                        this.smarthouses.colocaTon(pedido.getId(),linha[0],Integer.parseInt(linha[1]));
+                    }
+                    catch (SmartDeviceNotExistsException e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case "volSpk":
                     linha = pedido.getEspecificacoes().split(",");
-                    this.smarthouses.colocaVol(linha[0],Integer.parseInt(linha[1]));
+                    try{
+                        this.smarthouses.colocaVol(pedido.getId(),linha[0],Integer.parseInt(linha[1]));
+                    }
+                    catch (SmartDeviceNotExistsException e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case "alteraFornecedor":
                     try {
@@ -143,7 +158,7 @@ public class UI{
                     break;
                 case "adicionaCasas":
                     linha = pedido.getEspecificacoes().split(",");
-                    this.smarthouses.adicionaHome(new CasaInteligente(linha[0],linha[1],Integer.parseInt(linha[2]),linha[3],pedido.getId()));
+                    this.smarthouses.adicionaHome(pedido.getId(),new CasaInteligente(linha[0],linha[1],Integer.parseInt(linha[2]),linha[3],pedido.getId()));
                     break;
                 case "adicionaFornecedores":
                     this.smarthouses.adicionaFornecedor(pedido.getId(),new Fornecedor(pedido.getId(),Double.parseDouble(pedido.getEspecificacoes())));
@@ -232,7 +247,7 @@ public class UI{
                     break;
                 case 10:
                     try {
-                        System.out.println("Data de início(YYYY-MM-DD HH:MM): ");
+                        System.out.println("Nova data(YYYY-MM-DD HH:MM): ");
                         String date = scanner.nextLine();
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                         LocalDateTime newDate = LocalDateTime.parse(date, formatter);
@@ -423,7 +438,6 @@ public class UI{
                 on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
                 System.out.println("Tamanho: ");
                 String tamanho = scanner.nextLine();
-                scanner.nextLine();
                 System.out.println("Resolução (a x b): ");
                 String res = scanner.nextLine();
                 System.out.println("Consumo base: ");
@@ -759,7 +773,6 @@ public class UI{
         //arg = SmartHouses/src/simulacao.txt
         String[] parte;
         List<String> linhas = this.smarthouses.lerFicheiro(filename);
-        String aux = "";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime date;
         LocalDateTime init = java.time.LocalDateTime.now();
