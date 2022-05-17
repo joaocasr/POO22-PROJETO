@@ -79,7 +79,11 @@ public class UI{
                 case "adicionaCamera":
                     // id+","+tamanho+","+res+","+consumo+","+room
                     linha = pedido.getEspecificacoes().split(",");
-                    SmartDevice sdC = new SmartCamera(linha[0], pedido.getMode(), linha[2], Integer.parseInt(linha[1]),Double.parseDouble(linha[3]));
+                    //System.out.println(linha[2]);
+                    //System.out.println(linha[1]);
+                    //System.out.println(linha[0]);
+                    //System.out.println(linha[3]);
+                    SmartDevice sdC = new SmartCamera(linha[0], pedido.getMode(), linha[2], Double.parseDouble(linha[1]),Double.parseDouble(linha[3]));
                     addDeviceExecute(pedido.getId(),linha[0],linha[4],sdC,pedido.getDate(),pedido.getMode());
                     break;
                 case "adicionaSpeaker":
@@ -145,7 +149,13 @@ public class UI{
         {
             switch (pedido.getFuncao()) {
                 case "removeCasas":
-                    this.smarthouses.removeHome(pedido.getId(),pedido.getEspecificacoes());
+                    try {
+                        this.smarthouses.removeHome(pedido.getId(),pedido.getEspecificacoes());
+                    } catch (CasaInteligenteNotExistsException e) {
+                        System.out.println(e.getMessage());
+                    } catch (FornecedorNotExistsException f) {
+                        System.out.println("erro fornecedor nao existe");
+                    }
                     break;
                 case "removeFornecedores":
                     try{
@@ -346,8 +356,8 @@ public class UI{
             switch (menu.getOpcao()) {
                 case 1:
                     if(x==1) adicionaBulb(idHome);
-                    if(x==2) adicionaCamera(idHome);
-                    if(x==3) adicionaSpeaker(idHome);
+                    if(x==3) adicionaCamera(idHome);
+                    if(x==2) adicionaSpeaker(idHome);
                     break;
                 case 2:
                     removeDispositivo(idHome);
@@ -437,11 +447,12 @@ public class UI{
                 String modo = scanner.nextLine();
                 on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
                 System.out.println("Tamanho: ");
-                String tamanho = scanner.nextLine();
-                System.out.println("Resolução (a x b): ");
+                double tamanho = scanner.nextDouble();
+                scanner.nextLine();
+                System.out.println("Resolução (axb): ");
                 String res = scanner.nextLine();
                 System.out.println("Consumo base: ");
-                String consumo = scanner.nextLine();
+                double consumo = scanner.nextDouble();
                 this.pedidos.add(new Pedido(smarthouses.getDate(), "casa", idHome, "adicionaCamera", id + "," + tamanho + "," + res + "," + consumo + "," + room, on));
                 executaListPedidos(0);
             }
@@ -533,7 +544,7 @@ public class UI{
             List<String> opcoes = new ArrayList<>();
             opcoes.add("Informações gerais da Casa\n");
             opcoes.add("Dispositivos\n");
-            opcoes.add("MuderFornecedor\n");
+            opcoes.add("Mudar de Fornecedor\n");
             opcoes.add("Voltar");
 
             Menu menu = new Menu(opcoes);
@@ -548,7 +559,7 @@ public class UI{
                         Dispositivos(idHome);
                         break;
                     case 3:
-                        System.out.println("Digite o nome do Fornecedor: ");
+                        System.out.println("Digite o id do Fornecedor: ");
                         String idFornecedor = scanner.nextLine();
                         this.pedidosMudancaFornecedor.add(new Pedido(smarthouses.getDate(),"casa",idHome,"alteraFornecedor",idFornecedor, false));
                     case 4:
@@ -761,7 +772,7 @@ public class UI{
     public void setAllDevicesHome(String idHome)
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Modo: ");
+        System.out.println("Modo(on/off): ");
         String modo = scanner.nextLine();
         boolean on = modo.equals("on") || modo.equals("ON") || modo.equals("On") || modo.equals("oN");
         this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"setAllDevicesHome","",on));

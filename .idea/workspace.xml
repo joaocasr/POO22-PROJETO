@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartSpeaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartSpeaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartHouses.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartHouses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartHouses/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +136,10 @@
         <breakpoint type="java-exception">
           <properties class="java.time.format.DateTimeParseException" package="java.time.format" />
           <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="3" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

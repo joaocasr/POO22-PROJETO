@@ -220,9 +220,12 @@ public class SmartHouses implements Serializable {
         this.fornecedores.get(fornecedor).addCasa(ci.clone());
     }
 
-    public void removeHome(String idHome, String idFornecedor){
-        this.casas.remove(idHome);
-        this.fornecedores.get(idFornecedor).removeCasa(idHome);
+    public void removeHome(String idFornecedor,String idHome) throws CasaInteligenteNotExistsException,FornecedorNotExistsException{
+        //this.casas.remove(idHome);
+        //System.out.print(idFornecedor);
+        //System.out.print(idHome);
+        if(this.fornecedores.get(idFornecedor)==null) throw new FornecedorNotExistsException("O fornecedor "+idFornecedor+" não existe.");
+        if(this.fornecedores.get(idFornecedor).removeCasa(idHome)==1) throw new CasaInteligenteNotExistsException("O fornecedor "+idFornecedor+" não tem a casa "+idHome);
     }
 
     public String dispositovosTostring(){
