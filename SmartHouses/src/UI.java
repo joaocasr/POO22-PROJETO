@@ -64,6 +64,7 @@ public class UI{
 
     public void executaPedido(Pedido pedido)
     {
+        System.out.println(pedido.toString());
         String[] linha;
         boolean on;
         if(pedido.getTipo().compareTo("casa")==0)
@@ -812,28 +813,29 @@ public class UI{
             try {
                 date = LocalDateTime.parse(parte[0], formatter);
 
-                if(this.smarthouses.getDate().compareTo(date)>0)
+                if(!this.smarthouses.getDate().isBefore(date))
                     System.out.println("Não pode colocar uma data anterior a " + init.format(formatter));
-                else if (this.smarthouses.getDate().compareTo(date)<0)
-                {
+                else if (this.smarthouses.getDate().compareTo(date)<0) {
                     executaListPedidos(0); // executa os pedidos normais
                     this.smarthouses.atualiza(date); // cria faturas
                     executaListPedidos(1); // executa as mudanças de fornecedores
                     this.smarthouses.setDate(date);
-                }
 
-                if (parte[2].compareTo("alteraFornecedor") == 0) {
-                    this.pedidosMudancaFornecedor.add(new Pedido(date, parte[1], parte[2], parte[3], parte[4],false));
+
+                    if (parte[2].compareTo("alteraFornecedor") == 0) {
+                        this.pedidosMudancaFornecedor.add(new Pedido(date, parte[1], parte[2], parte[3], parte[4], false));
+                    } else if (parte[4].compareTo("") == 0) {
+                        this.pedidos.add(new Pedido(date, parte[1], parte[2], parte[3], parte[4], false));
+                    } else {
+                        System.out.println(parte[1] + "," + parte[2] + "," + parte[3] + "," + parte[4]);
+                        on = parte[5].equals("on") || parte[5].equals("On") || parte[5].equals("ON") || parte[5].equals("oN");
+                        System.out.println(parte[5]+"."+on);
+                        this.pedidos.add(new Pedido(date, parte[1], parte[2], parte[3], parte[4], on));
+                    }
                 }
-                else if(parte[4].compareTo("")==0){
-                    this.pedidos.add(new Pedido(date, parte[1], parte[2], parte[3], parte[4],false));
-                }
-                else
-                {
-                    System.out.println(parte[1]+","+parte[2]+","+parte[3]+","+parte[4]);
-                    on = parte[5].equals("on") || parte[5].equals("On") || parte[5].equals("ON") || parte[5].equals("oN");
-                    this.pedidos.add(new Pedido(date, parte[1], parte[2], parte[3], parte[4],on));
-                }
+                executaListPedidos(0); // executa os pedidos normais
+                this.smarthouses.atualiza(this.smarthouses.getDate().plusDays(1)); // cria faturas
+                executaListPedidos(1); // executa as mudanças de fornecedores
             }
             catch (DateTimeParseException e)
             {

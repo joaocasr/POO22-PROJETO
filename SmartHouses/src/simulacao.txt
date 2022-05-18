@@ -1,5 +1,3 @@
-2022-07-18 11:08, casa, casa14, ligaDesliga, bulb284, on
-2022-07-19 12:23, casa, casa2, ligaDesliga, cam20, On
-2022-07-19 15:00, casa, casa13, setAllDevicesHome, "", on
-2022-07-20 01:03, fornecedor, EDP Comercial, removeFornecedores, "", ""
-2022-07-23 04:25, casa, casa3, alteraFornecedor, Luzboa, ""
+2022-07-18 11:08,casa,casa14,ligaDesliga,bulb284,on
+2022-07-19 12:23,casa,casa2,ligaDesliga,cam20,On
+2022-07-19 15:00,casa,casa13,setAllDevicesHome,"",on
