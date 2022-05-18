@@ -4,10 +4,7 @@ import Model.Exceptions.*;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class CasaInteligente {
@@ -288,7 +285,6 @@ public class CasaInteligente {
     }
     public void addFatura(String idFornecedor, LocalDateTime init, LocalDateTime finit, double valor)
     {
-
         Fatura f = new Fatura(calculaConsumo(init,finit),idHome+":"+init+" to "+finit, init, finit, morada, NIF, idFornecedor, valor);
         this.faturas.put(f.getIdFatura(),f.clone());
 
@@ -304,17 +300,18 @@ public class CasaInteligente {
         {
             if(this.logs.get(sd.getID())!=null)
             {
+                System.out.println(logs.toString());
                 len = this.logs.get(sd.getID()).size();
                 i=0;
                 Log l = this.logs.get(sd.getID()).get(i);
-                while (i < len && l.getDia().compareTo(init) <= 0) {
+                while (i < len && l.getDia().isBefore(init)) {
                     flag = l.getMode();
                     i++;
                     l = this.logs.get(sd.getID()).get(i);
                 }
                 if(i<len)
                 {
-                    while(i<len && this.logs.get(sd.getID()).get(i).getDia().compareTo(finit) < 0)
+                    while(i<len && this.logs.get(sd.getID()).get(i).getDia().isBefore(finit))
                     {
                         if(!this.logs.get(sd.getID()).get(i).getMode() && flag) {
                             consumo += sd.consumoDiario() * ChronoUnit.DAYS.between(init,this.logs.get(sd.getID()).get(i).getDia());

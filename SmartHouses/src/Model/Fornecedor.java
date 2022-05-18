@@ -142,7 +142,9 @@ public class Fornecedor{
         double max = 0, t = 0;
         for(CasaInteligente c: this.allCasas.values())
         {
-            t = c.calculaConsumo(init,finit);
+            for(Fatura f: c.getFaturas(c.getIdHome()))
+                t = f.getValor();
+            System.out.println("Casa "+c.getIdHome()+ "com " + t + "\n");
             if(max < t) 
             {
                 max = t; 

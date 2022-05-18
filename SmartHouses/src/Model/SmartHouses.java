@@ -293,6 +293,17 @@ public class SmartHouses implements Serializable {
         }
     }
 
+    public Map<String,Fatura> getFaturas(String idHome)
+    {
+        return this.casas.get(idHome).getFaturas();
+    }
+
+    public List<Log> getLogsDevice(String idDevice, String idHome)
+    {
+        return this.casas.get(idHome).getLogs().get(idDevice);
+    }
+
+
     public void alteraFornecedor(String idHome, String idFornecedor) throws CasaInteligenteNotExistsException{
         this.casas.get(idHome).setIdFornecedor(idFornecedor);
 
@@ -383,7 +394,7 @@ public class SmartHouses implements Serializable {
                 }
             }
         }
-        if(r.compareTo("")==0) return "Não ha faturas registadas";
+        if(r.compareTo("")==0) return "Nenhuma casa tem valor superior a 0€";
         return r;
     }
 
@@ -404,14 +415,13 @@ public class SmartHouses implements Serializable {
         if(id.compareTo("")==0) id = "Não há faturas registadas.";
         return id;
     }
-
-
     public List<Fornecedor> ordenarFornecedores(LocalDateTime init, LocalDateTime finit)
     {
         Comparator<Fornecedor> c = (Fornecedor a, Fornecedor b)->
         {return Double.compare(a.faturaçaoFornecedor(init,finit),b.faturaçaoFornecedor(init,finit));};
 
-
         return this.fornecedores.values().stream().map(Fornecedor::clone).sorted(c).collect(Collectors.toList());
     }
+
+
 }

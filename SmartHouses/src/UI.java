@@ -12,6 +12,7 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class UI{
 
@@ -139,7 +140,14 @@ public class UI{
                     break;
                 case "setAllDevicesHome":
                     //System.out.println(pedido.toString());
-                    this.smarthouses.setAllDevicesHome(pedido.getId(),pedido.getMode());
+                    try{
+                        this.smarthouses.setAllDevicesHome(pedido.getId(),pedido.getMode());
+                        this.smarthouses.addLogChangeMode(pedido.getId(),this.smarthouses.getDate(),pedido.getMode());
+                    }
+                    catch (LogAlreadyExistsException | CasaInteligenteNotExistsException e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 default:
                     break;
@@ -447,12 +455,11 @@ public class UI{
                 String modo = scanner.nextLine();
                 on = modo.equals("on") || modo.equals("On") || modo.equals("ON") || modo.equals("oN");
                 System.out.println("Tamanho: ");
-                double tamanho = scanner.nextDouble();
-                scanner.nextLine();
+                String tamanho = scanner.nextLine();
                 System.out.println("Resolução (axb): ");
                 String res = scanner.nextLine();
                 System.out.println("Consumo base: ");
-                double consumo = scanner.nextDouble();
+                String consumo = scanner.nextLine();
                 this.pedidos.add(new Pedido(smarthouses.getDate(), "casa", idHome, "adicionaCamera", id + "," + tamanho + "," + res + "," + consumo + "," + room, on));
                 executaListPedidos(0);
             }
@@ -545,6 +552,7 @@ public class UI{
             opcoes.add("Informações gerais da Casa\n");
             opcoes.add("Dispositivos\n");
             opcoes.add("Mudar de Fornecedor\n");
+            opcoes.add("Mostrar faturas\n");
             opcoes.add("Voltar");
 
             Menu menu = new Menu(opcoes);
@@ -562,9 +570,15 @@ public class UI{
                         System.out.println("Digite o id do Fornecedor: ");
                         String idFornecedor = scanner.nextLine();
                         this.pedidosMudancaFornecedor.add(new Pedido(smarthouses.getDate(),"casa",idHome,"alteraFornecedor",idFornecedor, false));
+                        break;
                     case 4:
+                        if(this.smarthouses.getCasas().get(idHome).getFaturas(idHome)==null) System.out.println("Não há faturas\n");
+                        this.smarthouses.getFaturas(idHome).forEach((a,b)->System.out.println(b.toString()));
+                        break;
+                    case 5:
                         executeMenu();
                         break;
+
                 }
             } while (menu.getOpcao() != 0);
         }
@@ -622,6 +636,9 @@ public class UI{
         String idDevice = scanner.nextLine();
         if(this.smarthouses.existeDeviceInHome(idDevice,idHome)) {
             System.out.println(this.smarthouses.getDispositivos().get(idDevice));
+            if(this.smarthouses.getLogsDevice(idDevice,idHome)!=null)
+                this.smarthouses.getLogsDevice(idDevice,idHome).forEach((a)->System.out.println(a.toString()));
+            else System.out.println("Não existem logs neste dispositivo.\n");
         }
         else System.out.println("O dispositivo que digitou não existe nesta casa.");
     }
@@ -791,7 +808,7 @@ public class UI{
 
         for (String linha : linhas) {
             parte = linha.split(",");
-
+            System.out.println(linha);
             try {
                 date = LocalDateTime.parse(parte[0], formatter);
 
@@ -813,6 +830,7 @@ public class UI{
                 }
                 else
                 {
+                    System.out.println(parte[1]+","+parte[2]+","+parte[3]+","+parte[4]);
                     on = parte[5].equals("on") || parte[5].equals("On") || parte[5].equals("ON") || parte[5].equals("oN");
                     this.pedidos.add(new Pedido(date, parte[1], parte[2], parte[3], parte[4],on));
                 }
