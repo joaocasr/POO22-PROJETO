@@ -144,7 +144,6 @@ public class Fornecedor{
         {
             for(Fatura f: c.getFaturas(c.getIdHome()))
                 t = f.getValor();
-            System.out.println("Casa "+c.getIdHome()+ "com " + t + "\n");
             if(max < t) 
             {
                 max = t; 

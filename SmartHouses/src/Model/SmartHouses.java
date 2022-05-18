@@ -221,9 +221,6 @@ public class SmartHouses implements Serializable {
     }
 
     public void removeHome(String idFornecedor,String idHome) throws CasaInteligenteNotExistsException,FornecedorNotExistsException{
-        //this.casas.remove(idHome);
-        //System.out.print(idFornecedor);
-        //System.out.print(idHome);
         if(this.fornecedores.get(idFornecedor)==null) throw new FornecedorNotExistsException("O fornecedor "+idFornecedor+" não existe.");
         if(this.fornecedores.get(idFornecedor).removeCasa(idHome)==1) throw new CasaInteligenteNotExistsException("O fornecedor "+idFornecedor+" não tem a casa "+idHome);
     }
@@ -377,25 +374,20 @@ public class SmartHouses implements Serializable {
 
     public String casaGastouMaisPeriodoVariosFornecedores(LocalDateTime init, LocalDateTime finit) throws LogNotExistsException
     {
-        String r = "", idCasa = "";
+        String r = "";
         double max = 0, gasto = 0;
-        for(Fornecedor f: this.fornecedores.values())
+        for(CasaInteligente c: this.casas.values())
         {
-            idCasa = f.casaGastouMaisPeriodo(init, finit);
-            if(!idCasa.equals(""))
+            gasto = c.calculaConsumo(init,finit);
+            if(gasto>max)
             {
-                CasaInteligente casa = f.getAllCasas().get(idCasa);
-                casa.calculaConsumo(init,finit);
-                gasto = f.getValorFornecedor(casa.getIdHome(),init,finit,casa.calculaConsumo(init,finit));
-                if(gasto>max)
-                {
-                    max=gasto;
-                    r = idCasa;
-                }
+                max=gasto;
+                r = c.getIdHome();
             }
+
         }
         if(r.compareTo("")==0) return "Nenhuma casa tem valor superior a 0€";
-        return r;
+        return "A casa que consumiu mais foi a " + r;
     }
 
     //retorna o id (String) do fornecedor que tem mais faturação
@@ -413,7 +405,7 @@ public class SmartHouses implements Serializable {
             }
         }
         if(id.compareTo("")==0) id = "Não há faturas registadas.";
-        return id;
+        return "O fornecedor com mais faturação é o " + id;
     }
     public List<Fornecedor> ordenarFornecedores(LocalDateTime init, LocalDateTime finit)
     {

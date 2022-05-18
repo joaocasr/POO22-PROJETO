@@ -152,7 +152,6 @@ public class CasaInteligente {
     /*Desligar ou Ligar todos os dispositivos*/
     public void setallDevices(boolean b) {
         this.devices.values().forEach(a->a.setModo(b));
-        //System.out.println(this.devices.get("bulb284").getModo());
     }
 
     /*Desligar ou Ligar todos os dispositivos de uma divisao*/
@@ -294,14 +293,13 @@ public class CasaInteligente {
     {
         boolean flag = false;
         int i, len;
-        double consumo=0;
+        double consumo = 0;
 
         for(SmartDevice sd: this.devices.values())
         {
             if(this.logs.get(sd.getID())!=null)
             {
-                System.out.println(logs.toString());
-                len = this.logs.get(sd.getID()).size();
+                len = this.logs.get(sd.getID()).size()-1;
                 i=0;
                 Log l = this.logs.get(sd.getID()).get(i);
                 while (i < len && l.getDia().isBefore(init)) {
@@ -309,12 +307,12 @@ public class CasaInteligente {
                     i++;
                     l = this.logs.get(sd.getID()).get(i);
                 }
-                if(i<len)
+                if(i<=len)
                 {
-                    while(i<len && this.logs.get(sd.getID()).get(i).getDia().isBefore(finit))
+                    while(i<=len && this.logs.get(sd.getID()).get(i).getDia().isBefore(finit))
                     {
                         if(!this.logs.get(sd.getID()).get(i).getMode() && flag) {
-                            consumo += sd.consumoDiario() * ChronoUnit.DAYS.between(init,this.logs.get(sd.getID()).get(i).getDia());
+                            consumo += sd.consumoDiario() * ChronoUnit.MINUTES.between(init,this.logs.get(sd.getID()).get(i).getDia())  / 60;
                             flag = false;
                         }
                         if(this.logs.get(sd.getID()).get(i).getMode() && !flag)
@@ -324,11 +322,11 @@ public class CasaInteligente {
                         }
                         i++;
                     }
-                    if (i!=len && flag)
-                        consumo += sd.consumoDiario() * ChronoUnit.DAYS.between(init, finit);
+                    if (i>len && flag) {
+                        consumo += sd.consumoDiario() * ChronoUnit.MINUTES.between(init, finit) / 60;
+                    }
                 }
             }
-
         }
         return consumo;
     }
