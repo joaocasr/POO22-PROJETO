@@ -52,6 +52,7 @@ public class UI{
     public void addDeviceExecute(String idHome, String idDevice, String room, SmartDevice sd, LocalDateTime date, boolean mode)
     {
         try {
+            System.out.println("here");
             this.smarthouses.adicionaDevice(idDevice, sd);
             this.smarthouses.addDeviceToRoom(idHome,room,sd);
             //System.out.println("IDHome:" + idHome + ", IDDecvice:"+ idDevice+"\n");
@@ -64,7 +65,6 @@ public class UI{
 
     public void executaPedido(Pedido pedido)
     {
-        System.out.println(pedido.toString());
         String[] linha;
         boolean on;
         if(pedido.getTipo().compareTo("casa")==0)
@@ -74,17 +74,13 @@ public class UI{
                 case "adicionaBulb":
                     linha = pedido.getEspecificacoes().split(",");
                     //linha = id+","+tonalidade+","+dimensao+","+consumo+","+room
-                    //System.out.println(pedido.toString());
                     SmartDevice sdB = new SmartBulb(linha[0], linha[1],pedido.getMode(), Integer.parseInt(linha[2]),Double.parseDouble(linha[3]));
+                    System.out.println("HERE");
                     addDeviceExecute(pedido.getId(),linha[0],linha[4],sdB,pedido.getDate(),pedido.getMode());
                     break;
                 case "adicionaCamera":
                     // id+","+tamanho+","+res+","+consumo+","+room
                     linha = pedido.getEspecificacoes().split(",");
-                    //System.out.println(linha[2]);
-                    //System.out.println(linha[1]);
-                    //System.out.println(linha[0]);
-                    //System.out.println(linha[3]);
                     SmartDevice sdC = new SmartCamera(linha[0], pedido.getMode(), linha[2], Double.parseDouble(linha[1]),Double.parseDouble(linha[3]));
                     addDeviceExecute(pedido.getId(),linha[0],linha[4],sdC,pedido.getDate(),pedido.getMode());
                     break;
@@ -95,8 +91,19 @@ public class UI{
                     break;
                 case "removeDispositivo":
                     try{
-                    this.smarthouses.removeDevice(pedido.getEspecificacoes(),pedido.getId());}
-                    catch (LogNotExistsException e)
+                        linha = pedido.getEspecificacoes().split(",");
+                        if(pedido.getMode())
+                        {
+                            this.smarthouses.removeDevice(linha[0],pedido.getId());
+                            this.smarthouses.removePermanenteDevice(linha[0],pedido.getId());
+                        }
+                        else
+                        {
+                            this.smarthouses.removeDevice(linha[0],pedido.getId());
+                            this.smarthouses.addDeviceToRoomSameHouse(linha[0],pedido.getId(),linha[1]);
+                        }
+                    }
+                    catch (LogNotExistsException | RoomNotExistsException e)
                     {
                         System.out.println(e.getMessage());
                     }
@@ -140,12 +147,19 @@ public class UI{
                     }
                     break;
                 case "setAllDevicesHome":
-                    //System.out.println(pedido.toString());
                     try{
-                        this.smarthouses.setAllDevicesHome(pedido.getId(),pedido.getMode());
-                        this.smarthouses.addLogChangeMode(pedido.getId(),this.smarthouses.getDate(),pedido.getMode());
+                        if(pedido.getEspecificacoes().compareTo("")==0)
+                        {// ligar/desligar em todas as divisões
+                            this.smarthouses.setAllDevicesHome(pedido.getId(), pedido.getMode());
+                            this.smarthouses.addLogChangeMode(pedido.getId(), this.smarthouses.getDate(), pedido.getMode());
+                        }
+                        else
+                        {// ligar/desligar numa divisão especifica
+                            this.smarthouses.setAlldivision(pedido.getId(),pedido.getEspecificacoes(),pedido.getMode());
+                            this.smarthouses.addLogChangeMode(pedido.getId(), this.smarthouses.getDate(), pedido.getMode(),pedido.getEspecificacoes());
+                        }
                     }
-                    catch (LogAlreadyExistsException | CasaInteligenteNotExistsException e)
+                    catch (LogAlreadyExistsException | CasaInteligenteNotExistsException | SmartDeviceNotExistsException | RoomNotExistsException e)
                     {
                         System.out.println(e.getMessage());
                     }
@@ -313,6 +327,7 @@ public class UI{
         opcoes.add("SmartBulb - Tonalidade\n");
         opcoes.add("SmartSpeaker - Volume\n");
         opcoes.add("Ligar/Desligar todos os dispositivos\n");
+        opcoes.add("Ligar/Desligar todos os dispositivos de uma divisão\n");
         opcoes.add("Consultar dispositivos\n");
         opcoes.add("Voltar");
 
@@ -339,12 +354,15 @@ public class UI{
                     volSpk(idHome);
                     break;
                 case 7:
-                    setAllDevicesHome(idHome);
+                    setAllDevicesHome(idHome,true);
                     break;
                 case 8:
-                    consultaDispositivos(idHome);
+                    setAllDevicesHome(idHome,false);
                     break;
                 case 9:
+                    consultaDispositivos(idHome);
+                    break;
+                case 10:
                     executeMenu();
                     break;
                 default:
@@ -506,9 +524,19 @@ public class UI{
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o ID do dispositivo a remover: ");
         String idDevice = scanner.nextLine();
+        System.out.println("Remover permanentemente da casa? ");
+        System.out.println("(Sim/Nao)");
+        String modo = scanner.nextLine();
+        boolean on = modo.equals("sim") || modo.equals("SIM") || modo.equals("Sim") || modo.equals("s");
+        String divisao = "";
         if(this.smarthouses.existeDeviceInHome(idDevice,idHome))
         {
-            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"removeDispositivo",idDevice,false));
+            if(!on)
+            {
+                System.out.println("Qual a divisão da casa que irá adicionar: ");
+                divisao = scanner.nextLine();
+            }
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"removeDispositivo",idDevice+","+divisao,on));
             executaListPedidos(0);
         }
         else System.out.println("O device não existe nesta casa.");
@@ -787,13 +815,18 @@ public class UI{
 
     }
 
-    public void setAllDevicesHome(String idHome)
+    public void setAllDevicesHome(String idHome, boolean all)
     {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Modo(on/off): ");
         String modo = scanner.nextLine();
         boolean on = modo.equals("on") || modo.equals("ON") || modo.equals("On") || modo.equals("oN");
-        this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"setAllDevicesHome","",on));
+        if(all) this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"setAllDevicesHome","",on));
+        else {
+            System.out.println("Divisao: ");
+            String divisao = scanner.nextLine();
+            this.pedidos.add(new Pedido(smarthouses.getDate(),"casa",idHome,"setAllDevicesHome",divisao,on));
+        }
         executaListPedidos(0);
     }
 

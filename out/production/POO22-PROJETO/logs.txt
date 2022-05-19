@@ -14,190 +14,190 @@ Fornecedor:SU Electricidade,0.13
 Fornecedor:EDA,0.14
 Casa:Vicente de Carvalho Castro,365597405,Iberdrola,casa1,Yubetsu-tanko 564-000 nº 383
 Divisao:Sala de Jantar
-SmartBulb:Warm,11,4.57,bulb1,2022-05-13 05:16:42,2022-06-05 10:36:46,false
-SmartBulb:Neutral,12,4.73,bulb2,2022-05-12 13:48:54,2022-06-24 07:30:45,true
+SmartBulb:Warm,11,4.57,bulb1
+SmartBulb:Neutral,12,4.73,bulb2
 Divisao:Sala de Jantar 1
-SmartBulb:Neutral,7,9.35,bulb3,2022-03-29 07:38:27,2022-05-31 20:23:44,false
-SmartCamera:(1280x720),65,3.84,cam1,2022-03-18 22:02:41,2022-05-10 06:46:39,false
-SmartSpeaker:2,Radio Renascenca,LG,5.54,speaker1,2022-04-11 09:23:48,2022-05-30 06:33:00,false
-SmartBulb:Neutral,5,6.36,bulb4,2022-05-04 23:23:31,2022-06-28 23:49:05,false
-SmartBulb:Neutral,20,5.87,bulb5,2022-03-07 03:16:40,2022-07-15 00:52:20,false
-SmartBulb:Neutral,10,6.10,bulb6,2022-05-23 18:13:22,2022-07-07 19:32:44,false
-SmartCamera:(1024x768),67,4.00,cam2,2022-03-14 10:53:07,2022-05-11 07:16:25,true
-SmartBulb:Neutral,8,0.28,bulb7,2022-05-12 00:37:30,2022-06-24 02:06:24,true
+SmartBulb:Neutral,7,9.35,bulb3
+SmartCamera:(1280x720),65,3.84,cam1
+SmartSpeaker:2,Radio Renascenca,LG,5.54,speaker1
+SmartBulb:Neutral,5,6.36,bulb4
+SmartBulb:Neutral,20,5.87,bulb5
+SmartBulb:Neutral,10,6.10,bulb6
+SmartCamera:(1024x768),67,4.00,cam2
+SmartBulb:Neutral,8,0.28,bulb7
 Divisao:Quarto
-SmartBulb:Warm,9,0.19,bulb8,2022-03-30 08:34:05,2022-07-05 16:57:45,true
-SmartSpeaker:35,MEGA HITS,Sony,5.54,speaker2,2022-04-05 16:54:51,2022-05-29 04:47:31,true
-SmartCamera:(1920x1080),69,6.58,cam3,2022-04-04 14:54:12,2022-05-09 13:08:38,false
-SmartCamera:(1024x768),54,6.41,cam4,2022-04-21 17:18:55,2022-05-06 01:49:11,false
-SmartCamera:(1024x768),95,4.36,cam5,2022-03-11 08:07:16,2022-05-04 22:06:41,false
-SmartBulb:Warm,19,0.11,bulb9,2022-03-18 18:08:10,2022-06-28 20:21:08,false
-SmartBulb:Neutral,19,1.54,bulb10,2022-04-14 14:48:30,2022-07-22 12:42:47,false
-SmartBulb:Warm,5,3.46,bulb11,2022-05-09 13:35:18,2022-06-11 22:50:29,true
+SmartBulb:Warm,9,0.19,bulb8
+SmartSpeaker:35,MEGA HITS,Sony,5.54,speaker2
+SmartCamera:(1920x1080),69,6.58,cam3
+SmartCamera:(1024x768),54,6.41,cam4
+SmartCamera:(1024x768),95,4.36,cam5
+SmartBulb:Warm,19,0.11,bulb9
+SmartBulb:Neutral,19,1.54,bulb10
+SmartBulb:Warm,5,3.46,bulb11
 Divisao:Garagem
-SmartCamera:(1366x768),79,4.41,cam6,2022-04-01 09:44:40,2022-05-01 19:40:46,false
-SmartCamera:(1024x768),28,5.57,cam7,2022-03-01 13:58:48,2022-05-12 02:06:22,true
-SmartBulb:Warm,8,4.24,bulb12,2022-05-19 23:18:31,2022-06-19 10:07:26,false
-SmartBulb:Neutral,5,0.12,bulb13,2022-04-09 04:43:31,2022-07-26 15:51:23,true
+SmartCamera:(1366x768),79,4.41,cam6
+SmartCamera:(1024x768),28,5.57,cam7
+SmartBulb:Warm,8,4.24,bulb12
+SmartBulb:Neutral,5,0.12,bulb13
 Divisao:Escritorio
-SmartSpeaker:40,RFM,Philips,4.20,speaker3,2022-03-08 04:57:23,2022-05-22 20:00:28,false
-SmartSpeaker:65,M80 Radio,Marshall,5.21,speaker4,2022-03-23 12:13:23,2022-05-06 11:34:48,false
-SmartBulb:Neutral,8,0.12,bulb14,2022-03-29 04:20:22,2022-06-11 23:00:27,false
-SmartBulb:Neutral,12,3.78,bulb15,2022-03-02 00:50:47,2022-06-19 11:24:12,false
-SmartCamera:(2160x1440),71,3.97,cam8,2022-04-13 13:09:44,2022-05-13 04:39:30,true
-SmartBulb:Neutral,7,0.24,bulb16,2022-04-04 22:31:27,2022-07-21 14:39:17,true
-SmartCamera:(1366x768),63,4.74,cam9,2022-03-15 02:21:38,2022-05-12 00:45:28,false
-SmartBulb:Neutral,5,4.14,bulb17,2022-05-06 05:47:00,2022-07-27 03:29:17,true
+SmartSpeaker:40,RFM,Philips,4.20,speaker3
+SmartSpeaker:65,M80 Radio,Marshall,5.21,speaker4
+SmartBulb:Neutral,8,0.12,bulb14
+SmartBulb:Neutral,12,3.78,bulb15
+SmartCamera:(2160x1440),71,3.97,cam8
+SmartBulb:Neutral,7,0.24,bulb16
+SmartCamera:(1366x768),63,4.74,cam9
+SmartBulb:Neutral,5,4.14,bulb17
 Divisao:Sala de Jantar 2
-SmartBulb:Neutral,9,0.22,bulb18,2022-04-21 16:35:06,2022-06-24 03:48:07,true
-SmartBulb:Neutral,9,0.14,bulb19,2022-03-21 05:18:35,2022-06-07 17:26:42,true
-SmartSpeaker:30,RTP Antena 1 98.3 FM,JBL,5.53,speaker5,2022-04-03 21:16:09,2022-05-11 01:09:51,false
-SmartBulb:Neutral,9,0.11,bulb20,2022-03-18 14:30:58,2022-06-29 15:36:19,true
-SmartBulb:Neutral,13,1.09,bulb21,2022-03-28 16:11:16,2022-06-29 03:50:19,false
-SmartBulb:Neutral,17,2.76,bulb22,2022-05-17 13:16:01,2022-07-26 13:28:55,true
+SmartBulb:Neutral,9,0.22,bulb18
+SmartBulb:Neutral,9,0.14,bulb19
+SmartSpeaker:30,RTP Antena 1 98.3 FM,JBL,5.53,speaker5
+SmartBulb:Neutral,9,0.11,bulb20
+SmartBulb:Neutral,13,1.09,bulb21
+SmartBulb:Neutral,17,2.76,bulb22
 Casa:Miguel Velho Raposo,134655929,Endesa,casa2,Taira 755-0000 nº 386
 Divisao:Sala de Estar
-SmartBulb:Neutral,17,3.05,bulb23,2022-04-15 16:23:16,2022-07-05 04:30:20,false
-SmartCamera:(1920x1080),93,6.47,cam10,2022-03-13 20:57:25,2022-05-06 20:14:53,false
-SmartBulb:Warm,17,0.20,bulb24,2022-05-03 06:07:12,2022-07-10 08:38:15,false
-SmartCamera:(2160x1440),34,5.26,cam11,2022-03-26 21:06:52,2022-05-05 01:26:34,true
-SmartBulb:Cold,15,0.16,bulb25,2022-04-16 00:24:11,2022-06-07 11:46:17,true
-SmartBulb:Neutral,17,0.16,bulb26,2022-04-07 14:16:37,2022-07-15 12:53:11,true
-SmartCamera:(1024x768),80,6.64,cam12,2022-04-09 18:24:58,2022-05-11 10:43:00,false
-SmartBulb:Neutral,7,0.29,bulb27,2022-04-29 16:20:30,2022-06-06 02:52:19,true
-SmartSpeaker:70,RTP Antena 1 98.3 FM,Bowers&Wilkins,5.20,speaker6,2022-03-23 07:01:59,2022-06-10 14:30:34,false
-SmartBulb:Warm,15,5.05,bulb28,2022-05-14 16:40:04,2022-06-22 02:13:24,false
+SmartBulb:Neutral,17,3.05,bulb23
+SmartCamera:(1920x1080),93,6.47,cam10
+SmartBulb:Warm,17,0.20,bulb24
+SmartCamera:(2160x1440),34,5.26,cam11
+SmartBulb:Cold,15,0.16,bulb25
+SmartBulb:Neutral,17,0.16,bulb26
+SmartCamera:(1024x768),80,6.64,cam12
+SmartBulb:Neutral,7,0.29,bulb27
+SmartSpeaker:70,RTP Antena 1 98.3 FM,Bowers&Wilkins,5.20,speaker6
+SmartBulb:Warm,15,5.05,bulb28
 Divisao:Sala de Jantar
-SmartSpeaker:40,RTP Antena 1 98.3 FM,Marshall,5.10,speaker7,2022-04-10 22:22:50,2022-05-20 23:43:39,true
+SmartSpeaker:40,RTP Antena 1 98.3 FM,Marshall,5.10,speaker7
 Divisao:Sala de Estar 1
-SmartBulb:Neutral,11,0.13,bulb29,2022-04-13 14:02:22,2022-07-14 22:03:22,false
-SmartSpeaker:55,TSF Radio Noticias,Bowers&Wilkins,5.43,speaker8,2022-03-02 02:48:25,2022-05-15 07:26:46,true
-SmartSpeaker:42,Cidade FM,Goodis,5.16,speaker9,2022-03-15 04:53:33,2022-04-27 02:20:00,false
-SmartBulb:Neutral,7,0.14,bulb30,2022-05-06 23:58:17,2022-07-09 12:11:10,false
-SmartBulb:Neutral,6,0.18,bulb31,2022-05-03 17:59:23,2022-07-24 08:56:13,false
-SmartBulb:Neutral,19,0.25,bulb32,2022-04-27 03:31:42,2022-06-21 16:32:36,true
-SmartBulb:Neutral,12,0.13,bulb33,2022-04-08 01:33:26,2022-06-13 03:18:16,true
-SmartBulb:Neutral,13,0.16,bulb34,2022-03-17 00:10:56,2022-06-20 14:00:20,true
-SmartSpeaker:60,Radio Comercial,LG,5.41,speaker10,2022-04-06 00:19:41,2022-04-28 20:28:36,false
-SmartSpeaker:69,Radio Radar,Bang&Olufsen,5.24,speaker11,2022-03-01 03:38:25,2022-04-17 03:04:33,true
+SmartBulb:Neutral,11,0.13,bulb29
+SmartSpeaker:55,TSF Radio Noticias,Bowers&Wilkins,5.43,speaker8
+SmartSpeaker:42,Cidade FM,Goodis,5.16,speaker9
+SmartBulb:Neutral,7,0.14,bulb30
+SmartBulb:Neutral,6,0.18,bulb31
+SmartBulb:Neutral,19,0.25,bulb32
+SmartBulb:Neutral,12,0.13,bulb33
+SmartBulb:Neutral,13,0.16,bulb34
+SmartSpeaker:60,Radio Comercial,LG,5.41,speaker10
+SmartSpeaker:69,Radio Radar,Bang&Olufsen,5.24,speaker11
 Divisao:Escritorio
-SmartBulb:Warm,18,0.26,bulb35,2022-03-30 07:31:36,2022-06-20 06:06:11,false
-SmartCamera:(3840x2160),54,0.40,cam13,2022-04-02 03:44:11,2022-05-06 01:06:52,true
+SmartBulb:Warm,18,0.26,bulb35
+SmartCamera:(3840x2160),54,0.40,cam13
 Divisao:Casa de Banho
-SmartBulb:Warm,9,0.15,bulb36,2022-03-23 08:05:51,2022-06-01 15:11:06,false
-SmartBulb:Neutral,15,0.18,bulb37,2022-03-07 09:33:27,2022-06-22 13:38:12,false
-SmartBulb:Cold,15,5.38,bulb38,2022-03-15 08:37:49,2022-07-28 11:01:22,true
-SmartCamera:(1280x720),95,6.98,cam14,2022-03-19 13:48:04,2022-05-10 08:36:12,false
-SmartBulb:Neutral,8,0.17,bulb39,2022-03-15 20:54:26,2022-06-21 08:19:21,false
-SmartCamera:(2160x1440),85,0.33,cam15,2022-04-15 20:02:51,2022-05-02 11:25:36,false
+SmartBulb:Warm,9,0.15,bulb36
+SmartBulb:Neutral,15,0.18,bulb37
+SmartBulb:Cold,15,5.38,bulb38
+SmartCamera:(1280x720),95,6.98,cam14
+SmartBulb:Neutral,8,0.17,bulb39
+SmartCamera:(2160x1440),85,0.33,cam15
 Divisao:Quarto
-SmartBulb:Neutral,7,0.14,bulb40,2022-03-28 20:47:19,2022-07-11 09:03:33,true
-SmartCamera:(1280x720),117,0.14,cam16,2022-03-02 19:52:57,2022-05-07 19:40:32,true
+SmartBulb:Neutral,7,0.14,bulb40
+SmartCamera:(1280x720),117,0.14,cam16
 Divisao:Sala de Estar 2
-SmartBulb:Warm,19,7.70,bulb41,2022-05-07 23:16:37,2022-06-19 12:39:01,false
-SmartCamera:(2160x1440),21,4.43,cam17,2022-03-16 21:59:53,2022-05-13 19:56:59,true
-SmartSpeaker:45,Radio Radar,JBL,5.20,speaker12,2022-04-01 17:08:16,2022-05-13 13:30:48,false
-SmartBulb:Cold,10,0.14,bulb42,2022-05-01 13:43:04,2022-05-31 14:15:47,false
-SmartCamera:(1366x768),7,0.38,cam18,2022-03-07 21:03:42,2022-05-02 04:30:42,true
-SmartBulb:Neutral,16,8.77,bulb43,2022-04-01 13:55:22,2022-07-03 23:27:03,false
-SmartBulb:Neutral,18,4.21,bulb44,2022-04-04 17:58:59,2022-06-12 22:59:51,false
+SmartBulb:Warm,19,7.70,bulb41
+SmartCamera:(2160x1440),21,4.43,cam17
+SmartSpeaker:45,Radio Radar,JBL,5.20,speaker12
+SmartBulb:Cold,10,0.14,bulb42
+SmartCamera:(1366x768),7,0.38,cam18
+SmartBulb:Neutral,16,8.77,bulb43
+SmartBulb:Neutral,18,4.21,bulb44
 Divisao:Escritorio 1
-SmartBulb:Neutral,8,8.90,bulb45,2022-03-03 06:10:29,2022-07-18 03:12:37,true
-SmartBulb:Neutral,20,0.13,bulb46,2022-05-27 01:12:12,2022-07-08 10:42:48,false
-SmartBulb:Neutral,9,0.14,bulb47,2022-03-13 01:47:55,2022-07-03 02:56:25,true
-SmartBulb:Neutral,19,0.12,bulb48,2022-04-24 15:10:25,2022-07-03 11:26:00,true
-SmartSpeaker:30,TSF Radio Noticias,Philips,5.10,speaker13,2022-03-19 06:50:00,2022-06-05 21:42:29,true
-SmartBulb:Neutral,18,7.92,bulb49,2022-04-17 03:36:56,2022-07-07 08:40:18,false
-SmartSpeaker:49,TSF Radio Noticias,Goodis,5.34,speaker14,2022-03-12 15:23:04,2022-04-17 05:48:05,false
-SmartBulb:Neutral,6,0.14,bulb50,2022-03-15 03:44:21,2022-07-16 19:23:13,true
-SmartCamera:(1280x720),33,5.55,cam19,2022-04-09 04:41:49,2022-05-14 02:07:04,true
+SmartBulb:Neutral,8,8.90,bulb45
+SmartBulb:Neutral,20,0.13,bulb46
+SmartBulb:Neutral,9,0.14,bulb47
+SmartBulb:Neutral,19,0.12,bulb48
+SmartSpeaker:30,TSF Radio Noticias,Philips,5.10,speaker13
+SmartBulb:Neutral,18,7.92,bulb49
+SmartSpeaker:49,TSF Radio Noticias,Goodis,5.34,speaker14
+SmartBulb:Neutral,6,0.14,bulb50
+SmartCamera:(1280x720),33,5.55,cam19
 Divisao:Sala de Jantar 1
-SmartBulb:Neutral,7,0.14,bulb51,2022-04-09 08:53:03,2022-07-01 19:52:09,false
-SmartCamera:(2160x1440),26,6.18,cam20,2022-03-29 22:22:08,2022-05-01 21:10:46,true
+SmartBulb:Neutral,7,0.14,bulb51
+SmartCamera:(2160x1440),26,6.18,cam20
 Casa:Diogo Filipe Duraes Ribeiro,637220731,MEO Energia,casa3,Bentenchō 904-1300 nº 277
 Divisao:Sala de Jantar
-SmartBulb:Neutral,5,2.46,bulb52,2022-03-15 12:33:45,2022-06-08 09:37:37,true
-SmartBulb:Neutral,6,0.18,bulb53,2022-04-28 06:47:18,2022-06-24 07:25:07,false
-SmartSpeaker:70,RTP Antena 1 98.3 FM,BOSE,4.98,speaker15,2022-03-26 23:16:17,2022-04-19 22:56:18,false
-SmartBulb:Neutral,7,0.13,bulb54,2022-05-25 12:21:34,2022-07-13 17:52:43,true
-SmartBulb:Warm,11,8.12,bulb55,2022-05-29 22:05:06,2022-06-17 23:42:12,true
-SmartBulb:Neutral,14,0.18,bulb56,2022-05-19 15:21:30,2022-07-03 15:53:19,false
-SmartBulb:Neutral,9,0.12,bulb57,2022-03-14 07:55:22,2022-07-23 12:12:14,true
-SmartSpeaker:75,Cidade FM,LG,4.91,speaker16,2022-03-12 17:05:38,2022-04-25 12:11:06,true
-SmartBulb:Neutral,20,0.18,bulb58,2022-04-27 07:17:01,2022-06-13 21:23:21,true
+SmartBulb:Neutral,5,2.46,bulb52
+SmartBulb:Neutral,6,0.18,bulb53
+SmartSpeaker:70,RTP Antena 1 98.3 FM,BOSE,4.98,speaker15
+SmartBulb:Neutral,7,0.13,bulb54
+SmartBulb:Warm,11,8.12,bulb55
+SmartBulb:Neutral,14,0.18,bulb56
+SmartBulb:Neutral,9,0.12,bulb57
+SmartSpeaker:75,Cidade FM,LG,4.91,speaker16
+SmartBulb:Neutral,20,0.18,bulb58
 Divisao:Garagem
-SmartBulb:Neutral,5,0.96,bulb59,2022-04-17 07:38:40,2022-07-28 13:16:49,true
-SmartBulb:Cold,8,3.23,bulb60,2022-04-02 20:06:28,2022-07-02 23:45:04,false
-SmartBulb:Neutral,11,3.63,bulb61,2022-05-24 15:11:27,2022-07-03 15:24:04,false
-SmartSpeaker:78,RFM,BOSE,5.26,speaker17,2022-04-15 18:37:19,2022-05-02 14:53:29,true
-SmartBulb:Neutral,20,0.17,bulb62,2022-03-27 20:54:59,2022-06-21 03:55:19,false
-SmartSpeaker:59,Radio Comercial,Sony,5.25,speaker18,2022-03-14 09:35:07,2022-05-10 21:20:11,true
-SmartSpeaker:3,Cidade FM,Sony,4.29,speaker19,2022-04-08 12:33:51,2022-06-05 18:57:49,true
-SmartBulb:Neutral,20,0.15,bulb63,2022-05-23 03:06:22,2022-07-11 14:07:17,true
-SmartCamera:(2160x1440),106,4.98,cam21,2022-04-29 21:06:29,2022-05-14 05:52:43,false
-SmartBulb:Neutral,20,0.27,bulb64,2022-03-23 04:02:53,2022-07-02 00:20:59,false
+SmartBulb:Neutral,5,0.96,bulb59
+SmartBulb:Cold,8,3.23,bulb60
+SmartBulb:Neutral,11,3.63,bulb61
+SmartSpeaker:78,RFM,BOSE,5.26,speaker17
+SmartBulb:Neutral,20,0.17,bulb62
+SmartSpeaker:59,Radio Comercial,Sony,5.25,speaker18
+SmartSpeaker:3,Cidade FM,Sony,4.29,speaker19
+SmartBulb:Neutral,20,0.15,bulb63
+SmartCamera:(2160x1440),106,4.98,cam21
+SmartBulb:Neutral,20,0.27,bulb64
 Divisao:Jardim
-SmartBulb:Neutral,12,0.12,bulb65,2022-04-04 12:18:46,2022-07-19 00:29:14,true
-SmartBulb:Cold,19,3.85,bulb66,2022-05-27 00:44:43,2022-07-27 06:49:16,false
-SmartBulb:Neutral,7,8.90,bulb67,2022-05-27 23:35:43,2022-07-16 23:05:48,true
-SmartBulb:Neutral,8,6.60,bulb68,2022-04-01 16:32:29,2022-07-11 03:09:02,false
-SmartBulb:Neutral,9,5.94,bulb69,2022-04-11 21:22:35,2022-07-29 11:22:26,false
-SmartBulb:Neutral,5,0.16,bulb70,2022-03-01 04:18:03,2022-06-29 03:43:58,false
-SmartBulb:Neutral,7,4.54,bulb71,2022-03-16 00:44:01,2022-07-11 13:55:16,true
-SmartCamera:(3840x2160),96,7.01,cam22,2022-04-22 21:14:34,2022-05-10 12:05:52,true
-SmartBulb:Neutral,15,2.57,bulb72,2022-04-24 17:50:35,2022-06-30 04:52:21,false
+SmartBulb:Neutral,12,0.12,bulb65
+SmartBulb:Cold,19,3.85,bulb66
+SmartBulb:Neutral,7,8.90,bulb6
+SmartBulb:Neutral,8,6.60,bulb68
+SmartBulb:Neutral,9,5.94,bulb69
+SmartBulb:Neutral,5,0.16,bulb70
+SmartBulb:Neutral,7,4.54,bulb71
+SmartCamera:(3840x2160),96,7.01,cam22
+SmartBulb:Neutral,15,2.57,bulb72
 Divisao:Quarto
-SmartBulb:Neutral,16,8.37,bulb73,2022-04-01 16:30:46,2022-06-28 00:44:57,true
-SmartBulb:Neutral,16,3.36,bulb74,2022-04-14 09:55:10,2022-06-08 04:17:03,false
-SmartBulb:Warm,19,7.63,bulb75,2022-05-24 18:40:12,2022-07-26 02:13:03,true
+SmartBulb:Neutral,16,8.37,bulb73
+SmartBulb:Neutral,16,3.36,bulb74
+SmartBulb:Warm,19,7.63,bulb75
 Divisao:Escritorio
-SmartCamera:(1280x720),39,5.81,cam23,2022-04-12 03:05:02,2022-05-05 13:01:24,false
-SmartBulb:Neutral,7,0.15,bulb76,2022-05-22 03:12:38,2022-06-07 06:39:15,false
-SmartSpeaker:53,Radio Renascenca,Bang&Olufsen,5.24,speaker20,2022-03-25 04:01:48,2022-05-26 05:51:20,true
-SmartCamera:(1280x720),76,0.40,cam24,2022-03-31 18:02:40,2022-05-02 00:21:48,false
-SmartBulb:Neutral,8,0.15,bulb77,2022-03-24 19:59:10,2022-07-17 08:30:51,true
-SmartCamera:(1366x768),71,7.08,cam25,2022-03-11 17:41:17,2022-05-03 05:23:33,true
-SmartBulb:Warm,10,7.38,bulb78,2022-05-30 16:17:48,2022-07-18 18:07:42,true
+SmartCamera:(1280x720),39,5.81,cam23
+SmartBulb:Neutral,7,0.15,bulb76
+SmartSpeaker:53,Radio Renascenca,Bang&Olufsen,5.24,speaker20
+SmartCamera:(1280x720),76,0.40,cam24
+SmartBulb:Neutral,8,0.15,bulb77
+SmartCamera:(1366x768),71,7.08,cam25
+SmartBulb:Warm,10,7.38,bulb78
 Casa:Pedro Nuno Fernandes Freitas,966919480,SU Electricidade,casa4,Itayagoshi 030-1500 nº 415
 Divisao:Sala de Jantar
-SmartBulb:Neutral,9,0.18,bulb79,2022-03-26 15:38:35,2022-07-26 17:24:06,false
-SmartBulb:Neutral,10,9.59,bulb80,2022-05-21 15:41:21,2022-07-03 15:17:27,true
-SmartCamera:(1920x1080),51,0.42,cam26,2022-03-06 05:16:40,2022-05-13 01:57:02,true
-SmartBulb:Neutral,12,8.14,bulb81,2022-03-08 07:49:11,2022-07-25 13:31:25,false
-SmartBulb:Cold,5,6.88,bulb82,2022-04-18 04:01:59,2022-07-29 11:35:53,true
-SmartBulb:Neutral,14,8.06,bulb83,2022-05-10 13:00:01,2022-06-06 03:27:30,true
-SmartCamera:(1920x1080),78,4.50,cam27,2022-03-12 06:30:42,2022-05-09 11:14:35,true
-SmartBulb:Warm,17,0.13,bulb84,2022-03-20 15:45:12,2022-07-09 17:14:30,true
-SmartCamera:(1366x768),53,0.30,cam28,2022-03-12 22:00:16,2022-05-06 02:45:18,false
-SmartCamera:(1024x768),29,0.96,cam29,2022-03-29 10:05:50,2022-05-06 04:46:22,false
+SmartBulb:Neutral,9,0.18,bulb79
+SmartBulb:Neutral,10,9.59,bulb80
+SmartCamera:(1920x1080),51,0.42,cam26
+SmartBulb:Neutral,12,8.14,bulb81
+SmartBulb:Cold,5,6.88,bulb82
+SmartBulb:Neutral,14,8.06,bulb83
+SmartCamera:(1920x1080),78,4.50,cam27
+SmartBulb:Warm,17,0.13,bulb84
+SmartCamera:(1366x768),53,0.30,cam28
+SmartCamera:(1024x768),29,0.96,cam29
 Divisao:Casa de Banho
-SmartSpeaker:50,RTP Antena 1 98.3 FM,JBL,4.01,speaker21,2022-03-04 07:40:49,2022-05-09 05:18:48,false
-SmartCamera:(1280x720),71,5.99,cam30,2022-04-07 20:56:18,2022-05-08 03:37:42,false
-SmartBulb:Neutral,10,6.67,bulb85,2022-04-18 18:06:30,2022-06-24 22:45:12,true
-SmartCamera:(3840x2160),61,6.61,cam31,2022-04-06 11:44:30,2022-05-11 19:31:19,false
-SmartBulb:Cold,12,0.15,bulb86,2022-04-09 09:53:10,2022-06-08 00:50:38,true
-SmartCamera:(3840x2160),44,6.59,cam32,2022-03-05 09:01:17,2022-05-03 03:37:30,true
-SmartBulb:Warm,13,9.39,bulb87,2022-04-27 00:08:17,2022-06-18 00:40:33,false
-SmartBulb:Neutral,10,7.75,bulb88,2022-03-26 06:59:09,2022-07-11 08:43:14,false
-SmartBulb:Neutral,20,0.17,bulb89,2022-04-12 14:06:21,2022-07-19 03:13:18,true
-SmartBulb:Neutral,10,0.10,bulb90,2022-05-05 14:22:17,2022-06-10 07:24:27,false
+SmartSpeaker:50,RTP Antena 1 98.3 FM,JBL,4.01,speaker21
+SmartCamera:(1280x720),71,5.99,cam30
+SmartBulb:Neutral,10,6.67,bulb85
+SmartCamera:(3840x2160),61,6.61,cam31
+SmartBulb:Cold,12,0.15,bulb86
+SmartCamera:(3840x2160),44,6.59,cam32
+SmartBulb:Warm,13,9.39,bulb87
+SmartBulb:Neutral,10,7.75,bulb88
+SmartBulb:Neutral,20,0.17,bulb89
+SmartBulb:Neutral,10,0.10,bulb90
 Divisao:Garagem
-SmartBulb:Neutral,5,2.08,bulb91,2022-04-10 02:37:40,2022-07-17 11:05:27,true
-SmartBulb:Warm,19,0.21,bulb92,2022-04-30 09:56:25,2022-07-11 21:15:22,true
-SmartBulb:Neutral,8,3.62,bulb93,2022-03-24 12:06:22,2022-07-27 00:17:28,true
-SmartSpeaker:25,M80 Radio,Marshall,5.38,speaker22,2022-03-21 12:42:02,2022-04-25 05:00:01,true
-SmartBulb:Neutral,15,9.72,bulb94,2022-04-17 03:26:50,2022-06-20 22:08:03,true
-SmartSpeaker:49,MEGA HITS,Bowers&Wilkins,4.15,speaker23,2022-03-11 13:16:55,2022-05-24 21:36:24,false
-SmartBulb:Neutral,5,0.12,bulb95,2022-05-06 18:55:08,2022-06-12 00:16:52,false
-SmartBulb:Neutral,10,0.26,bulb96,2022-05-06 02:37:03,2022-06-19 12:35:36,true
+SmartBulb:Neutral,5,2.08,bulb91
+SmartBulb:Warm,19,0.21,bulb92
+SmartBulb:Neutral,8,3.62,bulb93
+SmartSpeaker:25,M80 Radio,Marshall,5.38,speaker22
+SmartBulb:Neutral,15,9.72,bulb94
+SmartSpeaker:49,MEGA HITS,Bowers&Wilkins,4.15,speaker23
+SmartBulb:Neutral,5,0.12,bulb95
+SmartBulb:Neutral,10,0.26,bulb96
 Divisao:Quarto
-SmartBulb:Warm,5,8.90,bulb97,2022-05-30 14:12:21,2022-05-30 08:39:11,true
-SmartBulb:Warm,13,0.14,bulb98,2022-04-21 04:52:29,2022-07-25 11:45:08,true
-SmartBulb:Warm,15,2.76,bulb99,2022-05-06 17:50:56,2022-07-18 21:43:35,true
-SmartCamera:(2160x1440),25,0.14,cam33,2022-04-23 15:26:54,2022-05-15 19:18:45,true
-SmartBulb:Neutral,17,0.23,bulb100,2022-05-07 15:33:49,2022-06-11 21:37:09,false
-SmartBulb:Neutral,9,4.67,bulb101,2022-03-25 05:26:52,2022-06-18 23:38:14,false
-SmartSpeaker:55,TSF Radio Noticias,Marshall,3.69,speaker24,2022-03-02 10:25:24,2022-05-04 04:10:47,false
+SmartBulb:Warm,5,8.90,bulb97
+SmartBulb:Warm,13,0.14,bulb98
+SmartBulb:Warm,15,2.76,bulb99
+SmartCamera:(2160x1440),25,0.14,cam33
+SmartBulb:Neutral,17,0.23,bulb100
+SmartBulb:Neutral,9,4.67,bulb101
+SmartSpeaker:55,TSF Radio Noticias,Marshall,3.69,speaker24
 SmartCamera:(1366x768),63,3.92,cam34,2022-04-19 01:55:42,2022-05-07 10:48:07,true
 Divisao:Jardim
 SmartCamera:(1366x768),94,0.39,cam35,2022-04-18 20:48:37,2022-05-09 04:13:51,false

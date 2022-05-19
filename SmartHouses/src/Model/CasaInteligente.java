@@ -217,6 +217,17 @@ public class CasaInteligente {
         }
     }
 
+    public void addDeviceToRoom(String idDevice, String room)
+    {
+        this.removeDevicesFromRoom(idDevice);
+        this.locations.get(room).add(idDevice);
+    }
+
+    public void removeDeviceFromHome(String idDevice)
+    {
+        this.devices.remove(idDevice);
+    }
+
 
     public boolean equals(Object o){
         if(o==this) return true;
@@ -268,7 +279,7 @@ public class CasaInteligente {
 
     //terceira condição confirma se existe em qualquer sala o dispositivo
     public void addToRoom (String idRoom, SmartDevice device) throws SmartDeviceAlreadyExistsException {
-        if (this.getLocations().containsKey(idRoom) && this.roomHasDevice(idRoom,device.getID()) && this.getDevices().containsKey(device.getID())) 
+        if (this.getLocations().containsKey(idRoom) && this.roomHasDevice(idRoom,device.getID()) && this.getDevices().containsKey(device.getID()))
             throw new SmartDeviceAlreadyExistsException("O device " + device.getID() +" já existe");
         else if(!this.getDevices().containsKey(device.getID()))
         {

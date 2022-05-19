@@ -148,7 +148,8 @@ public class SmartHouses implements Serializable {
         return this.fornecedores.containsKey(id);
     }
 
-    public void adicionaDevice(String idDevice,SmartDevice sd) {
+    public void adicionaDevice(String idDevice,SmartDevice sd) throws SmartDeviceAlreadyExistsException {
+        if(this.dispositivos.get(idDevice)!=null) throw new SmartDeviceAlreadyExistsException("Device com esse id já existe");
         this.dispositivos.put(idDevice,sd.clone());
     }
 
@@ -157,9 +158,20 @@ public class SmartHouses implements Serializable {
     }
 
     public void removeDevice(String idDevice,String idHome) throws LogNotExistsException {
-        this.casas.get(idHome).removeLog(idDevice);
-        this.dispositivos.remove(idDevice);
         this.casas.get(idHome).removeDevicesFromRoom(idDevice);
+    }
+
+    public void removePermanenteDevice(String idDevice,String idHome)
+    {
+        this.dispositivos.remove(idDevice);
+        this.casas.get(idHome).removeDeviceFromHome(idDevice);
+    }
+
+    public void addDeviceToRoomSameHouse(String idDevice,String idHome, String room) throws RoomNotExistsException
+    {
+        if(this.casas.get(idHome).hasRoom(room))
+            this.casas.get(idHome).addDeviceToRoom(idDevice,room);
+        else throw  new RoomNotExistsException("A localização não existe");
     }
 
     public void gestaoDevices(String idHome, String idDevice,boolean modo) throws SmartDeviceNotExistsException{ //id device
@@ -316,6 +328,22 @@ public class SmartHouses implements Serializable {
         this.dispositivos.values().forEach(a->a.setModo(modo));
     }
 
+    public void setAlldivision(String idHome, String room, boolean modo)  throws RoomNotExistsException,SmartDeviceNotExistsException
+    {
+        if(this.casas.get(idHome).hasRoom(room))
+        {
+            this.casas.get(idHome).setAlldivision(modo,room);
+            for(SmartDevice s:this.dispositivos.values())
+            {
+                if(this.casas.get(idHome).getLocations().get(room).contains(s.getID()))
+                    s.setModo(modo);
+            }
+            this.dispositivos.values().forEach(a->a.setModo(modo));
+        }
+
+        else throw  new RoomNotExistsException("A localização não existe");
+    }
+
     public void addLogExecute(String idHome, String idDevice, Log g) throws LogAlreadyExistsException,CasaInteligenteNotExistsException
     {
         this.casas.get(idHome).addLog(idDevice,g.clone());
@@ -331,7 +359,17 @@ public class SmartHouses implements Serializable {
             ci.addLog(s.getID(),new Log(date,mode));
             ci2.addLog(s.getID(),new Log(date,mode));
         }
+    }
 
+    public void addLogChangeMode(String idHome, LocalDateTime date, Boolean mode, String room) throws LogAlreadyExistsException, CasaInteligenteNotExistsException
+    {
+        CasaInteligente ci = this.casas.get(idHome);
+        CasaInteligente ci2 = this.fornecedores.get(this.casas.get(idHome).getIdFornecedor()).getCasa(idHome);
+        for(String s: ci.getLocations().get(room))
+        {
+            ci.addLog(s,new Log(date,mode));
+            ci2.addLog(s,new Log(date,mode));
+        }
     }
 
     public void addDeviceToRoom(String idHouse, String room, SmartDevice sd) throws SmartDeviceAlreadyExistsException
