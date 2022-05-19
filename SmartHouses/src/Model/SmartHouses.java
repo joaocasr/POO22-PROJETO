@@ -73,7 +73,7 @@ public class SmartHouses implements Serializable {
             //divide a linha em 2
             switch (linhaPartida [0]){
                 case "Casa":
-                    if(i>1) casas.put(casaMaisRecente.getIdHome(),casaMaisRecente);
+                    if(i>=1) casas.put(casaMaisRecente.getIdHome(),casaMaisRecente);
                     CasaInteligente ci  = CasaInteligente.parseCasa(linhaPartida[1]);
                     casas.put(ci.getIdHome(),ci.clone());
                     if((fornecedores.get(ci.getIdFornecedor())!=null))
@@ -114,6 +114,7 @@ public class SmartHouses implements Serializable {
                 default:
                     throw new LinhaException("Linha Inválida!");
             }
+            if(linha.equals(linhas.get(linhas.size()-1))) casas.put(casaMaisRecente.getIdHome(),casaMaisRecente);
         }
         setDispositivos(dispositivos);
         setCasas(casas);

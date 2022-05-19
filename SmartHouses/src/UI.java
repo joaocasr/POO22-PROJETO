@@ -203,12 +203,11 @@ public class UI{
         opcoes.add("Automatizar\n");
         opcoes.add("Sair da aplicação");
         Scanner scanner = new Scanner(System.in);
-
+        int i=0;
         Menu menu = new Menu(opcoes);
         do {
             menu.executa();
             switch (menu.getOpcao()) {
-
                 case 1:
                     executaDados(1);
                     break;
@@ -296,7 +295,9 @@ public class UI{
                     automatizar(path);
                     break;
                 case 12:
-                    return;
+                    i=12;
+                    menu.setOpcao(12);
+                    System.exit(0);
                 default:
                     break;
             }
@@ -350,7 +351,6 @@ public class UI{
                     break;
             }
         } while (menu.getOpcao() != 0);
-
     }
 
     public void geraDispositivos(int x, String idHome) {
