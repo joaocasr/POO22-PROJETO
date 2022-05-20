@@ -380,7 +380,7 @@ public class CasaInteligente {
 
     public void addLog(String idDevice,Log g) throws LogAlreadyExistsException
     {
-        if(this.hasLogByDevice(idDevice,g)) throw new LogAlreadyExistsException("O log " + g + "já existe");
+        //if(this.hasLogByDevice(idDevice,g)) throw new LogAlreadyExistsException("O log " + g + "já existe");
         if(this.logs.get(idDevice)==null)
         {
             List newLogD = new ArrayList();
