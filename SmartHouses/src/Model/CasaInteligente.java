@@ -373,7 +373,9 @@ public class CasaInteligente {
     public boolean hasLogByDevice(String idDevice, Log l) {
         if(!hasLog(idDevice)) return false;
         if(this.logs.get(idDevice).size()==0) return false;
-        return this.logs.get(idDevice).contains(l);
+        for(Log log: this.logs.get(idDevice))
+            if(log.equals(l)) return true;
+        return false;
     }
 
     public void addLog(String idDevice,Log g) throws LogAlreadyExistsException

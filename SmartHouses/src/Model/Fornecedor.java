@@ -193,7 +193,7 @@ public class Fornecedor{
         return t;
     }
 
-    public int compareTo(Fornecedor o,LocalDateTime init, LocalDateTime finit)
+    public double compareTo(Fornecedor o,LocalDateTime init, LocalDateTime finit)
     {
         return Double.compare(this.faturaçaoFornecedor(init,finit),o.faturaçaoFornecedor(init,finit));
     }

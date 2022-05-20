@@ -172,8 +172,7 @@ public class SmartBulb extends SmartDevice{
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
         sb.append("\tModo: ").append(this.mode).append("; ")
-                .append("\tDimensao: ").append(this.dimensao).append("; ")
-                .append("\tConsumo Base: ").append(this.getConsumoBase()).append("\n");
+                .append("\tDimensao: ").append(this.dimensao).append("; ");
         return sb.toString();
     }
 
