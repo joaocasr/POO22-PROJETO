@@ -191,6 +191,7 @@ public class UI{
                 case "adicionaCasas":
                     linha = pedido.getEspecificacoes().split(",");
                     this.smarthouses.adicionaHome(pedido.getId(),new CasaInteligente(linha[0],linha[1],Integer.parseInt(linha[2]),linha[3],pedido.getId()));
+                    this.smarthouses.addRoom(linha[4],linha[0]);
                     break;
                 case "adicionaFornecedores":
                     this.smarthouses.adicionaFornecedor(pedido.getId(),new Fornecedor(pedido.getId(),Double.parseDouble(pedido.getEspecificacoes())));
@@ -691,13 +692,16 @@ public class UI{
             int n = scanner.nextInt();
             scanner.nextLine();
             System.out.println("Divisões:");
-            String divisoes = "[";
-            while (n > 0) {
+            String divisoes = "";
+            while (n >= 0) {
                 String divisao = scanner.nextLine();
-                divisoes = divisoes+divisao;
+                System.out.println(divisao);
+                divisoes = divisoes+";"+divisao;
                 n--;
             }
-            divisoes = divisoes + "]";
+            String divisao = scanner.nextLine();
+            divisoes = divisoes+divisao;
+            System.out.println(divisoes);
             this.pedidos.add(new Pedido(smarthouses.getDate(),"fornecedor",idFornecedor,"adicionaCasas",idHome+","+morada+","+nif+","+proprietario+","+divisoes,false));
             executaListPedidos(0);
         }

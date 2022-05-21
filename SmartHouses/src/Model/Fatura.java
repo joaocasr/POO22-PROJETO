@@ -1,5 +1,6 @@
 package Model;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 
 public class Fatura {
@@ -130,13 +131,12 @@ public class Fatura {
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("\tIdFatura: " + this.getIdFatura())
-            .append("\tIdFornecedor: " + this.getIdFornecedor())
-            .append("\tNIF: " + this.getNIF())
-            .append("\tConsumo: " + this.getConsumo())
-            .append("\tValor: " + this.getValor())
-            .append("\tInicio: " + this.getInicio())
-            .append("\tFim: " + this.getFim());
+        DecimalFormat formato = new DecimalFormat("#.##");
+        sb.append("\nIdFatura: " + this.getIdFatura())
+            .append("\nIdFornecedor: " + this.getIdFornecedor())
+            .append("\nNIF: " + this.getNIF())
+            .append("\nConsumo: " + formato.format(this.getConsumo()))
+            .append("\nValor: " + formato.format(this.getValor()));
         return sb.toString();
     }
 

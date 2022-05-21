@@ -462,5 +462,17 @@ public class SmartHouses implements Serializable {
         return this.fornecedores.values().stream().map(Fornecedor::clone).sorted(c).collect(Collectors.toList());
     }
 
+    public void addRoom(String s, String idHome)
+    {
+        System.out.println(s);
+        String[] div = s.split(";");
+        int i = 1;
+        while(i<div.length)
+        {
+            this.casas.get(idHome).addRoom(div[i]);
+            i++;
+        }
+    }
+
 
 }
