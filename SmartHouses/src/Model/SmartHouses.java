@@ -63,63 +63,72 @@ public class SmartHouses implements Serializable {
         formulas.put("EDA", new FormulaEDA());
 
         String[] linhaPartida;
-        List<String> linhas = lerFicheiro(filename);
-        String divisao = null;
-        SmartDevice sd;
-        int i=0;
-        CasaInteligente casaMaisRecente = null;
-        for (String linha : linhas) {
-            linhaPartida  = linha.split(":",2);
-            //divide a linha em 2
-            switch (linhaPartida [0]){
-                case "Casa":
-                    if(i>=1) casas.put(casaMaisRecente.getIdHome(),casaMaisRecente);
-                    CasaInteligente ci  = CasaInteligente.parseCasa(linhaPartida[1]);
-                    casas.put(ci.getIdHome(),ci.clone());
-                    if((fornecedores.get(ci.getIdFornecedor())!=null))
-                        if((fornecedores.get(ci.getIdFornecedor())).addCasa(ci)==1) throw new CasaInteligenteAlreadyExistsException("Fornecedor já tem essa casa");
-                    casaMaisRecente = ci;
-                    i++;
-                    break;
-                case "Divisao":
-                    if (casaMaisRecente == null) throw new LinhaException("Linha Inválida!");
-                    divisao = linhaPartida[1];
-                    casaMaisRecente.addRoom(divisao);
-                    break;
-                case "SmartBulb":
-                    if (divisao == null) throw new LinhaException("Linha Inválida!");
-                    sd = SmartBulb.parseSmartBulb(linhaPartida[1]);
-                    if(casaMaisRecente.addDevice(sd)==1) throw new SmartDeviceAlreadyExistsException ("O SmartDevice com id "+ sd.getID() +"já existe");
-                    casaMaisRecente.addToRoom(divisao, sd.getID());
-                    dispositivos.put(sd.getID(),sd);
-                    break;
-                case "SmartCamera":
-                    if (divisao == null) throw new LinhaException("Linha Inválida!");
-                    sd = SmartCamera.parseSmartCamera(linhaPartida[1]);
-                    if(casaMaisRecente.addDevice(sd)==1) throw new SmartDeviceAlreadyExistsException ("O SmartDevice com id "+ sd.getID() +"já existe");
-                    casaMaisRecente.addToRoom(divisao, sd.getID());
-                    dispositivos.put(sd.getID(),sd);
-                    break;
-                case "SmartSpeaker":
-                    if (divisao == null) throw new LinhaException("Linha Inválida!");
-                    sd = SmartSpeaker.parseSmartSpeaker(linhaPartida[1]);
-                    if(casaMaisRecente.addDevice(sd)==1) throw new SmartDeviceAlreadyExistsException ("O SmartDevice com id "+ sd.getID() +"já existe");
-                    casaMaisRecente.addToRoom(divisao, sd.getID());
-                    dispositivos.put(sd.getID(),sd);
-                    break;
-                case "Fornecedor":
-                    Fornecedor f = Fornecedor.parseFornecedor(linhaPartida[1],formulas);
-                    fornecedores.put(f.getId(),f.clone());
-                    break;
-                default:
-                    throw new LinhaException("Linha Inválida!");
+        try {
+            List<String> linhas = lerFicheiro(filename);
+            String divisao = null;
+            SmartDevice sd;
+            int i = 0;
+            CasaInteligente casaMaisRecente = null;
+            for (String linha : linhas) {
+                linhaPartida = linha.split(":", 2);
+                //divide a linha em 2
+                switch (linhaPartida[0]) {
+                    case "Casa":
+                        if (i >= 1) casas.put(casaMaisRecente.getIdHome(), casaMaisRecente);
+                        CasaInteligente ci = CasaInteligente.parseCasa(linhaPartida[1]);
+                        casas.put(ci.getIdHome(), ci.clone());
+                        if ((fornecedores.get(ci.getIdFornecedor()) != null))
+                            if ((fornecedores.get(ci.getIdFornecedor())).addCasa(ci) == 1)
+                                throw new CasaInteligenteAlreadyExistsException("Fornecedor já tem essa casa");
+                        casaMaisRecente = ci;
+                        i++;
+                        break;
+                    case "Divisao":
+                        if (casaMaisRecente == null) throw new LinhaException("Linha Inválida!");
+                        divisao = linhaPartida[1];
+                        casaMaisRecente.addRoom(divisao);
+                        break;
+                    case "SmartBulb":
+                        if (divisao == null) throw new LinhaException("Linha Inválida!");
+                        sd = SmartBulb.parseSmartBulb(linhaPartida[1]);
+                        if (casaMaisRecente.addDevice(sd) == 1)
+                            throw new SmartDeviceAlreadyExistsException("O SmartDevice com id " + sd.getID() + "já existe");
+                        casaMaisRecente.addToRoom(divisao, sd.getID());
+                        dispositivos.put(sd.getID(), sd);
+                        break;
+                    case "SmartCamera":
+                        if (divisao == null) throw new LinhaException("Linha Inválida!");
+                        sd = SmartCamera.parseSmartCamera(linhaPartida[1]);
+                        if (casaMaisRecente.addDevice(sd) == 1)
+                            throw new SmartDeviceAlreadyExistsException("O SmartDevice com id " + sd.getID() + "já existe");
+                        casaMaisRecente.addToRoom(divisao, sd.getID());
+                        dispositivos.put(sd.getID(), sd);
+                        break;
+                    case "SmartSpeaker":
+                        if (divisao == null) throw new LinhaException("Linha Inválida!");
+                        sd = SmartSpeaker.parseSmartSpeaker(linhaPartida[1]);
+                        if (casaMaisRecente.addDevice(sd) == 1)
+                            throw new SmartDeviceAlreadyExistsException("O SmartDevice com id " + sd.getID() + "já existe");
+                        casaMaisRecente.addToRoom(divisao, sd.getID());
+                        dispositivos.put(sd.getID(), sd);
+                        break;
+                    case "Fornecedor":
+                        Fornecedor f = Fornecedor.parseFornecedor(linhaPartida[1], formulas);
+                        fornecedores.put(f.getId(), f.clone());
+                        break;
+                    default:
+                        throw new LinhaException("Linha Inválida!");
+                }
+                if (linha.equals(linhas.get(linhas.size() - 1)))
+                    casas.put(casaMaisRecente.getIdHome(), casaMaisRecente);
             }
-            if(linha.equals(linhas.get(linhas.size()-1))) casas.put(casaMaisRecente.getIdHome(),casaMaisRecente);
+            setDispositivos(dispositivos);
+            setCasas(casas);
+            setFornecedores(fornecedores);
         }
-        setDispositivos(dispositivos);
-        setCasas(casas);
-        setFornecedores(fornecedores);
-
+        catch (FileNotFoundException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public void guardarEstado() throws IOException {
@@ -284,10 +293,11 @@ public class SmartHouses implements Serializable {
         this.Now = date;
     }
 
-    public List<String> lerFicheiro(String nomeFich) {
+    public List<String> lerFicheiro(String nomeFich) throws FileNotFoundException {
         List<String> lines;
         try { lines = Files.readAllLines(Paths.get(nomeFich), StandardCharsets.UTF_8); }
         catch(IOException exc) { lines = new ArrayList<>(); }
+        if(lines.isEmpty()) throw new FileNotFoundException("Ficheiro não encontrado");
         return lines;
     }
 
@@ -315,11 +325,9 @@ public class SmartHouses implements Serializable {
 
 
     public void alteraFornecedor(String idHome, String idFornecedor) throws CasaInteligenteNotExistsException{
-        this.casas.get(idHome).setIdFornecedor(idFornecedor);
-
         if (this.fornecedores.get(this.casas.get(idHome).getIdFornecedor()).removeCasa(idHome) == 1) throw new CasaInteligenteNotExistsException("O fornecedor nao possui a casa");
+        this.casas.get(idHome).setIdFornecedor(idFornecedor);
         this.fornecedores.get(idFornecedor).addCasa(this.casas.get(idHome).clone());
-
     }
 
     public void setAllDevicesHome(String idHome, boolean modo)
@@ -372,7 +380,7 @@ public class SmartHouses implements Serializable {
         }
     }
 
-    public void addDeviceToRoom(String idHouse, String room, SmartDevice sd) throws SmartDeviceAlreadyExistsException
+    public void addDeviceToRoom(String idHouse, String room, SmartDevice sd) throws SmartDeviceAlreadyExistsException,RoomNotExistsException
     {
         this.casas.get(idHouse).addToRoom(room,sd);
     }

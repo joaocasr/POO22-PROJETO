@@ -278,9 +278,11 @@ public class CasaInteligente {
 
 
     //terceira condição confirma se existe em qualquer sala o dispositivo
-    public void addToRoom (String idRoom, SmartDevice device) throws SmartDeviceAlreadyExistsException {
+    public void addToRoom (String idRoom, SmartDevice device) throws SmartDeviceAlreadyExistsException, RoomNotExistsException {
         if (this.getLocations().containsKey(idRoom) && this.roomHasDevice(idRoom,device.getID()) && this.getDevices().containsKey(device.getID()))
             throw new SmartDeviceAlreadyExistsException("O device " + device.getID() +" já existe");
+        if(!this.locations.containsKey(idRoom))
+            throw new RoomNotExistsException("A divisao " + idRoom +" não existe");
         else if(!this.getDevices().containsKey(device.getID()))
         {
             this.devices.put(device.getID(), device);

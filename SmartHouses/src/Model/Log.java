@@ -50,7 +50,6 @@ public class Log {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(super.toString());
         sb.append("\tDia: ").append(this.dia).append("; ")
                 .append("\tEstá ligado?: ").append(this.mode).append("; ");
         return sb.toString();
