@@ -8,3 +8,5 @@
 2022-07-21 22:00,casa,casa2,adicionaSpeaker,bbb,10,Goodis,Cidade FM,2.4,Quarto,on
 2022-07-22 18:00,casa,casa2,removeDispositivo,aaa,Sala de Estar 2,nao
 2022-07-23 22:00,casa,casa17,alteraFornecedor,EDP Comercial,false
+2022-08-19 12:23,casa,casa6,tonBulb,bulb128,1,false
+2022-08-21 12:23,casa,casa6,volSpk,speaker33,1,false

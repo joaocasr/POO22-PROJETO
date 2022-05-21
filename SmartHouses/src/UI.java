@@ -877,7 +877,7 @@ public class UI{
                                 especificacoes = parte[4] + "," + parte[5] + "," + parte[6] + "," + parte[7] + "," + parte[8] + "," + parte[9];
                                 this.pedidos.add(new Pedido(date, parte[1], parte[2], parte[3], especificacoes, on));
                             }
-                            else if(parte[3].compareTo("removeDispositivo") == 0)
+                            else if(parte[3].compareTo("removeDispositivo") == 0 || parte[3].compareTo("tonBulb") == 0 || parte[3].compareTo("volSpk") == 0 )
                             {
                                 on = parte[6].equals("Sim") || parte[6].equals("sim") || parte[6].equals("SIM");
                                 especificacoes = parte[4] + "," + parte[5];
