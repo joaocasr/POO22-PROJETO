@@ -3,25 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cd92a64e-a46e-4816-b624-b0be8244eb0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaCoopernico.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaCoopernico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEDA.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEDA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEDP.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEDP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnat.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEndesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEndesa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnergia.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnergia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnergiaSimples.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaEnergiaSimples.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaGalp.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaGalp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaGoldEnergy.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaGoldEnergy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaIberdrola.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaIberdrola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaLuzboa.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaLuzboa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaMEO.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaMEO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaMuon.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaMuon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaSUElectricidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaSUElectricidade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaYIce.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/Formulas/FormulaYIce.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/Model/SmartHouses.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/Model/SmartHouses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartHouses/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmartHouses/src/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/Model/SmartHouses.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/Model/SmartHouses.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/POO22-PROJETO/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO22-PROJETO/UI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
