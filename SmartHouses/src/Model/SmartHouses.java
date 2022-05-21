@@ -19,26 +19,72 @@ public class SmartHouses implements Serializable {
     private Map<String, CasaInteligente> casas; // id casa -> CASA
     private Map<String,SmartDevice> dispositivos; // ID Device -> DEVICE
     private Map<String,Fornecedor> fornecedores; // ID Model.Fornecedor -> FORNECEDOR
+    private Map<String,FormulaEnergia> formulas;
     private LocalDateTime Now;
 
     public SmartHouses(){
         this.casas = new HashMap<>();
         this.dispositivos = new HashMap<>();
         this.fornecedores = new HashMap<>();
+        this.formulas = new HashMap<>();
         this.Now = java.time.LocalDateTime.now();
+        formulas.put("EDP Comercial", new FormulaEDP());
+        formulas.put("Galp Energia", new FormulaGalp());
+        formulas.put("Iberdrola", new FormulaIberdrola());
+        formulas.put("Endesa", new FormulaEndesa());
+        formulas.put("Gold Energy", new FormulaGoldEnergy());
+        formulas.put("Coopernico", new FormulaCoopernico());
+        formulas.put("Enat", new FormulaEnat());
+        formulas.put("YIce", new FormulaYIce());
+        formulas.put("MEO Energia", new FormulaMEO());
+        formulas.put("Muon", new FormulaMuon());
+        formulas.put("Luzboa", new FormulaLuzboa());
+        formulas.put("Energia Simples", new FormulaEnergiaSimples());
+        formulas.put("SU Electricidade", new FormulaSUElectricidade());
+        formulas.put("EDA", new FormulaEDA());
     }
 
     public SmartHouses(Map<String,CasaInteligente> casas, Map<String,SmartDevice> dispositivos,Map<String,Fornecedor> fornecedores, LocalDateTime date){
         setCasas(casas);
         setDispositivos(dispositivos);
         setFornecedores(fornecedores);
+        this.formulas = new HashMap<>();
         this.Now = date;
+        formulas.put("EDP Comercial", new FormulaEDP());
+        formulas.put("Galp Energia", new FormulaGalp());
+        formulas.put("Iberdrola", new FormulaIberdrola());
+        formulas.put("Endesa", new FormulaEndesa());
+        formulas.put("Gold Energy", new FormulaGoldEnergy());
+        formulas.put("Coopernico", new FormulaCoopernico());
+        formulas.put("Enat", new FormulaEnat());
+        formulas.put("YIce", new FormulaYIce());
+        formulas.put("MEO Energia", new FormulaMEO());
+        formulas.put("Muon", new FormulaMuon());
+        formulas.put("Luzboa", new FormulaLuzboa());
+        formulas.put("Energia Simples", new FormulaEnergiaSimples());
+        formulas.put("SU Electricidade", new FormulaSUElectricidade());
+        formulas.put("EDA", new FormulaEDA());
     }
 
     public SmartHouses(SmartHouses sh){
         setCasas(sh.getCasas());
         setDispositivos(sh.getDispositivos());
         setFornecedores(sh.getFornecedores());
+        this.formulas = new HashMap<>();
+        formulas.put("EDP Comercial", new FormulaEDP());
+        formulas.put("Galp Energia", new FormulaGalp());
+        formulas.put("Iberdrola", new FormulaIberdrola());
+        formulas.put("Endesa", new FormulaEndesa());
+        formulas.put("Gold Energy", new FormulaGoldEnergy());
+        formulas.put("Coopernico", new FormulaCoopernico());
+        formulas.put("Enat", new FormulaEnat());
+        formulas.put("YIce", new FormulaYIce());
+        formulas.put("MEO Energia", new FormulaMEO());
+        formulas.put("Muon", new FormulaMuon());
+        formulas.put("Luzboa", new FormulaLuzboa());
+        formulas.put("Energia Simples", new FormulaEnergiaSimples());
+        formulas.put("SU Electricidade", new FormulaSUElectricidade());
+        formulas.put("EDA", new FormulaEDA());
         this.Now = sh.getDate();
     }
 
@@ -279,8 +325,16 @@ public class SmartHouses implements Serializable {
         return fornecedores.entrySet().stream().collect(toMap(Map.Entry::getKey, v->v.getValue().clone()));
     }
 
+    public Map<String, FormulaEnergia> getFormulas() {
+        return formulas.entrySet().stream().collect(toMap(Map.Entry::getKey, v->v.getValue().clone()));
+    }
+
     public void setFornecedores(Map<String,Fornecedor> fornecedores){
         this.fornecedores = new HashMap<>(fornecedores.values().stream().collect(toMap(Fornecedor::getId, Fornecedor::clone)));
+    }
+
+    public void setFormulas(Map<String,FormulaEnergia> fornecedores){
+        this.formulas = new HashMap<>(formulas.values().stream().collect(toMap(FormulaEnergia::getId, FormulaEnergia::clone)));
     }
 
     public LocalDateTime getDate()
@@ -472,6 +526,11 @@ public class SmartHouses implements Serializable {
             this.casas.get(idHome).addRoom(div[i]);
             i++;
         }
+    }
+
+    public void changeFormula(String idFornecedor, String f)
+    {
+        this.fornecedores.get(idFornecedor).setFormula(this. formulas.get(f));
     }
 
 

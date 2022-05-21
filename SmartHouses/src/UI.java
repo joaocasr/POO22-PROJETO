@@ -748,6 +748,7 @@ public class UI{
                         List<String> opcoes2 = new ArrayList<>();
                         opcoes2.add("Informações gerais do Fornecedor\n");
                         opcoes2.add("Casas\n");
+                        opcoes2.add("Muda formula\n");
                         opcoes2.add("Voltar");
 
                         Menu menu2 = new Menu(opcoes2);
@@ -762,6 +763,11 @@ public class UI{
                                     geraCasas(id);
                                     break;
                                 case 3:
+                                    System.out.println("Para que formula pretende alterar?");
+                                    String f = scanner.nextLine();
+                                    this.smarthouses.changeFormula(id,f);
+                                    break;
+                                case 4:
                                     Fornecedores();
                                     break;
                             }
